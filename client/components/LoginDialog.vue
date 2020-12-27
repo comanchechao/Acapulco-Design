@@ -1,23 +1,23 @@
 <template>
-  <v-app>
-    <v-dialog max-width="600px">
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" large v-on="on">
-          <span class="pa-1 white--text"> SignIn </span>
-        </v-btn>
-      </template>
+  <v-dialog max-width="600px">
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn v-bind="attrs" large v-on="on">
+        <span class="pa-2 white--text"> Login </span>
+      </v-btn>
+    </template>
+    <div>
       <v-form
         dark
-        class="signupForm px-4 py-4"
-        @submit.prevent="createUserWithEmailAndPassword"
+        class="loginForm px-4 py-4"
+        @submit.prevent="signInWithEmailAndPassword"
       >
-        <v-text-field
-          v-model="displayName"
-          light
-          class=""
-          required
-          label="Name"
-        />
+        <!-- <v-text-field
+            v-model="displayName"
+            light
+            class=""
+            required
+            label="Name"
+          /> -->
         <v-text-field
           v-model="email"
           light
@@ -37,13 +37,13 @@
           label="Password"
         />
 
-        <button x-large dark class="my-5">Sign up</button>
-        <p v-if="error" class="">
+        <v-btn x-large dark type="submit">Login</v-btn>
+        <p v-if="error" class="error">
           {{ error }}
         </p>
       </v-form>
-    </v-dialog>
-  </v-app>
+    </div>
+  </v-dialog>
 </template>
 
 <script>
@@ -57,13 +57,13 @@ export default {
     error: '',
   }),
   methods: {
-    createUserWithEmailAndPassword() {
+    signInWithEmailAndPassword() {
       firebase
         .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
+        .signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           console.log(data)
-          this.router.push('/')
+          this.$router.push('/')
         })
         .catch((error) => {
           this.error = error
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style>
-.signupForm {
+.loginForm {
   background: rgb(255, 255, 255);
 }
 </style>

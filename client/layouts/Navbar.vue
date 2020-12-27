@@ -58,7 +58,7 @@
             x-large
             v-bind="attrs"
             color="transparent"
-            class="mx-2"
+            class="mx-2 animate__animated animate__fadeIn animate__delay-0.0s"
             v-on="on"
           >
             <span class="white--text"> Explore </span>
@@ -91,6 +91,7 @@
                   dark
                   large
                   fab
+                  class="animate__animated animate__fadeIn animate__delay-0.0s"
                   color="transparent"
                   v-on="{ ...tooltip, ...menu }"
                 >
@@ -104,13 +105,7 @@
             <v-list-item>
               <SignupDialog />
             </v-list-item>
-            <v-list-item>
-              <v-btn outlined color="transparent" large>
-                <span class="activator hvr-fade pa-1 white--text">
-                  <NuxtLink to="/Login"> Login</NuxtLink>
-                </span>
-              </v-btn></v-list-item
-            >
+            <v-list-item> <LoginDialog /></v-list-item>
           </v-list>
         </v-menu>
       </div>
