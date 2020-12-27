@@ -5,14 +5,14 @@
       class="animate__animated animate__rollIn animate__delay-0.5s"
     />
     <v-spacer></v-spacer>
-    <v-main>
+    <v-main class="">
       <v-container>
         <component
           :is="component"
           :class="{ animate__fadeInDownBig: ShowProducts }"
           class="animate__animated"
         ></component>
-        <div v-show="ShowProducts == false" id="switch">
+        <!-- <div v-show="ShowProducts == false" id="switch">
           <v-btn
             id="switch-button"
             class="indigo--text animate__animated animate__jello animate__infinite"
@@ -20,7 +20,7 @@
             @click=";(component = 'ProductList'), (ShowProducts = true)"
             >View Products</v-btn
           >
-        </div>
+        </div> -->
       </v-container>
     </v-main>
 

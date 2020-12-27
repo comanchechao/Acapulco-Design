@@ -1,23 +1,38 @@
 <template>
-  <v-main>
-    <v-container id="main">
-      <div class="pa-0 ma-0" :class="{ animate__zoomOut: CartDisplay }">
+  <v-main id="main pa-0 ma-0">
+    <v-container>
+      <div
+        class="acapulco-div pa-0 my-6"
+        :class="{ animate__zoomOut: CartDisplay }"
+      >
         <h1
-          class="text-center acapulco animate__animated animate__jackInTheBox animate__delay-1s"
+          class="acapulco animate__animated animate__fadeIn animate__delay-2s"
         >
           Acapulco Design
         </h1>
+      </div>
+      <div class="limited my-5">
         <h2
           class="h2-home animate__animated animate__flipInY animate__delay-0.5s"
         >
-          Limited custom handmade merchendise by
+          Limited custom handmade <br />
+          merchendise by
         </h2>
-        <!-- <v-img
+      </div>
+      <div class="logo">
+        <v-img
+          position="center center"
+          class="my-1 image animate__animated animate__fadeIn animate__delay-2s"
+          src="/sketch-1606252673782.png"
+          max-height="300px"
+          max-width="600px"
+        ></v-img>
+      </div>
+      <!-- <v-img
           class="home-background"
           max-height="900"
           src="/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg"
         ></v-img> -->
-      </div>
     </v-container>
   </v-main>
 </template>
@@ -46,35 +61,67 @@ export default {
   -webkit-filter: blur(2px);
 }
 
+#main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 5fr repeat(2, 1fr);
+  grid-template-rows: 1fr 3fr 1fr 2fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
+}
+
+.acapulco-div {
+  grid-area: 2 / 3 / 3 / 4;
+  /* width: 300px; */
+}
+
+.limited {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.logo {
+  grid-area: 4 / 3 / 5 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* max-width: 600px; */
+}
+
+.image {
+  display: block;
+}
+
 .acapulco {
+  /* margin-bottom: 40px;
+  margin-top: 20px; */
   font-family: sail;
   z-index: 1;
-  font-size: 130px;
+  font-size: 170px;
   /* backdrop-filter: blur(4px); */
+  text-align: center;
   color: #fadcac;
-  position: absolute;
+  line-height: 90%;
+  /* position: absolute;
   top: 10%;
   left: 8%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  line-height: 90%;
+   */
 }
 
 .h2-home {
   font-size: 3.5rem;
   z-index: 1;
   font-family: 'Sahitya', serif;
-  position: absolute;
-  width: 764px;
   text-align: center;
+  line-height: 110%;
+  /* width: 764px;
   top: 50%;
   left: 15%;
+  /*  */
   transform: translate(-50%, -50%);
   color: #fadcac;
-  line-height: 110%;
 }
 #main {
   color: transparent;
-  padding: 20%;
+  /* padding: 20%; */
 }
 </style>
