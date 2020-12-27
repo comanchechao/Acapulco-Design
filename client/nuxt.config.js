@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
@@ -37,29 +41,29 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // '@nuxtjs/firebase',
-    // {
-    //   config: {
-    //     apiKey: 'AIzaSyC77kzTcPi7rJsGKgmH0j62YYj1PUX_uWE',
-    //     authDomain: 'acapulco-e86b9.firebaseapp.com',
-    //     projectId: 'acapulco-e86b9',
-    //     storageBucket: 'acapulco-e86b9.appspot.com',
-    //     messagingSenderId: '652596111912',
-    //     appId: '1:652596111912:web:a64d3ae42f255f2944a31d',
-    //     measurementId: 'G-15G0W8Q4G2',
-    //   },
-    //   services: {
-    //     auth: {
-    //       persistence: 'local',
-    //       initialize: {
-    //         onAuthStateChangedMutation: null,
-    //         onAuthStateChangedAction: 'SET_AUTH_USER',
-    //       },
-    //       emulatorPort: 3000,
-    //       emulatorHost: 'http://localhost',
-    //     },
-    //   },
-    // },
+    '@nuxtjs/firebase',
+    {
+      config: {
+        apiKey: 'AIzaSyC77kzTcPi7rJsGKgmH0j62YYj1PUX_uWE',
+        authDomain: 'acapulco-e86b9.firebaseapp.com',
+        projectId: 'acapulco-e86b9',
+        storageBucket: 'acapulco-e86b9.appspot.com',
+        messagingSenderId: '652596111912',
+        appId: '1:652596111912:web:a64d3ae42f255f2944a31d',
+        measurementId: 'G-15G0W8Q4G2',
+      },
+      services: {
+        auth: {
+          persistence: 'local',
+          initialize: {
+            onAuthStateChangedMutation: null,
+            onAuthStateChangedAction: 'SET_AUTH_USER',
+          },
+          emulatorPort: 3000,
+          emulatorHost: 'http://localhost',
+        },
+      },
+    },
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
