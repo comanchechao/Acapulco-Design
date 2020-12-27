@@ -6,23 +6,21 @@
         :class="{ animate__zoomOut: CartDisplay }"
       >
         <h1
-          class="acapulco animate__animated animate__fadeIn animate__delay-2s"
+          class="acapulco animate__animated animate__fadeIn animate__delay-1s"
         >
           Acapulco Design
         </h1>
       </div>
       <div class="limited my-5">
-        <h2
-          class="h2-home animate__animated animate__flipInY animate__delay-0.5s"
-        >
+        <h2 class="h2-home animate__animated animate__fadeIn animate__delay-2s">
           Limited custom handmade <br />
           merchendise by
         </h2>
       </div>
-      <div class="logo">
+      <div class="logo mt-5">
         <v-img
           position="center center"
-          class="my-1 image animate__animated animate__fadeIn animate__delay-2s"
+          class="image animate__animated animate__fadeIn animate__delay-3s"
           src="/sketch-1606252673782.png"
           max-height="300px"
           max-width="600px"
@@ -77,11 +75,13 @@ export default {
 
 .limited {
   grid-area: 4 / 3 / 5 / 4;
+  justify-content: center;
+  align-items: center;
 }
 .logo {
   grid-area: 4 / 3 / 5 / 4;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   /* max-width: 600px; */
 }
@@ -117,7 +117,6 @@ export default {
   top: 50%;
   left: 15%;
   /*  */
-  transform: translate(-50%, -50%);
   color: #fadcac;
 }
 #main {

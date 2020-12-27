@@ -2,7 +2,7 @@
   <v-app id="main">
     <Navbar
       id="navbar"
-      class="animate__animated animate__rollIn animate__delay-0.5s"
+      class="animate__animated animate__fadeIn animate__delay-0.3s"
     />
     <v-spacer></v-spacer>
     <v-main class="">

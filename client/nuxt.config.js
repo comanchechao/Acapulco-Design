@@ -27,7 +27,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~plugins/animate.css'],
+  plugins: ['~plugins/animate.css', '~plugins/firebase.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -41,29 +41,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/firebase',
-    {
-      config: {
-        apiKey: 'AIzaSyC77kzTcPi7rJsGKgmH0j62YYj1PUX_uWE',
-        authDomain: 'acapulco-e86b9.firebaseapp.com',
-        projectId: 'acapulco-e86b9',
-        storageBucket: 'acapulco-e86b9.appspot.com',
-        messagingSenderId: '652596111912',
-        appId: '1:652596111912:web:a64d3ae42f255f2944a31d',
-        measurementId: 'G-15G0W8Q4G2',
-      },
-      services: {
-        auth: {
-          persistence: 'local',
-          initialize: {
-            onAuthStateChangedMutation: null,
-            onAuthStateChangedAction: 'SET_AUTH_USER',
-          },
-          emulatorPort: 3000,
-          emulatorHost: 'http://localhost',
-        },
-      },
-    },
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],

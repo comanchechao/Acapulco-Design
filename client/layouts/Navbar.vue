@@ -78,9 +78,9 @@
       <div>
         <v-btn fab large color="transparent">
           <v-icon color="white">mdi-shopping-outline</v-icon>
-          <span v-for="item in Cart" :key="item.Product.id">
+          <!-- <span v-for="item in Cart" :key="item.Product.id">
             {{ item.Product.title }}
-          </span>
+          </span> -->
         </v-btn>
         <v-menu transition="slide-y-transition" bottom>
           <template v-slot:activator="{ on: menu, attrs }">
@@ -102,7 +102,7 @@
           </template>
           <v-list>
             <v-list-item>
-              <SignUpDialog />
+              <SignupDialog />
             </v-list-item>
             <v-list-item>
               <v-btn outlined color="transparent" large>
@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   data() {
     return {
@@ -133,16 +133,16 @@ export default {
       drawer: false,
     }
   },
-  computed: {
-    Cart() {
-      return this.$store.state.Cart
-    },
-  },
-  created() {
-    axios.get('http://127.0.0.1:8000/api/category/').then((response) => {
-      this.categories = response.data
-    })
-  },
+  // computed: {
+  //   Cart() {
+  //     return this.$store.state.Cart
+  //   },
+  // },
+  // created() {
+  //   axios.get('http://127.0.0.1:8000/api/category/').then((response) => {
+  //     this.categories = response.data
+  //   })
+  // },
 }
 </script>
 
