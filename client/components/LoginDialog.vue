@@ -38,6 +38,14 @@
         />
 
         <v-btn x-large dark type="submit">Login</v-btn>
+        <v-btn
+          x-large
+          class="pa-3 blue--text"
+          color="#f7f7f7"
+          @click="googleSignIn"
+          ><v-icon class="pr-2" color="red">mdi-google</v-icon>Sign in with
+          Google</v-btn
+        >
         <p v-if="error" class="error">
           {{ error }}
         </p>
@@ -57,6 +65,20 @@ export default {
     error: '',
   }),
   methods: {
+    googleSignIn() {
+      this.provider = new firebase.auth.GoogleAuthProvider()
+      firebase
+        .auth()
+        .signInWithPopup(this.provider)
+        .then((result) => {
+          // store the user ore wathever
+          this.$router.push('/home')
+        })
+        .catch((e) => {
+          this.$snotify.error(e.message)
+          console.log(e)
+        })
+    },
     signInWithEmailAndPassword() {
       firebase
         .auth()

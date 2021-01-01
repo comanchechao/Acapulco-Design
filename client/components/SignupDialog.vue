@@ -2,7 +2,7 @@
   <v-dialog max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn v-bind="attrs" large v-on="on">
-        <span class="pa-1 white--text"> SignIn </span>
+        <span class="pa-1 white--text"> Signup </span>
       </v-btn>
     </template>
     <div>

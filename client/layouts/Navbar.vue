@@ -1,39 +1,5 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="drawer"
-      d-flex-column
-      temporary
-      app
-      src="/cody-mclain-Dq5P6eWZXNY-unsplash.jpg"
-      width="20%"
-    >
-      <v-list>
-        <v-spacer></v-spacer>
-        <v-list-item>
-          <v-app-bar-nav-icon
-            app
-            class="white--text"
-            @click="drawer = !drawer"
-          ></v-app-bar-nav-icon>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="/pineapple-supply-co-NgDapgpAiTE-unsplash.jpg"></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
-        <v-list-item v-for="category in categories" :key="category.title">
-          <v-list-item-content>
-            <v-btn>
-              <span>
-                {{ category.title }}
-              </span>
-            </v-btn>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-app-bar
       justify-center
       color="transparent"
@@ -41,16 +7,11 @@
       fixed
       elevation="0"
     >
-      <v-app-bar-nav-icon
-        app
-        class="white--text"
-        @click="drawer = !drawer"
-      ></v-app-bar-nav-icon>
+      <v-spacer></v-spacer>
       <!-- <v-toolbar-title class=" black--text text-uppercase">
         <span>Acupulco </span>
         <span class="font-weight-light">Design</span>
       </v-toolbar-title> -->
-      <v-spacer></v-spacer>
 
       <v-menu transition="slide-y-transition" bottom open-on-hover>
         <template v-slot:activator="{ on, attrs }">
@@ -70,18 +31,12 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <div>
+      <!-- <div>
         <v-btn dark large color="transparent">
           <v-icon> mdi-account-cowboy-hat </v-icon>
         </v-btn>
-      </div>
+      </div> -->
       <div>
-        <v-btn fab large color="transparent">
-          <v-icon color="white">mdi-shopping-outline</v-icon>
-          <!-- <span v-for="item in Cart" :key="item.Product.id">
-            {{ item.Product.title }}
-          </span> -->
-        </v-btn>
         <v-menu transition="slide-y-transition" bottom>
           <template v-slot:activator="{ on: menu, attrs }">
             <v-tooltip bottom>
@@ -115,6 +70,7 @@
       max-height="600"
     >
     </v-sheet> -->
+      <ShoppingCartDrawer />
     </v-app-bar>
   </div>
 </template>
