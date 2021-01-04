@@ -37,26 +37,7 @@
             >View Products</v-btn
           >
         </div> -->
-<<<<<<< Updated upstream
-      </v-container>
-    </v-main>
-=======
-        </v-container>
-      </v-main>
-    </template>
-    <!-- <template id="main2">
-        <v-main>
-          <v-container>
-            <div>
-              <h1 class="red--text">This is new</h1>
-            </div>
-          </v-container>
-        </v-main>
-      </template> -->
 
-    <!-- <ProductList /> -->
-
->>>>>>> Stashed changes
     <!-- <Footer /> -->
     <!-- </VueScrollSnap> -->
   </v-app>
