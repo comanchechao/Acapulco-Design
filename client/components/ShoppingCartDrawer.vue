@@ -1,11 +1,20 @@
 <template>
   <div>
-    <v-btn fab large @click="drawer = !drawer" color="transparent">
-      <v-icon color="white">mdi-shopping-outline</v-icon>
-      <!-- <span v-for="item in Cart" :key="item.Product.id">
-            {{ item.Product.title }}
-          </span> -->
-    </v-btn>
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-bind="attrs"
+          v-on="on"
+          fab
+          large
+          @click="drawer = !drawer"
+          color="transparent"
+        >
+          <v-icon color="white">mdi-shopping-outline</v-icon>
+        </v-btn>
+      </template>
+      <span>Shopping Cart</span>
+    </v-tooltip>
 
     <v-navigation-drawer
       right

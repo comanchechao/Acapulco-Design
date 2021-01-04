@@ -33,8 +33,12 @@ export default {
   plugins: [
     '~plugins/animate.css',
     '~plugins/firebase.js',
+<<<<<<< Updated upstream
     '~/plugins/axios.js',
     { src: '~/plugins/vue-scroll-reveal', ssr: false },
+=======
+    '~/plugins/fireauth.js',
+>>>>>>> Stashed changes
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

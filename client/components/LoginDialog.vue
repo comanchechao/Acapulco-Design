@@ -76,17 +76,19 @@ export default {
         .signInWithPopup(this.provider)
         .then((result) => {
           // store the user ore wathever
-          this.$router.push('/home')
+          this.$router.push('/')
         })
         .catch((e) => {
           this.$snotify.error(e.message)
           console.log(e)
         })
     },
-    signInWithEmailAndPassword() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+    signInUser() {
+      this.$store
+        .dispatch('signInWithEmail', {
+          email: this.email,
+          password: this.password,
+        })
         .then((data) => {
           console.log(data)
           this.$router.push('/')

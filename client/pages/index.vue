@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
   <v-app id="main">
     <Navbar
       id="navbar"
@@ -10,6 +11,24 @@
         <component :is="component" class="animate__animated"></component>
         <ProductList class="product-list" />
         <!-- <div v-show="ShowProducts == false" id="switch">
+=======
+  <v-app>
+    <!-- <VueScrollSnap :fullscreen="true"> -->
+    <template id="main">
+      <Navbar
+        id="navbar"
+        class="animate__animated animate__fadeIn animate__delay-0.7s"
+      />
+      <v-spacer></v-spacer>
+      <v-main class="">
+        <v-container>
+          <component
+            :is="component"
+            :class="{ animate__fadeInDownBig: ShowProducts }"
+            class="animate__animated"
+          ></component>
+          <!-- <div v-show="ShowProducts == false" id="switch">
+>>>>>>> Stashed changes
           <v-btn
             id="switch-button"
             class="indigo--text animate__animated animate__jello animate__infinite"
@@ -18,15 +37,35 @@
             >View Products</v-btn
           >
         </div> -->
+<<<<<<< Updated upstream
       </v-container>
     </v-main>
+=======
+        </v-container>
+      </v-main>
+    </template>
+    <!-- <template id="main2">
+        <v-main>
+          <v-container>
+            <div>
+              <h1 class="red--text">This is new</h1>
+            </div>
+          </v-container>
+        </v-main>
+      </template> -->
+
+    <!-- <ProductList /> -->
+
+>>>>>>> Stashed changes
     <!-- <Footer /> -->
+    <!-- </VueScrollSnap> -->
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navbar from '@/layouts/Navbar.vue'
+// import VueScrollSnap from 'vue-scroll-snap'
 import MainPage from '@/layouts/MainPage.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import ProductList from '@/components/ProductList.vue'
@@ -36,10 +75,15 @@ import ProductList from '@/components/ProductList.vue'
 export default {
   name: 'Home',
   components: {
-    Navbar,
     MainPage,
+<<<<<<< Updated upstream
     ProductCard,
     ProductList,
+=======
+    Navbar,
+    // VueScrollSnap,
+    // ProductList,
+>>>>>>> Stashed changes
     // Footer,
     // MiniCart,
   },
@@ -64,6 +108,14 @@ export default {
     filter: blur(1px);
   -webkit-filter: blur(1px);
   } */
+
+#main2 {
+  background-image: url('/alex-shutin-kKvQJ6rK6S4-unsplash.jpg');
+  height: 100%;
+  display: block;
+  background-position: center;
+  background-size: cover;
+}
 #main {
   background-image: url('/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg');
   height: 150%;
@@ -71,6 +123,46 @@ export default {
   background-position: center;
   background-size: cover;
   z-index: 0;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 #switch {
   position: absolute;
