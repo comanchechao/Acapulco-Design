@@ -26,8 +26,16 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
+  //Middleware
+  serverMiddleware: [{ path: '~/../server/', handler: '~/../server/index.js' }],
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~plugins/animate.css', '~plugins/firebase.js'],
+  plugins: [
+    '~plugins/animate.css',
+    '~plugins/firebase.js',
+    '~/plugins/axios.js',
+    { src: '~/plugins/vue-scroll-reveal', ssr: false },
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

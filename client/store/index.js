@@ -1,11 +1,12 @@
 import Vuex from 'vuex'
+import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
       user: null,
       account: null,
-      products: null,
+      products: [],
       cart: [],
       toast: {
         text: '',
@@ -34,6 +35,10 @@ const createStore = () => {
       setUpProducts: (state, productsPayload) => {
         // sets the state's  products property to the products array recieved as payload
         state.products = productsPayload
+      },
+      // set products in store states as array
+      setProducts: (state, products) =>{
+        state.products = products
       },
       addToCart: (state, productId) => {
         // find the product in the products list
@@ -97,6 +102,15 @@ const createStore = () => {
       },
     },
     actions: {
+      //  fetching the products from server side passing to set products mutaions
+      getProducts: ({commit}) => {
+        axios.get('http://localhost:4000/api/products').then((response) => {
+          console.log(response.data.products[5].productImage);
+          commit('setProducts' , response.data.products)
+        })
+      }
+
+
       //   fetchProducts: ({ commit }) => {
       //     // simulating a fake ajax request to fetch products from database
       //     myApi.getProducts().then((products) => {

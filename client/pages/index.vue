@@ -7,11 +7,8 @@
     <v-spacer></v-spacer>
     <v-main class="">
       <v-container>
-        <component
-          :is="component"
-          :class="{ animate__fadeInDownBig: ShowProducts }"
-          class="animate__animated"
-        ></component>
+        <component :is="component" class="animate__animated"></component>
+        <ProductList class="product-list" />
         <!-- <div v-show="ShowProducts == false" id="switch">
           <v-btn
             id="switch-button"
@@ -23,9 +20,6 @@
         </div> -->
       </v-container>
     </v-main>
-
-    <!-- <ProductList /> -->
-
     <!-- <Footer /> -->
   </v-app>
 </template>
@@ -34,7 +28,8 @@
 // @ is an alias to /src
 import Navbar from '@/layouts/Navbar.vue'
 import MainPage from '@/layouts/MainPage.vue'
-// import ProductList from '@/components/ProductList.vue'
+import ProductCard from '@/components/ProductCard.vue'
+import ProductList from '@/components/ProductList.vue'
 // import Footer from '@/layouts/Footer.vue'
 // import MiniCart from '../components/MiniCart.vue'
 
@@ -43,17 +38,19 @@ export default {
   components: {
     Navbar,
     MainPage,
-    // ProductList,
+    ProductCard,
+    ProductList,
     // Footer,
     // MiniCart,
   },
+
   data() {
     return {
       component: 'MainPage',
-      ShowProducts: false,
-      sheet: false,
+      product: this.product,
     }
   },
+
   computed: {
     CartDisplay() {
       return this.$store.state.CartDisplay
@@ -69,7 +66,7 @@ export default {
   } */
 #main {
   background-image: url('/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg');
-  height: 100%;
+  height: 150%;
   display: block;
   background-position: center;
   background-size: cover;
@@ -91,5 +88,9 @@ export default {
 }
 #switch-button {
   color: white;
+}
+
+.product-list{
+  margin: 5% 0%;
 }
 </style>
