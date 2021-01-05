@@ -2,7 +2,7 @@
   <v-main id="main pa-0 my-4">
     <v-container>
       <div
-        class="acapulco-div pa-0 my-6"
+        class="acapulco-div pa-0 my-12"
         :class="{ animate__zoomOut: CartDisplay }"
       >
         <h1
