@@ -1,10 +1,7 @@
 import Vuex from 'vuex'
-<<<<<<< Updated upstream
 import axios from 'axios'
-=======
 import firebase from 'firebase/app'
 import 'firebase/auth'
->>>>>>> Stashed changes
 
 const createStore = () => {
   return new Vuex.Store({
@@ -49,7 +46,7 @@ const createStore = () => {
         state.products = productsPayload
       },
       // set products in store states as array
-      setProducts: (state, products) =>{
+      setProducts: (state, products) => {
         state.products = products
       },
       addToCart: (state, productId) => {
@@ -114,17 +111,14 @@ const createStore = () => {
       },
     },
     actions: {
-<<<<<<< Updated upstream
       //  fetching the products from server side passing to set products mutaions
-      getProducts: ({commit}) => {
+      getProducts: ({ commit }) => {
         axios.get('http://localhost:4000/api/products').then((response) => {
-          console.log(response.data.products[5].productImage);
-          commit('setProducts' , response.data.products)
+          console.log(response.data.products[5].productImage)
+          commit('setProducts', response.data.products)
         })
-      }
+      },
 
-
-=======
       signUp({ commit }, { email, password, name }) {
         return firebase
           .auth()
@@ -138,7 +132,6 @@ const createStore = () => {
       signOut() {
         return firebase.auth().signOut()
       },
->>>>>>> Stashed changes
       //   fetchProducts: ({ commit }) => {
       //     // simulating a fake ajax request to fetch products from database
       //     myApi.getProducts().then((products) => {

@@ -4,23 +4,23 @@
       <img class="productImage" src="/lightertwo.jpg" alt="" />
     </div>
     <div class="content">
-      
-    <h2 class="title">{{ product.title }}</h2>
-    <p class="price">$ {{ product.price }}</p>
-    <v-btn color="#ef476f" class="add-to-cart"><v-icon large>mdi-cart-plus</v-icon></v-btn>
+      <h2 class="title">{{ product.title }}</h2>
+      <p class="price">$ {{ product.price }}</p>
+      <v-btn color="#ef476f" class="add-to-cart"
+        ><v-icon large>mdi-cart-plus</v-icon></v-btn
+      >
     </div>
   </div>
 </template>
 
-
 <script>
 export default {
   props: ['product'],
-  data(){
-    return{
-    Image: "@/" + this.$store.state.products.productImage
+  data() {
+    return {
+      Image: '@/' + this.$store.state.products.productImage,
     }
-  }
+  },
 }
 </script>
 
@@ -28,8 +28,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-
 .card {
+  cursor: pointer;
   position: relative;
   width: 320px;
   left: -5%;
@@ -45,11 +45,13 @@ export default {
 }
 
 .card:hover {
-  height: 330px;
+  border-radius: 0px;
+  transition: ease 1s;
+  height: 230px;
   animation-play-state: paused;
 }
 
-.card .imageBox{
+.card .imageBox {
   position: relative;
   width: 260px;
   height: 260px;
@@ -60,22 +62,22 @@ export default {
   transition: ease-in-out 0.3s;
 }
 
-.card .content{
+.card .content {
+  background-color: #ffc43d;
+  border-radius: 15px;
   position: relative;
   margin-top: -140px;
   padding: 10px 15px;
   visibility: hidden;
   opacity: 0;
-  transition: 0.3s ease-in-out;
-  
+  transition: 0.2s ease-in-out;
 }
 
-.card:hover .content{
+.card:hover .content {
   visibility: visible;
   opacity: 1;
   margin-top: -40px;
-  transition-delay: 0.4s;
-
+  transition-delay: 0.1s;
 }
 
 /* .card::before {
@@ -113,7 +115,7 @@ export default {
   top: 25%;
   left: 0;
   text-align: center;
-  color: #fdfffc;
+  color: #2e2e2e;
   width: 100%;
   transform-style: preserve-3d;
   transform: translate3d(0, -15px, 75px);
@@ -123,7 +125,7 @@ export default {
   z-index: 10;
 }
 
-.card .price{
+.card .price {
   position: relative;
   font-size: 20px;
   font-weight: 700;
@@ -157,7 +159,7 @@ export default {
 }
 
 .card:hover .add-to-cart {
-  bottom:250px;
+  bottom: 250px;
   opacity: 1;
 }
 
@@ -165,17 +167,14 @@ export default {
   color: #0b132b;
 }
 
-
 .card .imageBox .productImage {
   position: relative;
-  max-width:100%;
+  max-width: 100%;
   border-radius: 10px;
   transition: ease-in-out 0.3s;
 }
 
-.card:hover .imageBox{
+.card:hover .imageBox {
   transform: scale(1.1);
 }
-
 </style>
-

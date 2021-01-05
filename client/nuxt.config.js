@@ -31,14 +31,12 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+     '~/plugins/fireauth.js',
     '~plugins/animate.css',
     '~plugins/firebase.js',
-<<<<<<< Updated upstream
     '~/plugins/axios.js',
     { src: '~/plugins/vue-scroll-reveal', ssr: false },
-=======
-    '~/plugins/fireauth.js',
->>>>>>> Stashed changes
+   
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

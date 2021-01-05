@@ -1,5 +1,4 @@
 <template>
-<<<<<<< Updated upstream
   <v-app id="main">
     <Navbar
       id="navbar"
@@ -11,24 +10,6 @@
         <component :is="component" class="animate__animated"></component>
         <ProductList class="product-list" />
         <!-- <div v-show="ShowProducts == false" id="switch">
-=======
-  <v-app>
-    <!-- <VueScrollSnap :fullscreen="true"> -->
-    <template id="main">
-      <Navbar
-        id="navbar"
-        class="animate__animated animate__fadeIn animate__delay-0.7s"
-      />
-      <v-spacer></v-spacer>
-      <v-main class="">
-        <v-container>
-          <component
-            :is="component"
-            :class="{ animate__fadeInDownBig: ShowProducts }"
-            class="animate__animated"
-          ></component>
-          <!-- <div v-show="ShowProducts == false" id="switch">
->>>>>>> Stashed changes
           <v-btn
             id="switch-button"
             class="indigo--text animate__animated animate__jello animate__infinite"
@@ -38,8 +19,10 @@
           >
         </div> -->
 
-    <!-- <Footer /> -->
-    <!-- </VueScrollSnap> -->
+        <!-- <Footer /> -->
+        <!-- </VueScrollSnap> -->
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
@@ -57,14 +40,9 @@ export default {
   name: 'Home',
   components: {
     MainPage,
-<<<<<<< Updated upstream
     ProductCard,
     ProductList,
-=======
     Navbar,
-    // VueScrollSnap,
-    // ProductList,
->>>>>>> Stashed changes
     // Footer,
     // MiniCart,
   },
@@ -163,7 +141,7 @@ export default {
   color: white;
 }
 
-.product-list{
+.product-list {
   margin: 5% 0%;
 }
 </style>
