@@ -2,7 +2,7 @@
   <v-main id="main pa-0 my-4">
     <v-container>
       <div
-        class="acapulco-div pa-0 my-13"
+        class="acapulco-div pa-0 my-6"
         :class="{ animate__zoomOut: CartDisplay }"
       >
         <h1
@@ -69,7 +69,6 @@ export default {
 }
 
 .acapulco-div {
-  margin-top: 50px;
   grid-area: 2 / 3 / 3 / 4;
   /* width: 300px; */
 }

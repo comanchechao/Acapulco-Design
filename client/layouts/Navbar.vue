@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-app-bar
+      id="app"
       justify-center
       color="transparent"
       width="100%"
@@ -100,5 +101,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 #app {
+  z-index: 2;
 }
 </style>

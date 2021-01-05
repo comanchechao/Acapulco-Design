@@ -68,20 +68,13 @@ export default {
   -webkit-filter: blur(1px);
   } */
 
-#main2 {
-  background-image: url('/alex-shutin-kKvQJ6rK6S4-unsplash.jpg');
-  height: 100%;
-  display: block;
-  background-position: center;
-  background-size: cover;
-}
 #main {
   background-image: url('/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg');
   height: 150%;
   display: block;
   background-position: center;
   background-size: cover;
-  z-index: 0;
+  z-index: 1;
   animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
   -moz-animation: fadeIn ease 1s;
@@ -143,5 +136,8 @@ export default {
 
 .product-list {
   margin: 5% 0%;
+}
+#navbar {
+  z-index: 2;
 }
 </style>
