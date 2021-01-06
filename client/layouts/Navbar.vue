@@ -8,6 +8,11 @@
       fixed
       elevation="0"
     >
+      <NuxtLink to="/aboutUs">
+        <v-btn class="mx-4" dark large fab color="transparent">
+          <span> About Us </span>
+        </v-btn>
+      </NuxtLink>
       <v-spacer></v-spacer>
       <!-- <v-toolbar-title class=" black--text text-uppercase">
         <span>Acupulco </span>

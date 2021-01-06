@@ -31,13 +31,20 @@ export default {
 .card {
   cursor: pointer;
   position: relative;
-  width: 320px;
+  border-radius: 8px;
+  height: 450px;
+  width: 400px;
+  /* top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto; */
   left: -5%;
-  height: 235px;
+  height: 230px;
   margin: 100px 30px;
   box-shadow: 0 5px 20px #1b263b;
   border-radius: 20px;
-  background-color: #ffc43d;
+  background-color: #005f2085;
   transform-style: preserve-3d;
   transition: ease-in-out 0.5s;
   border-bottom: 3px solid transparent;
@@ -45,8 +52,7 @@ export default {
 }
 
 .card:hover {
-  border-radius: 0px;
-  transition: ease 1s;
+  transition: ease 0.3s;
   height: 230px;
   animation-play-state: paused;
 }
@@ -55,18 +61,21 @@ export default {
   position: relative;
   width: 260px;
   height: 260px;
-  top: -80px;
+  top: -50px;
   left: -15px;
   box-shadow: 0 5px 20px #778da9;
   border-radius: 10px;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.5s;
 }
-
+.imageBox:hover {
+  opacity: 0.5;
+  transform: translateX(30%);
+}
 .card .content {
-  background-color: #ffc43d;
+  background-color: #15c481d5;
   border-radius: 15px;
   position: relative;
-  margin-top: -140px;
+  margin-top: -130px;
   padding: 10px 15px;
   visibility: hidden;
   opacity: 0;
@@ -76,8 +85,8 @@ export default {
 .card:hover .content {
   visibility: visible;
   opacity: 1;
-  margin-top: -40px;
-  transition-delay: 0.1s;
+  margin-top: -60px;
+  transition-delay: 0.3s;
 }
 
 /* .card::before {
@@ -171,7 +180,7 @@ export default {
   position: relative;
   max-width: 100%;
   border-radius: 10px;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.2s;
 }
 
 .card:hover .imageBox {
