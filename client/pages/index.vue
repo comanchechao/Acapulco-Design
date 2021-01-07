@@ -59,6 +59,12 @@ export default {
       return this.$store.state.CartDisplay
     },
   },
+  mounted(){
+    window.addEventListener("scroll", function(){
+      const navbar = document.querySelector("#navbar")
+      navbar.classList.toggle("sticky" , window.scrollY > 0);
+    })
+  }
 }
 </script>
 
@@ -73,6 +79,7 @@ export default {
   height: 150%;
   display: block;
   background-position: center;
+  overflow: hidden;
   background-size: cover;
   z-index: 1;
   animation: fadeIn ease 1s;
@@ -139,5 +146,10 @@ export default {
 }
 #navbar {
   z-index: 2;
+}
+
+#navbar .sticky{
+  background-color: #fff;
+  color: #fff;
 }
 </style>

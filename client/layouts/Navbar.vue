@@ -90,6 +90,7 @@ export default {
       drawer: false,
     }
   },
+  
   // computed: {
   //   Cart() {
   //     return this.$store.state.Cart
@@ -107,5 +108,9 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 #app {
   z-index: 2;
+}
+
+.sticky{
+  background-color: #fff;
 }
 </style>

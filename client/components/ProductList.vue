@@ -40,5 +40,39 @@ export default {
 }
 #product-card {
   margin-left: 10%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 550px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+  }
+  #product-card {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
 }
 </style>
