@@ -75,6 +75,7 @@ export default {
   display: block;
   justify-content: center;
   width: 100%;
+  height: 700px;
  background-position: center;
   background-image: url('/Custom1.jpg');
   border-radius: 10px;
@@ -110,6 +111,7 @@ export default {
   /* margin-bottom: 40px;
   margin-top: 20px; */
   font-family: sail;
+  text-shadow:6px 5px 4px #195F5A;
   z-index: 1;
   font-size: 170px;
   /* backdrop-filter: blur(4px); */
@@ -129,6 +131,7 @@ export default {
   font-family: 'Sahitya', serif;
   text-align: center;
   line-height: 110%;
+  text-shadow:6px 5px 4px #195F5A;
   /* width: 764px;
   top: 50%;
   left: 15%;
@@ -138,5 +141,11 @@ export default {
 #main {
   color: transparent;
   /* padding: 20%; */
+}
+
+@media screen and (max-width: 800px){
+  .acapulco{
+    font-size: 130px;
+  }
 }
 </style>
