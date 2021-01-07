@@ -55,6 +55,7 @@ export default {
   transition: ease 0.3s;
   height: 230px;
   animation-play-state: paused;
+  background-color: #073b4c;
 }
 
 .card .imageBox {
@@ -66,10 +67,12 @@ export default {
   box-shadow: 0 5px 20px #778da9;
   border-radius: 10px;
   transition: ease-in-out 0.5s;
+  z-index: 10;
 }
 .imageBox:hover {
   opacity: 1;
   transform: translateX(30%);
+  
 }
 .card .content {
   background-color: #073b4c;
@@ -85,8 +88,9 @@ export default {
 .card:hover .content {
   visibility: visible;
   opacity: 1;
-  margin-top: -60px;
+  margin-top: -38px;
   transition-delay: 0.3s;
+  border: 2px solid #118ab2;
 }
 
 .card .title {

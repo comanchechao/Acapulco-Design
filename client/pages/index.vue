@@ -79,8 +79,9 @@ export default {
   height: 150%;
   display: block;
   background-position: center;
+  background-repeat: repeat;
   overflow: hidden;
-  background-size: cover;
+  background-size: contain;
   z-index: 1;
   animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
