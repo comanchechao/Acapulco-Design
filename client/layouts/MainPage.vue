@@ -1,6 +1,7 @@
 <template>
   <v-main id="main pa-0 my-4">
     <v-container>
+      <div  id="depth">
       <div
         class="acapulco-div pa-0 my-12"
         :class="{ animate__zoomOut: CartDisplay }"
@@ -31,6 +32,7 @@
           max-height="900"
           src="/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg"
         ></v-img> -->
+      </div>
     </v-container>
   </v-main>
 </template>
@@ -68,6 +70,20 @@ export default {
   align-items: center;
 }
 
+#depth{
+  box-shadow:6px 5px 4px #0d1b2a;
+  display: block;
+  justify-content: center;
+  width: 100%;
+ background-position: center;
+  background-image: url('/Custom1.jpg');
+  border-radius: 10px;
+  background-size: cover;
+  margin: 10px;
+  background-position: center;
+  transition: ease-in-out 0.3s;
+}
+
 .acapulco-div {
   grid-area: 2 / 3 / 3 / 4;
   /* width: 300px; */
@@ -98,7 +114,7 @@ export default {
   font-size: 170px;
   /* backdrop-filter: blur(4px); */
   text-align: center;
-  color: #fadcac;
+  color: #087e8b;
   line-height: 90%;
   /* position: absolute;
   top: 10%;
@@ -117,7 +133,7 @@ export default {
   top: 50%;
   left: 15%;
   /*  */
-  color: #fadcac;
+  color: #087e8b;
 }
 #main {
   color: transparent;

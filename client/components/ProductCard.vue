@@ -44,7 +44,7 @@ export default {
   margin: 100px 20px;
   box-shadow: 0 5px 20px #1b263b;
   border-radius: 20px;
-  background-color: #ffd166;
+  background-color: #EEFE00;
   transform-style: preserve-3d;
   transition: ease-in-out 0.5s;
   border-bottom: 3px solid transparent;
