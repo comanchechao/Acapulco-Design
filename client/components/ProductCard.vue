@@ -186,4 +186,24 @@ export default {
 .card:hover .imageBox {
   transform: scale(1.1);
 }
+@media screen and (max-width: 800px) {
+  .card {
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    height: 500px;
+    width: 500px;
+    /* top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto; */
+    left: -5%;
+    margin: 100px 30px;
+  }
+  .card .imageBox {
+    width: 400px;
+    height: 300px;
+  }
+}
 </style>
