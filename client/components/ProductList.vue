@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <ProductCard
+      v-scroll-reveal.reset="{ delay: 230 }"
       id="product-card"
       v-for="product in products"
       :key="product.id"
