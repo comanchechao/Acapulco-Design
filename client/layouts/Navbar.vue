@@ -9,7 +9,7 @@
       elevation="0"
     >
       <NuxtLink to="/aboutUs">
-        <v-btn class="mx-4" dark large fab color="transparent">
+        <v-btn class="mx-4" dark large color="transparent">
           <span> About Us </span>
         </v-btn>
       </NuxtLink>

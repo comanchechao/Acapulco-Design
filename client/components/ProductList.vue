@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <ProductCard
+      class=""
       v-scroll-reveal.reset="{ delay: 230 }"
       id="product-card"
       v-for="product in products"
@@ -30,9 +31,8 @@ export default {
 
 <style scoped>
 .main {
-  /* background-color: aliceblue; */
-  /* border-radius: 20px; */
   display: grid;
+<<<<<<< Updated upstream
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 10px;
@@ -65,5 +65,14 @@ export default {
     margin-right: 4%;
     left: -15%;
   }
+=======
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 22px;
+}
+#product-card {
+  margin-right: 10%;
+>>>>>>> Stashed changes
 }
 </style>
