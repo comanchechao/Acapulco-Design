@@ -32,40 +32,6 @@ export default {
 <style scoped>
 .main {
   display: grid;
-<<<<<<< Updated upstream
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 0px;
-}
-#product-card {
-  text-align: center;
-  left: 6%;
-}
-
-@media only screen and (min-width: 800px) {
-  .main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 0px;
-  }
-  #product-card{
-    margin-right: 4%;
-    left: -15%;
-  }
-=======
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 20px;
@@ -73,6 +39,5 @@ export default {
 }
 #product-card {
   margin-right: 10%;
->>>>>>> Stashed changes
 }
 </style>

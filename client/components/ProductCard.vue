@@ -23,12 +23,6 @@
         </div>
       </div>
     </div>
-<<<<<<< Updated upstream
-    <div class="content">
-      <h2 class="title">{{ product.title }}</h2>
-      <p class="price">$ {{ product.price }}</p>
-      <v-btn color="#06d6a0" class="add-to-cart"
-=======
 
     <!-- <img class="productImage" src="/lightertwo.jpg" alt="" /> -->
     <div class="left">
@@ -39,7 +33,6 @@
     </div>
     <!-- <div class="content">
       <v-btn color="#ef476f" class="add-to-cart"
->>>>>>> Stashed changes
         ><v-icon large>mdi-cart-plus</v-icon></v-btn
       >
     </div> -->
@@ -88,12 +81,6 @@ export default {
 
 .price {
   cursor: pointer;
-<<<<<<< Updated upstream
-  position: relative;
-  border-radius: 8px;
-  height: 450px;
-  width: 370px;
-=======
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 29px;
@@ -123,7 +110,6 @@ export default {
   grid-row-gap: 0px;
   justify-items: center;
   align-items: center;
->>>>>>> Stashed changes
   /* top: 0;
   right: 0;
   left: 0;
@@ -134,11 +120,7 @@ export default {
   margin: 100px 20px;
   box-shadow: 0 5px 20px #1b263b;
   border-radius: 20px;
-<<<<<<< Updated upstream
-  background-color: #EEFE00;
-=======
   background-color: #0d1f2d;
->>>>>>> Stashed changes
   transform-style: preserve-3d;
   transition: ease-in-out 0.5s;
   border-bottom: 3px solid transparent;
@@ -148,17 +130,8 @@ export default {
   transition: ease-in-out 0.5s;
 }
 
-<<<<<<< Updated upstream
-.card:hover {
-  transition: ease 0.3s;
-  height: 230px;
-  animation-play-state: paused;
-  background-color: #073b4c;
-}
-=======
 .right {
   width: 350px;
->>>>>>> Stashed changes
 
   grid-area: 1 / 2 / 3 / 3;
   display: flex;
@@ -172,17 +145,6 @@ export default {
   background-color: rgb(5, 0, 32);
   box-shadow: 0 5px 20px rgb(15, 15, 15);
   transition: ease-in-out 0.5s;
-<<<<<<< Updated upstream
-  z-index: 10;
-}
-.imageBox:hover {
-  opacity: 1;
-  transform: translateX(30%);
-  
-}
-.card .content {
-  background-color: #073b4c;
-=======
 
   z-index: 2;
 }
@@ -232,7 +194,6 @@ export default {
 } */
 /* .card .content {
   background-color: #15c481d5;
->>>>>>> Stashed changes
   border-radius: 15px;
   position: relative;
   margin-top: -130px;
@@ -247,10 +208,6 @@ export default {
   opacity: 1;
   margin-top: -38px;
   transition-delay: 0.3s;
-<<<<<<< Updated upstream
-  border: 2px solid #118ab2;
-}
-=======
 } */
 
 /* .card::before {
@@ -282,7 +239,6 @@ export default {
 .card:hover::before {
   opacity: 0.04;
 } */
->>>>>>> Stashed changes
 
 /* .card .title {
   position: absolute;
@@ -299,11 +255,7 @@ export default {
   z-index: 10;
 } */
 
-<<<<<<< Updated upstream
-.card .content .price {
-=======
 /* .card .price {
->>>>>>> Stashed changes
   position: relative;
   font-size: 20px;
   font-weight: 400px;
@@ -337,14 +289,8 @@ export default {
   z-index: 10;
 } */
 
-<<<<<<< Updated upstream
-.card:hover .add-to-cart {
-  top: -1px;
-  margin: 0 35px;
-=======
 /* .card:hover .add-to-cart {
   bottom: 250px;
->>>>>>> Stashed changes
   opacity: 1;
 }
 
@@ -361,59 +307,5 @@ export default {
 
 .card:hover .imageBox {
   transform: scale(1.1);
-<<<<<<< Updated upstream
-}
-@media screen and (max-width: 800px) {
-  .card {
-    cursor: pointer;
-    position: relative;
-    border-radius: 8px;
-    height: 400px;
-    width: 500px;
-    /* top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto; */
-    left: -5%;
-    margin: 100px 30px;
-  }
-  .card .imageBox {
-    width: 400px;
-    height: 300px;
-  }
-  .card:hover {
-    height: 400px;
-    width: 400;
-  }
-  .card:hover .price {
-    top: -7px;
-    opacity: 1;
-  }
-  .card:hover .add-to-cart {
-    top: -25px;
-    margin: 20px 55px;
-    opacity: 1;
-  }
-  .card .content {
-  background-color: #073b4c;
-  border-radius: 15px;
-  position: relative;
-  margin-top: -50px;
-  padding: 10px 15px;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.2s ease-in-out;
-}
-.card:hover .content {
-  visibility: visible;
-  opacity: 1;
-  margin-top: 40px;
-  transition-delay: 0.3s;
-}
-
-}
-=======
 } */
->>>>>>> Stashed changes
 </style>
