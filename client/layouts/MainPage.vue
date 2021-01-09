@@ -1,33 +1,35 @@
 <template>
   <v-main id="main pa-0 my-4">
     <v-container>
-      <div  id="depth">
-      <div
-        class="acapulco-div pa-0 my-12"
-        :class="{ animate__zoomOut: CartDisplay }"
-      >
-        <h1
-          class="acapulco animate__animated animate__fadeIn animate__delay-1s"
+      <div id="depth">
+        <div
+          class="acapulco-div pa-0 my-12"
+          :class="{ animate__zoomOut: CartDisplay }"
         >
-          Acapulco Design
-        </h1>
-      </div>
-      <div class="limited my-5">
-        <h2 class="h2-home animate__animated animate__fadeIn animate__delay-2s">
-          Limited custom handmade <br />
-          merchendise by
-        </h2>
-      </div>
-      <div class="logo mt-5">
-        <v-img
-          position="center center"
-          class="image animate__animated animate__fadeIn animate__delay-3s"
-          src="/sketch-1606252673782.png"
-          max-height="300px"
-          max-width="600px"
-        ></v-img>
-      </div>
-      <!-- <v-img
+          <h1
+            class="acapulco animate__animated animate__fadeIn animate__delay-1s"
+          >
+            Acapulco Design
+          </h1>
+        </div>
+        <div class="limited my-5">
+          <h2
+            class="h2-home animate__animated animate__fadeIn animate__delay-2s"
+          >
+            Limited custom handmade <br />
+            merchendise by
+          </h2>
+        </div>
+        <div class="logo mt-5">
+          <v-img
+            position="center center"
+            class="image animate__animated animate__fadeIn animate__delay-3s"
+            src="/sketch-1606252673782.png"
+            max-height="300px"
+            max-width="600px"
+          ></v-img>
+        </div>
+        <!-- <v-img
           class="home-background"
           max-height="900"
           src="/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg"
@@ -70,7 +72,7 @@ export default {
   align-items: center;
 }
 
-#depth{
+/* #depth{
   box-shadow:6px 5px 4px #0d1b2a;
   display: block;
   justify-content: center;
@@ -83,7 +85,7 @@ export default {
   margin: 10px;
   background-position: center;
   transition: ease-in-out 0.3s;
-}
+} */
 
 .acapulco-div {
   grid-area: 2 / 3 / 3 / 4;
@@ -111,12 +113,12 @@ export default {
   /* margin-bottom: 40px;
   margin-top: 20px; */
   font-family: sail;
-  text-shadow:6px 5px 4px #195F5A;
+  text-shadow: 6px 5px 4px #195f5a;
   z-index: 1;
   font-size: 170px;
   /* backdrop-filter: blur(4px); */
   text-align: center;
-  color: #087e8b;
+  color: #fffb00;
   line-height: 90%;
   /* position: absolute;
   top: 10%;
@@ -131,21 +133,24 @@ export default {
   font-family: 'Sahitya', serif;
   text-align: center;
   line-height: 110%;
-  text-shadow:6px 5px 4px #195F5A;
+  text-shadow: 6px 5px 4px #195f5a;
   /* width: 764px;
   top: 50%;
   left: 15%;
   /*  */
-  color: #087e8b;
+  color: #fffb00;
 }
 #main {
   color: transparent;
   /* padding: 20%; */
 }
 
-@media screen and (max-width: 800px){
-  .acapulco{
-    font-size: 130px;
+@media screen and (max-width: 800px) {
+  .acapulco {
+    font-size: 125px;
+  }
+  .h2-home {
+    font-size: 3rem;
   }
 }
 </style>
