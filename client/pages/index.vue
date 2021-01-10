@@ -59,12 +59,12 @@ export default {
       return this.$store.state.CartDisplay
     },
   },
-  mounted(){
-    window.addEventListener("scroll", function(){
-      const navbar = document.querySelector("#navbar")
-      navbar.classList.toggle("sticky" , window.scrollY > 0);
+  mounted() {
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('#navbar')
+      navbar.classList.toggle('sticky', window.scrollY > 0)
     })
-  }
+  },
 }
 </script>
 
@@ -76,12 +76,12 @@ export default {
 
 #main {
   background-image: url('/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg');
-  height: 150%;
+  height: 100%;
   display: block;
   background-position: center;
   background-repeat: repeat;
   overflow: hidden;
-  background-size: contain;
+  background-size: cover;
   z-index: 1;
   animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
@@ -149,7 +149,7 @@ export default {
   z-index: 2;
 }
 
-#navbar .sticky{
+#navbar .sticky {
   background-color: #fff;
   color: #fff;
 }

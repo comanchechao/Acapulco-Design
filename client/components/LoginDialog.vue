@@ -2,7 +2,7 @@
   <v-dialog max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn v-bind="attrs" large v-on="on">
-        <span class="pa-2 white--text"> Login </span>
+        <span class="px-1 white--text"> <v-icon>mdi-login</v-icon> Login </span>
       </v-btn>
     </template>
     <div>
@@ -20,6 +20,7 @@
           /> -->
         <v-text-field
           v-model="email"
+          :rules="emailRules"
           light
           label="E-mail"
           type="email"
@@ -29,6 +30,7 @@
         />
         <v-text-field
           v-model="password"
+          :rules="passwordRules"
           light
           type="password"
           required
@@ -64,7 +66,18 @@ import 'firebase/auth'
 export default {
   data: () => ({
     email: '',
+    emailRules: [
+      (v) => !!v || 'E-mail is required',
+      (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+    ],
     password: '',
+    passwordRules: [
+      (v) =>
+        !!(v || '').match(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/
+        ) ||
+        'Password must contain an upper case letter, a numeric character, and a special character',
+    ],
     displayName: '',
     error: '',
   }),

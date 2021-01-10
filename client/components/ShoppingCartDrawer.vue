@@ -4,11 +4,11 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
-          v-on="on"
           fab
-          large
-          @click="drawer = !drawer"
+          x-large
           color="transparent"
+          v-on="on"
+          @click="drawer = !drawer"
         >
           <v-icon color="white">mdi-shopping-outline</v-icon>
         </v-btn>
@@ -17,30 +17,32 @@
     </v-tooltip>
 
     <v-navigation-drawer
-      right
       v-model="drawer"
-      d-flex-column
+      right
       temporary
+      close-delay
+      open-on-hover
+      hide-overlay
       app
-      src="/cody-mclain-Dq5P6eWZXNY-unsplash.jpg"
+      scrollable
+      src="/tyler-nix-6mze64HRU2Q-unsplash.jpg"
       width="20%"
     >
-      <v-list>
-        <v-spacer></v-spacer>
-        <v-list-item> </v-list-item>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="/pineapple-supply-co-NgDapgpAiTE-unsplash.jpg"></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-btn>
-              <span> </span>
-            </v-btn>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <div class="list">
+        <div class="items">
+          <h3 class="itemName">Custom Dragon Lighter</h3>
+          <p class="price">$35000</p>
+          <div class="itemCount">
+            <v-btn small fab class="minus" color="transparent">
+              <v-icon>mdi-minus-circle-outline</v-icon></v-btn
+            >
+            <p>X2</p>
+            <v-btn small fab class="plus" color="transparent"
+              ><v-icon>mdi-plus-circle-outline</v-icon></v-btn
+            >
+          </div>
+        </div>
+      </div>
     </v-navigation-drawer>
   </div>
 </template>

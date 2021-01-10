@@ -1,11 +1,11 @@
 <template>
   <div class="main">
     <ProductCard
-      class=""
-      v-scroll-reveal.reset="{ delay: 230 }"
-      id="product-card"
       v-for="product in products"
+      id="product-card"
       :key="product.id"
+      v-scroll-reveal.reset="{ delay: 230 }"
+      class=""
       :product="product"
     />
   </div>

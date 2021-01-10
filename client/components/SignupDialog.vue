@@ -2,22 +2,22 @@
   <v-dialog max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <v-btn v-bind="attrs" large v-on="on">
-        <span class="pa-1 white--text"> Signup </span>
+        <span class="white--text"> <v-icon>mdi-account</v-icon> Signup </span>
       </v-btn>
     </template>
     <div>
       <v-form dark class="signupForm px-4 py-4" @submit.prevent="createUser">
         <v-text-field
-          :rules="nameRules"
           v-model="name"
+          :rules="nameRules"
           light
           class=""
           required
           label="Name"
         />
         <v-text-field
-          :rules="emailRules"
           v-model="email"
+          :rules="emailRules"
           light
           label="E-mail"
           type="email"
@@ -26,8 +26,8 @@
           class=""
         />
         <v-text-field
-          :rules="passwordRules"
           v-model="password"
+          :rules="passwordRules"
           light
           type="password"
           required
