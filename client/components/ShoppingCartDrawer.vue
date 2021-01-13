@@ -24,7 +24,7 @@
       clipped
       scrollable
       app
-      class="lime lighten-5"
+      class="light-green lighten-5"
       width="33%"
     >
       <v-container grid-list-xs class="list">
@@ -37,27 +37,20 @@
                 alt="John"
               />
               <div>
-                <h3 class="itemName">Lighter: Dragon</h3>
-                <v-btn plain color="transparent">
+                <h3 class="itemName mb-5">Lighter: Dragon</h3>
+                <v-btn rounded outlined color="#d32f2f">
                   <h4 class="delete">Delete</h4>
                 </v-btn>
               </div>
               <v-spacer></v-spacer>
-              <div class="right px-3 mx-5">
-                <p class="price">35000</p>
-                <div class="d-flex">
-                  <v-btn
-                    small
-                    light
-                    fab
-                    plain
-                    class="minus"
-                    color="transparent"
-                  >
+              <div class="right">
+                <p class="price ml-4">35000</p>
+                <div class="d-flex mr-6">
+                  <v-btn small light fab plain class="minus" color="#00ffaa">
                     <v-icon>mdi-minus-circle-outline</v-icon></v-btn
                   >
                   <p class="px-3">2</p>
-                  <v-btn light small fab plain class="plus" color="transparent"
+                  <v-btn light small fab plain class="plus" color="#00ffaa"
                     ><v-icon>mdi-plus-circle-outline</v-icon></v-btn
                   >
                 </div>
@@ -71,10 +64,10 @@
       </v-container>
       <v-spacer></v-spacer>
       <div class="checkout d-flex justify-center align-end">
-        <v-btn class="mx-7 editBtn" rounded outlined x-large color="#050020">
-          <span class="px-9 py-8 editText blue--text"> Edit </span>
+        <v-btn class="mx-7 editBtn" rounded outlined x-large color="#00ffaa">
+          <span class="px-9 py-8 editText"> Edit </span>
         </v-btn>
-        <v-btn x-large rounded color="#050020">
+        <v-btn x-large rounded depressed color="#00ffaa" class="checkoutBtn">
           <span class="px-6 py-8 checkoutText"> Checkout </span>
         </v-btn>
       </div>
@@ -98,7 +91,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 
 #main {
-  color: #777777;
+  color: #7a7a7a;
 }
 
 .list {

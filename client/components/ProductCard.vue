@@ -1,23 +1,24 @@
 <template>
-  <div class="card my-7">
+  <div class="card my-5">
     <div class="right">
       <div class="title-div px-3 py-2">
         <h2 class="name py-3">{{ product.title }}</h2>
         <!-- <h3 class="category">Category</h3> -->
-        <p class="description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
-          consequuntur hic.
+        <p class="description mb-16">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit
         </p>
+        <v-spacer></v-spacer>
+
         <!-- <v-spacer></v-spacer> -->
-        <div class="wrapper d-flex align-end">
-          <div class="shoppingcart-div">
+        <div class="wrapper d-flex">
+          <div class="shoppingcart-div ml-4">
             <v-btn rounded color="#00ffaa" outlined elevation="4" large>
               <v-icon class="px-1 black--text">mdi-shopping-outline</v-icon>
               <span class="black--text"> Add Now </span>
             </v-btn>
           </div>
           <v-spacer></v-spacer>
-          <div class="price-div mx-3">
+          <div class="price-div mr-4">
             <p class="price px-4">${{ product.price }}</p>
           </div>
         </div>
@@ -73,7 +74,6 @@ export default {
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  border-bottom: solid 1px #00e1ff;
 
   /* display: flex;
   justify-self: flex-start; */
@@ -85,7 +85,7 @@ export default {
   font-weight: 600;
   font-size: 29px;
   /* margin-top: 13px; */
-  transition: ease 0.2s;
+  transition: ease 1s;
 }
 .price:hover {
   border-bottom: 2px;
