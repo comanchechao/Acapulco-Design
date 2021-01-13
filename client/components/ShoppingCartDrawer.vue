@@ -71,7 +71,12 @@
       </v-container>
       <v-spacer></v-spacer>
       <div class="checkout d-flex justify-center align-end">
-        <v-btn x-large color="blue">Checkout</v-btn>
+        <v-btn class="mx-7 editBtn" rounded outlined x-large color="#050020">
+          <span class="px-9 py-8 editText blue--text"> Edit </span>
+        </v-btn>
+        <v-btn x-large rounded color="#050020">
+          <span class="px-6 py-8 checkoutText"> Checkout </span>
+        </v-btn>
       </div>
     </v-navigation-drawer>
   </div>
@@ -134,6 +139,16 @@ export default {
   width: 70px;
   height: 70px;
 }
+.checkoutText,
+.editText {
+  font-family: 'Monserrat', sans-serif;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+/* .editBtn {
+  border: 1px solid blue;
+} */
 /* .checkout {
   display: flex;
   justify-self: center;
