@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   server: {
     port: 8000, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: 'Localhost', // default: localhost
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -31,12 +31,11 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-     '~/plugins/fireauth.js',
+    '~/plugins/fireauth.js',
     '~plugins/animate.css',
     '~plugins/firebase.js',
     '~/plugins/axios.js',
     { src: '~/plugins/vue-scroll-reveal', ssr: false },
-   
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
