@@ -57,6 +57,13 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sahitya&display=swap');
+@font-face {
+  font-family: 'Bernadette';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
+}
 
 .home-background {
   filter: blur(2px);
@@ -112,7 +119,7 @@ export default {
 .acapulco {
   /* margin-bottom: 40px;
   margin-top: 20px; */
-  font-family: sail;
+  font-family: 'sail';
   text-shadow: 6px 5px 4px #195f5a;
   z-index: 1;
   font-size: 170px;

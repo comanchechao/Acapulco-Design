@@ -20,11 +20,8 @@
       v-model="drawer"
       right
       temporary
-      hide-overlay
-      clipped
-      scrollable
       app
-      class="light-green lighten-5"
+      class="light-green lighten-5 drawer"
       width="33%"
     >
       <v-container grid-list-xs class="list">
@@ -64,12 +61,10 @@
       </v-container>
       <v-spacer></v-spacer>
       <div class="checkout d-flex justify-center align-end">
-        <v-btn class="mx-7 editBtn" rounded outlined x-large color="#00ffaa">
+        <button class="mx-7 editBtn">
           <span class="px-9 py-8 editText"> Edit </span>
-        </v-btn>
-        <v-btn x-large rounded depressed color="#00ffaa" class="checkoutBtn">
-          <span class="px-6 py-8 checkoutText"> Checkout </span>
-        </v-btn>
+        </button>
+        <CheckoutDialog />
       </div>
     </v-navigation-drawer>
   </div>
@@ -89,9 +84,13 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 #main {
   color: #7a7a7a;
+}
+
+.drawer {
+  z-index: 1;
 }
 
 .list {
@@ -134,14 +133,24 @@ export default {
 }
 .checkoutText,
 .editText {
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Lato', sans-serif;
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
-/* .editBtn {
-  border: 1px solid blue;
-} */
+.editBtn {
+  border: 2px solid #14ffb1;
+  background-color: rgb(243, 243, 243);
+  color: #14ffb1;
+  border-radius: 35px;
+  transition: ease-in-out 0.5s;
+  padding: 9px 20px;
+}
+
+.editBtn:hover {
+  background-color: #14ffb1;
+  color: rgb(243, 243, 243);
+}
 /* .checkout {
   display: flex;
   justify-self: center;
