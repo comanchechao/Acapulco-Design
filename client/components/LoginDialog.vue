@@ -1,9 +1,22 @@
 <template>
   <v-dialog max-width="600px">
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn v-bind="attrs" large v-on="on">
-        <span class="px-1 white--text"> <v-icon>mdi-login</v-icon> Login </span>
-      </v-btn>
+    <template v-slot:activator="{ on: menu, attrs }">
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on: tooltip }">
+          <v-btn
+            v-bind="attrs"
+            dark
+            large
+            fab
+            class="animate__animated animate__fadeIn animate__delay-0.0s"
+            color="transparent"
+            v-on="{ ...tooltip, ...menu }"
+          >
+            <v-icon large>mdi-login-variant</v-icon>
+          </v-btn>
+        </template>
+        <span>Join Us!</span>
+      </v-tooltip>
     </template>
     <div>
       <v-form
@@ -51,7 +64,10 @@
             Google</v-btn
           >
         </div>
-
+        <div class="d-flex justify-center align-center">
+          <p class="signup mr-6 mt-5">already have an account?</p>
+          <SignupDialog />
+        </div>
         <p v-if="error" class="error">
           {{ error }}
         </p>
@@ -114,7 +130,25 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+/* .login-text {
+  font-size: 15px;
+  color: rgb(73, 73, 73);
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: capitalize;
+} */
+
+.signup,
+.title {
+  font-size: 20px;
+  color: rgb(73, 73, 73);
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+}
 .loginForm {
   background: rgb(255, 255, 255);
 }

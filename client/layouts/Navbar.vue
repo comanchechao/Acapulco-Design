@@ -43,32 +43,19 @@
         </v-btn>
       </div> -->
       <div>
-        <v-menu transition="slide-y-transition" bottom>
-          <template v-slot:activator="{ on: menu, attrs }">
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on: tooltip }">
-                <v-btn
-                  v-bind="attrs"
-                  dark
-                  large
-                  fab
-                  class="animate__animated animate__fadeIn animate__delay-0.0s"
-                  color="transparent"
-                  v-on="{ ...tooltip, ...menu }"
-                >
-                  <v-icon large>mdi-login-variant</v-icon>
-                </v-btn>
-              </template>
-              <span>Join Us!</span>
-            </v-tooltip>
-          </template>
+        <LoginDialog />
+        <!-- <v-menu
+          transition="slide-y-transition"
+          bottom
+          class="d-flex justify-center"
+        >
           <v-list>
             <v-list-item>
               <SignupDialog />
             </v-list-item>
             <v-list-item> <LoginDialog /></v-list-item>
           </v-list>
-        </v-menu>
+        </v-menu> -->
       </div>
       <!-- <v-sheet
       id="scrolling-techniques-5"
@@ -90,7 +77,7 @@ export default {
       drawer: false,
     }
   },
-  
+
   // computed: {
   //   Cart() {
   //     return this.$store.state.Cart
@@ -110,7 +97,7 @@ export default {
   z-index: 2;
 }
 
-.sticky{
+.sticky {
   background-color: #fff;
 }
 </style>

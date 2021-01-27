@@ -1,8 +1,17 @@
 <template>
   <v-dialog max-width="600px">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn v-bind="attrs" large v-on="on">
-        <span class="white--text"> <v-icon>mdi-account</v-icon> Signup </span>
+      <v-btn
+        color="#00e699"
+        class="signup-btn"
+        v-bind="attrs"
+        rounded
+        large
+        v-on="on"
+      >
+        <span class="white--text signup-text">
+          <v-icon>mdi-account</v-icon> Signup
+        </span>
       </v-btn>
     </template>
     <div>
@@ -103,7 +112,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+.signup-text {
+  font-size: 15px;
+  color: rgb(73, 73, 73);
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
 .error {
   background: white;
 }

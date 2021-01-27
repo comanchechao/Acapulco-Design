@@ -1,10 +1,10 @@
 <template>
-  <v-dialog class="wrapper" max-height="300px" max-width="600px">
+  <v-dialog max-width="600px">
     <template v-slot:activator="{ on, attrs }">
       <button class="checkoutBtn" v-on="on" v-bind="attrs">
         <span class="px-6 py-8 checkoutText"> Checkout </span>
       </button>
-      <v-form class="wrapper"> </v-form>
+      <div class="wrapper"></div>
     </template>
   </v-dialog>
 </template>
@@ -18,7 +18,8 @@ export default {}
 
 .wrapper {
   background-color: rgb(234, 255, 239);
-  z-index: 1;
+  /* width: 300px;
+  height: 300px; */
 }
 
 .checkoutText {

@@ -21,44 +21,40 @@
       right
       temporary
       app
+      bottom
       class="light-green lighten-5 drawer"
       width="33%"
     >
-      <v-container grid-list-xs class="list">
-        <v-row>
-          <v-col class="items my-4 pa-7">
-            <div class="title d-flex">
-              <img
-                class="productImage mx-4"
-                src="/davisuko-rhUU1pemhQ0-unsplash.jpg"
-                alt="John"
-              />
-              <div>
-                <h3 class="itemName mb-5">Lighter: Dragon</h3>
-                <v-btn rounded outlined color="#d32f2f">
-                  <h4 class="delete">Delete</h4>
-                </v-btn>
-              </div>
-              <v-spacer></v-spacer>
-              <div class="right">
-                <p class="price ml-4">35000</p>
-                <div class="d-flex mr-6">
-                  <v-btn small light fab plain class="minus" color="#00ffaa">
-                    <v-icon>mdi-minus-circle-outline</v-icon></v-btn
-                  >
-                  <p class="px-3">2</p>
-                  <v-btn light small fab plain class="plus" color="#00ffaa"
-                    ><v-icon>mdi-plus-circle-outline</v-icon></v-btn
-                  >
-                </div>
-              </div>
-            </div>
-          </v-col>
-          <!-- <v-spacer></v-spacer>
-          <v-col justify-center>
-          </v-col> -->
-        </v-row>
-      </v-container>
+      <div class="container">
+        <div class="title d-flex">
+          <img
+            class="productImage mx-4 mt-6"
+            src="/davisuko-rhUU1pemhQ0-unsplash.jpg"
+            alt="John"
+          />
+          <div>
+            <h3 class="itemName mb-5">Lighter: Dragon</h3>
+            <v-btn rounded outlined color="#d32f2f">
+              <h4 class="delete">Delete</h4>
+            </v-btn>
+          </div>
+        </div>
+        <v-spacer></v-spacer>
+        <div class="right mr-6">
+          <div class="price d-flex justify-center align-center">
+            <p class="">35000</p>
+          </div>
+          <div class="d-flex align-center justify-center mr-6">
+            <v-btn small large fab plain class="minus" color="#00ffaa">
+              <v-icon>mdi-minus</v-icon></v-btn
+            >
+            <p class="px-3">2</p>
+            <v-btn light large fab plain class="plus" color="#00ffaa"
+              ><v-icon>mdi-plus</v-icon></v-btn
+            >
+          </div>
+        </div>
+      </div>
       <v-spacer></v-spacer>
       <div class="checkout d-flex justify-center align-end">
         <button class="mx-7 editBtn">
@@ -89,14 +85,18 @@ export default {
   color: #7a7a7a;
 }
 
-.drawer {
-  z-index: 1;
-}
-
-.list {
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 30px;
   width: 600px;
   height: 800px;
-  /* margin: 0; */
+}
+
+.drawer {
+  z-index: 1;
 }
 
 .items {
@@ -115,11 +115,13 @@ export default {
   line-height: 30px;
 }
 .price {
+  grid-area: 1 / 3 / 2 / 4;
   font-family: 'Monserrat', sans-serif;
   font-size: 25px;
   font-weight: 700;
 }
 .delete {
+  grid-area: 2 / 3 / 3 / 4;
   font-family: 'Montserrat', sans-serif;
   color: #d32f2f;
   text-transform: capitalize;
@@ -139,8 +141,8 @@ export default {
 }
 
 .editBtn {
-  border: 2px solid #14ffb1;
-  background-color: rgb(243, 243, 243);
+  border: 2px solid #00e699;
+  background-color: #f3f3f3;
   color: #14ffb1;
   border-radius: 35px;
   transition: ease-in-out 0.5s;
