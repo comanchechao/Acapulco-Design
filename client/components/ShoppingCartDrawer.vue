@@ -40,7 +40,7 @@
           </div>
         </div>
         <v-spacer></v-spacer>
-        <div class="right mr-6">
+        <div class="right mr-1">
           <div class="price d-flex justify-center align-center">
             <p class="">35000</p>
           </div>
@@ -91,8 +91,8 @@ export default {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 30px;
-  width: 600px;
-  height: 800px;
+  /* width: 600px; */
+  height: 600px;
 }
 
 .drawer {
@@ -153,6 +153,12 @@ export default {
   background-color: #14ffb1;
   color: rgb(243, 243, 243);
 }
+
+/* @media screen and (max-width: 800px) {
+  .container {
+    width: 300px;
+  }
+} */
 /* .checkout {
   display: flex;
   justify-self: center;

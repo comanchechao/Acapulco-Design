@@ -144,7 +144,7 @@ export default {
   height: 260px;
   background-color: rgb(5, 0, 32);
   box-shadow: 0 5px 20px rgb(15, 15, 15);
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
 
   z-index: 2;
 }
@@ -176,15 +176,15 @@ export default {
   left: -15px; */
   box-shadow: 0 5px 20px #383838;
   /* border-radius: 10px; */
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
 }
 .card:hover {
-  opacity: 0.5;
-  transform: translateX(-20%);
+  /* opacity: 0.5;
+  transform: translateX(-20%); */
 }
 .right:hover {
-  opacity: 0.5;
-  transform: translateX(10%);
+  scale: 1;
+  transform: translateY(10%);
 }
 
 /* .card:hover {

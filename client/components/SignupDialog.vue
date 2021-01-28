@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="#00e699"
-        class="signup-btn"
+        class="signup-btn d-flex align-center"
         v-bind="attrs"
         rounded
         large
@@ -15,7 +15,7 @@
       </v-btn>
     </template>
     <div>
-      <v-form dark class="signupForm px-4 py-4" @submit.prevent="createUser">
+      <v-form dark class="signupForm pa-10" @submit.prevent="createUser">
         <v-text-field
           v-model="name"
           :rules="nameRules"
@@ -44,8 +44,21 @@
           class=""
           label="Password"
         />
+        <div class="text-center">
+          <v-btn
+            class="mt-4"
+            centered
+            x-large
+            rounded
+            color="#00e699"
+            dark
+            type="submit"
+          >
+            <v-icon>mdi-account</v-icon>
+            <span class="signupText"> Signup </span>
+          </v-btn>
+        </div>
 
-        <v-btn x-large dark type="submit">Sign up</v-btn>
         <p v-if="error" class="error red--text">
           {{ error }}
         </p>
@@ -114,12 +127,19 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;800&display=swap');
 .signup-text {
-  font-size: 15px;
+  font-size: 20px;
   color: rgb(73, 73, 73);
-  font-family: 'Montserrat';
-  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 800;
   text-transform: capitalize;
+}
+.signupText {
+  font-family: 'Roboto Slab', serif;
+  text-transform: capitalize;
+  font-weight: 800;
+  font-size: 20px;
 }
 
 .error {
