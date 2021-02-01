@@ -144,7 +144,7 @@ export default {
   height: 260px;
   background-color: rgb(5, 0, 32);
   box-shadow: 0 5px 20px rgb(15, 15, 15);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.4s;
 
   z-index: 2;
 }
@@ -183,8 +183,7 @@ export default {
   transform: translateX(-20%); */
 }
 .right:hover {
-  scale: 1;
-  transform: translateY(10%);
+  transform: scale(0.9); /* transform: translateY(10%); */
 }
 
 /* .card:hover {

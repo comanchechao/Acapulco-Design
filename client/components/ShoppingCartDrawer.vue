@@ -25,6 +25,8 @@
       class="light-green lighten-5 drawer"
       width="33%"
     >
+      <!-- <div v-for="product in products" :key="product.id">  
+      </div> -->
       <div class="container">
         <div class="title d-flex">
           <img
@@ -56,7 +58,7 @@
         </div>
       </div>
       <v-spacer></v-spacer>
-      <div class="checkout d-flex justify-center align-end">
+      <div class="checkout mb-5 d-flex justify-center align-end">
         <button class="mx-7 editBtn">
           <span class="px-9 py-8 editText"> Edit </span>
         </button>
@@ -92,7 +94,7 @@ export default {
   grid-column-gap: 0px;
   grid-row-gap: 30px;
   /* width: 600px; */
-  height: 600px;
+  height: 90%;
 }
 
 .drawer {

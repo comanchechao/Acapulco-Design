@@ -10,7 +10,7 @@
         v-on="on"
       >
         <span class="white--text signup-text">
-          <v-icon>mdi-account</v-icon> Signup
+          <v-icon>mdi-account-key</v-icon> Signup
         </span>
       </v-btn>
     </template>

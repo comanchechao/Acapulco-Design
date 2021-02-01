@@ -10,6 +10,7 @@
     >
       <NuxtLink to="/aboutUs">
         <v-btn class="mx-4" dark large color="transparent">
+          <v-icon class="pr-2" large>mdi-meditation</v-icon>
           <span> About Us </span>
         </v-btn>
       </NuxtLink>
