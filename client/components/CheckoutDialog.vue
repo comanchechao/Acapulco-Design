@@ -103,6 +103,12 @@
               </v-row>
             </v-container>
           </div>
+          <div class="cartSummary">
+            <h1 class="pa-5">
+              <v-icon x-large light>mdi-cart-arrow-right</v-icon>
+              <span class="shippingDetailText"> Shopping Summary </span>
+            </h1>
+          </div>
         </div>
       </div>
     </v-dialog>
@@ -148,8 +154,20 @@ export default {
   flex-direction: column;
   align-self: center;
   justify-self: center;
-  background-color: rgb(141, 255, 175);
+  background-color: #8dffaf;
   grid-area: 1 / 1 / 2 / 2;
+  height: 100%;
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: -1px 11px 19px 0px #0000005c;
+}
+.shoppingSummary {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  background-color: #008528;
+  grid-area: 1 / 2 / 2 / 3;
   height: 100%;
   width: 80%;
   border-radius: 20px;
