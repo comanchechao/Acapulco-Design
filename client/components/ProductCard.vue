@@ -14,7 +14,7 @@
           <div class="shoppingcart-div ml-4">
             <v-btn rounded color="#00ffaa" outlined elevation="4" large>
               <v-icon class="px-1 black--text">mdi-shopping-outline</v-icon>
-              <span class="black--text"> Add Now </span>
+              <span class="black--text" @click="addToCart()"> Add Now </span>
             </v-btn>
           </div>
           <v-spacer></v-spacer>
@@ -43,11 +43,15 @@
 <script>
 export default {
   props: ['product'],
-  data() {
-    return {
-      Image: '@/' + this.$store.state.products.productImage,
+  
+  methods:{
+    addToCart() {
+      this.$store.dispatch('addProductToCart', {
+        product: this.product,
+        quantity: 1
+      })
     }
-  },
+  }
 }
 </script>
 

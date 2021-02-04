@@ -10,14 +10,27 @@ const createStore = () => {
       account: null,
       products: [],
       cart: [],
-      toast: {
-        text: '',
-        show: false,
-      },
     },
+
     getters: {
       user(state) {
         return state.user
+      },
+
+      // open some place for this big G
+      cartItemCount: (state) => {
+        return state.cart.length;
+      },
+      
+      // use this in the shopping cart drawer
+      cartTotalPrice: (state) => {
+        let total = 0
+
+        state.cart.forEach(item => {
+          total = item.product.price * item.quantity
+        })
+
+        return total
       },
 
       isAuthenticated(state) {
@@ -49,66 +62,26 @@ const createStore = () => {
       setProducts: (state, products) => {
         state.products = products
       },
-      addToCart: (state, productId) => {
-        // find the product in the products list
-        const product = state.products.find(
-          (product) => product.id === productId
-        )
-        // find the product in the cart list
-        const cartProduct = state.cart.find(
-          (product) => product.id === productId
-        )
+      AddToCart: (state, { product, quantity }) => {
+        const productInCart = state.cart.find(item => item.product._id === product._id)
 
-        if (cartProduct) {
-          // product already present in the cart. so increase the quantity
-          cartProduct.quantity++
-        } else {
-          state.cart.push({
-            // product newly added to cart
-            ...product,
-            stock: product.quantity,
-            quantity: 1,
-          })
+        console.log(productInCart);
+
+        if(productInCart){
+          productInCart.quantity += quantity
+          return
         }
-        // reduce the quantity in products list by 1
-        product.quantity--
-      },
-      removeFromCart: (state, productId) => {
-        // find the product in the products list
-        const product = state.products.find(
-          (product) => product.id === productId
-        )
-        // find the product in the cart list
-        const cartProduct = state.cart.find(
-          (product) => product.id === productId
-        )
 
-        cartProduct.quantity--
-        // Add back the quantity in products list by 1
-        product.quantity++
+        state.cart.push({
+          product,
+          quantity
+        })
       },
-      deleteFromCart: (state, productId) => {
-        // find the product in the products list
-        const product = state.products.find(
-          (product) => product.id === productId
-        )
-        // find the product index in the cart list
-        const cartProductIndex = state.cart.findIndex(
-          (product) => product.id === productId
-        )
-        // srt back the quantity of the product to intial quantity
-        product.quantity = state.cart[cartProductIndex].stock
-        // remove the product from the cart
-        state.cart.splice(cartProductIndex, 1)
-      },
-      showToast: (state, toastText) => {
-        state.toast.show = true
-        state.toast.text = toastText
-      },
-      hideToast: (state) => {
-        state.toast.show = false
-        state.toast.text = ''
-      },
+      removeProduct: (state , product) =>{
+        state.cart = state.cart.filter(item => {
+          return item.product._id !== product._id
+        })
+      } 
     },
     actions: {
       //  fetching the products from server side passing to set products mutaions
@@ -118,7 +91,20 @@ const createStore = () => {
           commit('setProducts', response.data.products)
         })
       },
+      addProductToCart: ({ commit }, { product, quantity }) => {
+        commit('AddToCart', { product, quantity })
 
+        axios.post('http://localhost:4000/api/orders' , {
+          product: product._id,
+          quantity
+        })
+      },
+
+      removeCartProduct: ({commit}, product) => {
+        commit('removeProduct' , product)
+      },
+
+      
       signUp({ commit }, { email, password, name }) {
         return firebase
           .auth()

@@ -28,6 +28,7 @@
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->
       <div class="container">
+        <div v-for="item in cart" :key="item.product.id">
         <div class="title d-flex">
           <img
             class="productImage mx-4 mt-6"
@@ -35,26 +36,27 @@
             alt="John"
           />
           <div>
-            <h3 class="itemName mb-5">Lighter: Dragon</h3>
+            <h3 class="itemName mb-5">{{item.product.title}}</h3>
             <v-btn rounded outlined color="#d32f2f">
-              <h4 class="delete">Delete</h4>
+              <h4 class="delete" @click.prevent="removeCartProduct(item.product)">Delete</h4>
             </v-btn>
           </div>
         </div>
         <v-spacer></v-spacer>
         <div class="right mr-1">
           <div class="price d-flex justify-center align-center">
-            <p class="">35000</p>
+            <p class="">{{item.product.price}}</p>
           </div>
           <div class="d-flex align-center justify-center mr-6">
-            <v-btn small large fab plain class="minus" color="#00ffaa">
+            <v-btn @click="incrementQuantity()" small large fab plain class="minus" color="#00ffaa">
               <v-icon>mdi-minus</v-icon></v-btn
             >
-            <p class="px-3">2</p>
-            <v-btn light large fab plain class="plus" color="#00ffaa"
+            <p class="px-3">{{item.quantity}}</p>
+            <v-btn @click="addToCart()" light large fab plain class="plus" color="#00ffaa"
               ><v-icon>mdi-plus</v-icon></v-btn
             >
           </div>
+        </div>
         </div>
       </div>
       <v-spacer></v-spacer>
@@ -75,6 +77,19 @@ export default {
       drawer: false,
     }
   },
+  computed:{
+    cart(){
+      return this.$store.state.cart;
+    }
+  },
+  methods: {
+    removeCartProduct(product){
+      this.$store.dispatch("removeCartProduct", product)
+    },
+    incrementQuantity(product){
+      this.$store.dispatch("incrementQuantity", product)
+    }
+  }
 }
 </script>
 
