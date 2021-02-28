@@ -74,22 +74,87 @@ export default {
   -webkit-filter: blur(1px);
   } */
 
+body {
+  animation: 10000ms ease-in-out infinite color-change;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 #main {
-  background-image: url('/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg');
+  /* background-color: #d8bbff; */
   height: 100%;
   display: block;
-  background-position: center;
-  background-repeat: repeat;
+  background-position: top;
+  /* background-repeat: repeat; */
   overflow: hidden;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
   z-index: 1;
-  animation: fadeIn ease 1s;
+  /* animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
   -moz-animation: fadeIn ease 1s;
   -o-animation: fadeIn ease 1s;
-  -ms-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s; */
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
 }
-@keyframes fadeIn {
+
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+  /* 15% {
+    background-color: #7ec6c8;
+  }
+  30% {
+    background-color: #a1dfa1;
+  } */
+  45% {
+    background-color: #a6a6db;
+  }
+  /* 60% {
+    background-color: #d8a5d8;
+  }
+  75% {
+    background-color: #c6b1ec;
+  }
+  90% {
+    background-color: #ade7e7;
+  } */
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+  /* 15% {
+    background-color: #7ec6c8;
+  }
+  30% {
+    background-color: #a1dfa1;
+  } */
+  45% {
+    background-color: #a6a6db;
+  }
+  /* 60% {
+    background-color: #d8a5d8;
+  }
+  75% {
+    background-color: #c6b1ec;
+  }
+  90% {
+    background-color: #ade7e7;
+  } */
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+/* @keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -123,7 +188,7 @@ export default {
   100% {
     opacity: 1;
   }
-}
+} */
 #switch {
   position: absolute;
   left: 43%;

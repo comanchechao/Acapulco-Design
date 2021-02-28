@@ -105,8 +105,8 @@
           </div>
           <div class="cartSummary">
             <h1 class="pa-5">
-              <v-icon x-large light>mdi-cart-arrow-right</v-icon>
-              <span class="shippingDetailText"> Shopping Summary </span>
+              <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
+              <span class="shoppingSummaryText"> Shopping Summary </span>
             </h1>
           </div>
         </div>
@@ -179,6 +179,13 @@ export default {
   font-family: 'Londrina Solid', cursive;
   color: #2c2c2c;
 }
+
+.shoppingSummaryText {
+  color: aliceblue;
+  font-size: 1.2em;
+  font-family: 'Londrina Solid', cursive;
+}
+
 .saveText {
   font-size: 2rem;
   font-family: 'Londrina Solid', cursive;

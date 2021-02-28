@@ -4,7 +4,9 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
+          dark
           fab
+          depressed
           x-large
           color="transparent"
           v-on="on"
@@ -29,34 +31,54 @@
       </div> -->
       <div class="container">
         <div v-for="item in cart" :key="item.product.id">
-        <div class="title d-flex">
-          <img
-            class="productImage mx-4 mt-6"
-            src="/davisuko-rhUU1pemhQ0-unsplash.jpg"
-            alt="John"
-          />
-          <div>
-            <h3 class="itemName mb-5">{{item.product.title}}</h3>
-            <v-btn rounded outlined color="#d32f2f">
-              <h4 class="delete" @click.prevent="removeCartProduct(item.product)">Delete</h4>
-            </v-btn>
+          <div class="title d-flex">
+            <img
+              class="productImage mx-4 mt-6"
+              src="/davisuko-rhUU1pemhQ0-unsplash.jpg"
+              alt="John"
+            />
+            <div>
+              <h3 class="itemName mb-5">{{ item.product.title }}</h3>
+              <v-btn rounded outlined color="#d32f2f">
+                <h4
+                  class="delete"
+                  @click.prevent="removeCartProduct(item.product)"
+                >
+                  Delete
+                </h4>
+              </v-btn>
+            </div>
           </div>
-        </div>
-        <v-spacer></v-spacer>
-        <div class="right mr-1">
-          <div class="price d-flex justify-center align-center">
-            <p class="">{{item.product.price}}</p>
+          <v-spacer></v-spacer>
+          <div class="right mr-1">
+            <div class="price d-flex justify-center align-center">
+              <p class="">{{ item.product.price }}</p>
+            </div>
+            <div class="d-flex align-center justify-center mr-6">
+              <v-btn
+                @click="incrementQuantity()"
+                small
+                large
+                fab
+                plain
+                class="minus"
+                color="#00ffaa"
+              >
+                <v-icon>mdi-minus</v-icon></v-btn
+              >
+              <p class="px-3">{{ item.quantity }}</p>
+              <v-btn
+                @click="addToCart()"
+                light
+                large
+                fab
+                plain
+                class="plus"
+                color="#00ffaa"
+                ><v-icon>mdi-plus</v-icon></v-btn
+              >
+            </div>
           </div>
-          <div class="d-flex align-center justify-center mr-6">
-            <v-btn @click="incrementQuantity()" small large fab plain class="minus" color="#00ffaa">
-              <v-icon>mdi-minus</v-icon></v-btn
-            >
-            <p class="px-3">{{item.quantity}}</p>
-            <v-btn @click="addToCart()" light large fab plain class="plus" color="#00ffaa"
-              ><v-icon>mdi-plus</v-icon></v-btn
-            >
-          </div>
-        </div>
         </div>
       </div>
       <v-spacer></v-spacer>
@@ -77,19 +99,19 @@ export default {
       drawer: false,
     }
   },
-  computed:{
-    cart(){
-      return this.$store.state.cart;
-    }
+  computed: {
+    cartTotalAmount() {
+      return this.$store.getters.cartItemCount
+    },
   },
   methods: {
-    removeCartProduct(product){
-      this.$store.dispatch("removeCartProduct", product)
+    removeCartProduct(product) {
+      this.$store.dispatch('removeCartProduct', product)
     },
-    incrementQuantity(product){
-      this.$store.dispatch("incrementQuantity", product)
-    }
-  }
+    incrementQuantity(product) {
+      this.$store.dispatch('incrementQuantity', product)
+    },
+  },
 }
 </script>
 

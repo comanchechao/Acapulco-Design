@@ -2,6 +2,7 @@
   <div>
     <v-app-bar
       id="app"
+      class="pt-6"
       justify-center
       color="transparent"
       width="100%"
@@ -9,9 +10,16 @@
       elevation="0"
     >
       <NuxtLink to="/aboutUs">
-        <v-btn class="mx-4" dark rounded large color="transparent">
+        <v-btn
+          class="mx-4 Btn"
+          dark
+          depressed
+          rounded
+          x-large
+          color="transparent"
+        >
           <v-icon class="pr-2" large>mdi-meditation</v-icon>
-          <span> About Us </span>
+          <span class="aboutUs"> About Us </span>
         </v-btn>
       </NuxtLink>
       <v-spacer></v-spacer>
@@ -23,9 +31,10 @@
       <v-menu transition="slide-y-transition" bottom open-on-hover>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            depressed
             x-large
             v-bind="attrs"
-            color="transparent"
+            color="transparent Btn"
             class="mx-2 animate__animated animate__fadeIn animate__delay-0.0s"
             v-on="on"
           >
@@ -38,33 +47,14 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <!-- <div>
-        <v-btn dark large color="transparent">
-          <v-icon> mdi-account-cowboy-hat </v-icon>
-        </v-btn>
-      </div> -->
-      <div>
+
+      <div class="px-5">
         <LoginDialog />
-        <!-- <v-menu
-          transition="slide-y-transition"
-          bottom
-          class="d-flex justify-center"
-        >
-          <v-list>
-            <v-list-item>
-              <SignupDialog />
-            </v-list-item>
-            <v-list-item> <LoginDialog /></v-list-item>
-          </v-list>
-        </v-menu> -->
       </div>
-      <!-- <v-sheet
-      id="scrolling-techniques-5"
-      class="overflow-y-auto"
-      max-height="600"
-    >
-    </v-sheet> -->
-      <ShoppingCartDrawer />
+
+      <div class="ma-0 pa-0">
+        <ShoppingCartDrawer />
+      </div>
     </v-app-bar>
   </div>
 </template>
@@ -79,11 +69,11 @@ export default {
     }
   },
 
-  // computed: {
-  //   Cart() {
-  //     return this.$store.state.Cart
-  //   },
-  // },
+  computed: {
+    cartTotalAmount() {
+      return this.$store.getters.cartItemCount()
+    },
+  },
   // created() {
   //   axios.get('http://127.0.0.1:8000/api/category/').then((response) => {
   //     this.categories = response.data
@@ -94,10 +84,18 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 #app {
   z-index: 2;
 }
-
+span {
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
 .sticky {
   background-color: #fff;
 }

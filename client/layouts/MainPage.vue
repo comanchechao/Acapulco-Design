@@ -7,28 +7,28 @@
           :class="{ animate__zoomOut: CartDisplay }"
         >
           <h1
-            class="acapulco animate__animated animate__fadeIn animate__delay-1s"
+            class="pt-14 mt-5 acapulco animate__animated animate__fadeIn animate__delay-1s"
           >
             Acapulco Design
           </h1>
         </div>
-        <div class="limited my-5">
+        <!-- <div class="limited my-5">
           <h2
             class="h2-home animate__animated animate__fadeIn animate__delay-2s"
           >
             Limited custom handmade <br />
             merchendise by
           </h2>
-        </div>
-        <div class="logo mt-5">
+        </div> -->
+        <!-- <div class="logo mt-5">
           <v-img
             position="center center"
             class="image animate__animated animate__fadeIn animate__delay-3s"
             src="/sketch-1606252673782.png"
-            max-height="300px"
+            max-height="600px"
             max-width="600px"
           ></v-img>
-        </div>
+        </div> -->
         <!-- <v-img
           class="home-background"
           max-height="900"
@@ -57,6 +57,8 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sahitya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @font-face {
   font-family: 'Bernadette';
   font-style: normal;
@@ -79,24 +81,8 @@ export default {
   align-items: center;
 }
 
-/* #depth{
-  box-shadow:6px 5px 4px #0d1b2a;
-  display: block;
-  justify-content: center;
-  width: 100%;
-  height: 700px;
- background-position: center;
-  background-image: url('/Custom1.jpg');
-  border-radius: 10px;
-  background-size: cover;
-  margin: 10px;
-  background-position: center;
-  transition: ease-in-out 0.3s;
-} */
-
 .acapulco-div {
   grid-area: 2 / 3 / 3 / 4;
-  /* width: 300px; */
 }
 
 .limited {
@@ -119,14 +105,17 @@ export default {
 .acapulco {
   /* margin-bottom: 40px;
   margin-top: 20px; */
-  font-family: 'sail';
-  text-shadow: 6px 5px 4px #195f5a;
+  font-family: 'Sail';
+  /* text-shadow: 6px 5px 4px #363636; */
   z-index: 1;
-  font-size: 170px;
+  font-size: 230px;
   /* backdrop-filter: blur(4px); */
   text-align: center;
-  color: #fffb00;
-  line-height: 90%;
+  color: #fcedd8;
+  text-shadow: 5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b,
+    20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b,
+    35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b;
+  line-height: 100%;
   /* position: absolute;
   top: 10%;
   left: 8%;

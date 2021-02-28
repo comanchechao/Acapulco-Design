@@ -7,7 +7,8 @@
             <v-btn
               v-bind="attrs"
               dark
-              large
+              x-large
+              depressed
               fab
               class="animate__animated animate__fadeIn animate__delay-0.0s"
               color="transparent"
