@@ -103,6 +103,9 @@ export default {
     cartTotalAmount() {
       return this.$store.getters.cartItemCount
     },
+    cart() {
+      return this.$store.state.cart
+    }
   },
   methods: {
     removeCartProduct(product) {
