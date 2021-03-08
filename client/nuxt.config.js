@@ -26,7 +26,7 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
-  //Middleware
+  // Middleware
   serverMiddleware: [{ path: '~/../server/', handler: '~/../server/index.js' }],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -43,10 +43,50 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
+    'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
   ],
+
+  gsap: {
+    extraPlugins: {
+      // scrollTo: true,
+      easel: true,
+      scrollTrigger: true,
+    },
+    // extraEases: {
+    //   expoScaleEase: true,
+    // },
+  },
+  // pageTransition: {
+  //   name: 'page',
+  //   mode: 'out-in',
+  //   css: false,
+
+  //   beforeEnter(el) {
+  //     this.$gsap.set(el, {
+  //       opacity: 0,
+  //     })
+  //   },
+
+  //   enter(el, done) {
+  //     this.$gsap.to(el, {
+  //       opacity: 1,
+  //       duration: 0.5,
+  //       ease: 'power2.inOut',
+  //       onComplete: done,
+  //     })
+  //   },
+
+  //   leave(el, done) {
+  //     this.$gsap.to(el, {
+  //       opacity: 0,
+  //       duration: 0.5,
+  //       ease: 'power2.inOut',
+  //       onComplete: done,
+  //     })
+  //   },
+  // },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [

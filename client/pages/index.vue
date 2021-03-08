@@ -1,14 +1,11 @@
 <template>
   <v-app id="main">
-    <Navbar
-      id="navbar"
-      class="animate__animated animate__fadeIn animate__delay-0.7s"
-    />
+    <Navbar id="navbar" class="" />
     <v-spacer></v-spacer>
     <v-main class="">
       <v-container>
         <component :is="component" class="animate__animated"></component>
-        <ProductList class="product-list" />
+        <!-- <ProductList class="product-list" /> -->
         <!-- <div v-show="ShowProducts == false" id="switch">
           <v-btn
             id="switch-button"
@@ -32,7 +29,7 @@ import Navbar from '@/layouts/Navbar.vue'
 // import VueScrollSnap from 'vue-scroll-snap'
 import MainPage from '@/layouts/MainPage.vue'
 import ProductCard from '@/components/ProductCard.vue'
-import ProductList from '@/components/ProductList.vue'
+// import ProductList from '@/components/ProductList.vue'
 // import Footer from '@/layouts/Footer.vue'
 // import MiniCart from '../components/MiniCart.vue'
 
@@ -41,7 +38,7 @@ export default {
   components: {
     MainPage,
     ProductCard,
-    ProductList,
+    // ProductList,
     Navbar,
     // Footer,
     // MiniCart,
@@ -75,22 +72,30 @@ export default {
   } */
 
 body {
-  animation: 10000ms ease-in-out infinite color-change;
+  height: 100vh;
+  scroll-behavior: smooth;
 }
 
 html {
-  scroll-behavior: smooth;
+  height: 500vh;
+}
+
+canvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  max-height: 100vh;
+  max-width: 100vw;
+  transform: translate(-50%, -50%);
 }
 
 #main {
   /* background-color: #d8bbff; */
-  height: 100%;
-  display: block;
-  background-position: top;
+  /* display: block;
+  background-position: top; */
   /* background-repeat: repeat; */
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  /* background-repeat: no-repeat; */
+  /* background-size: 100%; */
   z-index: 1;
   /* animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;

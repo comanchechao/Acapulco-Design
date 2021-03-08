@@ -2,12 +2,17 @@
   <div>
     <v-app-bar
       id="app"
-      class="pt-6"
+      v-gsap.to="{
+        opacity: 1,
+        duration: 1.7,
+        ease: 'circ.out',
+      }"
       justify-center
       color="transparent"
       width="100%"
       fixed
       elevation="0"
+      class="mt-5"
     >
       <NuxtLink to="/aboutUs">
         <v-btn
@@ -35,7 +40,7 @@
             x-large
             v-bind="attrs"
             color="transparent Btn"
-            class="mx-2 animate__animated animate__fadeIn animate__delay-0.0s"
+            class="mx-2"
             v-on="on"
           >
             <span class="white--text"> Explore </span>
@@ -87,6 +92,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 #app {
   z-index: 2;
+  opacity: 0;
 }
 span {
   font-family: 'Acme', sans-serif;

@@ -56,25 +56,18 @@
             </div>
             <div class="d-flex align-center justify-center mr-6">
               <v-btn
-                @click="incrementQuantity()"
                 small
                 large
                 fab
                 plain
                 class="minus"
                 color="#00ffaa"
+                @click="incrementQuantity()"
               >
                 <v-icon>mdi-minus</v-icon></v-btn
               >
               <p class="px-3">{{ item.quantity }}</p>
-              <v-btn
-                @click="addToCart()"
-                light
-                large
-                fab
-                plain
-                class="plus"
-                color="#00ffaa"
+              <v-btn light large fab plain class="plus" color="#00ffaa"
                 ><v-icon>mdi-plus</v-icon></v-btn
               >
             </div>
@@ -96,6 +89,7 @@
 export default {
   data() {
     return {
+      cart: [],
       drawer: false,
     }
   },

@@ -1,26 +1,29 @@
 <template>
-  <v-main id="main pa-0 my-4">
-    <v-container>
-      <div id="depth">
-        <div
-          class="acapulco-div pa-0 my-12"
-          :class="{ animate__zoomOut: CartDisplay }"
+  <v-main id="main pa-0 my-0">
+    <div id="depth">
+      <div class="acapulco-div" :class="{ animate__zoomOut: CartDisplay }">
+        <h1
+          v-gsap.to="{
+            y: 40,
+            opacity: 1,
+            duration: 1.5,
+            ease: 'circ.out',
+          }"
+          grid-list-lg
+          class="acapulco"
         >
-          <h1
-            class="pt-14 mt-5 acapulco animate__animated animate__fadeIn animate__delay-1s"
-          >
-            Acapulco Design
-          </h1>
-        </div>
-        <!-- <div class="limited my-5">
-          <h2
-            class="h2-home animate__animated animate__fadeIn animate__delay-2s"
-          >
-            Limited custom handmade <br />
-            merchendise by
-          </h2>
-        </div> -->
-        <!-- <div class="logo mt-5">
+          Acapulco Design
+        </h1>
+      </div>
+    </div>
+    <v-spacer></v-spacer>
+    <v-container>
+      <div class="limited content">
+        <h2 class="h2-home">
+          Limited custom handmade <br />
+          merchendise by :
+        </h2>
+        <div class="logo mt-5">
           <v-img
             position="center center"
             class="image animate__animated animate__fadeIn animate__delay-3s"
@@ -28,13 +31,14 @@
             max-height="600px"
             max-width="600px"
           ></v-img>
-        </div> -->
-        <!-- <v-img
-          class="home-background"
-          max-height="900"
-          src="/tabitha-turner--_bSa4Sn1Bs-unsplash.jpg"
-        ></v-img> -->
+        </div>
       </div>
+    </v-container>
+    <v-container class="secondContainer" grid-list-md>
+      <div class="textDiv">
+        <h2>Lighters</h2>
+      </div>
+      <div class="boxDiv"></div>
     </v-container>
   </v-main>
 </template>
@@ -45,10 +49,30 @@
     </div> -->
 
 <script>
+// import gsap from 'gsap'
 export default {
   computed: {
     CartDisplay() {
       return this.$store.state.CartDisplay
+    },
+  },
+  mounted() {
+    this.animateOnScroll()
+  },
+  methods: {
+    animateOnScroll() {
+      this.$gsap.to(window, { duration: 2, scrollTo: 1000 })
+
+      this.$gsap.to('.acapulco-div', {
+        x: 500,
+        ease: 'Power1.easeInOut',
+        scrollTrigger: {
+          trigger: '.content',
+          pin: true,
+          end: 'bottom',
+          scrub: true,
+        },
+      })
     },
   },
 }
@@ -74,18 +98,17 @@ export default {
 
 #main {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 5fr repeat(2, 1fr);
-  grid-template-rows: 1fr 3fr 1fr 2fr 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
   align-items: center;
 }
 
 .acapulco-div {
+  margin-top: 5em;
   grid-area: 2 / 3 / 3 / 4;
 }
 
 .limited {
+  margin-top: 27em;
   grid-area: 4 / 3 / 5 / 4;
   justify-content: center;
   align-items: center;
@@ -105,6 +128,7 @@ export default {
 .acapulco {
   /* margin-bottom: 40px;
   margin-top: 20px; */
+  opacity: 0;
   font-family: 'Sail';
   /* text-shadow: 6px 5px 4px #363636; */
   z-index: 1;
