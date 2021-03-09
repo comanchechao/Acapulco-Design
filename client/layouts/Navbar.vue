@@ -4,7 +4,7 @@
       id="app"
       v-gsap.to="{
         opacity: 1,
-        duration: 1.7,
+        duration: 1.4,
         ease: 'circ.out',
       }"
       justify-center

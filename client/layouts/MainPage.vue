@@ -7,6 +7,7 @@
             y: 40,
             opacity: 1,
             duration: 1.5,
+            delay: 1.5,
             ease: 'circ.out',
           }"
           grid-list-lg
