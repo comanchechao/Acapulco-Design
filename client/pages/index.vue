@@ -1,5 +1,5 @@
 <template>
-  <v-app id="main">
+  <v-app id="main" class="pt-6">
     <Navbar id="navbar" class="" />
     <v-spacer></v-spacer>
     <v-main class="">

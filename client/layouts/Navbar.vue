@@ -12,7 +12,7 @@
       width="100%"
       fixed
       elevation="0"
-      class="mt-5"
+      class="pt-6"
     >
       <NuxtLink to="/aboutUs">
         <v-btn
