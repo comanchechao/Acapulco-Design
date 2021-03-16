@@ -263,7 +263,7 @@ export default {
 
   font-family: 'Sail';
   /* text-shadow: 6px 5px 4px #363636; */
-  z-index: 1;
+  z-index: 0;
   font-size: 230px;
   /* backdrop-filter: blur(4px); */
   text-align: center;

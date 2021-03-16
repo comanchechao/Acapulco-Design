@@ -124,7 +124,6 @@ export default {
         })
         .catch((e) => {
           this.$snotify.error(e.message)
-          console.log(e)
         })
     },
     signInUser() {
@@ -134,7 +133,6 @@ export default {
           password: this.password,
         })
         .then((data) => {
-          console.log(data)
           this.$router.push('/')
         })
         .catch((error) => {

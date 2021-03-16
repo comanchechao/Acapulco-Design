@@ -90,11 +90,14 @@
                   ></v-select>
                 </v-col>
                 <v-col cols="6">
-                  <div class="saveBtn d-flex justify-center">
-                    <v-btn x-large rounded color="#000A36">
-                      <span class="saveText py-6 pl-5"> Save </span>
+                  <div class="mt-3 d-flex flex-column justify-end align-center">
+                    <button class="saveBtn">
+                      <span class="px-9 py-8 savBtnText"> Checkout </span>
+                    </button>
+                    <!-- <v-btn x-large rounded color="#000A36">
+                      <span class="saveText my-3 py-9 px-5"> Save </span>
                       <v-icon class="pl-1" large>mdi-check-circle</v-icon>
-                    </v-btn>
+                    </v-btn> -->
                   </div>
                 </v-col>
                 <!-- <v-col cols="12" sm="6">
@@ -128,6 +131,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 .wrapper {
   background-image: linear-gradient(
@@ -186,9 +190,27 @@ export default {
   font-family: 'Londrina Solid', cursive;
 }
 
-.saveText {
+/* .saveText {
   font-size: 2rem;
   font-family: 'Londrina Solid', cursive;
+} */
+
+.saveBtn {
+  font-size: 30px;
+  background-color: #0baf78;
+  /* border: 3px solid #0baf78; */
+
+  color: #f3f3f3;
+  border-radius: 35px;
+  transition: ease-in-out 0.2s;
+  padding: 9px 20px;
+  font-family: 'Acme', sans-serif;
+}
+
+.saveBtn:hover {
+  background-color: #d4e300;
+  color: #001d2f;
+  /* border: 3px solid #0793c2; */
 }
 
 .dialog {

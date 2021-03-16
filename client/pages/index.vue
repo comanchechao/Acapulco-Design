@@ -134,7 +134,7 @@ canvas {
 
 @keyframes color-change {
   0% {
-    background-color: #ade7e7;
+    background-color: #83f1f1;
   }
   /* 15% {
     background-color: #7ec6c8;
@@ -142,8 +142,8 @@ canvas {
   30% {
     background-color: #a1dfa1;
   } */
-  45% {
-    background-color: #a6a6db;
+  50% {
+    background-color: #55dd8e;
   }
   /* 60% {
     background-color: #d8a5d8;
@@ -155,7 +155,7 @@ canvas {
     background-color: #ade7e7;
   } */
   100% {
-    background-color: #d8bbff;
+    background-color: #595bee;
   }
 }
 
