@@ -270,7 +270,7 @@ export default {
   height: 100vh;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 5em;
-  color: #272727;
+  color: #120129;
 }
 
 #acapulcoShirtsText {
@@ -278,17 +278,17 @@ export default {
 }
 .learnMoreBtn {
   font-size: 30px;
-  background-color: #0baf78;
-  color: #f3f3f3;
+  background-color: #ff4a68;
+  color: #120129;
   border-radius: 35px;
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.3s;
   padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .learnMoreBtn:hover {
-  background-color: #d4e300;
-  color: #001d2f;
+  background-color: #120129;
+  color: #ff4a68;
 }
 
 .pictureDiv {
