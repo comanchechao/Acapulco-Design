@@ -9,9 +9,8 @@
         large
         v-on="on"
       >
-        <span class="white--text signup-text">
-          <v-icon>mdi-account-key</v-icon> Signup
-        </span>
+        <v-icon medium>mdi-account-key</v-icon>
+        <span class="white--text signup-text px-3"> Signup </span>
       </v-btn>
     </template>
     <div>
@@ -114,8 +113,7 @@ export default {
           name: this.name,
         })
         .then((data) => {
-          console.log(data)
-          this.$router.push('/')
+          this.$router.push('/profilepage')
         })
         .catch((err) => {
           this.error = err
@@ -128,18 +126,20 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
 .signup-text {
-  font-size: 20px;
+  font-size: 1.7em;
   color: rgb(73, 73, 73);
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Acme', sans-serif;
   font-weight: 800;
   text-transform: capitalize;
 }
 .signupText {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Acme', sans-serif;
   text-transform: capitalize;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 1.7em;
 }
 
 .error {

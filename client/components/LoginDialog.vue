@@ -10,7 +10,7 @@
               x-large
               depressed
               fab
-              class="animate__animated animate__fadeIn animate__delay-0.0s"
+              class=""
               color="transparent"
               v-on="{ ...tooltip, ...menu }"
             >
@@ -79,7 +79,7 @@
             >
           </div>
           <div class="d-flex justify-center align-center">
-            <p class="signup mr-6 mt-5">already have an account?</p>
+            <p class="signup mr-6 mt-5">Don't have an account?</p>
             <SignupDialog />
           </div>
           <p v-if="error" class="error">
@@ -120,7 +120,7 @@ export default {
         .signInWithPopup(this.provider)
         .then((result) => {
           // store the user ore wathever
-          this.$router.push('/')
+          this.$router.push('/profilepage')
         })
         .catch((e) => {
           this.$snotify.error(e.message)
@@ -146,6 +146,8 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
 /* .login-text {
   font-size: 15px;
   color: rgb(73, 73, 73);
@@ -155,17 +157,17 @@ export default {
 } */
 .loginText,
 .googleText {
-  font-family: 'Roboto Slab', serif;
-  font-size: 19px;
+  font-family: 'Acme', sans-serif;
+  font-size: 1.3em;
   text-transform: capitalize;
   font-weight: 500;
 }
 
 .signup,
 .title {
-  font-size: 20px;
+  font-size: 1.6em;
   color: #494949;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Acme', sans-serif;
   font-weight: 700;
   text-align: center;
   text-transform: capitalize;

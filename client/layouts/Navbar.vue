@@ -12,8 +12,18 @@
       width="100%"
       fixed
       elevation="0"
-      class="pt-6"
+      class="pt-8"
     >
+      <!-- <v-btn
+        v-if="user"
+        :click="signOut()"
+        dark
+        depressed
+        rounded
+        x-large
+        color="transparent"
+        >Logout</v-btn
+      > -->
       <NuxtLink to="/aboutUs">
         <v-btn
           class="mx-4 Btn"
@@ -56,6 +66,11 @@
       <div class="px-5">
         <LoginDialog />
       </div>
+      <!-- <div v-if="user">
+        <ProfilePageDialog />
+      </div> -->
+
+      <!-- <div></div> -->
 
       <div class="ma-0 pa-0">
         <ShoppingCartDrawer />
@@ -77,6 +92,17 @@ export default {
   computed: {
     cartTotalAmount() {
       return this.$store.getters.cartItemCount()
+    },
+    user() {
+      return this.$store.getters.getUser
+    },
+  },
+
+  methods: {
+    signOut() {
+      this.$store.dispatch('signOut').then((data) => {
+        this.$router.push('/')
+      })
     },
   },
   // created() {

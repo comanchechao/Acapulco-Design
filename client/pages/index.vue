@@ -56,11 +56,20 @@ export default {
       return this.$store.state.CartDisplay
     },
   },
+
+  created() {
+    this.setUser()
+  },
   mounted() {
     window.addEventListener('scroll', function () {
       const navbar = document.querySelector('#navbar')
       navbar.classList.toggle('sticky', window.scrollY > 0)
     })
+  },
+  methods: {
+    setUser() {
+      this.$store.dispatch('setUser')
+    },
   },
 }
 </script>

@@ -18,7 +18,15 @@
         >
           Acapulco Design
         </h1>
-        <div class="scrollDownBtn">
+        <div
+          v-gsap.to="{
+            opacity: 1,
+            duration: 0.6,
+            delay: 1.9,
+            ease: 'circ.out',
+          }"
+          class="scrollDownBtn"
+        >
           <v-btn x-large rounded fab depressed dark color="transparent">
             <v-icon x-large>mdi-arrow-up-down</v-icon>
           </v-btn>
@@ -29,7 +37,7 @@
     <v-spacer></v-spacer>
     <v-container class="firstContainer content pl-8 mb-10">
       <v-row>
-        <v-col cols="6">
+        <v-col cols="6" align-end>
           <div class="limited">
             <h2 class="h2-home">
               <span class="limitedSpan">Limited</span>, <span>custom</span>,
@@ -52,9 +60,9 @@
       </v-row>
     </v-container>
     <v-container class="secondContainer content">
-      <v-row justify-center>
-        <v-col cols="6">
-          <div class="textDiv">
+      <v-row>
+        <v-col cols="6" align-self="center">
+          <div class="textDiv d-flex flex-column align-start">
             <h3>Lighters</h3>
             <button class="learnMoreBtn">
               <span class="px-9 py-8 LearnMoreText"> Learn More </span>
@@ -62,22 +70,37 @@
           </div></v-col
         >
         <v-col cols="6">
-          <div class="pictureDiv">
-            <v-img> </v-img>
-          </div>
+          <div class="pictureDiv d-flex"></div>
         </v-col>
       </v-row>
     </v-container>
     <v-container class="thirdContainer content">
-      <v-row justify-center>
+      <v-row>
         <v-col cols="6">
           <div class="pictureDiv">
             <v-img> </v-img>
           </div>
         </v-col>
-        <v-col cols="6">
-          <div class="textDiv">
+        <v-col cols="6" align-self="center">
+          <div class="textDiv d-flex flex-column align-end">
             <h3 id="acapulcoShirtsText">Acapulco Shirts</h3>
+            <button class="learnMoreBtn">
+              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+            </button>
+          </div></v-col
+        >
+      </v-row>
+    </v-container>
+    <v-container class="forthContainer content">
+      <v-row>
+        <v-col cols="6">
+          <div class="pictureDiv">
+            <v-img> </v-img>
+          </div>
+        </v-col>
+        <v-col cols="6" align-self="center">
+          <div class="textDiv d-flex flex-column align-end">
+            <h3 id="acapulcoShirtsText">Custom Matchboxes</h3>
             <button class="learnMoreBtn">
               <span class="px-9 py-8 LearnMoreText"> Learn More </span>
             </button>
@@ -102,10 +125,29 @@ export default {
     },
   },
   mounted() {
+    this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
   },
   methods: {
+    animatePictureDiv() {
+      const gsap = this.$gsap
+      const pictureDivs = this.$gsap.utils.toArray('.pictureDiv')
+      const tl = gsap.timeline()
+      pictureDivs.forEach((pictureDiv) => {
+        tl.to(pictureDiv, {
+          width: 600,
+          scrollTrigger: {
+            trigger: pictureDiv,
+            scrub: 0.7,
+            start: 'top bottom',
+            end: 'top center',
+            toggleActions: 'play none none reset',
+          },
+        })
+      })
+    },
+
     animateScrollDownBtn() {
       const gsap = this.$gsap
       const tl = gsap.timeline({ repeat: -1, yoyo: true })
@@ -117,6 +159,24 @@ export default {
       )
     },
     animateOnScroll() {
+      const tl = this.$gsap.timeline()
+      tl.fromTo(
+        '.acapulco-div',
+        {
+          opacity: 1,
+          y: 40,
+        },
+        {
+          opacity: 0,
+          y: 0,
+          scrollTrigger: {
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.5,
+            trigger: '.acapulco',
+          },
+        }
+      )
       const contents = this.$gsap.utils.toArray('.content')
       contents.forEach((content) => {
         this.$gsap.fromTo(
@@ -140,7 +200,7 @@ export default {
         )
         this.$gsap.fromTo(
           content,
-          { y: -120, opacity: 1 },
+          { y: -120 },
           {
             y: -150,
             opacity: 0,
@@ -169,6 +229,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 @font-face {
   font-family: 'Bernadette';
@@ -200,14 +261,14 @@ export default {
 .firstContainer {
   width: 100vw;
   height: 100vh;
-  /* background-color: #dfdfdf; */
 }
 
 .secondContainer,
-.thirdContainer {
+.thirdContainer,
+.forthContainer {
   width: 100vw;
   height: 100vh;
-  font-family: 'Acme', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 5em;
   color: #272727;
 }
@@ -218,25 +279,29 @@ export default {
 .learnMoreBtn {
   font-size: 30px;
   background-color: #0baf78;
-  /* border: 3px solid #0baf78; */
-
   color: #f3f3f3;
   border-radius: 35px;
   transition: ease-in-out 0.2s;
   padding: 9px 20px;
-  font-family: 'Acme', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .learnMoreBtn:hover {
   background-color: #d4e300;
   color: #001d2f;
-  /* border: 3px solid #0793c2; */
 }
 
 .pictureDiv {
   width: 300px;
-  height: 700px;
-  background-color: #1f0a3a;
+  height: 500px;
+  background-color: #dddddd;
+  box-shadow: 0 2.3px 7px -20px rgba(0, 0, 0, 0.023),
+    0 5.4px 16.2px -20px rgba(0, 0, 0, 0.034),
+    0 9.7px 29px -20px rgba(0, 0, 0, 0.041),
+    0 16.1px 48.2px -20px rgba(0, 0, 0, 0.049),
+    0 26.5px 79.4px -20px rgba(0, 0, 0, 0.056),
+    0 46.2px 138.7px -20px rgba(0, 0, 0, 0.067),
+    0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
 .limited {
   grid-area: 4 / 3 / 5 / 4;
@@ -246,9 +311,7 @@ export default {
 .logo {
   grid-area: 4 / 3 / 5 / 4;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* max-width: 600px; */
 }
 
 .image {
@@ -256,27 +319,20 @@ export default {
 }
 
 .acapulco {
-  /* margin-bottom: 40px;
-  margin-top: 20px; */
   opacity: 0;
-  /* margin-top: 5em; */
-
   font-family: 'Sail';
-  /* text-shadow: 6px 5px 4px #363636; */
   z-index: 0;
   font-size: 230px;
-  /* backdrop-filter: blur(4px); */
   text-align: center;
   color: #fcedd8;
   text-shadow: 5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b,
     20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b,
     35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b;
   line-height: 100%;
-  /* position: absolute;
-  top: 10%;
-  left: 8%;
-  transform: translate(-50%, -50%);
-   */
+}
+
+.scrollDownBtn {
+  opacity: 0;
 }
 
 .h2-home {
@@ -293,7 +349,6 @@ export default {
 }
 #main {
   color: transparent;
-  /* padding: 20%; */
 }
 
 @media screen and (max-width: 800px) {

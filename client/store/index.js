@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Vuex from 'vuex'
 import axios from 'axios'
 import firebase from 'firebase/app'
@@ -6,35 +7,29 @@ import 'firebase/auth'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      user: '',
+      user: null,
       account: null,
       products: [],
       cart: [],
     },
 
     getters: {
-      user(state) {
-        return state.user
-      },
+      getUser: (state) => state.user,
 
       // open some place for this big G
       cartItemCount: (state) => {
-        return state.cart.length;
+        return state.cart.length
       },
-      
+
       // use this in the shopping cart drawer
       cartTotalPrice: (state) => {
         let total = 0
 
-        state.cart.forEach(item => {
+        state.cart.forEach((item) => {
           total = item.product.price * item.quantity
         })
 
         return total
-      },
-
-      isAuthenticated(state) {
-        return !!state.user
       },
 
       cartSize: (state) => {
@@ -51,8 +46,8 @@ const createStore = () => {
     },
 
     mutations: {
-      setUser(state, payload) {
-        state.user = payload
+      setUser: (state) => {
+        state.user = firebase.auth().currentUser
       },
       setUpProducts: (state, productsPayload) => {
         // sets the state's  products property to the products array recieved as payload
@@ -63,25 +58,27 @@ const createStore = () => {
         state.products = products
       },
       AddToCart: (state, { product, quantity }) => {
-        const productInCart = state.cart.find(item => item.product._id === product._id)
+        const productInCart = state.cart.find(
+          (item) => item.product._id === product._id
+        )
 
-        console.log(productInCart);
+        console.log(productInCart)
 
-        if(productInCart){
+        if (productInCart) {
           productInCart.quantity += quantity
           return
         }
 
         state.cart.push({
           product,
-          quantity
+          quantity,
         })
       },
-      removeProduct: (state , product) =>{
-        state.cart = state.cart.filter(item => {
+      removeProduct: (state, product) => {
+        state.cart = state.cart.filter((item) => {
           return item.product._id !== product._id
         })
-      } 
+      },
     },
     actions: {
       //  fetching the products from server side passing to set products mutaions
@@ -94,21 +91,27 @@ const createStore = () => {
       addProductToCart: ({ commit }, { product, quantity }) => {
         commit('AddToCart', { product, quantity })
 
-        axios.post('http://localhost:4000/api/orders' , {
+        axios.post('http://localhost:4000/api/orders', {
           product: product._id,
-          quantity
+          quantity,
         })
       },
 
-      removeCartProduct: ({commit}, product) => {
-        commit('removeProduct' , product)
+      removeCartProduct: ({ commit }, product) => {
+        commit('removeProduct', product)
       },
 
-      
       signUp({ commit }, { email, password, name }) {
         return firebase
           .auth()
           .createUserWithEmailAndPassword(email, password, name)
+          .then(() => {
+            const user = firebase.auth().currentUser
+            const actionCodeSettings = {
+              url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
+            }
+            user.sendEmailVerification(actionCodeSettings)
+          })
       },
 
       signInWithEmail({ commit }, { email, password }) {
@@ -117,6 +120,9 @@ const createStore = () => {
 
       signOut() {
         return firebase.auth().signOut()
+      },
+      setUser: (context) => {
+        context.commit('setUser')
       },
       //   fetchProducts: ({ commit }) => {
       //     // simulating a fake ajax request to fetch products from database
