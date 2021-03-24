@@ -27,7 +27,15 @@
           }"
           class="scrollDownBtn"
         >
-          <v-btn x-large rounded fab depressed dark color="transparent">
+          <v-btn
+            class="mb-4"
+            x-large
+            rounded
+            fab
+            depressed
+            dark
+            color="transparent"
+          >
             <v-icon x-large>mdi-arrow-up-down</v-icon>
           </v-btn>
         </div>
@@ -83,7 +91,7 @@
         </v-col>
         <v-col cols="6" align-self="center">
           <div class="textDiv d-flex flex-column align-end">
-            <h3 id="acapulcoShirtsText">Acapulco Shirts</h3>
+            <h3 id="altText">Acapulco Shirts</h3>
             <button class="learnMoreBtn">
               <span class="px-9 py-8 LearnMoreText"> Learn More </span>
             </button>
@@ -93,19 +101,17 @@
     </v-container>
     <v-container class="forthContainer content">
       <v-row>
-        <v-col cols="6">
-          <div class="pictureDiv">
-            <v-img> </v-img>
-          </div>
-        </v-col>
         <v-col cols="6" align-self="center">
-          <div class="textDiv d-flex flex-column align-end">
-            <h3 id="acapulcoShirtsText">Custom Matchboxes</h3>
+          <div class="textDiv d-flex flex-column align-start">
+            <h3 id="altText">Custom Matchboxes</h3>
             <button class="learnMoreBtn">
               <span class="px-9 py-8 LearnMoreText"> Learn More </span>
             </button>
           </div></v-col
         >
+        <v-col cols="6">
+          <div class="pictureDiv d-flex"></div>
+        </v-col>
       </v-row>
     </v-container>
   </v-main>
@@ -251,7 +257,7 @@ export default {
 }
 
 .acapulco-div {
-  height: 110vh;
+  height: 100vh;
   grid-area: 2 / 3 / 3 / 4;
 }
 .content {
@@ -260,20 +266,20 @@ export default {
 
 .firstContainer {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 .secondContainer,
 .thirdContainer,
 .forthContainer {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 5em;
   color: #120129;
 }
 
-#acapulcoShirtsText {
+#altText {
   font-size: 64px;
 }
 .learnMoreBtn {
