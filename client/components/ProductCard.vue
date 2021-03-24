@@ -15,14 +15,14 @@
           </div>
           <v-spacer></v-spacer>
           <div class="price-div mr-4">
-            <p class="price px-4">${{ product.price }}</p>
+            <p class="price px-4">${{ product.productImage }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="left ml-14">
       <div class="pic-div">
-        <v-img></v-img>
+        <v-img>{{ product.productImage }}</v-img>
       </div>
       <h3 class="pa-2 acapulco">Acapulco Design</h3>
     </div>

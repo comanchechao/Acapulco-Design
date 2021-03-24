@@ -3,8 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan")
 const mongoose = require("mongoose");
-const productsRoutes = require("../client/routes/product");
-const orderRoutes = require("../client/routes/order");
+const productsRoutes = require("./api/routes/product");
+const orderRoutes = require("./api/routes/order");
 require("dotenv").config();
 const port = process.env.PORT || 4000;
 const app = express();
@@ -14,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use("/public/uploads" , express.static(__dirname + "/public/uploads"))
 
 
 // Connecting to database

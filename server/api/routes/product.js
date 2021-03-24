@@ -3,21 +3,21 @@ const router = express.Router()
 const multer = require('multer')
 const path = require('path')
 
-const DIR = '@/static/productImages/'
+const DIR = 'public/uploads/'
 
-// uploading the image to folder 
+// uploading the image to folder
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, DIR)
   },
   filename: (req, file, cb) => {
-    const fileName =file.originalname.toLowerCase().split(' ').join('-')
+    const fileName =
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
     cb(null, fileName)
   },
 })
 
-
-// file validitation 
+// file validitation
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
@@ -36,8 +36,7 @@ const upload = multer({
 
 // const upload = multer({storage: storage})
 
-const Product = require('../../server/database/models/product')
-
+const Product = require('../../database/models/product')
 
 router.get('/', (req, res, next) => {
   Product.find()
@@ -68,15 +67,21 @@ router.get('/', (req, res, next) => {
     })
 })
 
-
-// only able to upload single file 
+// only able to upload single file
 router.post('/', upload.single('productImage'), (req, res, next) => {
   console.log(req.file)
+
+  const file = req.file;
+
+  if(!file) return res.status(400).send("fill Image field")
+
+  fileName = req.file.filename;
+  basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
   const product = new Product({
     title: req.body.title,
     inStock: req.body.inStock,
     price: req.body.price,
-    productImage: req.file.path,
+    productImage: `${basePath}${fileName}`,
   })
   product
     .save()
