@@ -114,8 +114,53 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-container fluid class="fifthContainer content">
+      <v-row class="pb-8">
+        <v-col cols="12">
+          <div class="collections d-flex"></div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" align-self="center">
+          <div class="textDiv d-flex flex-column align-center">
+            <h3 id="altText">Collections</h3>
+            <button class="learnMoreBtn">
+              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+            </button>
+          </div></v-col
+        >
+      </v-row>
+    </v-container>
+    <v-container fluid class="sixthContainer content">
+      <v-row class="pb-8">
+        <v-col cols="12">
+          <div class="d-flex flex-column flex-wrap">
+            <h1 class="introText">We are a Creative Team based in Iran</h1>
+            <h3 class="learnMore">
+              If you want to know us more, maybe get a cup of coffee, you can
+            </h3>
+            <v-btn depressed x-large color="transparent">
+              <span class="LearnMoreText"> Learn More </span>
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="seventhContainer">
+      <v-row>
+        <v-col cols="12">
+          <h1 class="introText">You can contact us with</h1>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12">
+          <div class="collections"></div>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-main>
 </template>
+
 <!-- <div class="">
 
 </v-app>
@@ -140,6 +185,32 @@ export default {
       const gsap = this.$gsap
       const pictureDivs = this.$gsap.utils.toArray('.pictureDiv')
       const tl = gsap.timeline()
+      tl.from('.collections', {
+        opacity: 0,
+        x: 40,
+        scale: 0.2,
+        scrollTrigger: {
+          trigger: '.collections',
+          scrub: 0.7,
+          start: 'top bottom',
+          end: 'top center',
+          toggleActions: 'play none none reset',
+        },
+      })
+
+      // .To('collections', {
+      //   y: -150,
+      //   opacity: 0,
+      //   // ease: 'Power1.easeInOut',
+      //   scrollTrigger: {
+      //     trigger: 'collections',
+      //     start: 'top top',
+      //     end: 'center top',
+      //     scrub: 0.1,
+
+      //     // toggleActions: 'restart none reverse none',
+      //   },
+      // })
       pictureDivs.forEach((pictureDiv) => {
         tl.to(pictureDiv, {
           width: 600,
@@ -234,7 +305,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 @font-face {
@@ -271,11 +342,36 @@ export default {
 
 .secondContainer,
 .thirdContainer,
-.forthContainer {
+.forthContainer,
+.fifthContainer {
   width: 100vw;
   height: 80vh;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 5em;
+  color: #120129;
+}
+
+.sixthContainer {
+  width: 100vw;
+  height: 80vh;
+}
+
+.introText {
+  font-size: 3.6em;
+  font-family: 'Roboto Slab', serif;
+  text-align: start;
+  line-height: 110%;
+  text-transform: capitalize;
+  color: #120129;
+}
+
+.learnMore {
+  font-weight: 300;
+  font-size: 2.6em;
+  font-family: 'Roboto Slab', serif;
+  text-align: start;
+  line-height: 110%;
+  text-transform: capitalize;
   color: #120129;
 }
 
@@ -309,6 +405,20 @@ export default {
     0 46.2px 138.7px -20px rgba(0, 0, 0, 0.067),
     0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
+
+.collections {
+  width: 100%;
+  height: 500px;
+  background-color: #dddddd;
+  box-shadow: 0 2.3px 7px -20px rgba(0, 0, 0, 0.023),
+    0 5.4px 16.2px -20px rgba(0, 0, 0, 0.034),
+    0 9.7px 29px -20px rgba(0, 0, 0, 0.041),
+    0 16.1px 48.2px -20px rgba(0, 0, 0, 0.049),
+    0 26.5px 79.4px -20px rgba(0, 0, 0, 0.056),
+    0 46.2px 138.7px -20px rgba(0, 0, 0, 0.067),
+    0 100px 300px -20px rgba(0, 0, 0, 0.09);
+}
+
 .limited {
   grid-area: 4 / 3 / 5 / 4;
   justify-content: center;
