@@ -73,7 +73,7 @@
           <div class="textDiv d-flex flex-column align-start">
             <h3>Lighters</h3>
             <button class="learnMoreBtn">
-              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+              <span class="px-9 py-8 learnMoreText"> Learn More </span>
             </button>
           </div></v-col
         >
@@ -93,7 +93,7 @@
           <div class="textDiv d-flex flex-column align-end">
             <h3 id="altText">Acapulco Shirts</h3>
             <button class="learnMoreBtn">
-              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+              <span class="px-9 py-8 learnMoreText"> Learn More </span>
             </button>
           </div></v-col
         >
@@ -105,7 +105,7 @@
           <div class="textDiv d-flex flex-column align-start">
             <h3 id="altText">Custom Matchboxes</h3>
             <button class="learnMoreBtn">
-              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+              <span class="px-9 py-8 learnMoreText"> Learn More </span>
             </button>
           </div></v-col
         >
@@ -114,7 +114,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="fifthContainer content">
+    <v-container fluid class="fifthContainer content mb-5">
       <v-row class="pb-8">
         <v-col cols="12">
           <div class="collections d-flex"></div>
@@ -125,23 +125,27 @@
           <div class="textDiv d-flex flex-column align-center">
             <h3 id="altText">Collections</h3>
             <button class="learnMoreBtn">
-              <span class="px-9 py-8 LearnMoreText"> Learn More </span>
+              <span class="px-9 py-8 learnMoreText"> Learn More </span>
             </button>
           </div></v-col
         >
       </v-row>
     </v-container>
     <v-container fluid class="sixthContainer content">
-      <v-row class="pb-8">
+      <v-row class="pb-8" justify="center" align-center align="center">
         <v-col cols="12">
           <div class="d-flex flex-column flex-wrap">
-            <h1 class="introText">We are a Creative Team based in Iran</h1>
-            <h3 class="learnMore">
+            <h1 class="introText">
+              We are a
+              <span class="limitedSpan"> Creative Team </span>
+              based in Iran
+            </h1>
+            <h3 class="learnMore py-5">
               If you want to know us more, maybe get a cup of coffee, you can
             </h3>
-            <v-btn depressed x-large color="transparent">
-              <span class="LearnMoreText"> Learn More </span>
-            </v-btn>
+            <button id="contactUsBtn" class="learnMoreBtn mt-15">
+              <span class="px-9 py-8 learnMoreText"> Contact Us </span>
+            </button>
           </div>
         </v-col>
       </v-row>
@@ -188,7 +192,7 @@ export default {
       tl.from('.collections', {
         opacity: 0,
         x: 40,
-        scale: 0.2,
+        scale: 0.5,
         scrollTrigger: {
           trigger: '.collections',
           scrub: 0.7,
@@ -316,9 +320,14 @@ export default {
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
 }
 
-.home-background {
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+#main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 #main {
@@ -337,7 +346,7 @@ export default {
 
 .firstContainer {
   width: 100vw;
-  height: 90vh;
+  height: 50vh;
 }
 
 .secondContainer,
@@ -353,7 +362,7 @@ export default {
 
 .sixthContainer {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
 }
 
 .introText {
@@ -391,6 +400,18 @@ export default {
 .learnMoreBtn:hover {
   background-color: #120129;
   color: #ff4a68;
+}
+
+#contactUsBtn {
+  transition: ease-in-out 0.3s;
+  font-size: 3em;
+  color: #ff4a68;
+  background-color: #120129;
+}
+
+#contactUsBtn:hover {
+  background-color: #ff4a68;
+  color: #120129;
 }
 
 .pictureDiv {
