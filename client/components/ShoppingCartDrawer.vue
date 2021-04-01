@@ -24,7 +24,7 @@
       temporary
       app
       bottom
-      class="light-green lighten-5 drawer"
+      class="green accent-2 drawer"
       width="33%"
     >
       <!-- <div v-for="product in products" :key="product.id">  

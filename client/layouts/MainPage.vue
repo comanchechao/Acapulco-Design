@@ -142,12 +142,22 @@
             </h1>
             <h3 class="learnMore py-5">
               If you want to know us more, maybe get a cup of coffee, you can
+              <!-- <button id="contactUsBtn" class="learnMoreBtn">
+                <span class="learnMoreText"> Contact Us </span>
+              </button> -->
             </h3>
-            <button id="contactUsBtn" class="learnMoreBtn mt-15">
-              <span class="px-9 py-8 learnMoreText"> Contact Us </span>
-            </button>
           </div>
         </v-col>
+        <v-row>
+          <v-col cols="12">
+            <div class="d-flex align-center justify-center">
+              <video width="620" height="540" autoplay loop muted>
+                <source src="/Y064cQ6.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </v-col>
+        </v-row>
       </v-row>
     </v-container>
     <v-container class="seventhContainer">
@@ -319,6 +329,12 @@ export default {
   font-display: swap;
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'QuickKiss';
+  font-style: normal;
+  font-display: swap;
+  src: url('~assets/fonts/QuickKissPersonalUse-PxlZ.ttf') format('truetype');
+}
 
 #main::-webkit-scrollbar {
   display: none;
@@ -402,17 +418,18 @@ export default {
   color: #ff4a68;
 }
 
-#contactUsBtn {
+/* #contactUsBtn {
+  font-weight: 600;
+  font-family: 'Roboto Slab', serif;
   transition: ease-in-out 0.3s;
-  font-size: 3em;
   color: #ff4a68;
-  background-color: #120129;
+  background-color: transparent;
 }
 
 #contactUsBtn:hover {
   background-color: #ff4a68;
   color: #120129;
-}
+} */
 
 .pictureDiv {
   width: 300px;

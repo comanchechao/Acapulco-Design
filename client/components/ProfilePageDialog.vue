@@ -1,10 +1,10 @@
 <template>
   <v-dialog
     v-model="dialog"
-    fullscreen
     transition="dialog-bottom-transition"
     scrollable
     max-width="600px"
+    max-height="900px"
     hide-overlay
     class="dialog"
   >
@@ -29,6 +29,11 @@
         <span>Check your Profile</span>
       </v-tooltip>
     </template>
+    <v-container>
+      <v-btn x-large class="ml-6 mt-6 pa-3" icon dark @click="dialog = false">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
+    </v-container>
 
     <!-- <div v-if="user() != null">
       <h1>foo foo land</h1>
@@ -74,6 +79,7 @@ import firebase from 'firebase'
 export default {
   data() {
     return {
+      dialog: false,
       error: null,
       emailSending: false,
     }
