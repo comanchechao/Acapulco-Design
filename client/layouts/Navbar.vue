@@ -66,9 +66,9 @@
       <div class="px-5">
         <LoginDialog />
       </div>
-      <div v-if="user">
+      <!-- <div v-if="user">
         <ProfilePageDialog />
-      </div>
+      </div> -->
 
       <!-- <div></div> -->
 
