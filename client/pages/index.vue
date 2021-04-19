@@ -4,7 +4,7 @@
     <v-spacer></v-spacer>
     <v-main class="">
       <v-container>
-        <component :is="component" class="animate__animated"></component>
+        <MainPage />
         <!-- <ProductList class="product-list" /> -->
         <!-- <div v-show="ShowProducts == false" id="switch">
           <v-btn
@@ -28,7 +28,8 @@
 import Navbar from '@/layouts/Navbar.vue'
 // import VueScrollSnap from 'vue-scroll-snap'
 import MainPage from '@/layouts/MainPage.vue'
-import ProductCard from '@/components/ProductCard.vue'
+// import ProductCard from '@/components/ProductCard.vue'
+// import ProductList from './productList'
 // import ProductList from '@/components/ProductList.vue'
 // import Footer from '@/layouts/Footer.vue'
 // import MiniCart from '../components/MiniCart.vue'
@@ -37,7 +38,7 @@ export default {
   name: 'Home',
   components: {
     MainPage,
-    ProductCard,
+    // ProductCard,
     // ProductList,
     Navbar,
     // Footer,
@@ -46,8 +47,8 @@ export default {
 
   data() {
     return {
-      component: 'MainPage',
-      product: this.product,
+      // component: 'MainPage',
+      // product: this.product,
     }
   },
 

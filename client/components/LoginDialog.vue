@@ -21,11 +21,7 @@
         </v-tooltip>
       </template>
       <div>
-        <v-form
-          dark
-          class="loginForm px-10 py-8"
-          @submit.prevent="signInWithEmailAndPassword"
-        >
+        <v-form dark class="loginForm px-10 py-8" @submit.prevent="signInUser">
           <!-- <v-text-field
             v-model="displayName"
             light
@@ -82,7 +78,7 @@
             <p class="signup mr-6 mt-5">Don't have an account?</p>
             <SignupDialog />
           </div>
-          <p v-if="error" class="error">
+          <p v-if="error" class="errorText">
             {{ error }}
           </p>
         </v-form>
@@ -120,7 +116,7 @@ export default {
         .signInWithPopup(this.provider)
         .then((result) => {
           // store the user ore wathever
-          this.$router.push('/profilepage')
+          this.$router.push('/')
         })
         .catch((e) => {
           this.$snotify.error(e.message)
@@ -181,5 +177,11 @@ export default {
 }
 .googleText {
   color: #494949;
+}
+.errorText {
+  font-family: 'Acme', sans-serif;
+  font-size: 1.3em;
+  background-color: white;
+  color: crimson;
 }
 </style>

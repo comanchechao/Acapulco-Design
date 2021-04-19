@@ -72,9 +72,11 @@
         <v-col cols="6" align-self="center">
           <div class="textDiv d-flex flex-column align-start">
             <h3>Lighters</h3>
-            <button class="learnMoreBtn">
-              <span class="px-9 py-8 learnMoreText"> Learn More </span>
-            </button>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
           </div></v-col
         >
         <v-col cols="6">
@@ -92,9 +94,11 @@
         <v-col cols="6" align-self="center">
           <div class="textDiv d-flex flex-column align-end">
             <h3 id="altText">Acapulco Shirts</h3>
-            <button class="learnMoreBtn">
-              <span class="px-9 py-8 learnMoreText"> Learn More </span>
-            </button>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
           </div></v-col
         >
       </v-row>
@@ -104,9 +108,11 @@
         <v-col cols="6" align-self="center">
           <div class="textDiv d-flex flex-column align-start">
             <h3 id="altText">Custom Matchboxes</h3>
-            <button class="learnMoreBtn">
-              <span class="px-9 py-8 learnMoreText"> Learn More </span>
-            </button>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
           </div></v-col
         >
         <v-col cols="6">
@@ -124,9 +130,11 @@
         <v-col cols="12" align-self="center">
           <div class="textDiv d-flex flex-column align-center">
             <h3 id="altText">Collections</h3>
-            <button class="learnMoreBtn">
-              <span class="px-9 py-8 learnMoreText"> Learn More </span>
-            </button>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
           </div></v-col
         >
       </v-row>
@@ -329,6 +337,7 @@ export default {
   font-display: swap;
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'QuickKiss';
   font-style: normal;

@@ -5,35 +5,47 @@
     scrollable
     max-width="600px"
     max-height="900px"
-    hide-overlay
     class="dialog"
   >
-    <template v-slot:activator="{ on: menu, attrs }">
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on: tooltip }">
-          <v-btn
-            color="transparent"
-            class="profilePageBtn d-flex align-center pr-4"
-            v-bind="attrs"
-            rounded
-            depressed
-            x-large
-            fab
-            dark
-            @click="dialog = true"
-            v-on="{ ...tooltip, ...menu }"
-          >
-            <v-icon x-large class="white--text pa-3">mdi-account-key</v-icon>
-          </v-btn>
-        </template>
-        <span>Check your Profile</span>
-      </v-tooltip>
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn
+        v-bind="attrs"
+        light
+        depressed
+        color="transparent"
+        v-on="on"
+        @click="dialog = true"
+      >
+        <v-icon>mdi-account-check</v-icon>
+
+        <span>My Profile</span>
+      </v-btn>
     </template>
-    <v-container>
-      <v-btn x-large class="ml-6 mt-6 pa-3" icon dark @click="dialog = false">
+    <div class="wrapper">
+      <v-btn x-large class="ml-6 mt-6 pa-3" icon light @click="dialog = false">
         <v-icon>mdi-close</v-icon>
       </v-btn>
-    </v-container>
+      <v-container>
+        <v-row>
+          <v-col cols="12">
+            <div class="d-flex justify-center align-center">
+              <v-avatar size="128">
+                <img src="/davisuko-rhUU1pemhQ0-unsplash.jpg" alt="John" />
+              </v-avatar>
+            </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            <div v-if="user">
+              <h1>
+                {{ user.email }}
+              </h1>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
 
     <!-- <div v-if="user() != null">
       <h1>foo foo land</h1>
@@ -90,6 +102,11 @@ export default {
     },
   },
   methods: {
+    signOut() {
+      this.$store.dispatch('signOut').then((data) => {
+        this.$router.push('/')
+      })
+    },
     sendVerifyEmail() {
       this.emailSending = true
       const user = firebase.auth().currentUser
@@ -111,11 +128,23 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  opacity: 90%;
+  background-color: #f0f0f0;
+}
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
   font-family: 'Acme', sans-serif;
   font-weight: 800;
   text-transform: capitalize;
+}
+span {
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
 </style>

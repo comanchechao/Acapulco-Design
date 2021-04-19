@@ -86,7 +86,11 @@
 </template>
 
 <script>
+import CheckoutDialog from './CheckoutDialog'
 export default {
+  components: {
+    CheckoutDialog,
+  },
   data() {
     return {
       cart: [],

@@ -2,7 +2,7 @@
 import Vuex from 'vuex'
 import axios from 'axios'
 import firebase from 'firebase/app'
-import 'firebase/auth'
+// import 'firebase/auth'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -101,17 +101,17 @@ const createStore = () => {
         commit('removeProduct', product)
       },
 
-      signUp({ commit }, { email, password, name }) {
+      signUp({ commit }, { displayName, email, password }) {
         return firebase
           .auth()
-          .createUserWithEmailAndPassword(email, password, name)
-          .then(() => {
-            const user = firebase.auth().currentUser
-            const actionCodeSettings = {
-              url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
-            }
-            user.sendEmailVerification(actionCodeSettings)
-          })
+          .createUserWithEmailAndPassword(displayName, email, password)
+        // .then(() => {
+        //   const user = firebase.auth().currentUser
+        //   const actionCodeSettings = {
+        //     url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
+        //   }
+        //   user.sendEmailVerification(actionCodeSettings)
+        // })
       },
 
       signInWithEmail({ commit }, { email, password }) {

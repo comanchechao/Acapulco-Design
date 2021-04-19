@@ -63,12 +63,51 @@
         </v-list>
       </v-menu>
 
-      <div class="px-5">
+      <div v-if="user" class="px-5">
+        <v-menu light transition="slide-y-transition" bottom>
+          <template v-slot:activator="{ on: menu, attrs }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on: tooltip }">
+                <v-btn
+                  color="transparent"
+                  class="profilePageBtn d-flex align-center pr-4"
+                  v-bind="attrs"
+                  depressed
+                  x-large
+                  fab
+                  dark
+                  @click="dialog = true"
+                  v-on="{ ...tooltip, ...menu }"
+                >
+                  <v-icon class="white--text pl-3">mdi-account-key</v-icon>
+                </v-btn>
+              </template>
+              <span>Welcome back!</span>
+            </v-tooltip>
+          </template>
+          <v-list dense>
+            <v-list-item>
+              <v-list-item-icon>
+                <ProfilePageDialog />
+              </v-list-item-icon>
+            </v-list-item>
+            <v-list-item>
+              <v-btn
+                color="transparent"
+                depressed
+                class="my-3"
+                @click="signOut"
+              >
+                <v-icon>mdi-logout-variant</v-icon>
+                <span> Logout </span>
+              </v-btn>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+      <div v-if="!user">
         <LoginDialog />
       </div>
-      <!-- <div v-if="user">
-        <ProfilePageDialog />
-      </div> -->
 
       <!-- <div></div> -->
 
@@ -80,8 +119,17 @@
 </template>
 
 <script>
+import LoginDialog from '../components/LoginDialog'
+import ProfilePageDialog from '../components/ProfilePageDialog'
+import ShoppingCartDrawer from '../components/ShoppingCartDrawer'
+
 // import axios from 'axios'
 export default {
+  components: {
+    ProfilePageDialog,
+    LoginDialog,
+    ShoppingCartDrawer,
+  },
   data() {
     return {
       categories: [],

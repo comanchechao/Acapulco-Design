@@ -15,14 +15,14 @@
     </template>
     <div>
       <v-form dark class="signupForm pa-10" @submit.prevent="createUser">
-        <v-text-field
-          v-model="name"
-          :rules="nameRules"
+        <!-- <v-text-field
+          v-model="displayName"
+          :rules="displayNameRules"
           light
           class=""
           required
           label="Name"
-        />
+        /> -->
         <v-text-field
           v-model="email"
           :rules="emailRules"
@@ -43,6 +43,16 @@
           class=""
           label="Password"
         />
+        <!-- <v-text-field
+          v-model="passwordRepeat"
+          :rules="passwordRepeatRules"
+          light
+          type="password"
+          required
+          autocomplete
+          class=""
+          label="Repeat Your Password"
+        /> -->
         <div class="text-center">
           <v-btn
             class="mt-4"
@@ -58,7 +68,7 @@
           </v-btn>
         </div>
 
-        <p v-if="error" class="error red--text">
+        <p v-if="error" class="pt-6 errorText">
           {{ error }}
         </p>
       </v-form>
@@ -72,11 +82,11 @@
 export default {
   data: () => ({
     valid: true,
-    name: '',
-    nameRules: [
-      (v) => !!v || 'Name is required',
-      (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
+    // displayName: '',
+    // displayNameRules: [
+    //   (v) => !!v || 'Name is required',
+    //   (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
+    // ],
     email: '',
     emailRules: [
       (v) => !!v || 'E-mail is required',
@@ -90,30 +100,22 @@ export default {
         ) ||
         'Password must contain an upper case letter, a numeric character, and a special character',
     ],
+    // passwordRepeat: '',
+    // passwordRepeatRules: [
+    //   (v) => (!!v && v) === this.match || 'Values do not match',
+    // ],
     error: '',
   }),
   methods: {
-    // createUserWithEmailAndPassword() {
-    //   firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(this.email, this.password)
-    //     .then((data) => {
-    //       console.log(data)
-    //       this.$router.push('/')
-    //     })
-    //     .catch((error) => {
-    //       this.error = error
-    //     })
-    // },
     createUser() {
       this.$store
         .dispatch('signUp', {
           email: this.email,
           password: this.password,
-          name: this.name,
+          // displayName: this.displayName,
         })
         .then((data) => {
-          this.$router.push('/profilepage')
+          this.$router.push('/')
         })
         .catch((err) => {
           this.error = err
@@ -142,8 +144,11 @@ export default {
   font-size: 1.7em;
 }
 
-.error {
-  background: white;
+.errorText {
+  font-family: 'Acme', sans-serif;
+  font-size: 1.3em;
+  background-color: white;
+  color: crimson;
 }
 .signupForm {
   background: rgb(255, 255, 255);
