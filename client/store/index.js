@@ -101,10 +101,8 @@ const createStore = () => {
         commit('removeProduct', product)
       },
 
-      signUp({ commit }, { displayName, email, password }) {
-        return firebase
-          .auth()
-          .createUserWithEmailAndPassword(displayName, email, password)
+      signUp({ commit }, { email, password }) {
+        return firebase.auth().createUserWithEmailAndPassword(email, password)
         // .then(() => {
         //   const user = firebase.auth().currentUser
         //   const actionCodeSettings = {
