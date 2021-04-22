@@ -49,6 +49,7 @@ export default {
     'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/tailwindcss',
   ],
 
   gsap: {
