@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import Vuex from 'vuex'
 import axios from 'axios'
-import firebase from 'firebase/app'
+// import firebase from 'firebase/app'
 // import 'firebase/auth'
 
 const createStore = () => {
@@ -46,9 +46,9 @@ const createStore = () => {
     },
 
     mutations: {
-      setUser: (state) => {
-        state.user = firebase.auth().currentUser
-      },
+      // setUser: (state) => {
+      //   state.user = this.$fire.auth.currentUser
+      // },
       setUpProducts: (state, productsPayload) => {
         // sets the state's  products property to the products array recieved as payload
         state.products = productsPayload
@@ -108,9 +108,9 @@ const createStore = () => {
       },
 
       signUp({ commit }, { email, password }) {
-        return firebase.auth().createUserWithEmailAndPassword(email, password)
+        return this.$fire.auth.createUserWithEmailAndPassword(email, password)
         // .then(() => {
-        //   const user = firebase.auth().currentUser
+        //   const user = this.$fire.auth.currentUser
         //   const actionCodeSettings = {
         //     url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
         //   }
@@ -119,15 +119,15 @@ const createStore = () => {
       },
 
       signInWithEmail({ commit }, { email, password }) {
-        return firebase.auth().signInWithEmailAndPassword(email, password)
+        return this.$fire.auth.signInWithEmailAndPassword(email, password)
       },
 
       signOut() {
-        return firebase.auth().signOut()
+        return this.$fire.auth.signOut()
       },
-      setUser: (context) => {
-        context.commit('setUser')
-      },
+      // setUser: (context) => {
+      //   context.commit('setUser')
+      // },
       //   fetchProducts: ({ commit }) => {
       //     // simulating a fake ajax request to fetch products from database
       //     myApi.getProducts().then((products) => {

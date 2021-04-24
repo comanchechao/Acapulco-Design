@@ -90,7 +90,11 @@
 <script>
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import SignupDialog from './SignupDialog'
 export default {
+  components: {
+    SignupDialog,
+  },
   data: () => ({
     email: '',
     emailRules: [
