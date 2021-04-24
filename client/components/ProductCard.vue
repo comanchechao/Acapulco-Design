@@ -15,7 +15,7 @@
           </div>
           <v-spacer></v-spacer>
           <div class="price-div mr-4">
-            <p class="price px-4">${{ product.productImage }}</p>
+            <p class="price px-4">${{ product.price }}</p>
           </div>
         </div>
       </div>

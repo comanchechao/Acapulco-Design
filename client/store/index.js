@@ -83,10 +83,16 @@ const createStore = () => {
     actions: {
       //  fetching the products from server side passing to set products mutaions
       getProducts: ({ commit }) => {
-        axios.get('http://localhost:4000/api/products').then((response) => {
-          console.log(response.data.products[5].productImage)
-          commit('setProducts', response.data.products)
-        })
+        firebase
+          .firestore()
+          .collection('Products')
+          .get()
+          .then((snapshot) => {
+            commit(
+              'setProducts',
+              snapshot.docs.map((doc) => doc.data())
+            )
+          })
       },
       addProductToCart: ({ commit }, { product, quantity }) => {
         commit('AddToCart', { product, quantity })
