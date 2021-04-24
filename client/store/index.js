@@ -83,8 +83,7 @@ const createStore = () => {
     actions: {
       //  fetching the products from server side passing to set products mutaions
       getProducts: ({ commit }) => {
-        firebase
-          .firestore()
+        this.$fire.firestore
           .collection('Products')
           .get()
           .then((snapshot) => {
