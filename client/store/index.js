@@ -1,7 +1,3 @@
-import axios from 'axios'
-// import firebase from 'firebase/app'
-// import 'firebase/auth'
-
 export const state = () => ({
   user: null,
   account: null,
@@ -10,6 +6,10 @@ export const state = () => ({
 })
 
 export const mutations = {
+  ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
+    const { uid, email, emailVerified } = authUser
+    state.user = { uid, email, emailVerified }
+  },
   // setUser: (state) => {
   //   state.user = this.$fire.auth.currentUser
   // },
@@ -23,14 +23,13 @@ export const mutations = {
   },
   AddToCart(state, { product, quantity }) {
     const productInCart = state.cart.find(
-      (item) => item.product._id === product._id
+      (item) => item.product.id === product.id
     )
 
     console.log(productInCart)
 
     if (productInCart) {
       productInCart.quantity += quantity
-      return
     }
 
     state.cart.push({
@@ -59,11 +58,6 @@ export const actions = {
   },
   addProductToCart({ commit }, { product, quantity }) {
     commit('AddToCart', { product, quantity })
-
-    axios.post('http://localhost:4000/api/orders', {
-      product: product._id,
-      quantity,
-    })
   },
 
   removeCartProduct({ commit }, product) {

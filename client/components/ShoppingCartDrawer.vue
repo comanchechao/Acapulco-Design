@@ -14,6 +14,13 @@
         >
           <v-icon color="white">mdi-shopping-outline</v-icon>
         </v-btn>
+        <v-badge
+          :content="cartTotalAmount"
+          :value="cartTotalAmount"
+          color="green"
+          overlap
+        >
+        </v-badge>
       </template>
       <span>Shopping Cart</span>
     </v-tooltip>

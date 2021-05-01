@@ -88,8 +88,6 @@
 </template>
 
 <script>
-import firebase from 'firebase/app'
-import 'firebase/auth'
 import SignupDialog from './SignupDialog'
 export default {
   components: {
@@ -114,9 +112,8 @@ export default {
   }),
   methods: {
     googleSignIn() {
-      this.provider = new firebase.auth.GoogleAuthProvider()
-      firebase
-        .auth()
+      this.provider = new this.$fireModule.auth.GoogleAuthProvider()
+      this.$fire.auth
         .signInWithPopup(this.provider)
         .then((result) => {
           // store the user ore wathever
