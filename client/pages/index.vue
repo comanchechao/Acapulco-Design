@@ -46,9 +46,12 @@
       <!-- <div class="d-flex align-self justify-self"></div> -->
       <v-spacer></v-spacer>
       <div
-        class="grid grid-cols-2 place-items-center gap-4 firstContainer content mb-10"
+        class="grid grid-cols-3 place-items-center firstContainer content mb-10"
       >
-        <div class="limited justify-self-end md:text-8xl text-4xl">
+        <div class="logo">
+          <img src="@/static/9756.png" alt="" />
+        </div>
+        <div class="limited justify-self-center md:text-8xl text-4xl">
           <h2 class="h2-home max-w-xl">
             <span class="limitedSpan">Limited</span>, <span>custom</span>,
             <i>handmade </i>
@@ -56,7 +59,7 @@
           </h2>
         </div>
         <div class="logo">
-          <img src="@/static/9754.png" alt="" />
+          <img src="@/static/9757.png" alt="" />
         </div>
       </div>
       <v-container class="secondContainer content">
@@ -136,7 +139,7 @@
             <span class="limitedSpan"> Creative Team </span>
             based in Iran
           </h1>
-          <h3 class="learnMore py-5">
+          <h3 class="learnMore py-5 text-center">
             If you want to know us more, maybe get a cup of coffee, you can
             <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
@@ -151,18 +154,14 @@
           </video>
         </div>
       </div>
-      <v-container class="seventhContainer">
-        <v-row>
-          <v-col cols="12">
-            <h1 class="introText">You can contact us with</h1>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
-            <div class="collections"></div>
-          </v-col>
-        </v-row>
-      </v-container>
+      <!-- <div class="seventhContainer w-full grid grid-rows-2">
+        <div>
+          <h1 class="introText">You can contact us with</h1>
+        </div>
+        <div>
+          <img class="w-full" src="@/static/layered-waves-haikei.png" alt="" />
+        </div>
+      </div> -->
     </v-main>
   </v-app>
 </template>
@@ -524,7 +523,7 @@ export default {
 .h2-home {
   z-index: 1;
   font-family: 'Roboto Slab', serif;
-  text-align: start;
+  text-align: center;
   line-height: 110%;
   text-transform: capitalize;
   color: #120129;
