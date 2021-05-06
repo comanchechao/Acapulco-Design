@@ -77,6 +77,7 @@
           <div class="d-flex justify-center align-center">
             <p class="signup mr-6 mt-5">Don't have an account?</p>
             <SignupDialog />
+            <PasswordResetDialog />
           </div>
           <p v-if="error" class="errorText">
             {{ error }}
@@ -89,9 +90,11 @@
 
 <script>
 import SignupDialog from './SignupDialog'
+import PasswordResetDialog from './PasswordResetDIalog'
 export default {
   components: {
     SignupDialog,
+    PasswordResetDialog,
   },
   data: () => ({
     email: '',

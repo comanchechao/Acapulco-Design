@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <div id="main">
-      <div class="container">
-        <div class="title-div">
-          <h1 class="title black--text">Who are We?</h1>
+      <div class="grid gap-4 grid-rows-2">
+        <div class="title-div row-span-2">
+          <h1 class="who black--text">Who are We?</h1>
         </div>
-        <div class="p-div">
+        <div class="p-div row-span-1">
           <p>
             Hi. we are a bunch of guys, from a less known city of a dystopian
             country, while we're not lost and consumed by the sheer pressure of
@@ -26,14 +26,6 @@ export default {}
 </script>
 
 <style scoped>
-@font-face {
-  font-family: 'Mushroom';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/TheMeshroom-3zaXL.ttf') format('truetype');
-}
-
 #main {
   background-image: url('/wallhaven-g7z7ld.jpg');
   height: 150%;
@@ -84,20 +76,14 @@ export default {}
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 
 .title-div {
-  grid-area: 2 / 2 / 3 / 5;
 }
-.title {
-  font-size: 199px;
+.who {
+  font-size: 2rem;
   background-color: skyblue;
-  font-family: 'Mushroom';
+  font-family: 'Recoleta';
 }
 .p-div {
   grid-area: 3 / 2 / 5 / 5;

@@ -7,7 +7,6 @@
       <div id="depth">
         <div
           class="acapulco-div pb-5 d-flex flex-column justify-space-around align-center"
-          :class="{ animate__zoomOut: CartDisplay }"
         >
           <h1
             v-gsap.to="{
@@ -46,30 +45,20 @@
       </div>
       <!-- <div class="d-flex align-self justify-self"></div> -->
       <v-spacer></v-spacer>
-      <v-container class="firstContainer content pl-8 mb-10">
-        <v-row>
-          <v-col cols="6" align-end>
-            <div class="limited">
-              <h2 class="h2-home">
-                <span class="limitedSpan">Limited</span>, <span>custom</span>,
-                <i>handmade </i><br />
-                merchendise
-              </h2>
-            </div>
-          </v-col>
-          <v-col cols="6">
-            <div class="logo mt-5">
-              <!-- <v-img
-              position="center center"
-              class="image animate__animated animate__fadeIn animate__delay-3s"
-              src="/spencer-watson-ioy3bN5Irew-unsplash.jpg"
-              max-height="700px"
-              max-width="400px"
-            ></v-img> -->
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
+      <div
+        class="grid grid-cols-2 place-items-center gap-4 firstContainer content mb-10"
+      >
+        <div class="limited justify-self-end md:text-8xl text-4xl">
+          <h2 class="h2-home max-w-xl">
+            <span class="limitedSpan">Limited</span>, <span>custom</span>,
+            <i>handmade </i>
+            merchendise
+          </h2>
+        </div>
+        <div class="logo">
+          <img src="@/static/9754.png" alt="" />
+        </div>
+      </div>
       <v-container class="secondContainer content">
         <v-row>
           <v-col cols="6" align-self="center">
@@ -123,54 +112,45 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-container fluid class="fifthContainer content mb-5">
-        <v-row class="pb-8">
-          <v-col cols="12">
-            <div class="collections d-flex"></div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12" align-self="center">
-            <div class="textDiv d-flex flex-column align-center">
-              <h3 id="altText">Collections</h3>
-              <NuxtLink to="/productList">
-                <button class="learnMoreBtn">
-                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
-                </button>
-              </NuxtLink>
-            </div></v-col
-          >
-        </v-row>
-      </v-container>
-      <v-container fluid class="sixthContainer content">
-        <v-row class="pb-8" justify="center" align-center align="center">
-          <v-col cols="12">
-            <div class="d-flex flex-column flex-wrap">
-              <h1 class="introText">
-                We are a
-                <span class="limitedSpan"> Creative Team </span>
-                based in Iran
-              </h1>
-              <h3 class="learnMore py-5">
-                If you want to know us more, maybe get a cup of coffee, you can
-                <!-- <button id="contactUsBtn" class="learnMoreBtn">
+      <div
+        class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5"
+      >
+        <div class="collections max-w-6xl"></div>
+
+        <div class="textDiv d-flex flex-column align-center">
+          <h3 id="altText">Collections</h3>
+          <NuxtLink to="/productList">
+            <button class="learnMoreBtn">
+              <span class="px-9 py-8 learnMoreText"> Learn More </span>
+            </button>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
+      >
+        <div class="d-flex flex-column flex-wrap">
+          <h1 class="introText">
+            We are a
+            <span class="limitedSpan"> Creative Team </span>
+            based in Iran
+          </h1>
+          <h3 class="learnMore py-5">
+            If you want to know us more, maybe get a cup of coffee, you can
+            <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
-              </h3>
-            </div>
-          </v-col>
-          <v-row>
-            <v-col cols="12">
-              <div class="d-flex align-center justify-center">
-                <video width="620" height="540" autoplay loop muted>
-                  <source src="/Y064cQ6.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </v-col>
-          </v-row>
-        </v-row>
-      </v-container>
+          </h3>
+        </div>
+
+        <div class="d-flex align-center justify-center">
+          <video width="620" height="540" autoplay loop muted>
+            <source src="/Y064cQ6.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
       <v-container class="seventhContainer">
         <v-row>
           <v-col cols="12">
@@ -339,21 +319,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
-@font-face {
-  font-family: 'Bernadette';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'QuickKiss';
-  font-style: normal;
-  font-display: swap;
-  src: url('~assets/fonts/QuickKissPersonalUse-PxlZ.ttf') format('truetype');
-}
-
 #main::-webkit-scrollbar {
   display: none;
 }
@@ -422,7 +387,6 @@ export default {
 }
 .acapulco-div {
   height: 100vh;
-  grid-area: 2 / 3 / 3 / 4;
 }
 .content {
   opacity: 0;
@@ -430,7 +394,7 @@ export default {
 
 .firstContainer {
   width: 100vw;
-  height: 50vh;
+  height: 80vh;
 }
 
 .secondContainer,
@@ -438,7 +402,7 @@ export default {
 .forthContainer,
 .fifthContainer {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 5em;
   color: #120129;
@@ -525,7 +489,7 @@ export default {
     0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
 
-.limited {
+/* .limited {
   grid-area: 4 / 3 / 5 / 4;
   justify-content: center;
   align-items: center;
@@ -534,11 +498,11 @@ export default {
   grid-area: 4 / 3 / 5 / 4;
   display: flex;
   justify-content: center;
-}
+} */
 
-.image {
+/* .image {
   display: block;
-}
+} */
 
 .acapulco {
   opacity: 0;
@@ -558,7 +522,6 @@ export default {
 }
 
 .h2-home {
-  font-size: 5.5em;
   z-index: 1;
   font-family: 'Roboto Slab', serif;
   text-align: start;
@@ -576,9 +539,6 @@ export default {
 @media screen and (max-width: 800px) {
   .acapulco {
     font-size: 125px;
-  }
-  .h2-home {
-    font-size: 3rem;
   }
 }
 </style>

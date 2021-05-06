@@ -1,13 +1,13 @@
 <template>
-  <v-container>
-    <div>
-      <h4>{{ products }}</h4>
+  <v-app>
+    <div class="flex items-center">
+      <div class="flex items-center">{{ products }}</div>
     </div>
-  </v-container>
+  </v-app>
 </template>
 
-
-// <script>
+//
+<script>
 // import firebase from 'firebase/app'
 import 'firebase/firestore'
 

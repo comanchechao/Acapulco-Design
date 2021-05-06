@@ -1,6 +1,11 @@
 <template>
-  <div class="card my-5">
-    <div class="right">
+  <div class="card m-6 h-72 bg-purple-800 flex items-stretch">
+    <div class="left rounded-r-lg bg-green-400 w-1/2">
+      <div class="pic-div">
+        <v-img>{{ product.productImage }}</v-img>
+      </div>
+    </div>
+    <div class="right w-1/2 bg-indigo-800">
       <div class="titleDiv px-3 py-2">
         <h2 class="name py-3">{{ product.title }}</h2>
         <p class="description mt-4">
@@ -13,18 +18,11 @@
               <span class="black--text" @click="addToCart()"> Add Now </span>
             </v-btn>
           </div>
-          <v-spacer></v-spacer>
           <div class="price-div mr-4">
             <p class="price px-4">${{ product.price }}</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="left ml-14">
-      <div class="pic-div">
-        <v-img>{{ product.productImage }}</v-img>
-      </div>
-      <h3 class="pa-2 acapulco">Acapulco Design</h3>
     </div>
   </div>
 </template>
@@ -91,7 +89,7 @@ export default {
     margin-top: 15px; */
 }
 .card {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
@@ -100,12 +98,12 @@ export default {
   align-items: center;
   width: 600px;
   height: 300px;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.5s; */
 }
 
 .right {
-  width: 300px;
-  grid-area: 1 / 2 / 3 / 3;
+  /* width: 300px; */
+  /* grid-area: 1 / 2 / 3 / 3;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -116,29 +114,29 @@ export default {
   background-color: #050020;
   box-shadow: 0 5px 20px #0f0f0f;
   transition: ease-in-out 0.4s;
-  z-index: 2;
+  z-index: 2; */
 }
 
 .acapulco {
-  color: #1c3d00;
+  /* color: #1c3d00;
   text-align: center;
   font-family: Bernadette;
   overflow: hidden;
   opacity: 0.3;
   font-size: 95px;
   transform: rotate(-90deg);
-  line-height: 90%;
+  line-height: 90%; 
 }
 
 .card .left {
-  overflow: hidden;
+  /* overflow: hidden;
   grid-area: 1 / 1 / 3 / 2;
   background: #22c1c3;
   background: linear-gradient(55deg, #3dcb9c 1%, #a1ac02 100%);
   width: 180px;
   height: 240px;
   box-shadow: 0 5px 20px #383838;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s; */
 }
 .card:hover {
   /* opacity: 0.5;
