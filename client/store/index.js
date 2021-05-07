@@ -18,8 +18,8 @@ export const mutations = {
     state.products = productsPayload
   },
   // set products in store states as array
-  setProducts(state, products) {
-    state.products = products
+  setProducts(state, product) {
+    state.products = product
   },
   AddToCart(state, { product, quantity }) {
     const productInCart = state.cart.find(
@@ -30,30 +30,47 @@ export const mutations = {
 
     if (productInCart) {
       productInCart.quantity += quantity
+      return
     }
 
     state.cart.push({
       product,
       quantity,
     })
-  },
-  removeProduct(state, product) {
-    state.cart = state.cart.filter((item) => {
-      return item.product._id !== product._id
-    })
+    // const productList = state.products.find(
+    //   (item) => item.product.id === product.id
+    // )
+  //   const productInCart = state.cart.find(
+  //     (item) => item.productId === product.id
+  //   )
+
+  //   if (productInCart) {
+  //     productInCart.quantity++
+  //   } else {
+  //     state.cart.push({ product })
+  //   }
+  //   // productList.quantity--;
+  // },
+  // removeProduct(state, product) {
+  //   state.cart = state.cart.filter((item) => {
+  //     return item.product.id !== product.id
+  //   })
   },
 }
 export const actions = {
   //  fetching the products from server side passing to set products mutaions
   getProducts({ commit }) {
+    const products = []
     this.$fire.firestore
       .collection('Products')
       .get()
       .then((snapshot) => {
-        commit(
-          'setProducts',
-          snapshot.docs.map((doc) => doc.data())
-        )
+        snapshot.forEach((doc) => {
+          const product = doc.data()
+          product.id = doc.id
+          products.push(product)
+        })
+        commit('setProducts', products)
       })
   },
   addProductToCart({ commit }, { product, quantity }) {

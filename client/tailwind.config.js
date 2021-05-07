@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [
     './components/**/*.{vue,js}',
@@ -17,6 +19,20 @@ module.exports = {
       md: '768px',
       lg: '976px',
       xl: '1440px',
+    },
+    colors: {
+      // Build your palette here
+      transparent: 'transparent',
+      current: 'currentColor',
+      gray: colors.trueGray,
+      red: colors.red,
+      blue: colors.lightBlue,
+      yellow: colors.amber,
+      blueGray: colors.blueGray,
+      Lime: colors.lime,
+      CoolGray: colors.coolGray,
+      Fuchsia: colors.fuchsia,
+      purple: colors.purple
     },
     extend: {},
   },
