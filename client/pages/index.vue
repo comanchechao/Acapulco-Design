@@ -51,8 +51,8 @@
         <div class="logo">
           <img src="@/static/9756.png" alt="" />
         </div>
-        <div class="limited justify-self-center md:text-8xl text-4xl">
-          <h2 class="h2-home max-w-xl">
+        <div class="limited justify-self-center">
+          <h2 class="h2-home capitalize text-center text-8xl">
             <span class="limitedSpan">Limited</span>, <span>custom</span>,
             <i>handmade </i>
             merchendise
@@ -118,6 +118,7 @@
       <div
         class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5"
       >
+        <img class="absolute" src="/hhjhhUntitled-1.png" alt="" />
         <div class="collections max-w-6xl"></div>
 
         <div class="textDiv d-flex flex-column align-center">
@@ -134,7 +135,7 @@
         class="grid grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
       >
         <div class="d-flex flex-column flex-wrap">
-          <h1 class="introText">
+          <h1 class="introText text-center">
             We are a
             <span class="limitedSpan"> Creative Team </span>
             based in Iran
@@ -415,7 +416,6 @@ export default {
 .introText {
   font-size: 3.6em;
   font-family: 'Roboto Slab', serif;
-  text-align: start;
   line-height: 110%;
   text-transform: capitalize;
   color: #120129;
@@ -425,7 +425,7 @@ export default {
   font-weight: 300;
   font-size: 2.6em;
   font-family: 'Roboto Slab', serif;
-  text-align: start;
+  text-align: center;
   line-height: 110%;
   text-transform: capitalize;
   color: #120129;
@@ -521,11 +521,8 @@ export default {
 }
 
 .h2-home {
-  z-index: 1;
   font-family: 'Roboto Slab', serif;
-  text-align: center;
   line-height: 110%;
-  text-transform: capitalize;
   color: #120129;
 }
 .limitedSpan {
