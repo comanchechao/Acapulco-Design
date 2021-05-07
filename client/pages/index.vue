@@ -118,7 +118,7 @@
       <div
         class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5"
       >
-        <img class="absolute" src="/hhjhhUntitled-1.png" alt="" />
+        <img class="absolute tropicalImage" src="/hhjhhUntitled-2.png" alt="" />
         <div class="collections max-w-6xl"></div>
 
         <div class="textDiv d-flex flex-column align-center">
@@ -155,14 +155,12 @@
           </video>
         </div>
       </div>
-      <!-- <div class="seventhContainer w-full grid grid-rows-2">
+      <div class="seventhContainer">
         <div>
-          <h1 class="introText">You can contact us with</h1>
+          <h1 class="introText pl-8">You can contact us with</h1>
+          <img class="" src="/fsdfsdf.png" alt="" />
         </div>
-        <div>
-          <img class="w-full" src="@/static/layered-waves-haikei.png" alt="" />
-        </div>
-      </div> -->
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -196,6 +194,15 @@ export default {
       const gsap = this.$gsap
       const pictureDivs = this.$gsap.utils.toArray('.pictureDiv')
       const tl = gsap.timeline()
+      // tl.from('.tropicalImage', {
+      //   opacity: 0,
+      //   duration: 1,
+      //   scrollTrigger: {
+      //     trigger: '.tropicalImage',
+      //     start: 'top bottom',
+      //     toggleActions: 'play none none reset',
+      //   },
+      // })
       tl.from('.collections', {
         opacity: 0,
         x: 40,
@@ -412,6 +419,11 @@ export default {
   width: 100vw;
   height: 100vh;
 }
+
+/* .seventhContainer {
+  width: 100vw;
+  height: 60vh;
+} */
 
 .introText {
   font-size: 3.6em;
