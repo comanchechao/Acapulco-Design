@@ -65,11 +65,18 @@
       <v-container class="secondContainer content">
         <v-row>
           <v-col cols="6" align-self="center">
-            <div class="textDiv d-flex flex-column align-start">
-              <h3>Lighters</h3>
+            <div class="textDiv flex align-end">
+              <img
+                class="lighterImage transform -translate-x-5 translate-y-4 mb-4"
+                src="/zoozoo(1).png"
+                alt=""
+              />
+              <h3 class="">Lighters</h3>
+            </div>
+            <div class="flex justify-end mr-10 pr-10">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
-                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
+                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
                 </button>
               </NuxtLink>
             </div></v-col
@@ -87,11 +94,18 @@
             </div>
           </v-col>
           <v-col cols="6" align-self="center">
-            <div class="textDiv d-flex flex-column align-end">
-              <h3 id="altText">Acapulco Shirts</h3>
+            <div class="textDiv flex align-end justify-end">
+              <h3 class="">Acapulco Shirts</h3>
+              <img
+                class="lighterImage transform translate-x-5 translate-y-4 mb-4"
+                src="/fsdf.png"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-start mr-10 pr-10">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
-                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
+                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
                 </button>
               </NuxtLink>
             </div></v-col
