@@ -110,7 +110,14 @@ export default {
           measurementId: 'G-15G0W8Q4G2',
         },
         services: {
-          auth: true,
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              onAuthStateChangedMutation: 'setUser',
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false,
+            },
+          },
           firestore: true,
         },
       },

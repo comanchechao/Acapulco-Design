@@ -115,16 +115,13 @@ export default {
   }),
   methods: {
     googleSignIn() {
-      this.provider = new this.$fireModule.auth.GoogleAuthProvider()
-      this.$fire.auth
-        .signInWithPopup(this.provider)
+      this.$store
+        .dispatch('signInWithGoogle')
         .then((result) => {
           // store the user ore wathever
           this.$router.push('/')
         })
-        .catch((e) => {
-          this.$snotify.error(e.message)
-        })
+        .catch((err) => console.log(err))
     },
     signInUser() {
       this.$store

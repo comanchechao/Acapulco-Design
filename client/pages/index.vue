@@ -3,176 +3,182 @@
   <v-app>
     <Navbar id="navbar" class="" />
 
-    <v-main id="main">
-      <div id="depth">
-        <div
-          class="acapulco-div pb-5 d-flex flex-column justify-space-around align-center"
-        >
-          <h1
-            v-gsap.to="{
-              y: 40,
-              opacity: 1,
-              duration: 1.5,
-              delay: 1.5,
-              ease: 'circ.out',
-            }"
-            class="acapulco pt-6"
-          >
-            Acapulco Design
-          </h1>
+    <v-main id="main" class="">
+      <div class="grid place-items-center">
+        <div id="depth">
           <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 0.6,
-              delay: 1.9,
-              ease: 'circ.out',
-            }"
-            class="scrollDownBtn"
+            class="acapulco-div pb-5 flex flex-col justify-space-around align-center"
           >
-            <v-btn
-              class="mb-4"
-              x-large
-              rounded
-              fab
-              depressed
-              dark
-              color="transparent"
+            <h1
+              v-gsap.to="{
+                y: 40,
+                opacity: 1,
+                duration: 1.5,
+                delay: 1.5,
+                ease: 'circ.out',
+              }"
+              class="acapulco pt-6 w-5/6"
             >
-              <v-icon x-large>mdi-arrow-up-down</v-icon>
-            </v-btn>
+              Acapulco Design
+            </h1>
+            <div
+              v-gsap.to="{
+                opacity: 1,
+                duration: 0.6,
+                delay: 1.9,
+                ease: 'circ.out',
+              }"
+              class="scrollDownBtn"
+            >
+              <v-btn
+                class="mb-4"
+                x-large
+                rounded
+                fab
+                depressed
+                dark
+                color="transparent"
+              >
+                <v-icon x-large>mdi-arrow-up-down</v-icon>
+              </v-btn>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="d-flex align-self justify-self"></div> -->
-      <v-spacer></v-spacer>
-      <div
-        class="grid grid-cols-3 place-items-center firstContainer content mb-10"
-      >
-        <div class="logo">
-          <img src="@/static/9756.png" alt="" />
+        <!-- <div class="d-flex align-self justify-self"></div> -->
+        <v-spacer></v-spacer>
+        <div
+          class="grid grid-cols-3 place-items-center firstContainer content mb-10"
+        >
+          <div class="logo">
+            <img src="@/static/9756.png" alt="" />
+          </div>
+          <div class="limited justify-self-center">
+            <h2 class="h2-home capitalize text-center text-4xl md:text-8xl">
+              <span class="limitedSpan">Limited</span>, <span>custom</span>,
+              <i class="">handmade </i>
+              merchendise by :
+            </h2>
+          </div>
+          <div class="logo">
+            <img src="@/static/9757.png" alt="" />
+          </div>
         </div>
-        <div class="limited justify-self-center">
-          <h2 class="h2-home capitalize text-center text-8xl">
-            <span class="limitedSpan">Limited</span>, <span>custom</span>,
-            <i>handmade </i>
-            merchendise
-          </h2>
-        </div>
-        <div class="logo">
-          <img src="@/static/9757.png" alt="" />
-        </div>
-      </div>
-      <v-container class="secondContainer content">
-        <v-row>
-          <v-col cols="6" align-self="center">
-            <div class="textDiv flex align-end">
+
+        <div
+          class="grid grid-cols-2 place-items-center h-screen w-4/5 secondContainer content"
+        >
+          <div class="textDiv flex flex-col">
+            <div class="flex-row flex align-center justify-start">
               <img
-                class="lighterImage transform -translate-x-5 translate-y-4 mb-4"
+                class="transform -translate-y-4"
                 src="/zoozoo(1).png"
                 alt=""
               />
-              <h3 class="">Lighters</h3>
+              <h3 class="text-7xl p-5">Lighters</h3>
             </div>
-            <div class="flex justify-end mr-10 pr-10">
+            <div class="self-end">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
                   <span class="px-9 py-5 learnMoreText"> Learn More </span>
                 </button>
               </NuxtLink>
-            </div></v-col
-          >
-          <v-col cols="6">
-            <div class="pictureDiv d-flex"></div>
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-container class="thirdContainer content">
-        <v-row>
-          <v-col cols="6">
-            <div class="pictureDiv">
-              <v-img> </v-img>
             </div>
-          </v-col>
-          <v-col cols="6" align-self="center">
-            <div class="textDiv flex align-end justify-end">
-              <h3 class="">Acapulco Shirts</h3>
+          </div>
+          <div class="pictureDiv"></div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 place-items-center h-4/5 w-4/5 thirdContainer content"
+        >
+          <div class="pictureDiv">
+            <v-img> </v-img>
+          </div>
+          <div class="textDiv flex flex-col">
+            <div class="flex-row flex justify-center align-center">
+              <h3 class="text-7xl p-5">Acapulco Shirts</h3>
+              <img class="" src="/fsdf.png" alt="" />
+            </div>
+            <div class="">
+              <NuxtLink to="/productList">
+                <button class="learnMoreBtn">
+                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 place-items-center h-screen w-4/5 secondContainer content"
+        >
+          <div class="textDiv flex flex-col">
+            <div class="flex-row flex align-center justify-center">
               <img
-                class="lighterImage transform translate-x-5 translate-y-4 mb-4"
-                src="/fsdf.png"
+                class="transform -translate-y-4"
+                src="/zoozoo(1).png"
                 alt=""
               />
+              <h3 class="text-6xl p-5">Custom Matchboxes</h3>
             </div>
-            <div class="flex justify-start mr-10 pr-10">
+            <div class="self-end">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
                   <span class="px-9 py-5 learnMoreText"> Learn More </span>
                 </button>
               </NuxtLink>
-            </div></v-col
-          >
-        </v-row>
-      </v-container>
-      <v-container class="forthContainer content">
-        <v-row>
-          <v-col cols="6" align-self="center">
-            <div class="textDiv d-flex flex-column align-start">
-              <h3 id="altText">Custom Matchboxes</h3>
-              <NuxtLink to="/productList">
-                <button class="learnMoreBtn">
-                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
-                </button>
-              </NuxtLink>
-            </div></v-col
-          >
-          <v-col cols="6">
-            <div class="pictureDiv d-flex"></div>
-          </v-col>
-        </v-row>
-      </v-container>
-      <div
-        class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5"
-      >
-        <img class="absolute tropicalImage" src="/hhjhhUntitled-2.png" alt="" />
-        <div class="collections max-w-6xl"></div>
-
-        <div class="textDiv d-flex flex-column align-center">
-          <h3 id="altText">Collections</h3>
-          <NuxtLink to="/productList">
-            <button class="learnMoreBtn">
-              <span class="px-9 py-8 learnMoreText"> Learn More </span>
-            </button>
-          </NuxtLink>
+            </div>
+          </div>
+          <div class="pictureDiv"></div>
         </div>
-      </div>
+        <div
+          class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
+        >
+          <img
+            class="absolute tropicalImage"
+            src="/hhjhhUntitled-2.png"
+            alt=""
+          />
+          <div class="collections max-w-6xl"></div>
 
-      <div
-        class="grid grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
-      >
-        <div class="d-flex flex-column flex-wrap">
-          <h1 class="introText text-center">
-            We are a
-            <span class="limitedSpan"> Creative Team </span>
-            based in Iran
-          </h1>
-          <h3 class="learnMore py-5 text-center">
-            If you want to know us more, maybe get a cup of coffee, you can
-            <!-- <button id="contactUsBtn" class="learnMoreBtn">
+          <div class="textDiv">
+            <h3 id="altText">Collections</h3>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
+        >
+          <div class="d-flex flex-column flex-wrap">
+            <h1 class="introText text-center">
+              We are a
+              <span class="limitedSpan"> Creative Team </span>
+              based in Iran
+            </h1>
+            <h3 class="learnMore py-5 text-center">
+              If you want to know us more, maybe get a cup of coffee, you can
+              <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
-          </h3>
-        </div>
+            </h3>
+          </div>
 
-        <div class="d-flex align-center justify-center">
-          <video width="620" height="540" autoplay loop muted>
-            <source src="/Y064cQ6.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div class="d-flex align-center justify-center">
+            <video width="620" height="540" autoplay loop muted>
+              <source src="/Y064cQ6.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
-      </div>
-      <div class="seventhContainer">
-        <div>
-          <h1 class="introText pl-8">You can contact us with</h1>
-          <img class="" src="/fsdfsdf.png" alt="" />
+        <div class="seventhContainer">
+          <div>
+            <h1 class="introText pl-8">You can contact us with</h1>
+            <img class="" src="/fsdfsdf.png" alt="" />
+          </div>
         </div>
       </div>
     </v-main>
@@ -226,7 +232,7 @@ export default {
           scrub: 0.7,
           start: 'top bottom',
           end: 'top center',
-          toggleActions: 'play none none reset',
+          toggleActions: 'play none none none',
         },
       })
 
@@ -251,7 +257,7 @@ export default {
             scrub: 0.7,
             start: 'top bottom',
             end: 'top center',
-            toggleActions: 'play none none reset',
+            toggleActions: 'play none none none',
           },
         })
       })
@@ -303,7 +309,7 @@ export default {
               start: 'top bottom',
               end: 'top center',
               trigger: content,
-              toggleActions: 'play none none reset',
+              toggleActions: 'play none none none',
             },
           }
         )
@@ -339,16 +345,27 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e28b0a #00ffff;
+}
 
-#main::-webkit-scrollbar {
-  display: none;
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 32px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #00ffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e28b0a;
+  border-radius: 100px;
+  border: 3px solid #e44343;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-#main {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
 
 #main {
   animation: 30s ease-in-out infinite alternate-reverse color-change;
@@ -422,16 +439,13 @@ export default {
 .thirdContainer,
 .forthContainer,
 .fifthContainer {
-  width: 100vw;
-  height: 100vh;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 5em;
   color: #120129;
 }
 
 .sixthContainer {
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
 }
 
 /* .seventhContainer {

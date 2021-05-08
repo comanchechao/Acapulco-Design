@@ -164,6 +164,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
 #app {
   z-index: 2;
   opacity: 0;

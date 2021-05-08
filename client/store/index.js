@@ -1,3 +1,11 @@
+// function createNewAccount(user) {
+//   return this.$fire.firestore.collection(`users/${user.uid}`).set({
+//     displayName: user.displayName || user.email.split('@')[0], // use part of the email as a username
+//     email: user.email,
+//     image: user.newImage || '/images/default-profile.png', // supply a default profile image for all users
+//   })
+// }
+
 export const state = () => ({
   user: null,
   account: null,
@@ -6,13 +14,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
+  setUser: (state, { authUser, claims }) => {
     const { uid, email, emailVerified } = authUser
     state.user = { uid, email, emailVerified }
   },
-  // setUser: (state) => {
-  //   state.user = this.$fire.auth.currentUser
+  // setUser(state, payload) {
+  //   state.user = payload
   // },
+
   setUpProducts(state, productsPayload) {
     // sets the state's  products property to the products array recieved as payload
     state.products = productsPayload
@@ -40,21 +49,21 @@ export const mutations = {
     // const productList = state.products.find(
     //   (item) => item.product.id === product.id
     // )
-  //   const productInCart = state.cart.find(
-  //     (item) => item.productId === product.id
-  //   )
+    //   const productInCart = state.cart.find(
+    //     (item) => item.productId === product.id
+    //   )
 
-  //   if (productInCart) {
-  //     productInCart.quantity++
-  //   } else {
-  //     state.cart.push({ product })
-  //   }
-  //   // productList.quantity--;
-  // },
-  // removeProduct(state, product) {
-  //   state.cart = state.cart.filter((item) => {
-  //     return item.product.id !== product.id
-  //   })
+    //   if (productInCart) {
+    //     productInCart.quantity++
+    //   } else {
+    //     state.cart.push({ product })
+    //   }
+    //   // productList.quantity--;
+    // },
+    // removeProduct(state, product) {
+    //   state.cart = state.cart.filter((item) => {
+    //     return item.product.id !== product.id
+    //   })
   },
 }
 export const actions = {
@@ -80,6 +89,9 @@ export const actions = {
   removeCartProduct({ commit }, product) {
     commit('removeProduct', product)
   },
+  autoSignIn({ commit }, payload) {
+    commit('setUser', payload)
+  },
 
   signUp({ commit }, { email, password }) {
     return this.$fire.auth.createUserWithEmailAndPassword(email, password)
@@ -96,8 +108,21 @@ export const actions = {
     return this.$fire.auth.signInWithEmailAndPassword(email, password)
   },
 
-  signOut() {
-    return this.$fire.auth.signOut()
+  signInWithGoogle({ commit }) {
+    const provider = new this.$fireModule.auth.GoogleAuthProvider()
+    return new Promise((resolve, reject) => {
+      this.$fire.auth.signInWithPopup(provider)
+      resolve()
+    })
+  },
+
+  signOut({ commit }) {
+    this.$fire.auth
+      .signOut()
+      .then(() => {
+        commit('setUser', null)
+      })
+      .catch((err) => console.log(err))
   },
 
   // setUser: (context) => {
@@ -131,7 +156,7 @@ export const actions = {
   //   },
 }
 export const getters = {
-  getUser: (state) => {
+  getUser: (state, getters) => {
     return state.user
   },
 
