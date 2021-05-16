@@ -7,7 +7,7 @@
       <div class="grid place-items-center">
         <div id="depth">
           <div
-            class="acapulco-div pb-5 flex flex-col justify-space-around align-center"
+            class="acapulco-div pb-5 flex flex-col justify-space-around w-5/6"
           >
             <h1
               v-gsap.to="{
@@ -17,7 +17,7 @@
                 delay: 1.5,
                 ease: 'circ.out',
               }"
-              class="acapulco pt-6 w-5/6"
+              class="acapulco text-center leading-none text-9xl md:text-12xl lg:text-13xl text-gray-50 pt-6"
             >
               Acapulco Design
             </h1>
@@ -28,7 +28,7 @@
                 delay: 1.9,
                 ease: 'circ.out',
               }"
-              class="scrollDownBtn"
+              class="scrollDownBtn self-center"
             >
               <v-btn
                 class="mb-4"
@@ -53,7 +53,9 @@
             <img src="@/static/9756.png" alt="" />
           </div>
           <div class="limited justify-self-center">
-            <h2 class="h2-home capitalize text-center text-4xl md:text-8xl">
+            <h2
+              class="h2-home capitalize text-center text-5xl md:text-7xl lg:text-8xl"
+            >
               <span class="limitedSpan">Limited</span>, <span>custom</span>,
               <i class="">handmade </i>
               merchendise by :
@@ -109,7 +111,7 @@
         </div>
 
         <div
-          class="grid grid-cols-2 place-items-center h-screen w-4/5 secondContainer content"
+          class="grid grid-cols-2 place-items-center h-screen w-4/5 forthContainer content"
         >
           <div class="textDiv flex flex-col">
             <div class="flex-row flex align-center justify-center">
@@ -547,13 +549,9 @@ export default {
   opacity: 0;
   font-family: 'Sail';
   z-index: 0;
-  font-size: 230px;
-  text-align: center;
-  color: #fcedd8;
   text-shadow: 5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b,
     20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b,
     35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b;
-  line-height: 100%;
 }
 
 .scrollDownBtn {
@@ -570,11 +568,5 @@ export default {
 }
 #main {
   color: transparent;
-}
-
-@media screen and (max-width: 800px) {
-  .acapulco {
-    font-size: 125px;
-  }
 }
 </style>

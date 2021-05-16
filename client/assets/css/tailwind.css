@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-13xl {
+    font-size: 12rem;
+  }
+  .text-12xl {
+    font-size: 11rem;
+  }
+}
+
 @layer base {
   @font-face {
     font-family: 'Bernadette';

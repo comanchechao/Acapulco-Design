@@ -18,19 +18,19 @@
             class="container bg-yellow-600 rounded bg-opacity-20 font-serif h-full flex w-full p-5 place-items-center flex-col text-2xl"
           >
             <input
-              @click.prevent=""
+              v-model="title"
               class="w-full p-3 border-b-2 border-red-600"
               type="text"
               name="title"
               placeholder="title . . ."
-              v-model="title"
+              @click.prevent=""
             />
             <input
+              v-model="price"
               class="w-full p-3 border-b-2 border-red-600"
               type="number"
               name="price"
               placeholder="Price . . ."
-              v-model="price"
             />
             <v-btn class="mx-2" fab dark color="amber darken-3">
               <v-icon dark> mdi-plus </v-icon>
@@ -76,21 +76,22 @@
 import Navbar from '@/layouts/Navbar.vue'
 
 export default {
-  name: 'adminPage',
+  name: 'AdminPage',
   components: {
     Navbar,
   },
   data() {
     return {
-        title:null,
-        price:null,
+      title: null,
+      price: null,
     }
   },
 }
 </script>
 
 <style>
-input:focus,v-btn,
+input:focus,
+v-btn,
 textarea {
   outline: 1px;
   outline: crimson;

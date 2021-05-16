@@ -15,10 +15,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      xs: { max: '767px' },
+      sm: { min: '768px', max: '991px' },
+      md: { min: '992px', max: '1199px' },
+      lg: { min: '1200px' },
     },
     colors: {
       // Build your palette here
@@ -32,7 +32,7 @@ module.exports = {
       Lime: colors.lime,
       CoolGray: colors.coolGray,
       Fuchsia: colors.fuchsia,
-      purple: colors.purple
+      purple: colors.purple,
     },
     extend: {},
   },
