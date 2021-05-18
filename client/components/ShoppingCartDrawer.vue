@@ -31,7 +31,7 @@
       temporary
       app
       bottom
-      class="green accent-2 drawer"
+      class="drawer red lighten-4"
       width="33%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
@@ -121,10 +121,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 #main {
   color: #7a7a7a;
 }
@@ -185,17 +181,18 @@ export default {
 }
 
 .editBtn {
-  border: 2px solid #00e699;
-  background-color: #f3f3f3;
-  color: #14ffb1;
+  font-size: 30px;
+  background-color: #ff4a68;
+  color: #120129;
   border-radius: 35px;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
   padding: 9px 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .editBtn:hover {
-  background-color: #14ffb1;
-  color: rgb(243, 243, 243);
+  background-color: #120129;
+  color: #ff4a68;
 }
 
 /* @media screen and (max-width: 800px) {

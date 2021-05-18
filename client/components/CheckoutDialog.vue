@@ -16,7 +16,10 @@
           @click="dialog = true"
           v-on="on"
         >
-          <span class="px-6 py-8 checkoutText"> Checkout </span>
+          <span class="pl-6 py-7 checkoutText"> Checkout </span>
+          <v-icon x-large class="pink--text text--darken-2"
+            >mdi-arrow-right-circle</v-icon
+          >
         </button>
       </template>
       <div class="wrapper">
@@ -223,16 +226,17 @@ export default {
   font-size: 1.3rem;
 }
 .checkoutBtn {
-  background-color: #14ffb1;
-  color: rgb(243, 243, 243);
-  padding: 9px 20px;
+  font-size: 30px;
+  background-color: #ffcdd2;
+  color: #120129;
+  border: solid 2px #120129;
   border-radius: 35px;
-  border: 2px solid #14ffb1;
-
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
+  padding: 9px 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .checkoutBtn:hover {
-  background-color: rgb(243, 243, 243);
-  color: #14ffb1;
+  background-color: #120129;
+  color: #ff4a68;
 }
 </style>

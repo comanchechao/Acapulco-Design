@@ -5,43 +5,41 @@
 
     <v-main id="main" class="">
       <div class="grid place-items-center">
-        <div id="depth">
-          <div
-            class="acapulco-div pb-5 flex flex-col justify-space-around w-5/6"
+        <div
+          class="acapulco-div pb-5 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
+        >
+          <h1
+            v-gsap.to="{
+              y: 40,
+              opacity: 1,
+              duration: 1.5,
+              delay: 1.5,
+              ease: 'circ.out',
+            }"
+            class="acapulco pr-8 text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50 pt-6"
           >
-            <h1
-              v-gsap.to="{
-                y: 40,
-                opacity: 1,
-                duration: 1.5,
-                delay: 1.5,
-                ease: 'circ.out',
-              }"
-              class="acapulco text-center leading-none text-9xl md:text-12xl lg:text-13xl text-gray-50 pt-6"
+            Acapulco Design
+          </h1>
+          <div
+            v-gsap.to="{
+              opacity: 1,
+              duration: 0.6,
+              delay: 1.9,
+              ease: 'circ.out',
+            }"
+            class="scrollDownBtn self-center"
+          >
+            <v-btn
+              class="mb-4"
+              x-large
+              rounded
+              fab
+              depressed
+              dark
+              color="transparent"
             >
-              Acapulco Design
-            </h1>
-            <div
-              v-gsap.to="{
-                opacity: 1,
-                duration: 0.6,
-                delay: 1.9,
-                ease: 'circ.out',
-              }"
-              class="scrollDownBtn self-center"
-            >
-              <v-btn
-                class="mb-4"
-                x-large
-                rounded
-                fab
-                depressed
-                dark
-                color="transparent"
-              >
-                <v-icon x-large>mdi-arrow-up-down</v-icon>
-              </v-btn>
-            </div>
+              <v-icon x-large>mdi-arrow-up-down</v-icon>
+            </v-btn>
           </div>
         </div>
         <!-- <div class="d-flex align-self justify-self"></div> -->
@@ -62,23 +60,23 @@
             </h2>
           </div>
           <div class="logo">
-            <img src="@/static/9757.png" alt="" />
+            <img class="object-fill" src="@/static/9757.png" alt="" />
           </div>
         </div>
 
         <div
-          class="grid grid-cols-2 place-items-center h-screen w-4/5 secondContainer content"
+          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-3/5 lg:h-screen lg:w-4/5 secondContainer content"
         >
-          <div class="textDiv flex flex-col">
-            <div class="flex-row flex align-center justify-start">
+          <div class="textDiv flex flex-col order-last lg:order-1">
+            <div class="flex flex-row align-center justify-end">
               <img
                 class="transform -translate-y-4"
                 src="/zoozoo(1).png"
                 alt=""
               />
-              <h3 class="text-7xl p-5">Lighters</h3>
+              <h3 class="text-6xl lg:text-7xl p-5">Lighters</h3>
             </div>
-            <div class="self-end">
+            <div class="self-center lg:self-end">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
                   <span class="px-9 py-5 learnMoreText"> Learn More </span>
@@ -339,14 +337,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sahitya&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 * {
   scrollbar-width: thin;
   scrollbar-color: #e28b0a #00ffff;
@@ -549,9 +539,9 @@ export default {
   opacity: 0;
   font-family: 'Sail';
   z-index: 0;
-  text-shadow: 5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b,
-    20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b,
-    35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b;
+  text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #46b59b,
+    16px 16px 0px #017e7f, 20px 20px 0px #052939, 24px 24px 0px #5f010a,
+    28px 28px 0px #c11a2b, 32px 32px 0px #4649ff, 36px 36px 0px #00076e;
 }
 
 .scrollDownBtn {
