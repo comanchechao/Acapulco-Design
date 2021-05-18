@@ -15,8 +15,10 @@ export const state = () => ({
 
 export const mutations = {
   setUser: (state, { authUser, claims }) => {
-    const { uid, email, emailVerified } = authUser
-    state.user = { uid, email, emailVerified }
+    if (authUser) {
+      const { uid, email, emailVerified } = authUser
+      state.user = { uid, email, emailVerified }
+    }
   },
   // setUser(state, payload) {
   //   state.user = payload

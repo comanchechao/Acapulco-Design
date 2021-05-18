@@ -2,11 +2,10 @@
 <template>
   <v-app>
     <Navbar id="navbar" class="" />
-
-    <v-main id="main" class="">
-      <div class="grid place-items-center">
+    <div id="main" class="w-screen">
+      <div class="grid place-items-center w-screen">
         <div
-          class="acapulco-div pb-5 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
+          class="acapulco-div py-7 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
         >
           <h1
             v-gsap.to="{
@@ -65,16 +64,16 @@
         </div>
 
         <div
-          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-3/5 lg:h-screen lg:w-4/5 secondContainer content"
+          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content"
         >
-          <div class="textDiv flex flex-col order-last lg:order-1">
-            <div class="flex flex-row align-center justify-end">
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex flex-row-reverse align-center justify-center">
+              <h3 class="text-6xl lg:text-7xl p-5">Lighters</h3>
               <img
                 class="transform -translate-y-4"
                 src="/zoozoo(1).png"
                 alt=""
               />
-              <h3 class="text-6xl lg:text-7xl p-5">Lighters</h3>
             </div>
             <div class="self-center lg:self-end">
               <NuxtLink to="/productList">
@@ -84,7 +83,7 @@
               </NuxtLink>
             </div>
           </div>
-          <div class="pictureDiv"></div>
+          <div class="pictureDiv lg:order-last"></div>
         </div>
 
         <div
@@ -174,14 +173,14 @@
             </video>
           </div>
         </div>
-        <div class="seventhContainer">
+        <div class="seventhContainer w-screen">
           <div>
             <h1 class="introText pl-8">You can contact us with</h1>
             <img class="" src="/fsdfsdf.png" alt="" />
           </div>
         </div>
       </div>
-    </v-main>
+    </div>
   </v-app>
 </template>
 
