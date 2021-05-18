@@ -33,6 +33,9 @@ module.exports = {
       CoolGray: colors.coolGray,
       Fuchsia: colors.fuchsia,
       purple: colors.purple,
+      green: colors.green,
+      pink: colors.pink ,
+      Rose: colors.rose
     },
     extend: {},
   },

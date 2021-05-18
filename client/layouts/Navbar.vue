@@ -53,7 +53,12 @@
             class="mx-2"
             v-on="on"
           >
-            <span class="white--text"> Explore </span>
+            <span class="white--text"> Explore </span> </v-btn
+          >
+          <v-btn depressed x-large color="transparent Btn" class="mx-2">
+            <NuxtLink id="admin-link" class="flex space-x-4" to="/adminPage"
+              ><span class="white--text">admin </span> <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon></NuxtLink
+            >
           </v-btn>
         </template>
         <v-list>
@@ -176,6 +181,9 @@ span {
   display: flex;
   justify-self: center;
   align-self: center;
+}
+#admin-link {
+  color: #fff;
 }
 .sticky {
   background-color: #fff;
