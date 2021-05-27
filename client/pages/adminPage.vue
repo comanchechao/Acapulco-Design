@@ -1,114 +1,49 @@
 <template>
   <v-app>
-    <Navbar class="grids z-10" />
-    <div class="w-auto md:h-full h-auto grid grid-rows-2 grid-cols-2">
+    <Navbar class="" />
+
+    <div
+      class="w-full h-screen grid grid-flow-row grid-rows-3 via-yellow-500 h-full bg-gradient-to-t to-Lime-500 from-yellow-300"
+    >
       <div
-        class="flex align-center grids justify-start bg-purple-600 rounded-br-md"
+        v-gsap.from="{ duration: 1, y: -300, opacity: 0 }"
+        class="w-full h-24"
       >
-        <img
-          id="leaves"
-          class="absolute h-full"
-          src="/hhjhhUntitled-2.png"
-          alt=""
-        />
-        <div class="w-1/2">
-          <img src="/1uKK.gif" alt="" />
-        </div>
-
-        <form class="w-full">
-          <div
-            class="flex pointer-events-none absolute flex-cols items-stretch justify-end"
-          >
-            <img
-              v-gsap.fromTo="[
-                {
-                  scale: 0.5,
-
-                  y: -800,
-                },
-                {
-                  duration: 2,
-                  scale: 1.5,
-                  delay: 2,
-                  ease: 'Bounce.easeOut',
-                  y: 100,
-                },
-              ]"
-              class="w-1/4 pineapple justify-end"
-              src="/pineapple.png"
-              alt=""
-            />
-          </div>
-          <div
-            class="container transition duration-500 ease-in-out shadow-lg motion-safe:hover:bg-opacity-50 bg-amber-600 rounded bg-opacity-20 font-serif h-full flex w-full p-5 place-items-center flex-col text-2xl"
-          >
-          <p class="text-Rose-600 text-md" v-gsap.from="{x: 500 , ease: 'bounce'}" v-if="feedback">{{ feedback }}</p>
-            <input
-              v-model="title"
-              class="w-full title p-3 rounded border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
-              type="text"
-              name="title"
-              placeholder="title . . ."
-              @click.prevent=""
-            />
-           
-            <input
-              class="w-full price p-3 border-b-2 border-red-600 rounded border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
-              type="number"
-              name="price"
-              placeholder="Price . . ."
-            />
-            <button @click.prevent="addProduct()" class="learnMoreBtn">
-              <v-icon @click.prevent="surf()" class="px-2 py-3 learnMoreText">
-                mdi-plus</v-icon
-              >
-            </button>
-          </div>
-        </form>
-         
+        <img class="" src="/palmLeavesup.png" alt="" />
       </div>
       <div
-        class="flex align-center justify-center grids bg-gradient-to-r from-green-400 to-blue-500 rounded-bl-md"
+        v-gsap.from="{ duration: 1, opacity: 0 }"
+        class="grid grid-cols-3 grid-rows-1 align-center justify-items-center justify-center"
       >
-        <img
-          id="leaves"
-          class="absolute h-full"
-          src="/hhjhhUntitled-2.png"
-          alt=""
-        />
         <div
-          v-gsap.from="{ opacity: 0 }"
-          class="container flex flex-col items-center p-2 flex justify-center align-start"
+          v-gsap.from="{ x: -300, duration: 1, opacity: 0 }"
+          class="flex middle flex-col place-items-center"
         >
-          <div
-            v-for="product in products"
-            :key="product.id"
-            class="flex flex-cols self-center w-1/2 place-content-evenly"
-          >
-            <h2 class="w-1/2">
-              {{ product.title }}
-            </h2>
-            <v-icon dark @click="deleteProduct(product.id)"> mdi-minus </v-icon>
-          </div>
+          <img src="/Orders.png" alt="" />
+          <h2>Check</h2>
+        </div>
+        <div
+          v-gsap.from="{ scale: 0.2, duration: 1, opacity: 0 }"
+          class="flex middle flex-col place-items-center"
+        >
+          <img src="/Add.png" alt="" />
+          <h2>Add</h2>
+        </div>
+        <div
+          v-gsap.from="{ x: 300, duration: 1, opacity: 0 }"
+          class="flex middle flex-col place-items-center"
+        >
+          <img src="/Market.png" alt="" />
+          <h2>Rates</h2>
         </div>
       </div>
       <div
-        class="flex align-center justify-center grids bg-gradient-to-r from-blue-400 to-green-500 rounded-tr-md"
+        v-gsap.from="{ y: 300, duration: 1, opacity: 0 }"
+        class="flex lg:w-full place-content-around"
       >
-        <img
-          id="leaves"
-          class="absolute h-full"
-          src="/hhjhhUntitled-2.png"
-          alt=""
-        />
-        <img class="absolute h-full w-full" src="/Ocean.png" alt="" />
-      </div>
-      <div
-        class="flex align-center font-serif font-bold text-3xl justify-center grids bg-gradient-to-r from-blue-400 to-yellow-500 rounded-tl-md"
-      >
-        <img class="z-10 opacity-0 surfer bottom-2" src="/surfer.png" alt="" />
-        <img id="leaves" class="absolute h-full" src="/leaves.png" alt="" />
-        <img class="absolute h-full w-full" src="/Ocean.png" alt="" />
+        <img class="" src="/palmtreeR.png" alt="" />
+
+        <img src="/palmtree.png" alt="" />
       </div>
     </div>
   </v-app>
@@ -137,6 +72,17 @@ export default {
   mounted() {
     this.staggering()
     this.$store.dispatch('getProducts')
+  },
+  watch: {
+    isOpen: {
+      immediate: true,
+      handler(isOpen) {
+        if (process.client) {
+          if (isOpen) document.body.style.setProperty('overflow', 'hidden')
+          else document.body.style.removeProperty('overflow')
+        }
+      },
+    },
   },
   methods: {
     addProduct() {
@@ -193,7 +139,7 @@ export default {
 
       gsap.to('.pineapple', {
         y: -20,
-        scale:1.2
+        scale: 1.2,
       })
     },
   },
@@ -236,5 +182,8 @@ input[type='number'] {
 }
 #surfer {
   z-index: 2;
+}
+.middle {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 </style>
