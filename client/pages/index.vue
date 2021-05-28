@@ -1,188 +1,190 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
-  <v-app id="main">
-    <Navbar id="navbar" class="" />
-    <div class="w-full h-full">
-      <div class="grid place-items-center w-screen">
-        <div
-          class="acapulco-div py-7 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
-        >
-          <h1
-            v-gsap.to="{
-              y: 40,
-              opacity: 1,
-              duration: 1.5,
-
-              ease: 'circ.out',
-            }"
-            class="acapulco pr-8 text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50 pt-6"
-          >
-            Acapulco Design
-          </h1>
+  <v-app>
+    <div id="main">
+      <Navbar id="navbar" class="" />
+      <div class="w-full h-full">
+        <div class="grid place-items-center w-screen">
           <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 0.6,
-              delay: 1,
-              ease: 'circ.out',
-            }"
-            class="scrollDownBtn self-center"
+            class="acapulco-div py-7 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
           >
-            <v-btn
-              class="mb-4"
-              x-large
-              rounded
-              fab
-              depressed
-              dark
-              color="transparent"
-            >
-              <v-icon x-large>mdi-arrow-up-down</v-icon>
-            </v-btn>
-          </div>
-        </div>
-        <!-- <div class="d-flex align-self justify-self"></div> -->
-        <v-spacer></v-spacer>
-        <div
-          class="grid grid-cols-3 place-items-center h-4/5 firstContainer content mb-40"
-        >
-          <div class="logo">
-            <img src="@/static/9757(2).png" alt="" />
-          </div>
-          <div class="limited justify-self-center">
-            <h2
-              class="h2-home capitalize text-center text-5xl md:text-7xl lg:text-8xl"
-            >
-              <span class="limitedSpan">Limited</span>, <span>custom</span>,
-              <i class="">handmade </i>
-              merchendise by :
-            </h2>
-          </div>
-          <div class="logo">
-            <img class="object-fill" src="@/static/9757(1).png" alt="" />
-          </div>
-        </div>
+            <h1
+              v-gsap.to="{
+                y: 40,
+                opacity: 1,
+                duration: 1.5,
 
-        <div
-          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content mt-15"
-        >
-          <div class="textDiv flex flex-col order-last">
-            <div class="flex flex-row align-center justify-center">
-              <h3 class="text-6xl lg:text-7xl">Lighters</h3>
-              <div class="w-1/2 lg:w-full">
-                <img
-                  class="transform -translate-y-3 lg:pb-5 lg:pl-3 scale-75 lg:scale-75"
-                  src="/zoozoo(1).png"
-                  alt=""
-                />
+                ease: 'circ.out',
+              }"
+              class="acapulco pr-8 text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50 pt-6"
+            >
+              Acapulco Design
+            </h1>
+            <div
+              v-gsap.to="{
+                opacity: 1,
+                duration: 0.6,
+                delay: 1,
+                ease: 'circ.out',
+              }"
+              class="scrollDownBtn self-center"
+            >
+              <v-btn
+                class="mb-4"
+                x-large
+                rounded
+                fab
+                depressed
+                dark
+                color="transparent"
+              >
+                <v-icon x-large>mdi-arrow-up-down</v-icon>
+              </v-btn>
+            </div>
+          </div>
+          <!-- <div class="d-flex align-self justify-self"></div> -->
+          <v-spacer></v-spacer>
+          <div
+            class="grid grid-cols-3 place-items-center h-4/5 firstContainer content mb-40"
+          >
+            <div class="logo">
+              <img src="@/static/9757(2).png" alt="" />
+            </div>
+            <div class="limited justify-self-center">
+              <h2
+                class="h2-home capitalize text-center text-5xl md:text-7xl lg:text-8xl"
+              >
+                <span class="limitedSpan">Limited</span>, <span>custom</span>,
+                <i class="">handmade </i>
+                merchendise by :
+              </h2>
+            </div>
+            <div class="logo">
+              <img class="object-fill" src="@/static/9757(1).png" alt="" />
+            </div>
+          </div>
+
+          <div
+            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content mt-15"
+          >
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex flex-row align-center justify-center">
+                <h3 class="text-6xl lg:text-7xl">Lighters</h3>
+                <div class="w-1/2 lg:w-full">
+                  <img
+                    class="transform -translate-y-3 lg:pb-5 lg:pl-3 scale-75 lg:scale-75"
+                    src="/zoozoo(1).png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="self-center lg:self-end">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
               </div>
             </div>
-            <div class="self-center lg:self-end">
-              <NuxtLink to="/productList">
-                <button class="learnMoreBtn">
-                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
-                </button>
-              </NuxtLink>
-            </div>
+            <div class="pictureDiv lg:order-last"></div>
           </div>
-          <div class="pictureDiv lg:order-last"></div>
-        </div>
 
-        <div
-          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 thirdContainer content"
-        >
-          <div class="pictureDiv">
-            <v-img> </v-img>
-          </div>
-          <div class="textDiv flex flex-col order-last">
-            <div class="flex justify-end">
-              <h3 class="text-6xl p-5">Acapulco Shirts</h3>
-              <img class="transform scale-75" src="/fsdf.png" alt="" />
+          <div
+            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 thirdContainer content"
+          >
+            <div class="pictureDiv">
+              <v-img> </v-img>
             </div>
-            <div class="self-center">
-              <NuxtLink to="/productList">
-                <button class="learnMoreBtn">
-                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
-                </button>
-              </NuxtLink>
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex justify-end">
+                <h3 class="text-6xl p-5">Acapulco Shirts</h3>
+                <img class="transform scale-75" src="/fsdf.png" alt="" />
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 forthContainer content"
-        >
-          <div class="textDiv flex flex-col order-last">
-            <div class="flex-row-reverse align-center justify-center">
-              <!-- <img
+          <div
+            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 forthContainer content"
+          >
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex-row-reverse align-center justify-center">
+                <!-- <img
                 class="transform -translate-y-4"
                 src="/zoozoo(1).png"
                 alt=""
               /> -->
-              <h3 class="text-6xl lg:text-7xl p-5">Custom Matchboxes💥</h3>
+                <h3 class="text-6xl lg:text-7xl p-5">Custom Matchboxes💥</h3>
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
             </div>
-            <div class="self-center">
+            <div class="pictureDiv lg:order-last"></div>
+          </div>
+
+          <div
+            class="grid grid-row-2 h-4/6 lg:h-4/5 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
+          >
+            <img
+              class="absolute tropicalImage bg-cover bg-center"
+              src="/hhjhhUntitled-2.png"
+              alt=""
+            />
+
+            <div class="collections lg:max-w-6xl max-w-2xl"></div>
+
+            <div class="textDiv mt-4 z-10">
+              <h3 class="text-6xl">Collections 🗿</h3>
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
-                  <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
                 </button>
               </NuxtLink>
             </div>
           </div>
-          <div class="pictureDiv lg:order-last"></div>
-        </div>
 
-        <div
-          class="grid grid-row-2 h-4/6 lg:h-4/5 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
-        >
-          <img
-            class="absolute tropicalImage bg-cover bg-center"
-            src="/hhjhhUntitled-2.png"
-            alt=""
-          />
-
-          <div class="collections lg:max-w-6xl max-w-2xl"></div>
-
-          <div class="textDiv mt-4 z-10">
-            <h3 class="text-6xl">Collections 🗿</h3>
-            <NuxtLink to="/productList">
-              <button class="learnMoreBtn">
-                <span class="px-9 py-8 learnMoreText"> Learn More </span>
-              </button>
-            </NuxtLink>
-          </div>
-        </div>
-
-        <div
-          class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
-        >
-          <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
-            <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
-              We are a
-              <span class="limitedSpan"> Creative Team </span>
-              based in Iran
-            </h1>
-            <h3
-              class="learnMore font-thin text-4xl lg:text-6xl py-5 text-center"
-            >
-              If you want to know us more, maybe get a cup of coffee, you can!
-              <!-- <button id="contactUsBtn" class="learnMoreBtn">
+          <div
+            class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
+          >
+            <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
+              <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
+                We are a
+                <span class="limitedSpan"> Creative Team </span>
+                based in Iran
+              </h1>
+              <h3
+                class="learnMore font-thin text-4xl lg:text-6xl py-5 text-center"
+              >
+                If you want to know us more, maybe get a cup of coffee, you can!
+                <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
-            </h3>
+              </h3>
 
-            <div class="flex align-center justify-center mt-4">
-              <video width="620" height="540" autoplay loop muted>
-                <source src="/Y064cQ6.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div class="flex align-center justify-center mt-4">
+                <video width="620" height="540" autoplay loop muted>
+                  <source src="/Y064cQ6.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="seventhContainer w-screen">
-          <div>
-            <h1 class="introText pl-8">You can contact us with</h1>
-            <img class="" src="/fsdfsdf.png" alt="" />
+          <div class="seventhContainer w-screen">
+            <div>
+              <h1 class="introText pl-8">You can contact us with</h1>
+              <img class="" src="/fsdfsdf.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
