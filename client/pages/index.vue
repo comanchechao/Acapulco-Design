@@ -1,8 +1,8 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
-  <v-app>
+  <v-app id="main">
     <Navbar id="navbar" class="" />
-    <div id="main" class="w-screen">
+    <div class="w-full h-full">
       <div class="grid place-items-center w-screen">
         <div
           class="acapulco-div py-7 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
@@ -12,7 +12,7 @@
               y: 40,
               opacity: 1,
               duration: 1.5,
-              delay: 1.5,
+
               ease: 'circ.out',
             }"
             class="acapulco pr-8 text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50 pt-6"
@@ -23,7 +23,7 @@
             v-gsap.to="{
               opacity: 1,
               duration: 0.6,
-              delay: 1.9,
+              delay: 1,
               ease: 'circ.out',
             }"
             class="scrollDownBtn self-center"
@@ -44,10 +44,10 @@
         <!-- <div class="d-flex align-self justify-self"></div> -->
         <v-spacer></v-spacer>
         <div
-          class="grid grid-cols-3 place-items-center firstContainer content mb-10"
+          class="grid grid-cols-3 place-items-center h-4/5 firstContainer content mb-40"
         >
           <div class="logo">
-            <img src="@/static/9756.png" alt="" />
+            <img src="@/static/9757(2).png" alt="" />
           </div>
           <div class="limited justify-self-center">
             <h2
@@ -59,21 +59,23 @@
             </h2>
           </div>
           <div class="logo">
-            <img class="object-fill" src="@/static/9757.png" alt="" />
+            <img class="object-fill" src="@/static/9757(1).png" alt="" />
           </div>
         </div>
 
         <div
-          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content"
+          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content mt-15"
         >
           <div class="textDiv flex flex-col order-last">
-            <div class="flex flex-row-reverse align-center justify-center">
-              <h3 class="text-6xl lg:text-7xl p-5">Lighters</h3>
-              <img
-                class="transform -translate-y-4"
-                src="/zoozoo(1).png"
-                alt=""
-              />
+            <div class="flex flex-row align-center justify-center">
+              <h3 class="text-6xl lg:text-7xl">Lighters</h3>
+              <div class="w-1/2 lg:w-full">
+                <img
+                  class="transform -translate-y-3 lg:pb-5 lg:pl-3 scale-75 lg:scale-75"
+                  src="/zoozoo(1).png"
+                  alt=""
+                />
+              </div>
             </div>
             <div class="self-center lg:self-end">
               <NuxtLink to="/productList">
@@ -87,17 +89,17 @@
         </div>
 
         <div
-          class="grid grid-cols-2 place-items-center h-4/5 w-4/5 thirdContainer content"
+          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 thirdContainer content"
         >
           <div class="pictureDiv">
             <v-img> </v-img>
           </div>
-          <div class="textDiv flex flex-col">
-            <div class="flex-row flex justify-center align-center">
-              <h3 class="text-7xl p-5">Acapulco Shirts</h3>
-              <img class="" src="/fsdf.png" alt="" />
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex justify-end">
+              <h3 class="text-6xl p-5">Acapulco Shirts</h3>
+              <img class="transform scale-75" src="/fsdf.png" alt="" />
             </div>
-            <div class="">
+            <div class="self-center">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
                   <span class="px-9 py-5 learnMoreText"> Learn More </span>
@@ -108,18 +110,18 @@
         </div>
 
         <div
-          class="grid grid-cols-2 place-items-center h-screen w-4/5 forthContainer content"
+          class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 forthContainer content"
         >
-          <div class="textDiv flex flex-col">
-            <div class="flex-row flex align-center justify-center">
-              <img
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <!-- <img
                 class="transform -translate-y-4"
                 src="/zoozoo(1).png"
                 alt=""
-              />
-              <h3 class="text-6xl p-5">Custom Matchboxes</h3>
+              /> -->
+              <h3 class="text-6xl lg:text-7xl p-5">Custom Matchboxes💥</h3>
             </div>
-            <div class="self-end">
+            <div class="self-center">
               <NuxtLink to="/productList">
                 <button class="learnMoreBtn">
                   <span class="px-9 py-5 learnMoreText"> Learn More </span>
@@ -127,20 +129,22 @@
               </NuxtLink>
             </div>
           </div>
-          <div class="pictureDiv"></div>
+          <div class="pictureDiv lg:order-last"></div>
         </div>
+
         <div
-          class="grid grid-row-2 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
+          class="grid grid-row-2 h-4/6 lg:h-4/5 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
         >
           <img
-            class="absolute tropicalImage"
+            class="absolute tropicalImage bg-cover bg-center"
             src="/hhjhhUntitled-2.png"
             alt=""
           />
-          <div class="collections max-w-6xl"></div>
 
-          <div class="textDiv">
-            <h3 id="altText">Collections</h3>
+          <div class="collections lg:max-w-6xl max-w-2xl"></div>
+
+          <div class="textDiv mt-4 z-10">
+            <h3 class="text-6xl">Collections 🗿</h3>
             <NuxtLink to="/productList">
               <button class="learnMoreBtn">
                 <span class="px-9 py-8 learnMoreText"> Learn More </span>
@@ -150,27 +154,29 @@
         </div>
 
         <div
-          class="grid grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
+          class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
         >
-          <div class="d-flex flex-column flex-wrap">
-            <h1 class="introText text-center">
+          <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
+            <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
               We are a
               <span class="limitedSpan"> Creative Team </span>
               based in Iran
             </h1>
-            <h3 class="learnMore py-5 text-center">
-              If you want to know us more, maybe get a cup of coffee, you can
+            <h3
+              class="learnMore font-thin text-4xl lg:text-6xl py-5 text-center"
+            >
+              If you want to know us more, maybe get a cup of coffee, you can!
               <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
             </h3>
-          </div>
 
-          <div class="d-flex align-center justify-center">
-            <video width="620" height="540" autoplay loop muted>
-              <source src="/Y064cQ6.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div class="flex align-center justify-center mt-4">
+              <video width="620" height="540" autoplay loop muted>
+                <source src="/Y064cQ6.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
         <div class="seventhContainer w-screen">
@@ -291,6 +297,7 @@ export default {
           },
         }
       )
+
       const contents = this.$gsap.utils.toArray('.content')
       contents.forEach((content) => {
         this.$gsap.fromTo(
@@ -308,27 +315,27 @@ export default {
               start: 'top bottom',
               end: 'top center',
               trigger: content,
-              toggleActions: 'play none none none',
+              toggleActions: 'play reverse  none none',
             },
           }
         )
-        this.$gsap.fromTo(
-          content,
-          { y: -120 },
-          {
-            y: -150,
-            opacity: 0,
-            // ease: 'Power1.easeInOut',
-            scrollTrigger: {
-              trigger: content,
-              start: 'top top',
-              end: 'center top',
-              scrub: 0.1,
+        // this.$gsap.fromTo(
+        //   content,
+        //   { y: -120 },
+        //   {
+        //     y: -150,
+        //     opacity: 0,
+        //     // ease: 'Power1.easeInOut',
+        //     scrollTrigger: {
+        //       trigger: content,
+        //       start: 'top top',
+        //       end: 'center top',
+        //       scrub: 0.1,
 
-              // toggleActions: 'restart none reverse none',
-            },
-          }
-        )
+        //       // toggleActions: 'restart none reverse none',
+        //     },
+        //   }
+        // )
       })
     },
   },
@@ -336,94 +343,13 @@ export default {
 </script>
 
 <style scoped>
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #e28b0a #00ffff;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 32px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #00ffff;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #e28b0a;
-  border-radius: 100px;
-  border: 3px solid #e44343;
-}
-
 /* Hide scrollbar for IE, Edge and Firefox */
 
-#main {
-  animation: 30s ease-in-out infinite alternate-reverse color-change;
-}
-@-webkit-keyframes color-change {
-  0% {
-    background-color: #ade7e7;
-  }
-  /* 15% {
-    background-color: #7ec6c8;
-  }
-  30% {
-    background-color: #a1dfa1;
-  } */
-  45% {
-    background-color: #a6a6db;
-  }
-  /* 60% {
-    background-color: #d8a5d8;
-  }
-  75% {
-    background-color: #c6b1ec;
-  }
-  90% {
-    background-color: #ade7e7;
-  } */
-  100% {
-    background-color: #d8bbff;
-  }
-}
-
-@keyframes color-change {
-  0% {
-    background-color: #83f1f1;
-  }
-  /* 15% {
-    background-color: #7ec6c8;
-  }
-  30% {
-    background-color: #a1dfa1;
-  } */
-  50% {
-    background-color: #55dd8e;
-  }
-  /* 60% {
-    background-color: #d8a5d8;
-  }
-  75% {
-    background-color: #c6b1ec;
-  }
-  90% {
-    background-color: #ade7e7;
-  } */
-  100% {
-    background-color: #595bee;
-  }
-}
 .acapulco-div {
   height: 100vh;
 }
 .content {
   opacity: 0;
-}
-
-.firstContainer {
-  width: 100vw;
-  height: 80vh;
 }
 
 .secondContainer,
@@ -445,37 +371,31 @@ export default {
 } */
 
 .introText {
-  font-size: 3.6em;
+  /* font-size: 3.6em; */
   font-family: 'Roboto Slab', serif;
-  line-height: 110%;
-  text-transform: capitalize;
+  /* line-height: 110%; */
+  /* text-transform: capitalize; */
   color: #120129;
 }
 
 .learnMore {
   font-weight: 300;
-  font-size: 2.6em;
   font-family: 'Roboto Slab', serif;
-  text-align: center;
-  line-height: 110%;
-  text-transform: capitalize;
   color: #120129;
 }
 
-#altText {
-  font-size: 64px;
-}
 .learnMoreBtn {
   font-size: 30px;
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
-  transition: ease-in-out 0.3s;
+  transition: transform ease-in-out 0.5s;
   padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .learnMoreBtn:hover {
+  transform: translateY(-5px);
   background-color: #120129;
   color: #ff4a68;
 }
@@ -537,7 +457,7 @@ export default {
 .acapulco {
   opacity: 0;
   font-family: 'Sail';
-  z-index: 0;
+  z-index: 1;
   text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #46b59b,
     16px 16px 0px #017e7f, 20px 20px 0px #052939, 24px 24px 0px #5f010a,
     28px 28px 0px #c11a2b, 32px 32px 0px #4649ff, 36px 36px 0px #00076e;
@@ -554,8 +474,5 @@ export default {
 }
 .limitedSpan {
   color: #ff4a68;
-}
-#main {
-  color: transparent;
 }
 </style>

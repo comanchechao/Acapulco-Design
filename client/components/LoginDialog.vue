@@ -74,9 +74,9 @@
               <span class="pr-3 googleText">Sign in with Google</span></v-btn
             >
           </div>
-          <div class="d-flex justify-center align-center">
+          <div class="flex flex-col justify-center align-center">
             <p class="signup mr-6 mt-5">Don't have an account?</p>
-            <SignupDialog />
+            <SignupDialog class="" />
             <PasswordResetDialog />
           </div>
           <p v-if="error" class="errorText">

@@ -51,3 +51,78 @@
     src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
   }
 }
+#main {
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+  /* 15% {
+      background-color: #7ec6c8;
+    }
+    30% {
+      background-color: #a1dfa1;
+    } */
+  45% {
+    background-color: #a6a6db;
+  }
+  /* 60% {
+      background-color: #d8a5d8;
+    }
+    75% {
+      background-color: #c6b1ec;
+    }
+    90% {
+      background-color: #ade7e7;
+    } */
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #83f1f1;
+  }
+  /* 15% {
+      background-color: #7ec6c8;
+    }
+    30% {
+      background-color: #a1dfa1;
+    } */
+  50% {
+    background-color: #55dd8e;
+  }
+  /* 60% {
+      background-color: #d8a5d8;
+    }
+    75% {
+      background-color: #c6b1ec;
+    }
+    90% {
+      background-color: #ade7e7;
+    } */
+  100% {
+    background-color: #595bee;
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e28b0a #00ffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 32px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #00ffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e28b0a;
+  border-radius: 100px;
+  border: 3px solid #e44343;
+}

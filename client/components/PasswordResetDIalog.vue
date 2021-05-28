@@ -2,14 +2,16 @@
   <v-dialog v-model="dialog" max-width="900px" transition="dialog-transition">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        color="#00e699"
-        class="signup-btn d-flex align-center"
+        color="transparent"
+        class="flex pt-5 align-center"
         v-bind="attrs"
         rounded
+        depressed
+        light
         large
         v-on="on"
       >
-        <span class="white--text signup-text px-3"> Reset Your Passwrod </span>
+        <span class="px-3"> Reset Your Passwrod </span>
       </v-btn>
     </template>
 
