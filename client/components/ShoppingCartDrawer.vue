@@ -31,7 +31,7 @@
       temporary
       app
       bottom
-      class="drawer red lighten-4"
+      class="drawer red lighten-4 z-10"
       width="33%"
     >
       <!-- <div v-for="product in products" :key="product.id">  

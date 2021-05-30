@@ -2,9 +2,36 @@
   <v-app>
     <div id="main">
       <Navbar class="" />
-      <div class="w-full h-full grid place-items-center">
-        <div class="mt-64 bg-blueGray-50 h-full w-10/12 background">
-          <div class="grid w-full h-full grid-rows-6 grid-flow-col gap-4">
+      <div class="w-full h-full grid grid-cols-8 mt-14">
+        <div
+          class="col-span-2 sidebar h-96 sticky top-0 bg-blueGray-100 rounded-lg flex flex-col justify-space-between align-center"
+        >
+          <div class="flex flex-col">
+            <h1 class="text-5xl mt-10 text-center text-gray-700">Shop</h1>
+            <div class="mt-12">
+              <h3 class="p-3 text-gray-700">Filter by:</h3>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3">Lighters</h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3">Acapulco Shirts</h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3">Custom Matchboxes</h1>
+                </span>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-64 col-span-6 bg-blueGray-50 rounded-lg shadow-lg justify-self-center self-end h-full w-11/12 background"
+        >
+          <div class="grid w-full h-full">
             <div class="sticky col-span-3 navbar flex align-center">
               <NuxtLink to="/">
                 <span class="p-9"
@@ -20,37 +47,9 @@
                 </span>
               </NuxtLink>
             </div>
-            <div
-              class="row-span-5 sidebar flex flex-col justify-space-between align-center"
-            >
-              <div class="flex flex-col">
-                <h1 class="text-5xl mt-10 text-center text-gray-700">Shop</h1>
-                <div class="mt-12">
-                  <h3 class="p-3 text-gray-700">Filter by:</h3>
-                  <NuxtLink to="/productList">
-                    <span>
-                      <h1 class="text-3xl text-gray-700 p-3">Lighters</h1>
-                    </span>
-                  </NuxtLink>
-                  <NuxtLink to="/productList">
-                    <span>
-                      <h1 class="text-3xl text-gray-700 p-3">
-                        Acapulco Shirts
-                      </h1>
-                    </span>
-                  </NuxtLink>
-                  <NuxtLink to="/productList">
-                    <span>
-                      <h1 class="text-3xl text-gray-700 p-3">
-                        Custom Matchboxes
-                      </h1>
-                    </span>
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
+
             <div class="row-span-5 col-span-4">
-              <div class="grid grid-cols-2 p-4 place-items-center">
+              <div class="grid grid-cols-3 p-4 place-items-center">
                 <ProductCard
                   v-for="product in products"
                   id="product-card"
@@ -116,16 +115,19 @@ export default {
       tl.from('.background', {
         opacity: 0,
         y: 90,
-
-        duration: 0.6,
+        ease: 'expo.inOut',
+        duration: 1.5,
       })
       tl.from('.navbar', {
         opacity: 0,
         y: -70,
+        duration: 1,
+        ease: 'expo.inOut',
       })
       tl.from('.sidebar', {
         opacity: 0,
         x: -70,
+        ease: 'expo.inOut',
       })
     },
   },

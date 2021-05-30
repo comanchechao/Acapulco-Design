@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <Navbar class="" />
-
     <div
-      class="w-full h-screen grid grid-flow-row grid-rows-3 via-yellow-500 h-full bg-gradient-to-t to-Lime-500 from-yellow-300"
+      id="main"
+      class="w-full h-screen grid grid-flow-row grid-rows-3 via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
     >
+      <Navbar class="" />
       <div
         v-gsap.from="{ duration: 1, y: -300, opacity: 0 }"
         class="w-full h-24"

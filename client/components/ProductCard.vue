@@ -1,7 +1,17 @@
 <template>
-  <div class="rounded-full w-3/5 bg-purple-800">
-    <div class="bg-yellow-400">
-      <v-img>{{ product.productImage }}</v-img>
+  <div class="relative h-96 w-96 bg-Lime-400 max-w-xl mx-auto my-9">
+    <div class="relative h-72 w-72 rounded-full py-3 max-w-xl mx-auto">
+      <div class="absolute inset-0 bg-red-300 shadow-lg rounded-full">
+        <div class="max-w-md mx-auto">
+          <img
+            src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+            alt=""
+          />
+        </div>
+        <div>
+          <h1 class="">Dragon Ball</h1>
+        </div>
+      </div>
     </div>
   </div>
 </template>

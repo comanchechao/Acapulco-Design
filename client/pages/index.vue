@@ -5,9 +5,19 @@
       <Navbar id="navbar" class="" />
       <div class="w-full h-full">
         <div class="grid place-items-center w-screen">
-          <div
-            class="acapulco-div py-7 flex flex-col justify-space-around h-3/5 lg:h-4/5 w-5/6"
-          >
+          <div class="acapulco-div flex flex-col justify-start w-5/6">
+            <div
+              v-gsap.from="{
+                y: -40,
+                opacity: 0,
+                duration: 1.5,
+
+                ease: 'circ.out',
+              }"
+              class="w-60 h-60 justify-self-center self-center"
+            >
+              <img class="" src="/sdasd.png" alt="" />
+            </div>
             <h1
               v-gsap.to="{
                 y: 40,
@@ -16,7 +26,7 @@
 
                 ease: 'circ.out',
               }"
-              class="acapulco pr-8 text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50 pt-6"
+              class="acapulco pr-8 transform text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50"
             >
               Acapulco Design
             </h1>
@@ -30,7 +40,7 @@
               class="scrollDownBtn self-center"
             >
               <v-btn
-                class="mb-4"
+                class="mt-28"
                 x-large
                 rounded
                 fab
