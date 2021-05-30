@@ -16,7 +16,7 @@
               }"
               class="w-60 h-60 justify-self-center self-center"
             >
-              <img class="" src="/sdasd.png" alt="" />
+              <img class="ChiefHead" src="/sdasd.png" alt="" />
             </div>
             <h1
               v-gsap.to="{
@@ -225,6 +225,7 @@ export default {
     this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
+    this.animateChiefHead()
   },
   methods: {
     animatePictureDiv() {
@@ -278,6 +279,16 @@ export default {
           },
         })
       })
+    },
+    animateChiefHead() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline({ repeat: -1, yoyo: true })
+      tl.fromTo(
+        '.ChiefHead',
+        1,
+        { ease: 'power1.inOut', x: 30, rotation: '-20deg' },
+        { ease: 'power1.inOut', x: 50, rotation: '20deg' }
+      )
     },
 
     animateScrollDownBtn() {
