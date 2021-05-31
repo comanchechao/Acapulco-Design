@@ -286,8 +286,8 @@ export default {
       tl.fromTo(
         '.ChiefHead',
         1,
-        { ease: 'power1.inOut', x: 30, rotation: '-20deg' },
-        { ease: 'power1.inOut', x: 50, rotation: '20deg' }
+        { ease: 'power1.inOut', rotation: '-20deg' },
+        { ease: 'power1.inOut', rotation: '20deg' }
       )
     },
 
