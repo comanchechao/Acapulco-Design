@@ -1,49 +1,48 @@
 <template>
   <v-app>
+    <Navbar class="absolute z-10" />
     <div
       id="main"
       class="w-full h-screen grid grid-flow-row grid-rows-3 via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
     >
-      <Navbar class="" />
+      
       <div
         v-gsap.from="{ duration: 1, y: -300, opacity: 0 }"
-        class="w-full h-24"
+        class="w-full h-auto"
       >
         <img class="" src="/palmLeavesup.png" alt="" />
       </div>
       <div
         v-gsap.from="{ duration: 1, opacity: 0 }"
-        class="grid grid-cols-3 grid-rows-1 align-center justify-items-center justify-center"
+        class="grid grid-cols-3 grid-flow-col grid-rows-1 align-center justify-items-center justify-center"
       >
         <div
           v-gsap.from="{ x: -300, duration: 1, opacity: 0 }"
-          class="flex middle flex-col place-items-center"
+          class="flex middle flex-col  place-items-center"
         >
           <img src="/Orders.png" alt="" />
-          <h2>Check</h2>
+          <h2 class="text-blue-700 text-3xl">Check</h2>
         </div>
         <div
           v-gsap.from="{ scale: 0.2, duration: 1, opacity: 0 }"
           class="flex middle flex-col place-items-center"
         >
           <img src="/Add.png" alt="" />
-          <h2>Add</h2>
+          <h2 class="text-blue-700 text-3xl">Add</h2>
         </div>
         <div
           v-gsap.from="{ x: 300, duration: 1, opacity: 0 }"
           class="flex middle flex-col place-items-center"
         >
           <img src="/Market.png" alt="" />
-          <h2>Rates</h2>
+          <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div>
       </div>
       <div
         v-gsap.from="{ y: 300, duration: 1, opacity: 0 }"
-        class="flex lg:w-full place-content-around"
+        class="flex flex-row h-full w-full place-content-center"
       >
-        <img class="" src="/palmtreeR.png" alt="" />
-
-        <img src="/palmtree.png" alt="" />
+       <img src="/palms.png" alt="">
       </div>
     </div>
   </v-app>
