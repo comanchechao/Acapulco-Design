@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-96 w-96 bg-Lime-400 max-w-xl mx-auto my-9">
+  <div class="relative h-96 w-96 max-w-xl mx-auto my-9 grid place-items-center">
     <div class="relative h-72 w-72 rounded-full py-3 max-w-xl mx-auto">
       <div class="absolute inset-0 bg-red-300 shadow-lg rounded-full">
         <div class="max-w-md mx-auto">
@@ -8,8 +8,12 @@
             alt=""
           />
         </div>
-        <div>
-          <h1 class="">Dragon Ball</h1>
+        <div class="flex flex-col justify-center align-center">
+          <h1 class="text-5xl text-CoolGray-900">Dragon Ball</h1>
+          <p class="text-3xl text-CoolGray-900">3500</p>
+          <button class="learnMoreBtn mt-8">
+            <span class="px-9 py-8 learnMoreText"> Learn More </span>
+          </button>
         </div>
       </div>
     </div>
@@ -62,5 +66,20 @@ export default {
   font-weight: 400;
   font-display: swap;
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
+}
+.learnMoreBtn {
+  font-size: 30px;
+  background-color: #ff4a68;
+  color: #120129;
+  border-radius: 35px;
+  transition: transform ease-in-out 0.5s;
+  padding: 9px 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.learnMoreBtn:hover {
+  transform: translateY(-5px);
+  background-color: #120129;
+  color: #ff4a68;
 }
 </style>

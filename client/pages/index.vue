@@ -183,7 +183,7 @@
               </h3>
 
               <div class="flex align-center justify-center mt-4">
-                <video width="620" height="540" autoplay loop muted>
+                <video width="720" height="540" autoplay loop muted>
                   <source src="/Y064cQ6.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -286,8 +286,8 @@ export default {
       tl.fromTo(
         '.ChiefHead',
         1,
-        { ease: 'power1.inOut', rotation: '-20deg' },
-        { ease: 'power1.inOut', rotation: '20deg' }
+        { ease: 'power1.inOut', rotation: '-10deg' },
+        { ease: 'power1.inOut', rotation: '10deg' }
       )
     },
 

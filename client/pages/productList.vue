@@ -4,25 +4,38 @@
       <Navbar class="" />
       <div class="w-full h-full grid grid-cols-8 mt-14">
         <div
-          class="col-span-2 sidebar h-96 sticky top-0 bg-blueGray-100 rounded-lg flex flex-col justify-space-between align-center"
+          class="col-span-2 sidebar h-1/5 sticky text-center shadow-lg top-0 bg-blueGray-100 rounded-lg flex flex-col justify-between align-center"
         >
           <div class="flex flex-col">
-            <h1 class="text-5xl mt-10 text-center text-gray-700">Shop</h1>
+            <h1 class="text-7xl mt-10 text-center text-gray-700">Shop</h1>
             <div class="mt-12">
-              <h3 class="p-3 text-gray-700">Filter by:</h3>
+              <h3 class="p-3 text-gray-700 text-2xl sidebarText">Filter by:</h3>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3">Lighters</h1>
+                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
+                    Lighters🔥
+                  </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3">Acapulco Shirts</h1>
+                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
+                    Acapulco Shirts🌴
+                  </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3">Custom Matchboxes</h1>
+                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
+                    Custom Matchboxes💥
+                  </h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
+                    Collections🗿
+                  </h1>
                 </span>
               </NuxtLink>
             </div>
@@ -32,18 +45,20 @@
           class="mt-64 col-span-6 bg-blueGray-50 rounded-lg shadow-lg justify-self-center self-end h-full w-11/12 background"
         >
           <div class="grid w-full h-full">
-            <div class="sticky col-span-3 navbar flex align-center">
+            <div
+              class="col-span-3 navbar flex align-center pt-9 divide-x-2 divide-black"
+            >
               <NuxtLink to="/">
                 <span class="p-9"
                   ><v-icon light x-large>mdi-chevron-double-left</v-icon></span
                 >
               </NuxtLink>
               <NuxtLink to="/">
-                <span class="px-5 text-3xl text-gray-700"> Home </span>
+                <span class="px-5 text-5xl text-gray-700"> Home </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700">Shop</h1>
+                  <h1 class="px-5 text-5xl text-gray-700">Shop</h1>
                 </span>
               </NuxtLink>
             </div>
@@ -54,7 +69,7 @@
                   v-for="product in products"
                   id="product-card"
                   :key="product.id"
-                  class="p-4"
+                  class="p-4 productCard"
                   :product="product"
                 />
               </div>
@@ -114,20 +129,42 @@ export default {
       const tl = gsap.timeline()
       tl.from('.background', {
         opacity: 0,
-        y: 90,
-        ease: 'expo.inOut',
-        duration: 1.5,
+        scale: 0.8,
+        ease: 'expo.Out',
+        duration: 2.5,
       })
-      tl.from('.navbar', {
+      tl.from(
+        '.navbar',
+        {
+          opacity: 0,
+          y: -40,
+
+          duration: 1,
+
+          ease: 'expo.Out',
+        },
+        '-=1'
+      )
+      tl.from(
+        '.sidebar',
+        {
+          opacity: 0,
+          x: -40,
+          ease: 'expo.Out',
+        },
+        '-=0.5'
+      )
+      tl.from('.sidebarText', {
         opacity: 0,
-        y: -70,
-        duration: 1,
-        ease: 'expo.inOut',
+        y: -20,
+        ease: 'power3.out',
+        stagger: 0.1,
       })
-      tl.from('.sidebar', {
+      tl.from('.productCard', {
         opacity: 0,
-        x: -70,
-        ease: 'expo.inOut',
+        y: -20,
+        ease: 'power3.out',
+        stagger: 0.1,
       })
     },
   },
@@ -135,11 +172,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
 #main {
-  overflow: hidden;
-
-  font-family: 'Acme';
+  font-family: 'Yanone Kaffeesatz';
 }
 </style>
