@@ -3,47 +3,123 @@
     <Navbar class="absolute z-10" />
     <div
       id="main"
-      class="w-full h-screen grid grid-flow-row grid-rows-3 via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
+      class="w-full h-screen flex place-items-center via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
     >
-      
-      <div
-        v-gsap.from="{ duration: 1, y: -300, opacity: 0 }"
-        class="w-full h-auto"
-      >
-        <img class="" src="/palmLeavesup.png" alt="" />
+      <div class="tropicalLeaves absolute lg:w-1/2 top-0">
+        <img src="/TropicalLeaves.png" alt="" />
       </div>
-      <div
-        v-gsap.from="{ duration: 1, opacity: 0 }"
-        class="grid grid-cols-3 grid-flow-col grid-rows-1 align-center justify-items-center justify-center"
-      >
-        <div
-          v-gsap.from="{ x: -300, duration: 1, opacity: 0 }"
-          class="flex middle flex-col  place-items-center"
-        >
+      <!-- <div class="bees flex middle flex-col place-items-center">
           <img src="/Orders.png" alt="" />
           <h2 class="text-blue-700 text-3xl">Check</h2>
         </div>
-        <div
-          v-gsap.from="{ scale: 0.2, duration: 1, opacity: 0 }"
-          class="flex middle flex-col place-items-center"
-        >
+        <div class="bees flex middle flex-col place-items-center">
           <img src="/Add.png" alt="" />
-          <h2 class="text-blue-700 text-3xl">Add</h2>
         </div>
-        <div
-          v-gsap.from="{ x: 300, duration: 1, opacity: 0 }"
-          class="flex middle flex-col place-items-center"
-        >
+        <div class="bees flex middle flex-col place-items-center">
           <img src="/Market.png" alt="" />
           <h2 class="text-blue-700 text-3xl">Rates</h2>
+        </div> -->
+      <div
+        class="w-1/3 admin flex flex-row container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg flex flex-col justify-between align-center"
+      >
+        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+              @click="toggleTabs(1)"
+              :class="{
+                'text-pink-600 bg-white': openTab !== 1,
+                'text-white bg-pink-600': openTab === 1,
+              }"
+            >
+              <img src="/Market.png" alt="" />
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+              @click="toggleTabs(2)"
+              :class="{
+                'text-pink-600 bg-white': openTab !== 2,
+                'text-white bg-green-600': openTab === 2,
+              }"
+            >
+              <img src="/Add.png" alt="" />
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center">
+            <a
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+              @click="toggleTabs(3)"
+              :class="{
+                'text-pink-600 bg-white': openTab !== 3,
+                'text-white bg-Amber-600': openTab === 3,
+              }"
+            >
+              <img class="" src="/Orders.png" alt="" />
+            </a>
+          </li>
+        </ul>
+        <div
+          class="relative flex flex-col min-w-0 break-words bg-CoolGray-300 w-full mb-6 shadow-lg rounded"
+        >
+          <div
+            :class="{
+              'bg-pink-600': openTab === 1,
+              'bg-green-600': openTab === 2,
+              'bg-Amber-600': openTab === 3,
+            }"
+            class="px-4 py-5 flex-auto rounded"
+          >
+            <div class="tab-content tab-space">
+              <div
+                :class="{
+                  hidden: openTab !== 1,
+                  block: openTab === 1,
+                }"
+              >
+                <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                  Collaboratively administrate empowered markets via
+                  plug-and-play networks. Dynamically procrastinate B2C users
+                  after installed base benefits.
+                  <br />
+                  <br />
+                  Dramatically visualize customer directed convergence without
+                  revolutionary ROI.
+                </p>
+              </div>
+              <div
+                v-bind:class="{ hidden: openTab !== 2, block: openTab === 2 }"
+              >
+                <div
+                  class="flex flex-col"
+                  v-gsap.from="{ scale: 0.2 }"
+                  v-for="product in products"
+                  :key="product.id"
+                >
+                  {{ product.title }}
+                </div>
+              </div>
+              <div :class="{ hidden: openTab !== 3, block: openTab === 3 }">
+                <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                  Efficiently unleash cross-media information without
+                  cross-media value. Quickly maximize timely deliverables for
+                  real-time schemas.
+                  <br />
+                  <br />
+                  Dramatically maintain clicks-and-mortar solutions without
+                  functional solutions.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div
-        v-gsap.from="{ y: 300, duration: 1, opacity: 0 }"
-        class="flex flex-row h-full w-full place-content-center"
-      >
-       <img src="/palms.png" alt="">
-      </div>
+    </div>
+    <div
+      class="absolute flex place-content-around align-items-center h-2/3 w-full bottom-0 palms"
+    >
+      <img class="" src="/palmtrees.png" alt="" />
     </div>
   </v-app>
 </template>
@@ -61,6 +137,7 @@ export default {
       title: null,
       price: null,
       feedback: null,
+      openTab: 1,
     }
   },
   computed: {
@@ -69,7 +146,7 @@ export default {
     },
   },
   mounted() {
-    this.staggering()
+    this.welcome()
     this.$store.dispatch('getProducts')
   },
   watch: {
@@ -84,6 +161,9 @@ export default {
     },
   },
   methods: {
+    toggleTabs(tabNumber) {
+      this.openTab = tabNumber
+    },
     addProduct() {
       if (this.title) {
         this.$fire.firestore
@@ -115,15 +195,27 @@ export default {
           })
         })
     },
-    surf() {
+    welcome() {
       const gsap = this.$gsap
-      if (this.title) {
-        gsap.fromTo(
-          '.surfer',
-          { x: 200, y: 100, opacity: 1 },
-          { duration: 2.5, ease: 'yoyo', x: -1100, y: 50 }
-        )
-      }
+      const tl = gsap.timeline()
+      tl.from('.tropicalLeaves', {
+        duration: 1,
+        y: -300,
+        opacity: 0,
+      })
+      tl.from('.palms', {
+        y: 300,
+        duration: 1,
+        opacity: 0,
+      })
+      tl.from('.admin', {
+        x: -300,
+        duration: 1,
+        opacity: 0,
+      })
+      tl.from('.bees', {
+        scale: 0.1,
+      })
     },
     staggering() {
       const gsap = this.$gsap
