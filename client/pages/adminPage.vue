@@ -20,17 +20,17 @@
           <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div> -->
       <div
-        class="w-1/3 admin flex flex-row container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg flex flex-col justify-between align-center"
+        class="w-1/3 admin flex flex-row container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg justify-between align-center"
       >
         <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
             <a
               class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
-              @click="toggleTabs(1)"
               :class="{
                 'text-pink-600 bg-white': openTab !== 1,
                 'text-white bg-pink-600': openTab === 1,
               }"
+              @click="toggleTabs(1)"
             >
               <img src="/Market.png" alt="" />
             </a>
@@ -38,11 +38,11 @@
           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
             <a
               class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
-              @click="toggleTabs(2)"
               :class="{
                 'text-pink-600 bg-white': openTab !== 2,
                 'text-white bg-green-600': openTab === 2,
               }"
+              @click="toggleTabs(2)"
             >
               <img src="/Add.png" alt="" />
             </a>
@@ -50,18 +50,18 @@
           <li class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center">
             <a
               class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
-              @click="toggleTabs(3)"
               :class="{
                 'text-pink-600 bg-white': openTab !== 3,
                 'text-white bg-Amber-600': openTab === 3,
               }"
+              @click="toggleTabs(3)"
             >
               <img class="" src="/Orders.png" alt="" />
             </a>
           </li>
         </ul>
         <div
-          class="relative flex flex-col min-w-0 break-words bg-CoolGray-300 w-full mb-6 shadow-lg rounded"
+          class="relative flex flex-col min-w-0 break-words bg-CoolGray-300 w-2/3 mb-6 shadow-lg rounded"
         >
           <div
             :class="{
@@ -88,16 +88,37 @@
                   revolutionary ROI.
                 </p>
               </div>
-              <div
-                v-bind:class="{ hidden: openTab !== 2, block: openTab === 2 }"
-              >
+              <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                 <div
-                  class="flex flex-col"
-                  v-gsap.from="{ scale: 0.2 }"
-                  v-for="product in products"
-                  :key="product.id"
+                  v-gsap.from="{ opacity: 0, y: -200 }"
+                  class="flex max-w-1/3 flex-col place-items-stretch flex-shrink overflow-y-auto max-h-72"
                 >
-                  {{ product.title }}
+                <div><h1 id="products">products</h1></div>
+                  <div v-for="product in products" :key="product.id" class="">
+                    <div
+                      id="products"
+                      class="flex flex-row place-content-around"
+                    >
+                      <h3>{{ product.title }}</h3>
+                      <button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          @click="deleteProduct(id)"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div :class="{ hidden: openTab !== 3, block: openTab === 3 }">
@@ -145,10 +166,6 @@ export default {
       return this.$store.state.products
     },
   },
-  mounted() {
-    this.welcome()
-    this.$store.dispatch('getProducts')
-  },
   watch: {
     isOpen: {
       immediate: true,
@@ -159,6 +176,10 @@ export default {
         }
       },
     },
+  },
+  mounted() {
+    this.welcome()
+    this.$store.dispatch('getProducts')
   },
   methods: {
     toggleTabs(tabNumber) {
@@ -276,5 +297,9 @@ input[type='number'] {
 }
 .middle {
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+#products {
+  font-family: 'Yanone Kaffeesatz';
+  font-size: 22px;
 }
 </style>
