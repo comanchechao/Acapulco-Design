@@ -1,12 +1,20 @@
 <template>
   <v-app>
-    <Navbar class="absolute z-10" />
     <div
       id="main"
-      class="w-full h-screen flex place-items-center via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
+      class="w-full h-screen flex overflow-hidden place-items-center via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
     >
+      <Navbar class="absolute top-0 z-10" />
       <div class="tropicalLeaves absolute lg:w-1/2 top-0">
         <img src="/TropicalLeaves.png" alt="" />
+      </div>
+      <div
+        class="absolute inset-x-0 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1 z-20"
+      >
+        <Adminastration
+          ref="Adminastration"
+          v-gsap.from="{ y: -600, duration: 1, ease: 'bounce' }"
+        />
       </div>
       <!-- <div class="bees flex middle flex-col place-items-center">
           <img src="/Orders.png" alt="" />
@@ -69,7 +77,7 @@
               'bg-green-600': openTab === 2,
               'bg-Amber-600': openTab === 3,
             }"
-            class="px-4 py-5 flex-auto rounded"
+            class="px-4 py-5 flex-auto rounded border-2 border-black"
           >
             <div class="tab-content tab-space">
               <div
@@ -90,24 +98,29 @@
               </div>
               <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                 <div
-                  v-gsap.from="{ opacity: 0, y: -200 }"
+                  v-gsap.from="{ opacity: 0, scale:0.2 }"
                   class="flex max-w-1/3 flex-col place-items-stretch flex-shrink overflow-y-auto max-h-72"
                 >
-                <div><h1 id="products">products</h1></div>
-                  <div v-for="product in products" :key="product.id" class="">
+                  <div class="flex flex-col place-items-center">
+                    <button class="focus:outline-none addButton w-1/2" @click="showModal">
+                      Add
+                    </button>
+                    <h1 id="products">products</h1>
+                  </div>
+                  <div v-for="product in Products" :key="product.id" class="">
                     <div
                       id="products"
                       class="flex flex-row place-content-around"
                     >
                       <h3>{{ product.title }}</h3>
-                      <button>
+                      <button class=" ">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6"
+                          class="text-red-500 h-6 w-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          @click="deleteProduct(id)"
+                          @click="deleteProduct(product.id)"
                         >
                           <path
                             stroke-linecap="round"
@@ -147,17 +160,17 @@
 
 <script>
 import Navbar from '@/layouts/Navbar.vue'
+import Adminastration from '../components/Adminastration.vue'
 
 export default {
   name: 'AdminPage',
   components: {
+    Adminastration,
     Navbar,
   },
   data() {
     return {
-      title: null,
-      price: null,
-      feedback: null,
+      Products: [],
       openTab: 1,
     }
   },
@@ -177,6 +190,23 @@ export default {
       },
     },
   },
+  created() {
+    const ref = this.$fire.firestore.collection('Products')
+
+    ref.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          this.Products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+          })
+          console.log(this.Products)
+        }
+      })
+    })
+  },
   mounted() {
     this.welcome()
     this.$store.dispatch('getProducts')
@@ -185,33 +215,17 @@ export default {
     toggleTabs(tabNumber) {
       this.openTab = tabNumber
     },
-    addProduct() {
-      if (this.title) {
-        this.$fire.firestore
-          .collection('Products')
-          .add({
-            title: this.title,
-            price: this.price,
-          })
-          .then(() => {
-            this.title = null
-            this.price = null
-            this.feedback = null
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      } else {
-        this.feedback = 'Fields cannot be empty'
-      }
+    showModal() {
+      this.$refs.Adminastration.toggleModal()
     },
+
     deleteProduct(id) {
       this.$fire.firestore
         .collection('Products')
         .doc(id)
         .delete()
         .then(() => {
-          this.products = this.products.filter((product) => {
+          this.Products = this.Products.filter((product) => {
             return product.id !== id
           })
         })
@@ -236,14 +250,6 @@ export default {
       })
       tl.from('.bees', {
         scale: 0.1,
-      })
-    },
-    staggering() {
-      const gsap = this.$gsap
-      gsap.from('.grids', {
-        y: 600,
-        opacity: 0,
-        stagger: 0.3,
       })
     },
     pineapple() {
@@ -278,17 +284,17 @@ input[type='number'] {
   color: #120129;
 }
 
-.learnMoreBtn {
-  font-size: 15px;
+.addButton {
+  font-size: 20px;
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  padding: 5px 12px;
+  padding: 5px 8px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.learnMoreBtn:hover {
+.addButton:hover {
   background-color: #120129;
   color: #ff4a68;
 }
