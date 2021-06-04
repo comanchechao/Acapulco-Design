@@ -1,14 +1,15 @@
 <template>
   <div
+    id="navbar"
     v-gsap.from="{
       opacity: 0,
       y: -70,
       duration: 1,
       ease: 'circ.out',
     }"
-    class="w-full h-20 bg-transparent p-11"
+    class="w-full h-24 mt-6"
   >
-    <div class="grid grid-cols-4 place-items-center">
+    <div class="grid grid-cols-4 place-content-center">
       <div class="col-span-2 justify-self-start">
         <NuxtLink to="/aboutUs">
           <v-btn
@@ -25,29 +26,29 @@
         </NuxtLink>
       </div>
 
-      <div class="flex col-span-2 align-center space-x-3 justify-self-end">
+      <div class="flex col-span-2 align-center space-x-3 justify-self-end mr-4">
         <div>
-          <v-menu transition="slide-y-transition" bottom open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                depressed
-                x-large
-                v-bind="attrs"
-                color="transparent"
-                class=""
-                v-on="on"
-              >
-                <NuxtLink to="/productList">
-                  <span class="white--text"> Explore </span>
-                </NuxtLink>
-              </v-btn>
-            </template>
+          <!-- <v-menu transition="slide-y-transition" bottom open-on-click>
+            <template v-slot:activator="{ on, attrs }"> -->
+          <v-btn
+            depressed
+            x-large
+            v-bind="attrs"
+            color="transparent"
+            class=""
+            v-on="on"
+          >
+            <NuxtLink to="/productList">
+              <span class="white--text"> Shop </span>
+            </NuxtLink>
+          </v-btn>
+          <!-- </template>
             <v-list>
               <v-list-item v-for="category in categories" :key="category.title">
                 <v-list-item-title>{{ category.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
-          </v-menu>
+          </v-menu> -->
         </div>
         <div>
           <v-btn depressed x-large color="transparent Btn" class="">
@@ -205,7 +206,60 @@ span {
   background-color: #fff;
 }
 
-.navbar {
-  position: sticky;
+#navbar {
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+  /* 15% {
+      background-color: #7ec6c8;
+    }
+    30% {
+      background-color: #a1dfa1;
+    } */
+  45% {
+    background-color: #a6a6db;
+  }
+  /* 60% {
+      background-color: #d8a5d8;
+    }
+    75% {
+      background-color: #c6b1ec;
+    }
+    90% {
+      background-color: #ade7e7;
+    } */
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #83f1f1;
+  }
+  /* 15% {
+      background-color: #7ec6c8;
+    }
+    30% {
+      background-color: #a1dfa1;
+    } */
+  50% {
+    background-color: #55dd8e;
+  }
+  /* 60% {
+      background-color: #d8a5d8;
+    }
+    75% {
+      background-color: #c6b1ec;
+    }
+    90% {
+      background-color: #ade7e7;
+    } */
+  100% {
+    background-color: #595bee;
+  }
 }
 </style>

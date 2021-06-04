@@ -2,11 +2,11 @@
 <template>
   <v-app>
     <div id="main">
-      <Navbar id="navbar" class="" />
+      <Navbar id="navbar" class="sticky" />
       <div class="w-full h-full">
         <div class="grid place-items-center w-screen">
           <div class="acapulco-div flex flex-col justify-start w-5/6">
-            <div
+            <!-- <div
               v-gsap.from="{
                 y: -40,
                 opacity: 0,
@@ -17,7 +17,7 @@
               class="w-60 h-60 justify-self-center self-center"
             >
               <img class="ChiefHead" src="/sdasd.png" alt="" />
-            </div>
+            </div> -->
             <h1
               v-gsap.to="{
                 y: 40,

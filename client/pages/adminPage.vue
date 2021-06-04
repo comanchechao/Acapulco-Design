@@ -28,7 +28,7 @@
           <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div> -->
       <div
-        class="w-1/3 admin flex flex-row container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg justify-between align-center"
+        class="w-1/3 admin container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg flex flex-row lg:flex-col justify-between align-center"
       >
         <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -98,11 +98,16 @@
               </div>
               <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                 <div
-                  v-gsap.from="{ opacity: 0, scale:0.2 }"
-                  class="flex max-w-1/3 flex-col place-items-stretch flex-shrink overflow-y-auto max-h-72"
+                  v-for="product in products"
+                  :key="product.id"
+                  v-gsap.from="{ scale: 0.2 }"
+                  class="flex flex-col"
                 >
                   <div class="flex flex-col place-items-center">
-                    <button class="focus:outline-none addButton w-1/2" @click="showModal">
+                    <button
+                      class="focus:outline-none addButton w-1/2"
+                      @click="showModal"
+                    >
                       Add
                     </button>
                     <h1 id="products">products</h1>

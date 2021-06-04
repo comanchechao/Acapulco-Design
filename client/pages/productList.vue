@@ -1,77 +1,83 @@
 <template>
   <v-app>
     <div id="main">
-      <Navbar class="" />
-      <div class="w-full h-full grid grid-cols-8 mt-14">
-        <div
-          class="col-span-2 sidebar h-1/5 sticky text-center shadow-lg top-0 bg-blueGray-100 rounded-lg flex flex-col justify-between align-center"
-        >
-          <div class="flex flex-col">
-            <h1 class="text-7xl mt-10 text-center text-gray-700">Shop</h1>
-            <div class="mt-12">
-              <h3 class="p-3 text-gray-700 text-2xl sidebarText">Filter by:</h3>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
-                    Lighters🔥
-                  </h1>
-                </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
-                    Acapulco Shirts🌴
-                  </h1>
-                </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
-                    Custom Matchboxes💥
-                  </h1>
-                </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="text-5xl text-gray-700 p-3 sidebarText">
-                    Collections🗿
-                  </h1>
-                </span>
-              </NuxtLink>
+      <Navbar class="sticky" />
+      <div class="w-full h-full flex justify-center">
+        <div class="w-11/12 h-full grid grid-cols-8 mt-14 bg-blueGray-100">
+          <div
+            class="col-span-2 justify-self-end sidebar sticky text-center top-0 rounded-lg flex flex-col justify-between align-center"
+          >
+            <div class="flex flex-col">
+              <h1 class="text-7xl mt-10 text-center text-gray-700">Shop</h1>
+              <div class="mt-12">
+                <h3 class="p-3 text-gray-700 text-2xl sidebarText">
+                  Filter by:
+                </h3>
+                <NuxtLink to="/productList">
+                  <span>
+                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                      Lighters🔥
+                    </h1>
+                  </span>
+                </NuxtLink>
+                <NuxtLink to="/productList">
+                  <span>
+                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                      Acapulco Shirts🌴
+                    </h1>
+                  </span>
+                </NuxtLink>
+                <NuxtLink to="/productList">
+                  <span>
+                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                      Custom Matchboxes💥
+                    </h1>
+                  </span>
+                </NuxtLink>
+                <NuxtLink to="/productList">
+                  <span>
+                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                      Collections🗿
+                    </h1>
+                  </span>
+                </NuxtLink>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="mt-64 col-span-6 bg-blueGray-50 rounded-lg shadow-lg justify-self-center self-end h-full w-11/12 background"
-        >
-          <div class="grid w-full h-full">
-            <div
-              class="col-span-3 navbar flex align-center pt-9 divide-x-2 divide-black"
-            >
-              <NuxtLink to="/">
-                <span class="p-9"
-                  ><v-icon light x-large>mdi-chevron-double-left</v-icon></span
-                >
-              </NuxtLink>
-              <NuxtLink to="/">
-                <span class="px-5 text-5xl text-gray-700"> Home </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="px-5 text-5xl text-gray-700">Shop</h1>
-                </span>
-              </NuxtLink>
-            </div>
+          <div
+            class="mt-64 col-span-6 rounded-lg justify-self-center self-end h-full w-11/12 background"
+          >
+            <div class="grid w-full h-full">
+              <div
+                class="col-span-3 navbar sticky flex align-center pt-9 divide-x-2 divide-black"
+              >
+                <NuxtLink to="/">
+                  <span class="p-9"
+                    ><v-icon light x-large
+                      >mdi-chevron-double-left</v-icon
+                    ></span
+                  >
+                </NuxtLink>
+                <NuxtLink to="/">
+                  <span class="px-5 text-3xl text-gray-700"> Home </span>
+                </NuxtLink>
+                <NuxtLink to="/productList">
+                  <span>
+                    <h1 class="px-5 text-3xl text-gray-700">Shop</h1>
+                  </span>
+                </NuxtLink>
+              </div>
 
-            <div class="row-span-5 col-span-4">
-              <div class="grid grid-cols-3 p-4 place-items-center">
-                <ProductCard
-                  v-for="product in products"
-                  id="product-card"
-                  :key="product.id"
-                  class="p-4 productCard"
-                  :product="product"
-                />
+              <div class="row-span-5 col-span-2 place-items-center">
+                <div class="grid grid-cols-2 p-4 place-items-center">
+                  <ProductCard
+                    v-for="product in products"
+                    id="product-card"
+                    :key="product.id"
+                    class="p-4 productCard"
+                    :product="product"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -173,6 +179,7 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Yanone Kaffeesatz';
+  font-family: 'Montserrat';
 }
 </style>
+2
