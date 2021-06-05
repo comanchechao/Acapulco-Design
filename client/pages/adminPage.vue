@@ -205,7 +205,6 @@ export default {
             title: doc.data().title,
             price: doc.data().price,
           })
-          console.log(this.Products)
         }
       })
     })

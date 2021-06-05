@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="showModal"
-    id="main"
+    id="modal"
     class="flex justify-center h-1/2 items-center bg-green-200 rounded-lg antialiased"
   >
     <div
@@ -39,7 +39,7 @@
           placeholder="Enter title"
           class="p-2 mb-3 bg-green-500 border border-gray-200 rounded shadow-sm h-24 focus:outline-none "
         />
-        <p class="text-red-500" v-if="feedback">{{ feedback }}</p>
+        <p v-if="feedback" class="text-red-500">{{ feedback }}</p>
         <label for="price" class="mb-2 font-semibold text-gray-700"
           >Price</label
         >
@@ -70,7 +70,7 @@
         <p class="font-semibold text-gray-600" @click="toggleModal()">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
-          @click="addProduct()"
+          @click="addProduct() && closeModal()"
         >
           Save
         </button>
@@ -94,6 +94,9 @@ export default {
     toggleModal() {
       this.showModal = !this.showModal
     },
+    closeModal(){
+      this.showModal = false
+    },
     addProduct() {
       if (this.title) {
         this.$fire.firestore
@@ -109,6 +112,7 @@ export default {
             this.showModal = false
           })
           .catch((err) => {
+            // eslint-disable-next-line no-console
             console.log(err)
           })
       } else {
@@ -120,7 +124,7 @@ export default {
 </script>
 
 <style>
-#main {
+#modal {
   font-family: 'Yanone Kaffeesatz';
   font-size: 20px;
 }
