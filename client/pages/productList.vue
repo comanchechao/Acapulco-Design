@@ -1,55 +1,60 @@
 <template>
   <v-app>
-    <div id="main">
+    <div id="main" class="">
       <Navbar class="sticky" />
-      <div class="w-full h-full flex justify-center">
-        <div class="w-11/12 h-full grid grid-cols-8 mt-14 bg-blueGray-100">
+      <div class="h-full w-full flex flex-col align-center justify-center">
+        <div class="h-full w-3/4 z-10 mt-14">
+          <h1 class="text-8xl text-center text-black capitalize firstText">
+            We here care about <span class="span"> personality </span>
+          </h1>
+        </div>
+        <div class="w-11/12 h-screen grid grid-cols-8 gap-4 mt-14">
           <div
-            class="col-span-2 justify-self-end sidebar sticky text-center top-0 rounded-lg flex flex-col justify-between align-center"
+            class="col-span-2 h-2/4 p-5 justify-self-end sidebar space-y-4 sticky bg-blueGray-100 top-0 rounded-lg flex flex-col justify-between align-center"
           >
-            <div class="flex flex-col">
-              <h1 class="text-7xl mt-10 text-center text-gray-700">Shop</h1>
-              <div class="mt-12">
-                <h3 class="p-3 text-gray-700 text-2xl sidebarText">
-                  Filter by:
-                </h3>
-                <NuxtLink to="/productList">
-                  <span>
-                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
-                      Lighters🔥
-                    </h1>
-                  </span>
-                </NuxtLink>
-                <NuxtLink to="/productList">
-                  <span>
-                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
-                      Acapulco Shirts🌴
-                    </h1>
-                  </span>
-                </NuxtLink>
-                <NuxtLink to="/productList">
-                  <span>
-                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
-                      Custom Matchboxes💥
-                    </h1>
-                  </span>
-                </NuxtLink>
-                <NuxtLink to="/productList">
-                  <span>
-                    <h1 class="text-2xl text-gray-700 p-3 sidebarText">
-                      Collections🗿
-                    </h1>
-                  </span>
-                </NuxtLink>
-              </div>
+            <!-- <div class="flex flex-col p-10 self-center"> -->
+            <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
+                Shop
+              </h1> -->
+            <div class="mt-12 px-4">
+              <h3 class="p-3 text-gray-700 text-2xl sidebarText">Filter by:</h3>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                    Lighters🔥
+                  </h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                    Acapulco Shirts🌴
+                  </h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                    Custom Matchboxes💥
+                  </h1>
+                </span>
+              </NuxtLink>
+              <NuxtLink to="/productList">
+                <span>
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                    Collections🗿
+                  </h1>
+                </span>
+              </NuxtLink>
             </div>
+            <!-- </div> -->
           </div>
           <div
-            class="mt-64 col-span-6 rounded-lg justify-self-center self-end h-full w-11/12 background"
+            class="mt-64 col-span-6 rounded-lg bg-blueGray-100 self-end h-full w-full background"
           >
-            <div class="grid w-full h-full">
+            <div class="grid w-full h-screen divide-y-4">
               <div
-                class="col-span-3 navbar sticky flex align-center pt-9 divide-x-2 divide-black"
+                class="col-span-3 navbar sticky flex align-center pt-9 divide-x-2 divide-black mb-6"
               >
                 <NuxtLink to="/">
                   <span class="p-9"
@@ -59,11 +64,15 @@
                   >
                 </NuxtLink>
                 <NuxtLink to="/">
-                  <span class="px-5 text-3xl text-gray-700"> Home </span>
+                  <span class="menu px-5 text-3xl text-gray-700 font-semibold">
+                    Home
+                  </span>
                 </NuxtLink>
                 <NuxtLink to="/productList">
                   <span>
-                    <h1 class="px-5 text-3xl text-gray-700">Shop</h1>
+                    <h1 class="px-5 text-3xl text-gray-700 font-semibold">
+                      Shop
+                    </h1>
                   </span>
                 </NuxtLink>
               </div>
@@ -85,9 +94,10 @@
       </div>
     </div>
   </v-app>
-  <!-- <div
+</template>
+<!-- <div
       id="main"
-      class="w-full h-full grid grid-cols-6 gap-x-11 place-items-center"
+      class="w-full h-screen grid grid-cols-6 gap-x-11 place-items-center"
     >
       <div
         class="w-4/5 h-3/4 col-span-5 flex-col flex bg-gray-50 shadow-2xl rounded-lg"
@@ -108,7 +118,6 @@
         </div>
       </div>
     </div> -->
-</template>
 
 <script>
 import Navbar from '../layouts/Navbar'
@@ -133,11 +142,23 @@ export default {
     animateBackground() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
+      tl.from('.firstText', {
+        opacity: 0,
+        y: -50,
+        ease: 'expo.Out',
+        duration: 0.8,
+      })
+      tl.from('.span', {
+        opacity: 0,
+        y: -50,
+        ease: 'expo.Out',
+        duration: 0.8,
+      })
       tl.from('.background', {
         opacity: 0,
         scale: 0.8,
         ease: 'expo.Out',
-        duration: 2.5,
+        duration: 2,
       })
       tl.from(
         '.navbar',
@@ -179,7 +200,11 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Montserrat';
+  font-family: 'Merriweather', serif;
+}
+
+.span {
+  color: #ff4a68;
 }
 </style>
 2

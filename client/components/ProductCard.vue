@@ -1,6 +1,6 @@
 <template>
-  <div class="relative h-96 w-96 max-w-xl mx-auto my-9 grid place-items-center">
-    <div class="relative h-72 w-72 rounded-full py-3 max-w-xl mx-auto">
+  <div class="grid grid-cols-2 place-items-center gap-20">
+    <div class="relative h-52 w-52 rounded-full py-3 max-w-xl mx-auto">
       <div class="absolute inset-0 bg-red-300 shadow-lg rounded-full">
         <div class="max-w-md mx-auto">
           <img
@@ -8,14 +8,18 @@
             alt=""
           />
         </div>
-        <div class="flex flex-col justify-center align-center">
-          <h1 class="text-5xl text-CoolGray-900">Dragon Ball</h1>
-          <p class="text-3xl text-CoolGray-900">3500</p>
-          <button class="learnMoreBtn mt-8">
-            <span class="px-9 py-8 learnMoreText"> Learn More </span>
-          </button>
-        </div>
       </div>
+    </div>
+    <div class="flex flex-col justify-between align-start self-end">
+      <h1 class="text-3xl text-CoolGray-900">Dragon Ball</h1>
+      <h3 class="text-1xl text-CoolGray-900 font-thin">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatem
+        maxime minus ipsa dignissimos
+      </h3>
+      <p class="text-3xl text-CoolGray-900">3500</p>
+      <!-- <button class="learnMoreBtn mt-8">
+        <span class="px-9 py-8 learnMoreText"> Learn More </span>
+      </button> -->
     </div>
   </div>
 </template>

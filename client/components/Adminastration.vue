@@ -10,7 +10,7 @@
       <div
         class="flex flex-row justify-between p-6 border-b border-gray-200 rounded-tl-lg rounded-tr-lg"
       >
-        <p class="font-semibold text-gray-800">Add Product</p>
+        <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
           class="w-6 h-6"
           fill="none"
@@ -28,7 +28,7 @@
         </svg>
       </div>
       <div class="flex flex-col px-6 py-5 bg-Indigo-500">
-        <label for="title" class="mb-2 font-semibold text-gray-700"
+        <label for="title" class="mb-2 font-semibold text-gray-100 text-3xl"
           >Title</label
         >
         <input
@@ -37,10 +37,10 @@
           type="text"
           name="title"
           placeholder="Enter title"
-          class="p-2 mb-3 bg-green-500 border border-gray-200 rounded shadow-sm h-24 focus:outline-none "
+          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-24 focus:outline-none"
         />
         <p v-if="feedback" class="text-red-500">{{ feedback }}</p>
-        <label for="price" class="mb-2 font-semibold text-gray-700"
+        <label for="price" class="mb-2 font-semibold text-gray-100 text-3xl"
           >Price</label
         >
         <input
@@ -49,7 +49,7 @@
           type="number"
           name="price"
           placeholder="Enter price"
-          class="p-2 mb-3 bg-green-500 border border-gray-200 rounded shadow-sm h-24 focus:outline-none "
+          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-24 focus:outline-none"
         />
 
         <div class="flex place-content-center mt-5 space-x-4">
@@ -94,7 +94,7 @@ export default {
     toggleModal() {
       this.showModal = !this.showModal
     },
-    closeModal(){
+    closeModal() {
       this.showModal = false
     },
     addProduct() {

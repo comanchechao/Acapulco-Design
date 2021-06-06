@@ -13,7 +13,12 @@
       >
         <Adminastration
           ref="Adminastration"
-          v-gsap.from="{ y: -600, duration: 1, ease: 'bounce' }"
+          v-gsap.from="{
+            y: -250,
+            opacity: 0,
+            duration: 1.5,
+            ease: 'expo.out',
+          }"
         />
       </div>
       <!-- <div class="bees flex middle flex-col place-items-center">

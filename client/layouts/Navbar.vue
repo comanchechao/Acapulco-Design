@@ -7,10 +7,10 @@
       duration: 1,
       ease: 'circ.out',
     }"
-    class="w-full h-24 mt-6"
+    class="w-full h-24 mt-6 sticky"
   >
     <div class="grid grid-cols-4 place-content-center">
-      <div class="col-span-2 justify-self-start">
+      <div class="col-span-2 justify-self-start self-center">
         <NuxtLink to="/aboutUs">
           <v-btn
             class="mx-4 Btn"
@@ -30,14 +30,7 @@
         <div>
           <!-- <v-menu transition="slide-y-transition" bottom open-on-click>
             <template v-slot:activator="{ on, attrs }"> -->
-          <v-btn
-            depressed
-            x-large
-            v-bind="attrs"
-            color="transparent"
-            class=""
-            v-on="on"
-          >
+          <v-btn depressed x-large color="transparent" class="">
             <NuxtLink to="/productList">
               <span class="white--text"> Shop </span>
             </NuxtLink>

@@ -4,7 +4,7 @@
     <div id="main">
       <Navbar id="navbar" class="sticky" />
       <div class="w-full h-full">
-        <div class="grid place-items-center w-screen">
+        <div class="grid place-items-center w-screen h-full">
           <div class="acapulco-div flex flex-col justify-start w-5/6">
             <!-- <div
               v-gsap.from="{
@@ -338,6 +338,8 @@ export default {
               start: 'top bottom',
               end: 'top center',
               trigger: content,
+              stagger: 0.1,
+
               toggleActions: 'play reverse  none none',
             },
           }
