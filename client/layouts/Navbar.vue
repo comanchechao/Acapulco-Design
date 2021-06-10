@@ -1,19 +1,11 @@
 <template>
-  <div
-    id="navbar"
-    v-gsap.from="{
-      opacity: 0,
-      y: -70,
-      duration: 1,
-      ease: 'circ.out',
-    }"
-    class="w-full h-24 mt-6 sticky"
-  >
+  <!-- <v-app> -->
+  <div class="w-full bg-transparent Navbar opacity-0">
     <div class="grid grid-cols-4 place-content-center">
       <div class="col-span-2 justify-self-start self-center">
         <NuxtLink to="/aboutUs">
           <v-btn
-            class="mx-4 Btn"
+            class="ml-14 Btn"
             dark
             depressed
             rounded
@@ -26,15 +18,18 @@
         </NuxtLink>
       </div>
 
-      <div class="flex col-span-2 align-center space-x-3 justify-self-end mr-4">
+      <div
+        class="flex col-span-2 align-center space-x-3 justify-self-end mr-14"
+      >
         <div>
           <!-- <v-menu transition="slide-y-transition" bottom open-on-click>
             <template v-slot:activator="{ on, attrs }"> -->
-          <v-btn depressed x-large color="transparent" class="">
-            <NuxtLink to="/productList">
+          <NuxtLink to="/productList">
+            <v-btn depressed x-large color="transparent" class="">
               <span class="white--text"> Shop </span>
-            </NuxtLink>
-          </v-btn>
+              <!-- <v-icon large class="pl-2">mdi-shopping-outline</v-icon> -->
+            </v-btn>
+          </NuxtLink>
           <!-- </template>
             <v-list>
               <v-list-item v-for="category in categories" :key="category.title">
@@ -44,12 +39,12 @@
           </v-menu> -->
         </div>
         <div>
-          <v-btn depressed x-large color="transparent Btn" class="">
-            <NuxtLink id="admin-link" class="flex" to="/adminPage"
-              ><span class="white--text pr-2">admin</span>
-              <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon></NuxtLink
-            >
-          </v-btn>
+          <NuxtLink id="admin-link" class="flex" to="/adminPage">
+            <v-btn depressed x-large color="transparent Btn" class="">
+              <span class="white--text pr-2">admin</span>
+              <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
+            </v-btn>
+          </NuxtLink>
         </div>
         <div v-if="!user" class="">
           <LoginDialog />
@@ -99,6 +94,7 @@
       </div>
     </div>
   </div>
+  <!-- </v-app> -->
 </template>
 <!-- id="app"
     
@@ -161,7 +157,18 @@ export default {
     },
   },
 
+  mounted() {
+    // this.animateNavbar()
+  },
   methods: {
+    // animateNavbar() {
+    //   this.$gsap.from('.Navbar', {
+    //     opacity: 0,
+
+    //     duration: 2,
+    //     ease: 'circ.out',
+    //   })
+    // },
     signOut() {
       this.$store.dispatch('signOut').then((data) => {
         this.$router.push('/')
@@ -180,10 +187,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-#app {
-  z-index: 2;
-  opacity: 0;
-}
 span {
   font-family: 'Acme', sans-serif;
   text-align: center;
@@ -195,9 +198,9 @@ span {
 #admin-link {
   color: #fff;
 }
-.sticky {
+/* .sticky {
   background-color: #fff;
-}
+} */
 
 #navbar {
   animation: 30s ease-in-out infinite alternate-reverse color-change;
