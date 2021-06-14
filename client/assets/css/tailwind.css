@@ -52,8 +52,17 @@
     src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
   }
 }
+/* * {
+  border: 1px solid red;
+} */
+
+html {
+  height: 100%;
+}
+
 #main {
   animation: 30s ease-in-out infinite alternate-reverse color-change;
+  height: 100%;
 }
 @-webkit-keyframes color-change {
   0% {

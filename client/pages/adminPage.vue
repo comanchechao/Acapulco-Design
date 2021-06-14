@@ -140,32 +140,58 @@
             rounded
           "
         >
-          <div
-            :class="{
-              'bg-pink-600': openTab === 1,
-              'bg-green-600': openTab === 2,
-              'bg-Amber-600': openTab === 3,
-            }"
-            class="px-4 py-5 flex-auto rounded border-2 border-black"
-          >
-            <div class="tab-content tab-space">
-              <div
+          <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
                 :class="{
-                  hidden: openTab !== 1,
-                  block: openTab === 1,
+                  'text-pink-600 bg-white': openTab !== 1,
+                  'text-white bg-pink-600': openTab === 1,
                 }"
+                @click="toggleTabs(1)"
               >
-                <p v-gsap.from="{ scale: 0.3 }" class="text-black">
-                  Collaboratively administrate empowered markets via
-                  plug-and-play networks. Dynamically procrastinate B2C users
-                  after installed base benefits.
-                  <br />
-                  <br />
-                  Dramatically visualize customer directed convergence without
-                  revolutionary ROI.
-                </p>
-              </div>
-              <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
+                <img src="/Market.png" alt="" />
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                :class="{
+                  'text-pink-600 bg-white': openTab !== 2,
+                  'text-white bg-green-600': openTab === 2,
+                }"
+                @click="toggleTabs(2)"
+              >
+                <img src="/Add.png" alt="" />
+              </a>
+            </li>
+            <li
+              class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center"
+            >
+              <a
+                class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                :class="{
+                  'text-pink-600 bg-white': openTab !== 3,
+                  'text-white bg-Amber-600': openTab === 3,
+                }"
+                @click="toggleTabs(3)"
+              >
+                <img class="" src="/Orders.png" alt="" />
+              </a>
+            </li>
+          </ul>
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-CoolGray-300 w-2/3 mb-6 shadow-lg rounded"
+          >
+            <div
+              :class="{
+                'bg-pink-600': openTab === 1,
+                'bg-green-600': openTab === 2,
+                'bg-Amber-600': openTab === 3,
+              }"
+              class="px-4 py-5 flex-auto rounded border-2 border-black"
+            >
+              <div class="tab-content tab-space">
                 <div
                   v-gsap.from="{ opacity: 0, scale: 0.2 }"
                   class="
@@ -210,20 +236,46 @@
                           />
                         </svg>
                       </button>
+                      <h1 id="products">products</h1>
+                    </div>
+                    <div v-for="product in Products" :key="product.id" class="">
+                      <div
+                        id="products"
+                        class="flex flex-row place-content-around"
+                      >
+                        <h3>{{ product.title }}</h3>
+                        <button class=" ">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-red-500 h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            @click="deleteProduct(product.id)"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div :class="{ hidden: openTab !== 3, block: openTab === 3 }">
-                <p v-gsap.from="{ scale: 0.3 }" class="text-black">
-                  Efficiently unleash cross-media information without
-                  cross-media value. Quickly maximize timely deliverables for
-                  real-time schemas.
-                  <br />
-                  <br />
-                  Dramatically maintain clicks-and-mortar solutions without
-                  functional solutions.
-                </p>
+                <div :class="{ hidden: openTab !== 3, block: openTab === 3 }">
+                  <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                    Efficiently unleash cross-media information without
+                    cross-media value. Quickly maximize timely deliverables for
+                    real-time schemas.
+                    <br />
+                    <br />
+                    Dramatically maintain clicks-and-mortar solutions without
+                    functional solutions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -351,7 +403,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

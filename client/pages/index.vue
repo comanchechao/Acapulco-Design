@@ -1,11 +1,22 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
   <v-app>
-    <div id="main">
-      <Navbar id="navbar" class="sticky" />
-      <div class="w-full h-full">
-        <div class="grid place-items-center w-screen h-full">
-          <div class="acapulco-div flex flex-col justify-start w-5/6">
+    <div id="main" class="">
+      <Navbar
+        id="navbar"
+        v-gsap.to="{
+          opacity: 1,
+          duration: 1.5,
+          delay: 1,
+          ease: 'circ.out',
+        }"
+        class="mt-4"
+      />
+      <div class="w-full">
+        <div class="grid place-items-center w-screen">
+          <div
+            class="acapulco-div flex flex-col align-center justify-between h-5/6 w-3/5"
+          >
             <!-- <div
               v-gsap.from="{
                 y: -40,
@@ -26,7 +37,7 @@
 
                 ease: 'circ.out',
               }"
-              class="acapulco pr-8 transform text-center leading-none text-10xl md:text-12xl lg:text-15xl text-red-50"
+              class="acapulco tracking-wider pr-8 transform text-center leading-none text-10xl md:text-12xl lg:text-15xl text-gray-200"
             >
               Acapulco Design
             </h1>
@@ -54,6 +65,7 @@
           </div>
           <!-- <div class="d-flex align-self justify-self"></div> -->
           <v-spacer></v-spacer>
+
           <div
             class="grid grid-cols-3 place-items-center h-4/5 firstContainer content mb-40"
           >
@@ -182,20 +194,20 @@
               </button> -->
               </h3>
 
-              <div class="flex align-center justify-center mt-4">
+              <!-- <div class="flex align-center justify-center mt-4">
                 <video width="720" height="540" autoplay loop muted>
                   <source src="/Y064cQ6.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              </div>
+              </div> -->
             </div>
           </div>
-          <div class="seventhContainer w-screen">
+          <!-- <div class="seventhContainer">
             <div>
               <h1 class="introText pl-8">You can contact us with</h1>
               <img class="" src="/fsdfsdf.png" alt="" />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -370,9 +382,6 @@ export default {
 <style scoped>
 /* Hide scrollbar for IE, Edge and Firefox */
 
-.acapulco-div {
-  height: 100vh;
-}
 .content {
   opacity: 0;
 }
@@ -383,11 +392,6 @@ export default {
 .fifthContainer {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   color: #120129;
-}
-
-.sixthContainer {
-  width: 100vw;
-  height: 110vh;
 }
 
 /* .seventhContainer {
@@ -483,9 +487,9 @@ export default {
   opacity: 0;
   font-family: 'Sail';
   z-index: 1;
-  text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #46b59b,
-    16px 16px 0px #017e7f, 20px 20px 0px #052939, 24px 24px 0px #5f010a,
-    28px 28px 0px #c11a2b, 32px 32px 0px #4649ff, 36px 36px 0px #00076e;
+  text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
+    16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
+    28px 28px 0px #7eb82d, 32px 32px 0px #ff4a68, 36px 36px 0px #00076e;
 }
 
 .scrollDownBtn {
