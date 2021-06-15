@@ -14,6 +14,12 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      fontSize: {
+        '10xl': '14rem',
+      },
+    },
+
     screens: {
       xs: { max: '767px' },
       sm: { min: '768px', max: '991px' },
@@ -42,7 +48,6 @@ module.exports = {
       Cyan: colors.cyan,
       Emerald: colors.emerald,
     },
-    extend: {},
   },
   variants: {
     extend: {},

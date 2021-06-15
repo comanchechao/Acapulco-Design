@@ -18,46 +18,46 @@
             We here care about <span class="span"> personality </span>
           </h1>
         </div>
-        <div class="w-11/12 grid grid-cols-8 gap-4 mt-24 background">
+        <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
+          <div
+            class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
+          >
+            <NuxtLink to="/">
+              <span class="p-9"
+                ><v-icon light x-large>mdi-chevron-double-left</v-icon></span
+              >
+            </NuxtLink>
+            <NuxtLink to="/">
+              <span class="menu px-5 text-2xl text-gray-700 font-semibold">
+                Home
+              </span>
+            </NuxtLink>
+            <NuxtLink to="/productList">
+              <span>
+                <h1 class="px-5 text-2xl text-gray-700 font-semibold">Shop</h1>
+              </span>
+            </NuxtLink>
+          </div>
           <div class="col-span-6 rounded-lg self-start justify-self-start">
             <!-- <div class="grid w-full divide-y-4"> -->
-            <div
-              class="col-span-3 menuNavbar sticky flex align-center pt-9 divide-x-2 divide-black mb-6"
-            >
-              <NuxtLink to="/">
-                <span class="p-9"
-                  ><v-icon light x-large>mdi-chevron-double-left</v-icon></span
-                >
-              </NuxtLink>
-              <NuxtLink to="/">
-                <span class="menu px-5 text-2xl text-gray-700 font-semibold">
-                  Home
-                </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span>
-                  <h1 class="px-5 text-2xl text-gray-700 font-semibold">
-                    Shop
-                  </h1>
-                </span>
-              </NuxtLink>
-            </div>
 
-            <div class="row-span-5 col-span-2 place-items-center">
-              <div class="grid grid-cols-2 p-4 place-items-center">
-                <ProductCard
-                  v-for="product in products"
-                  id="product-card"
-                  :key="product.id"
-                  class="p-4 productCard"
-                  :product="product"
-                />
-              </div>
+            <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
+            <div
+              class="grid grid-cols-2 gap-6 p-4 place-items-center self-center justify-self-center"
+            >
+              <ProductCard
+                v-for="product in products"
+                id="product-card"
+                :key="product.id"
+                class="p-4 productCard"
+                :product="product"
+              />
             </div>
+            <!-- </div> -->
             <!-- </div> -->
           </div>
           <div
-            class="col-span-2 p-5 justify-self-center sidebar opacity-0 space-y-4 sticky top-0 rounded-lg h-auto flex flex-col justify-between align-center"
+            class="col-span-2 self-start justify-self-end sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -171,7 +171,7 @@ export default {
         '.menuNavbar',
         {
           opacity: 0,
-          y: -40,
+          y: -20,
 
           duration: 0.7,
 
@@ -193,9 +193,9 @@ export default {
         ease: 'power3.out',
         stagger: 0.1,
       })
-      tl.from('.productCard', {
-        opacity: 0,
-        y: -20,
+      tl.to('.productCard', {
+        opacity: 1,
+        y: 20,
         ease: 'power3.out',
         stagger: 0.1,
       })
@@ -214,9 +214,25 @@ export default {
 }
 
 .background {
-  border-radius: 20px;
-  background: linear-gradient(145deg, #fff1f1, #decbcb);
-  box-shadow: 7px 7px 71px #f2dddd, -7px -7px 71px #dfd8d8;
+  background: rgba(255, 209, 209, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+}
+
+.sidebar {
+  background: rgba(255, 209, 209, 0.65);
+  box-shadow: 0 18px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+}
+
+.menuNavbar {
+  background: rgba(255, 209, 209, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
 }
 </style>
 2

@@ -17,7 +17,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* @layer utilities {
   .text-15xl {
     font-size: 14rem;
   }
@@ -27,7 +27,7 @@
   .text-12xl {
     font-size: 11rem;
   }
-}
+} */
 
 @layer base {
   @font-face {
@@ -68,24 +68,11 @@ html {
   0% {
     background-color: #ade7e7;
   }
-  /* 15% {
-      background-color: #7ec6c8;
-    }
-    30% {
-      background-color: #a1dfa1;
-    } */
+
   45% {
     background-color: #a6a6db;
   }
-  /* 60% {
-      background-color: #d8a5d8;
-    }
-    75% {
-      background-color: #c6b1ec;
-    }
-    90% {
-      background-color: #ade7e7;
-    } */
+
   100% {
     background-color: #d8bbff;
   }
@@ -95,24 +82,11 @@ html {
   0% {
     background-color: #83f1f1;
   }
-  /* 15% {
-      background-color: #7ec6c8;
-    }
-    30% {
-      background-color: #a1dfa1;
-    } */
+
   50% {
     background-color: #55dd8e;
   }
-  /* 60% {
-      background-color: #d8a5d8;
-    }
-    75% {
-      background-color: #c6b1ec;
-    }
-    90% {
-      background-color: #ade7e7;
-    } */
+
   100% {
     background-color: #595bee;
   }
@@ -125,7 +99,7 @@ html {
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 32px;
+  scrollbar-width: thin;
 }
 
 *::-webkit-scrollbar-track {

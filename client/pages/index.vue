@@ -15,7 +15,7 @@
       <div class="w-full">
         <div class="grid place-items-center w-screen">
           <div
-            class="acapulco-div flex flex-col align-center justify-between h-5/6 w-3/5"
+            class="acapulco-div flex flex-col align-center justify-between h-5/6 w-3/5 mb-40"
           >
             <!-- <div
               v-gsap.from="{
@@ -37,7 +37,7 @@
 
                 ease: 'circ.out',
               }"
-              class="acapulco tracking-wider pr-8 transform text-center leading-none text-10xl md:text-12xl lg:text-15xl text-gray-200"
+              class="acapulco tracking-wider text-7xl md:text-8xl lg:text-9xl pr-8 text-center leading-none text-gray-200"
             >
               Acapulco Design
             </h1>
@@ -486,7 +486,6 @@ export default {
 .acapulco {
   opacity: 0;
   font-family: 'Sail';
-  z-index: 1;
   text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
     16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
     28px 28px 0px #7eb82d, 32px 32px 0px #ff4a68, 36px 36px 0px #00076e;

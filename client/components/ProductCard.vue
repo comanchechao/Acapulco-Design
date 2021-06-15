@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 place-items-center gap-20">
+  <div class="grid grid-cols-2 place-items-center gap-20 cardBackground">
     <div class="relative h-52 w-52 rounded-full py-3 max-w-xl mx-auto">
       <div class="absolute inset-0 bg-red-300 shadow-lg rounded-full">
         <div class="max-w-md mx-auto">
@@ -10,16 +10,23 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-between align-start self-end">
+    <div class="flex flex-col justify-between align-start self-end space-y-5">
       <h1 class="text-3xl text-CoolGray-900">Dragon Ball</h1>
       <h3 class="text-1xl text-CoolGray-900 font-thin">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatem
-        maxime minus ipsa dignissimos
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h3>
       <p class="text-3xl text-CoolGray-900">3500</p>
-      <!-- <button class="learnMoreBtn mt-8">
-        <span class="px-9 py-8 learnMoreText"> Learn More </span>
-      </button> -->
+      <button class="learnMoreBtn mt-8 flex align-center justify-center">
+        <span class="learnMoreText px-4">
+          Add to Cart
+          <v-icon
+            color="white
+"
+            class="pb-2 pl-2"
+            >mdi-shopping-outline</v-icon
+          >
+        </span>
+      </button>
     </div>
   </div>
 </template>
@@ -72,7 +79,7 @@ export default {
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
 }
 .learnMoreBtn {
-  font-size: 30px;
+  font-size: 25px;
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
@@ -85,5 +92,12 @@ export default {
   transform: translateY(-5px);
   background-color: #120129;
   color: #ff4a68;
+}
+.cardBackground {
+  background: #00daff33;
+  box-shadow: 0 8px 32px 0 #1f26875e;
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border-radius: 10px;
 }
 </style>
