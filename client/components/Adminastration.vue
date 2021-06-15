@@ -2,7 +2,7 @@
   <div
     v-if="showModal"
     id="modal"
-    class="flex justify-center h-1/2 items-center bg-green-200 rounded-lg antialiased"
+    class="modal flex justify-center h-1/2 items-center bg-green-200 rounded-lg antialiased"
   >
     <div
       class="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto bg-green-500 rounded-lg border border-green-300 shadow-xl"
@@ -67,7 +67,7 @@
       <div
         class="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg"
       >
-        <p class="font-semibold text-gray-600" @click="toggleModal()">Cancel</p>
+        <p class="font-semibold text-gray-600" @click="closeModal()">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           @click="addProduct() && closeModal()"
@@ -96,6 +96,14 @@ export default {
     },
     closeModal() {
       this.showModal = false
+      const gsap = this.$gsap
+      if (this.title) {
+        gsap.to('.modal', {
+          x: 400,
+          opacity: 0,
+          ease: 'yoyo',
+        })
+      }
     },
     addProduct() {
       if (this.title) {
@@ -109,7 +117,6 @@ export default {
             this.title = null
             this.price = null
             this.feedback = null
-            this.showModal = false
           })
           .catch((err) => {
             // eslint-disable-next-line no-console
