@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // function createNewAccount(user) {
 //   return this.$fire.firestore.collection(`users/${user.uid}`).set({
 //     displayName: user.displayName || user.email.split('@')[0], // use part of the email as a username

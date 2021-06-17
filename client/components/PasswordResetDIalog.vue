@@ -2,16 +2,15 @@
   <v-dialog v-model="dialog" max-width="900px" transition="dialog-transition">
     <template v-slot:activator="{ on, attrs }">
       <v-btn
-        color="transparent"
-        class="flex pt-5 align-center"
+        depressed
+        class="resetyourpasswordBtn mt-5 border-4 border-green-300"
         v-bind="attrs"
         rounded
-        depressed
-        light
         large
         v-on="on"
+        outlined
       >
-        <span class="px-3"> Reset Your Passwrod </span>
+        <span class="signup-text px-3 capitalize"> reset your password </span>
       </v-btn>
     </template>
 
@@ -51,3 +50,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.resetyourpasswordBtn {
+  font-size: 1.7em;
+  color: #00e699;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+</style>

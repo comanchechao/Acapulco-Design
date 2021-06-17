@@ -11,11 +11,12 @@
         class="mt-4 navbar"
       />
       <div class="w-full flex flex-col align-center justify-center">
-        <div class="w-3/4 z-10 mt-14">
+        <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
-            class="text-8xl text-center text-black capitalize firstText opacity-0"
+            class="text-8xl lg:text-9xl text-center text-black capitalize firstText opacity-0"
           >
-            We here care about <span class="span"> personality </span>
+            We here care about
+            <span class="span font-extrabold"> personality </span>
           </h1>
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
@@ -28,17 +29,17 @@
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-2xl text-gray-700 font-semibold">
+              <span class="menu px-5 text-4xl text-gray-700 font-semibold">
                 Home
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-2xl text-gray-700 font-semibold">Shop</h1>
+                <h1 class="px-5 text-4xl text-gray-700 font-semibold">Shop</h1>
               </span>
             </NuxtLink>
           </div>
-          <div class="col-span-6 rounded-lg self-start justify-self-start">
+          <div class="col-span-6 rounded-lg self-center justify-self-center">
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
@@ -63,32 +64,36 @@
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
                 Shop
               </h1> -->
-            <div class="mt-12 px-4">
-              <h3 class="p-3 text-gray-700 text-2xl sidebarText">Filter by:</h3>
+            <div class="mt-12 px-4 text-center">
+              <h3
+                class="p-3 text-gray-700 text-6xl border-red-600 font-black sidebarText"
+              >
+                Discover!
+              </h3>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
                     Lighters🔥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
                     Acapulco Shirts🌴
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
                     Custom Matchboxes💥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-2xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
                     Collections🗿
                   </h1>
                 </span>
@@ -167,18 +172,14 @@ export default {
         ease: 'expo.Out',
         duration: 1.1,
       })
-      tl.from(
-        '.menuNavbar',
-        {
-          opacity: 0,
-          y: -20,
+      tl.from('.menuNavbar', {
+        opacity: 0,
+        y: -20,
 
-          duration: 0.7,
+        duration: 0.7,
 
-          ease: 'expo.Out',
-        },
-        '-=1'
-      )
+        ease: 'expo.Out',
+      })
       tl.to(
         '.sidebar',
         {
@@ -206,13 +207,15 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Merriweather', serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .span {
   color: #ff4a68;
 }
-
+.productCard {
+  opacity: 0;
+}
 .background {
   background: rgba(255, 209, 209, 0.65);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

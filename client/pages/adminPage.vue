@@ -3,17 +3,7 @@
     <Navbar class="absolute z-10" />
     <div
       id="main1"
-      class="
-        w-full
-        h-screen
-        flex
-        overflow-hidden
-        place-items-center
-        via-yellow-500
-        bg-gradient-to-t
-        to-Lime-500
-        from-yellow-300
-      "
+      class="w-full h-screen flex overflow-hidden place-items-center via-yellow-500 bg-gradient-to-t to-Lime-500 from-yellow-300"
     >
       <div class="tropicalLeaves absolute lg:w-1/2 top-0">
         <img src="/TropicalLeaves.png" alt="" />
@@ -44,35 +34,12 @@
           <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div> -->
       <div
-        class="
-          w-1/3
-          admin
-          flex flex-row
-          container
-          z-10
-          h-1/2
-          text-center
-          shadow-lg
-          bg-blueGray-200
-          rounded-lg
-          justify-between
-          align-center
-        "
+        class="w-1/3 admin flex flex-row container z-10 h-1/2 text-center shadow-lg bg-blueGray-200 rounded-lg justify-between align-center"
       >
         <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
             <a
-              class="
-                text-xs
-                font-bold
-                uppercase
-                px-5
-                py-3
-                shadow-lg
-                rounded
-                block
-                leading-normal
-              "
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
               :class="{
                 'text-pink-600 bg-white': openTab !== 1,
                 'text-white bg-pink-600': openTab === 1,
@@ -84,17 +51,7 @@
           </li>
           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
             <a
-              class="
-                text-xs
-                font-bold
-                uppercase
-                px-5
-                py-3
-                shadow-lg
-                rounded
-                block
-                leading-normal
-              "
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
               :class="{
                 'text-pink-600 bg-white': openTab !== 2,
                 'text-white bg-green-600': openTab === 2,
@@ -106,17 +63,7 @@
           </li>
           <li class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center">
             <a
-              class="
-                text-xs
-                font-bold
-                uppercase
-                px-5
-                py-3
-                shadow-lg
-                rounded
-                block
-                leading-normal
-              "
+              class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
               :class="{
                 'text-pink-600 bg-white': openTab !== 3,
                 'text-white bg-Amber-600': openTab === 3,
@@ -128,17 +75,7 @@
           </li>
         </ul>
         <div
-          class="
-            relative
-            flex flex-col
-            min-w-0
-            break-words
-            bg-CoolGray-300
-            w-2/3
-            mb-6
-            shadow-lg
-            rounded
-          "
+          class="relative flex flex-col min-w-0 break-words bg-CoolGray-300 w-2/3 mb-6 shadow-lg rounded"
         >
           <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -194,15 +131,7 @@
               <div class="tab-content tab-space">
                 <div
                   v-gsap.from="{ opacity: 0, scale: 0.2 }"
-                  class="
-                    flex
-                    max-w-1/3
-                    flex-col
-                    place-items-stretch
-                    flex-shrink
-                    overflow-y-auto
-                    max-h-72
-                  "
+                  class="flex max-w-1/3 flex-col place-items-stretch flex-shrink overflow-y-auto max-h-72"
                 >
                   <div class="flex flex-col place-items-center">
                     <button
@@ -238,6 +167,7 @@
                       </button>
                       <h1 id="products">products</h1>
                     </div>
+                    // eslint-disable-next-line vue/no-template-shadow
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
                         id="products"
@@ -283,16 +213,7 @@
       </div>
     </div>
     <div
-      class="
-        absolute
-        flex
-        place-content-around
-        align-items-center
-        h-2/3
-        w-full
-        bottom-0
-        palms
-      "
+      class="absolute flex place-content-around align-items-center h-2/3 w-full bottom-0 palms"
     >
       <img class="" src="/palmtrees.png" alt="" />
     </div>

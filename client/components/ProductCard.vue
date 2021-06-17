@@ -1,7 +1,9 @@
 <template>
-  <div class="grid grid-cols-2 place-items-center gap-20 cardBackground">
-    <div class="relative h-52 w-52 rounded-full py-3 max-w-xl mx-auto">
-      <div class="absolute inset-0 bg-red-300 shadow-lg rounded-full">
+  <div
+    class="flex flex-col justify-between align-center space-y-4 cardBackground"
+  >
+    <div class="relative h-64 w-64 rounded-full max-w-xl">
+      <div class="absolute inset-0 bg-gray-300 shadow-lg rounded-full">
         <div class="max-w-md mx-auto">
           <img
             src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
@@ -10,13 +12,13 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-between align-start self-end space-y-5">
-      <h1 class="text-3xl text-CoolGray-900">Dragon Ball</h1>
-      <h3 class="text-1xl text-CoolGray-900 font-thin">
+    <div class="flex flex-col justify-between align-center mt-2 space-y-2">
+      <h1 class="text-5xl text-blueGray-900 font-bold mt-5">Dragon Ball</h1>
+      <h3 class="text-2xl text-gray-600 font-thin">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h3>
-      <p class="text-3xl text-CoolGray-900">3500</p>
-      <button class="learnMoreBtn mt-8 flex align-center justify-center">
+      <p class="text-4xl text-CoolGray-900">2500 IRL</p>
+      <button class="learnMoreBtn flex align-center justify-center">
         <span class="learnMoreText px-4">
           Add to Cart
           <v-icon
@@ -94,10 +96,11 @@ export default {
   color: #ff4a68;
 }
 .cardBackground {
-  background: #00daff33;
+  /* background: #b3bbbd33; */
   box-shadow: 0 8px 32px 0 #1f26875e;
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
   border-radius: 10px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 </style>

@@ -17,18 +17,6 @@
           <div
             class="acapulco-div flex flex-col align-center justify-between h-5/6 w-3/5 mb-40"
           >
-            <!-- <div
-              v-gsap.from="{
-                y: -40,
-                opacity: 0,
-                duration: 1.5,
-
-                ease: 'circ.out',
-              }"
-              class="w-60 h-60 justify-self-center self-center"
-            >
-              <img class="ChiefHead" src="/sdasd.png" alt="" />
-            </div> -->
             <h1
               v-gsap.to="{
                 y: 40,
@@ -37,7 +25,7 @@
 
                 ease: 'circ.out',
               }"
-              class="acapulco tracking-wider text-7xl md:text-8xl lg:text-9xl pr-8 text-center leading-none text-gray-200"
+              class="acapulco tracking-wider text-9xl md:text-9xl lg:text-10xl pr-8 text-center leading-none text-gray-200"
             >
               Acapulco Design
             </h1>
@@ -177,7 +165,7 @@
           </div>
 
           <div
-            class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5"
+            class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5 mt-36"
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
               <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
@@ -193,21 +181,17 @@
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
               </h3>
-
-              <!-- <div class="flex align-center justify-center mt-4">
-                <video width="720" height="540" autoplay loop muted>
-                  <source src="/Y064cQ6.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div> -->
+            </div>
+            <div class="h-5/6 flex align-center justify-center mt-36">
+              <video width="720" height="140" autoplay loop muted>
+                <source src="/Y064cQ6.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-          <!-- <div class="seventhContainer">
-            <div>
-              <h1 class="introText pl-8">You can contact us with</h1>
-              <img class="" src="/fsdfsdf.png" alt="" />
-            </div>
-          </div> -->
+          <div class="seventhContainer h-screen flex bg-Indigo-800 mt-36">
+            <img class="self-end justify-self-end" src="/fsdfsdf.png" alt="" />
+          </div>
         </div>
       </div>
     </div>

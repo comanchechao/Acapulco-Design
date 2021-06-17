@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div class="main">
     <v-dialog max-width="600px">
       <template v-slot:activator="{ on: menu, attrs }">
         <v-tooltip bottom>
@@ -121,6 +121,7 @@ export default {
           // store the user ore wathever
           this.$router.push('/')
         })
+        // eslint-disable-next-line no-console
         .catch((err) => console.log(err))
     },
     signInUser() {
@@ -145,16 +146,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-/* .login-text {
-  font-size: 15px;
-  color: rgb(73, 73, 73);
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: capitalize;
-} */
+.main {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
 .loginText,
 .googleText {
-  font-family: 'Acme', sans-serif;
+  /* font-family: 'Acme', sans-serif; */
   font-size: 1.3em;
   text-transform: capitalize;
   font-weight: 500;
@@ -164,7 +161,7 @@ export default {
 .title {
   font-size: 1.6em;
   color: #494949;
-  font-family: 'Acme', sans-serif;
+  /* font-family: 'Acme', sans-serif; */
   font-weight: 700;
   text-align: center;
   text-transform: capitalize;
@@ -180,7 +177,7 @@ export default {
   color: #494949;
 }
 .errorText {
-  font-family: 'Acme', sans-serif;
+  /* font-family: 'Acme', sans-serif; */
   font-size: 1.3em;
   background-color: white;
   color: crimson;

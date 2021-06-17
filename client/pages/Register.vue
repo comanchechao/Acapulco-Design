@@ -1,3 +1,4 @@
+/* eslint-disable no-console */ /* eslint-disable no-console */
 <template>
   <v-app>
     <v-dialog max-width="600px">
@@ -62,6 +63,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((data) => {
+          // eslint-disable-next-line no-console
           console.log(data)
           this.router.push('/')
         })
