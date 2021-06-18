@@ -221,7 +221,7 @@ export default {
     this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
-    this.animateChiefHead()
+    // this.animateChiefHead()
   },
   methods: {
     animatePictureDiv() {
@@ -276,16 +276,16 @@ export default {
         })
       })
     },
-    animateChiefHead() {
-      const gsap = this.$gsap
-      const tl = gsap.timeline({ repeat: -1, yoyo: true })
-      tl.fromTo(
-        '.ChiefHead',
-        1,
-        { ease: 'power1.inOut', rotation: '-10deg' },
-        { ease: 'power1.inOut', rotation: '10deg' }
-      )
-    },
+    // animateChiefHead() {
+    //   const gsap = this.$gsap
+    //   const tl = gsap.timeline({ repeat: -1, yoyo: true })
+    //   tl.fromTo(
+    //     '.ChiefHead',
+    //     1,
+    //     { ease: 'power1.inOut', rotation: '-10deg' },
+    //     { ease: 'power1.inOut', rotation: '10deg' }
+    //   )
+    // },
 
     animateScrollDownBtn() {
       const gsap = this.$gsap

@@ -44,13 +44,13 @@
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="grid grid-cols-2 gap-6 p-4 place-items-center self-center justify-self-center"
+              class="grid grid-cols-2 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
                 id="product-card"
                 :key="product.id"
-                class="p-4 productCard"
+                class="p-4 productCard opacity-0"
                 :product="product"
               />
             </div>
@@ -196,7 +196,7 @@ export default {
       })
       tl.to('.productCard', {
         opacity: 1,
-        y: 20,
+        y: -20,
         ease: 'power3.out',
         stagger: 0.1,
       })
@@ -213,9 +213,7 @@ export default {
 .span {
   color: #ff4a68;
 }
-.productCard {
-  opacity: 0;
-}
+
 .background {
   background: rgba(255, 209, 209, 0.65);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

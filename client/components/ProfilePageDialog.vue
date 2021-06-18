@@ -3,8 +3,7 @@
     v-model="dialog"
     transition="dialog-bottom-transition"
     scrollable
-    max-width="600px"
-    max-height="900px"
+    fullscreen
     class="dialog"
   >
     <template v-slot:activator="{ on, attrs }">
@@ -21,30 +20,18 @@
         <span>My Profile</span>
       </v-btn>
     </template>
-    <div class="wrapper">
-      <v-btn x-large class="ml-6 mt-6 pa-3" icon light @click="dialog = false">
+    <div class="grid grid-rows-3 h-full w-full bg-yellow-500 opacity-90">
+      <v-btn
+        x-large
+        class="ml-6 mt-6 pa-3 bg-Lime-400"
+        icon
+        light
+        @click="dialog = false"
+      >
         <v-icon>mdi-close</v-icon>
       </v-btn>
-      <v-container>
-        <v-row>
-          <v-col cols="12">
-            <div class="d-flex justify-center align-center">
-              <v-avatar size="128">
-                <img src="/davisuko-rhUU1pemhQ0-unsplash.jpg" alt="John" />
-              </v-avatar>
-            </div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
-            <div v-if="user">
-              <h1>
-                {{ user.email }}
-              </h1>
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
+      <div class="row-span-1 bg-blue-300"></div>
+      <div class="row-span-2 bg-blue-700"></div>
     </div>
 
     <!-- <div v-if="user() != null">
@@ -128,10 +115,6 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
-  opacity: 90%;
-  background-color: #f0f0f0;
-}
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);

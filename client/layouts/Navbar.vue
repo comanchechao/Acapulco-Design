@@ -22,21 +22,11 @@
         class="flex col-span-2 align-center space-x-3 justify-self-end mr-14"
       >
         <div>
-          <!-- <v-menu transition="slide-y-transition" bottom open-on-click>
-            <template v-slot:activator="{ on, attrs }"> -->
           <NuxtLink to="/productList">
             <v-btn depressed x-large color="transparent" class="">
               <span class="white--text"> Shop </span>
-              <!-- <v-icon large class="pl-2">mdi-shopping-outline</v-icon> -->
             </v-btn>
           </NuxtLink>
-          <!-- </template>
-            <v-list>
-              <v-list-item v-for="category in categories" :key="category.title">
-                <v-list-item-title>{{ category.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu> -->
         </div>
         <div>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">
@@ -46,15 +36,7 @@
             </v-btn>
           </NuxtLink>
         </div>
-        <div v-if="!user" class="">
-          <LoginDialog />
-        </div>
-
-        <div class="">
-          <ShoppingCartDrawer />
-        </div>
-
-        <div v-if="user" class="">
+        <div v-show="user" class="">
           <v-menu light transition="slide-y-transition" bottom>
             <template v-slot:activator="{ on: menu, attrs }">
               <v-tooltip bottom>
@@ -76,7 +58,7 @@
                 <span>Welcome back!</span>
               </v-tooltip>
             </template>
-            <v-list dense>
+            <v-list dense class="space-y-4 p-4">
               <v-list-item>
                 <v-list-item-icon>
                   <ProfilePageDialog />
@@ -90,6 +72,13 @@
               </v-list-item>
             </v-list>
           </v-menu>
+        </div>
+        <div v-show="!user" class="">
+          <LoginDialog />
+        </div>
+
+        <div class="">
+          <ShoppingCartDrawer />
         </div>
       </div>
     </div>

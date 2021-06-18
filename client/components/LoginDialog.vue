@@ -49,8 +49,8 @@
             class=""
             label="Password"
           />
-          <div class="text-center mt-5">
-            <v-btn
+          <div class="flex space-x-8 justify-center align-center mt-5">
+            <!-- <v-btn
               x-large
               dark
               rounded
@@ -60,8 +60,8 @@
               type="submit"
             >
               <span class="loginText"> Login </span>
-            </v-btn>
-            <v-btn
+            </v-btn> -->
+            <!-- <v-btn
               x-large
               centered
               light
@@ -71,11 +71,43 @@
               color="#f7f7f7"
               @click="googleSignIn"
               ><v-icon class="px-2" color="red">mdi-google</v-icon>
-              <span class="pr-3 googleText">Sign in with Google</span></v-btn
+              <span class="pr-3 py-3 googleText text-4xl font-medium"
+                >Sign in with Google</span
+              ></v-btn
+            > -->
+            <button
+              class="loginBtn flex align-center justify-center"
+              type="submit"
             >
+              <span class="learnMoreText px-4 font-semibold">
+                Login
+                <v-icon
+                  color="white
+"
+                  class="pb-1 pl-2"
+                  >mdi-login-variant</v-icon
+                >
+              </span>
+            </button>
+            <button
+              class="learnMoreBtn flex align-center justify-center"
+              @click="googleSignIn"
+            >
+              <span class="learnMoreText px-4 font-semibold">
+                Sign in with Google
+                <v-icon
+                  color="white
+"
+                  class="pb-1 pl-2"
+                  >mdi-google</v-icon
+                >
+              </span>
+            </button>
           </div>
           <div class="flex flex-col justify-center align-center">
-            <p class="signup mr-6 mt-5">Don't have an account?</p>
+            <p class="signup py-4 mt-5 text-3xl font-semibold">
+              Don't have an account?
+            </p>
             <SignupDialog class="" />
             <PasswordResetDialog />
           </div>
@@ -146,33 +178,50 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-.main {
+.learnMoreBtn {
+  font-size: 25px;
+  background-color: #ff4a68;
+  color: #120129;
+  border-radius: 35px;
+  transition: ease-in-out 0.3s;
+  padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
+.loginBtn {
+  font-size: 25px;
+  background-color: #ff93a5;
+  color: #120129;
+  border-radius: 35px;
+  border: solid 2px #120129;
+  transition: ease-in-out 0.3s;
+  padding: 9px 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.loginBtn:hover {
+  background-color: #120129;
+  color: #ff4a68;
+}
+.learnMoreBtn:hover {
+  background-color: #120129;
+  color: #ff4a68;
+}
+
 .loginText,
 .googleText {
-  /* font-family: 'Acme', sans-serif; */
-  font-size: 1.3em;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   text-transform: capitalize;
-  font-weight: 500;
 }
 
 .signup,
 .title {
-  font-size: 1.6em;
   color: #494949;
-  /* font-family: 'Acme', sans-serif; */
-  font-weight: 700;
-  text-align: center;
-  text-transform: capitalize;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .loginForm {
   background: rgb(255, 255, 255);
 }
-.googleBtn,
-.loginBtn {
-  border: 3px solid #00e699;
-}
+
 .googleText {
   color: #494949;
 }
