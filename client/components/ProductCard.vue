@@ -1,9 +1,11 @@
 <template>
   <div
-    class="flex flex-col justify-between align-center space-y-4 cardBackground"
+    class="flex flex-col lg:flex-row justify-between align-center space-y-4 cardBackground productCard"
   >
-    <div class="relative h-64 w-64 rounded-full max-w-xl">
-      <div class="absolute inset-0 bg-gray-300 shadow-lg rounded-full">
+    <div class="relative h-56 w-56 rounded-full max-w-xl">
+      <div
+        class="absolute inset-0 bg-gray-300 shadow-lg rounded-full lg:rounded-none"
+      >
         <div class="max-w-md mx-auto">
           <img
             src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"

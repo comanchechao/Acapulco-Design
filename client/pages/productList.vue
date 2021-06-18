@@ -50,7 +50,7 @@
                 v-for="product in products"
                 id="product-card"
                 :key="product.id"
-                class="p-4 productCard opacity-0"
+                class="p-4 opacity-0"
                 :product="product"
               />
             </div>
@@ -174,7 +174,7 @@ export default {
       })
       tl.from('.menuNavbar', {
         opacity: 0,
-        y: -20,
+        y: -10,
 
         duration: 0.7,
 
@@ -215,10 +215,10 @@ export default {
 }
 
 .background {
-  background: rgba(255, 209, 209, 0.65);
+  background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
 }
 
@@ -230,7 +230,7 @@ export default {
 }
 
 .menuNavbar {
-  background: rgba(255, 209, 209, 0.65);
+  background: #ff4a68;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
