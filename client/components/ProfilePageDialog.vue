@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+// import firebase from 'firebase'
 // You would obiusly use this component to show secure dashboard information.
 // As it stands it is just a simple Vue page with nothing intersting to show.
 export default {
