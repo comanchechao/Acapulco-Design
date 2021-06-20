@@ -25,17 +25,19 @@
           >
             <NuxtLink to="/">
               <span class="p-9"
-                ><v-icon light x-large>mdi-chevron-double-left</v-icon></span
+                ><v-icon light x-large color="pink lighten-5"
+                  >mdi-chevron-double-left</v-icon
+                ></span
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-4xl text-gray-700 font-semibold">
+              <span class="menu px-5 text-4xl text-mainBlue font-semibold">
                 Home
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-gray-700 font-semibold">Shop</h1>
+                <h1 class="px-5 text-4xl text-mainBlue font-semibold">Shop</h1>
               </span>
             </NuxtLink>
           </div>
@@ -66,34 +68,34 @@
               </h1> -->
             <div class="mt-12 px-4 text-center">
               <h3
-                class="p-3 text-gray-700 text-6xl border-red-600 font-black sidebarText"
+                class="p-3 text-mainBlue text-6xl border-red-600 font-black sidebarText"
               >
                 Discover!
               </h3>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
                     Lighters🔥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
                     Acapulco Shirts🌴
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
                     Custom Matchboxes💥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-gray-700 p-3 sidebarText">
+                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
                     Collections🗿
                   </h1>
                 </span>

@@ -22,40 +22,50 @@
         </v-btn>
       </template>
 
-      <div class="grid grid-rows-2 h-full w-full backround bg-Cyan-400">
+      <div class="h-full w-full backround bg-Cyan-400">
         <!-- <div class="bg-blue-300"></div> -->
-        <div class="">
-          <div class="w-full h-full flex flex-col justify-center align-center">
-            <v-btn
-              x-large
-              class="self-start ml-14 bg-Emerald-400"
-              icon
-              dark
-              @click="dialog = false"
-            >
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-            <div class="w-72 h-72 rounded-full shadow-lg bg-Emerald-400">
-              <div class="m-auto">
-                <img
-                  class="bg-cover"
-                  src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-                  alt=""
-                />
-              </div>
-            </div>
+        <div
+          class="w-full h-full flex flex-col justify-between lg:justify-around align-center"
+        >
+          <v-btn
+            x-large
+            class="self-start ml-11 bg-mainBlue"
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <div
+            class="w-56 h-56 rounded-full shadow-lg bg-Emerald-400 flex-shrink-0"
+          >
+            <img
+              class="bg-cover"
+              src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+              alt=""
+            />
           </div>
-        </div>
-        <div class="row-span-1 flex align-center justify-center">
-          <div class="self-start justify-self-center">
-            <h1 class="text-center text-6xl font-mainFont">UserName</h1>
-            <button class="">
+          <div class="self-center justify-self-center">
+            <h1 class="text-center text-6xl font-mainFont text-mainBlue">
+              Comanche
+            </h1>
+            <button class="text-1xl">
               <span
-                class="text-mainBlue text-3xl font-thin px-10 py-2 ml-40 rounded-full editBtn"
+                class="text-mainBlue font-thin px-12 py-2 ml-40 rounded-full editBtn border-mainBlue border-2 mt-3 font-mainFont"
               >
                 Edit
               </span>
             </button>
+          </div>
+          <div
+            class="bg-mainBlue w-11/12 lg:h-2/6 h-full rounded-3xl font-mainFont"
+          >
+            <div class="w-full h-full flex align-start p-7">
+              <v-icon x-large dark>mdi-notebook-check</v-icon>
+              <h1 class="text-4xl font-mainFont text-mainRed">
+                <span class="ml-3"> Your Shipping Details </span>
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -104,11 +114,6 @@ export default {
 </script>
 
 <style scoped>
-.dialog {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  color: aquamarine;
-}
-
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
@@ -117,16 +122,19 @@ export default {
   text-transform: capitalize;
 }
 span {
-  font-family: 'Acme', sans-serif;
   text-align: center;
   font-size: 1.3em;
   display: flex;
   justify-self: center;
   align-self: center;
 }
-.editBtn:hover {
+.editBtn {
   transition: ease-in-out 0.5s;
-  background: #ff4a68;
+}
+
+.editBtn:hover {
+  color: #ff4a68;
+  background-color: #120129;
 }
 
 /* .backround {
