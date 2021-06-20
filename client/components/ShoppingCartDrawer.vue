@@ -29,6 +29,7 @@
       v-model="drawer"
       right
       temporary
+      scrollable
       app
       bottom
       class="drawer red lighten-4 z-10"

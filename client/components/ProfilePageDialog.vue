@@ -20,18 +20,34 @@
         <span>My Profile</span>
       </v-btn>
     </template>
-    <div class="grid grid-rows-3 h-full w-full bg-yellow-500 opacity-90">
-      <v-btn
-        x-large
-        class="ml-6 mt-6 pa-3 bg-Lime-400"
-        icon
-        light
-        @click="dialog = false"
-      >
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
-      <div class="row-span-1 bg-blue-300"></div>
-      <div class="row-span-2 bg-blue-700"></div>
+
+    <div
+      class="grid grid-rows-2 h-full w-full backround bg-Cyan-400 opacity-95"
+    >
+      <!-- <div class="bg-blue-300"></div> -->
+      <div class="">
+        <div class="w-full h-full flex flex-col justify-center align-center">
+          <v-btn
+            x-large
+            class="ml-6 mt-6 bg-Lime-400 self-start"
+            icon
+            light
+            @click="dialog = false"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <div class="w-72 h-72 rounded-full shadow-lg bg-Emerald-400">
+            <div class="m-auto">
+              <img
+                class="bg-cover"
+                src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-span-1"></div>
     </div>
 
     <!-- <div v-if="user() != null">
@@ -94,22 +110,22 @@ export default {
         this.$router.push('/')
       })
     },
-    sendVerifyEmail() {
-      this.emailSending = true
-      const user = firebase.auth().currentUser
-      const actionCodeSettings = {
-        url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
-      }
-      user
-        .sendEmailVerification(actionCodeSettings)
-        .then(() => {
-          this.emailSending = false
-        })
-        .catch((error) => {
-          this.emailSending = false
-          this.error = error.message
-        })
-    },
+    // sendVerifyEmail() {
+    //   this.emailSending = true
+    //   const user = firebase.auth().currentUser
+    //   const actionCodeSettings = {
+    //     url: `${process.env.VUE_APP_HOST_NAME}/sign-in/?email=${user.email}`,
+    //   }
+    //   user
+    //     .sendEmailVerification(actionCodeSettings)
+    //     .then(() => {
+    //       this.emailSending = false
+    //     })
+    //     .catch((error) => {
+    //       this.emailSending = false
+    //       this.error = error.message
+    //     })
+    // },
   },
 }
 </script>
@@ -130,4 +146,11 @@ span {
   justify-self: center;
   align-self: center;
 }
+
+/* .backround {
+  background: rgba(233, 233, 233, 0.959);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+} */
 </style>
