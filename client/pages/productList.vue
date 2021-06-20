@@ -13,10 +13,10 @@
       <div class="w-full flex flex-col align-center justify-center">
         <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
-            class="text-8xl lg:text-9xl text-center text-black capitalize firstText opacity-0"
+            class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0"
           >
             We here care about
-            <span class="span font-extrabold"> personality </span>
+            <span class="text-mainRed font-extrabold"> personality </span>
           </h1>
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
@@ -50,7 +50,7 @@
                 v-for="product in products"
                 id="product-card"
                 :key="product.id"
-                class="p-4 opacity-0"
+                class="p-4 opacity-0 productCard"
                 :product="product"
               />
             </div>
@@ -146,7 +146,6 @@ export default {
 
   mounted() {
     this.animateBackground()
-    this.$store.dispatch('getProducts')
   },
 
   methods: {
@@ -208,10 +207,6 @@ export default {
 <style scoped>
 #main {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-.span {
-  color: #ff4a68;
 }
 
 .background {

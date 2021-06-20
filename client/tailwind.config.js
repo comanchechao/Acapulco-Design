@@ -15,6 +15,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        mainFont: ['Yanone Kaffeesatz'],
+      },
       fontSize: {
         '10xl': '14rem',
       },
@@ -30,6 +33,8 @@ module.exports = {
       // Build your palette here
       transparent: 'transparent',
       current: 'currentColor',
+      mainBlue: '#120129',
+      mainRed: '#ff4a68',
       black: colors.black,
       gray: colors.trueGray,
       red: colors.red,
@@ -49,6 +54,7 @@ module.exports = {
       Emerald: colors.emerald,
     },
   },
+
   variants: {
     extend: {},
   },

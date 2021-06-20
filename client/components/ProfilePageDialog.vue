@@ -1,96 +1,69 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    transition="dialog-bottom-transition"
-    scrollable
-    fullscreen
-    class="dialog"
-  >
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn
-        v-bind="attrs"
-        light
-        depressed
-        color="transparent"
-        v-on="on"
-        @click="dialog = true"
-      >
-        <v-icon>mdi-account-check</v-icon>
-
-        <span>My Profile</span>
-      </v-btn>
-    </template>
-
-    <div
-      class="grid grid-rows-2 h-full w-full backround bg-Cyan-400 opacity-95"
+  <div class="main">
+    <v-dialog
+      v-model="dialog"
+      transition="dialog-bottom-transition"
+      scrollable
+      fullscreen
+      class="dialog"
     >
-      <!-- <div class="bg-blue-300"></div> -->
-      <div class="">
-        <div class="w-full h-full flex flex-col justify-center align-center">
-          <v-btn
-            x-large
-            class="ml-6 mt-6 bg-Lime-400 self-start"
-            icon
-            light
-            @click="dialog = false"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <div class="w-72 h-72 rounded-full shadow-lg bg-Emerald-400">
-            <div class="m-auto">
-              <img
-                class="bg-cover"
-                src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-                alt=""
-              />
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-bind="attrs"
+          light
+          depressed
+          color="transparent"
+          v-on="on"
+          @click="dialog = true"
+        >
+          <v-icon>mdi-account-check</v-icon>
+
+          <span>My Profile</span>
+        </v-btn>
+      </template>
+
+      <div class="grid grid-rows-2 h-full w-full backround bg-Cyan-400">
+        <!-- <div class="bg-blue-300"></div> -->
+        <div class="">
+          <div class="w-full h-full flex flex-col justify-center align-center">
+            <v-btn
+              x-large
+              class="self-start ml-14 bg-Emerald-400"
+              icon
+              dark
+              @click="dialog = false"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <div class="w-72 h-72 rounded-full shadow-lg bg-Emerald-400">
+              <div class="m-auto">
+                <img
+                  class="bg-cover"
+                  src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
+        <div class="row-span-1 flex align-center justify-center">
+          <div class="self-start justify-self-center">
+            <h1 class="text-center text-6xl font-mainFont">UserName</h1>
+            <button class="">
+              <span
+                class="text-mainBlue text-3xl font-thin px-10 py-2 ml-40 rounded-full editBtn"
+              >
+                Edit
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="row-span-1"></div>
-    </div>
-
-    <!-- <div v-if="user() != null">
-      <h1>foo foo land</h1>
-    </div> -->
-    <!-- <div>
-      <h1 class="text-center mb-4 font-bold text-lg">Dashboard</h1>
-      <p class="bg-blue-100 p-5 border border-blue-200 rounded text-blue-500">
-        This is the dashboard area which is secured via the router. A user must
-        have an account and be logged in to view this page.
-      </p>
-    </div>
-    <div>
-      <div
-        v-if="!user.emailVerified"
-        class="bg-red-100 p-5 border border-red-200 rounded text-red-500 mt-5"
-      >
-        <p>
-          You need to verify your email address, please check
-          {{ user.email }} for an email. To resend the email click the button
-          below.
-        </p>
-        <p class="mt-4">
-          <button
-            type="button"
-            class="px-2 py-1 border rounded bg-red-100 border-red-500 hover:bg-red-200 transform transition duration-300 ease-in-out"
-            @click="sendVerifyEmail"
-          >
-            <transition name="fade" mode="out-in">
-              <span v-if="!emailSending">Resend</span>
-              <span v-else>Sending...</span>
-            </transition>
-          </button>
-        </p>
-      </div>
-    </div> -->
-  </v-dialog>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
-// import firebase from 'firebase'
-// You would obiusly use this component to show secure dashboard information.
-// As it stands it is just a simple Vue page with nothing intersting to show.
 export default {
   data() {
     return {
@@ -131,6 +104,11 @@ export default {
 </script>
 
 <style scoped>
+.dialog {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: aquamarine;
+}
+
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
@@ -145,6 +123,10 @@ span {
   display: flex;
   justify-self: center;
   align-self: center;
+}
+.editBtn:hover {
+  transition: ease-in-out 0.5s;
+  background: #ff4a68;
 }
 
 /* .backround {

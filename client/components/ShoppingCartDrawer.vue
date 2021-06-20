@@ -144,10 +144,6 @@ export default {
   /* background-color: rgb(5, 0, 32); */
   box-shadow: black 1px;
 }
-.title {
-  /* float: right; */
-  /* margin: 0; */
-}
 
 .itemName {
   font-family: 'Poppins', sans-serif;

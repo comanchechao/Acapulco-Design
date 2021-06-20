@@ -29,23 +29,25 @@
         <div class="grid">
           <div class="shippingInfo">
             <h1 class="pa-5">
-              <v-icon x-large light>mdi-notebook-check</v-icon>
-              <span class="shippingDetailText"> Shipping Details </span>
+              <v-icon x-large dark>mdi-notebook-check</v-icon>
+              <span class="shippingDetailText text-Cyan-50 text-4xl">
+                Shipping Details
+              </span>
             </h1>
-            <v-container class="pa-8">
+            <v-container light class="pa-8">
               <v-row>
                 <v-col cols="6">
                   <v-text-field
-                    color="grey darken-4"
-                    light
+                    color=""
+                    dark
                     label="Name"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6">
                   <v-text-field
-                    color="grey darken-4"
-                    light
+                    color="red lighten-5"
+                    dark
                     label="Last name"
                     hint="example of helper text only on focus"
                   ></v-text-field>
@@ -61,32 +63,32 @@
                 </v-col> -->
                 <v-col cols="6">
                   <v-text-field
-                    color="grey darken-4"
-                    light
+                    color="red lighten-5"
+                    dark
                     label="City"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="6">
                   <v-text-field
-                    color="grey darken-4"
-                    light
+                    color="red lighten-5"
+                    dark
                     label="Region"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
-                    color="grey darken-4"
-                    light
+                    color="red lighten-5"
+                    dark
                     label="Address"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
                   <v-select
-                    color="grey darken-4"
-                    light
+                    color="red lighten-5"
+                    dark
                     :items="['0-17', '18-29', '30-54', '54+']"
                     label="Age*"
                     required
@@ -94,8 +96,11 @@
                 </v-col>
                 <v-col cols="6">
                   <div class="mt-3 d-flex flex-column justify-end align-center">
-                    <button class="saveBtn">
-                      <span class="px-9 py-8 savBtnText"> Checkout </span>
+                    <button class="checkoutBtnNew">
+                      <span class="pl-6 py-7 checkoutText"> Checkout </span>
+                      <v-icon x-large class="pink--text text--darken-2"
+                        >mdi-arrow-right-circle</v-icon
+                      >
                     </button>
                     <!-- <v-btn x-large rounded color="#000A36">
                       <span class="saveText my-3 py-9 px-5"> Save </span>
@@ -109,10 +114,12 @@
               </v-row>
             </v-container>
           </div>
-          <div class="cartSummary">
+          <div class="cartSummary bg-mainRed rounded-2xl mr-11">
             <h1 class="pa-5">
               <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
-              <span class="shoppingSummaryText"> Shopping Summary </span>
+              <span class="shoppingSummaryText text-4xl">
+                Shopping Summary
+              </span>
             </h1>
           </div>
         </div>
@@ -161,7 +168,7 @@ export default {
   flex-direction: column;
   align-self: center;
   justify-self: center;
-  background-color: #8dffaf;
+  background-color: #120129;
   grid-area: 1 / 1 / 2 / 2;
   height: 100%;
   width: 80%;
@@ -173,7 +180,6 @@ export default {
   flex-direction: column;
   align-self: center;
   justify-self: center;
-  background-color: #008528;
   grid-area: 1 / 2 / 2 / 3;
   height: 100%;
   width: 80%;
@@ -182,14 +188,10 @@ export default {
 }
 
 .shippingDetailText {
-  font-size: 1.2em;
   font-family: 'Londrina Solid', cursive;
-  color: #2c2c2c;
 }
 
 .shoppingSummaryText {
-  color: aliceblue;
-  font-size: 1.2em;
   font-family: 'Londrina Solid', cursive;
 }
 
@@ -199,20 +201,18 @@ export default {
 } */
 
 .saveBtn {
-  font-size: 30px;
-  background-color: #0baf78;
+  /* background-color: #0baf78; */
   /* border: 3px solid #0baf78; */
 
-  color: #f3f3f3;
-  border-radius: 35px;
-  transition: ease-in-out 0.2s;
-  padding: 9px 20px;
-  font-family: 'Acme', sans-serif;
+  /* color: #f3f3f3; */
+  transition: ease-in-out 0.5s;
 }
 
 .saveBtn:hover {
-  background-color: #d4e300;
-  color: #001d2f;
+  background-color: #120129;
+  color: #ff4a68;
+  /* background-color: #d4e300;
+  color: #001d2f; */
   /* border: 3px solid #0793c2; */
 }
 
@@ -227,7 +227,7 @@ export default {
 }
 .checkoutBtn {
   font-size: 30px;
-  background-color: #ffcdd2;
+  background-color: transparent;
   color: #120129;
   border: solid 2px #120129;
   border-radius: 35px;
@@ -238,5 +238,19 @@ export default {
 .checkoutBtn:hover {
   background-color: #120129;
   color: #ff4a68;
+}
+
+.checkoutBtnNew {
+  font-size: 30px;
+  border: solid 2px #120129;
+  color: #ff4a68;
+  border-radius: 35px;
+  transition: ease-in-out 0.3s;
+  padding: 9px 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.checkoutBtnNew:hover {
+  color: #120129;
+  background-color: #ff4a68;
 }
 </style>
