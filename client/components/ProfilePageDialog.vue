@@ -49,7 +49,7 @@
             <h1 class="text-center text-6xl font-mainFont text-mainBlue">
               Comanche
             </h1>
-            <button class="text-1xl">
+            <button class="text-lg">
               <span
                 class="text-mainBlue font-thin px-12 py-2 ml-40 rounded-full editBtn border-mainBlue border-2 mt-3 font-mainFont"
               >
@@ -58,7 +58,7 @@
             </button>
           </div>
           <div
-            class="bg-mainBlue w-11/12 lg:h-2/6 h-full rounded-3xl font-mainFont"
+            class="bg-mainBlue w-11/12 lg:h-2/6 h-5/6 rounded-3xl font-mainFont"
           >
             <div class="w-full h-full flex align-start p-7">
               <v-icon x-large dark>mdi-notebook-check</v-icon>
