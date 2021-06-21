@@ -217,6 +217,7 @@
                         class="flex flex-row place-content-around"
                       >
                         <h3>{{ product.title }}</h3>
+                        <img :src="product.image" alt="">
                         <button class="">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -300,11 +301,7 @@ export default {
       openTab: 1,
     }
   },
-  computed: {
-    products() {
-      return this.$store.state.products
-    },
-  },
+
   watch: {
     isOpen: {
       immediate: true,
@@ -327,6 +324,7 @@ export default {
             id: doc.id,
             title: doc.data().title,
             price: doc.data().price,
+            image: doc.data().image
           })
         }
       })
@@ -335,8 +333,14 @@ export default {
   mounted() {
     this.welcome()
     this.$store.dispatch('getProducts')
+    console.log(this.Products)
   },
   methods: {
+    storageImage() {
+      const storage = this.$fire.storage.ref()
+      const image = storage.child('ProductImage')
+      console.log(image)
+    },
     toggleTabs(tabNumber) {
       this.openTab = tabNumber
     },

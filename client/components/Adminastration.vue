@@ -2,13 +2,39 @@
   <div
     v-if="showModal"
     id="modal"
-    class="modal flex justify-center h-1/2 items-center bg-green-200 rounded-lg antialiased"
+    class="
+      modal
+      flex
+      justify-center
+      h-1/2
+      items-center
+      bg-green-200
+      rounded-lg
+      antialiased
+    "
   >
     <div
-      class="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto bg-green-500 rounded-lg border border-green-300 shadow-xl"
+      class="
+        flex flex-col
+        w-11/12
+        sm:w-5/6
+        lg:w-1/2
+        max-w-2xl
+        mx-auto
+        bg-green-500
+        rounded-lg
+        border border-green-300
+        shadow-xl
+      "
     >
       <div
-        class="flex flex-row justify-between p-6 border-b border-gray-200 rounded-tl-lg rounded-tr-lg"
+        class="
+          flex flex-row
+          justify-between
+          p-6
+          border-b border-gray-200
+          rounded-tl-lg rounded-tr-lg
+        "
       >
         <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
@@ -37,7 +63,17 @@
           type="text"
           name="title"
           placeholder="Enter title"
-          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-24 focus:outline-none"
+          class="
+            p-2
+            mb-3
+            text-black
+            bg-gray-100
+            border border-gray-200
+            rounded
+            shadow-sm
+            h-24
+            focus:outline-none
+          "
         />
         <p v-if="feedback" class="text-red-500">{{ feedback }}</p>
         <label for="price" class="mb-2 font-semibold text-gray-100 text-3xl"
@@ -49,10 +85,21 @@
           type="number"
           name="price"
           placeholder="Enter price"
-          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-24 focus:outline-none"
+          class="
+            p-2
+            mb-3
+            text-black
+            bg-gray-100
+            border border-gray-200
+            rounded
+            shadow-sm
+            h-24
+            focus:outline-none
+          "
         />
 
         <div class="flex place-content-center mt-5 space-x-4">
+          <input type="file" @change="uploadImage" />
           <input
             id="check1"
             class="inline-flex rounded-full"
@@ -65,12 +112,20 @@
         </div>
       </div>
       <div
-        class="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg"
+        class="
+          flex flex-row
+          items-center
+          justify-between
+          p-5
+          bg-white
+          border-t border-gray-200
+          rounded-bl-lg rounded-br-lg
+        "
       >
         <p class="font-semibold text-gray-600" @click="closeModal()">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
-          @click="addProduct() && closeModal()"
+          @click="addProduct()"
         >
           Save
         </button>
@@ -87,8 +142,12 @@ export default {
       showModal: false,
       title: null,
       price: null,
+      image: null,
       feedback: null,
     }
+  },
+  mounted() {
+    console.log(this.image)
   },
   methods: {
     toggleModal() {
@@ -105,6 +164,21 @@ export default {
         })
       }
     },
+    uploadImage(e) {
+      const file = e.target.files[0]
+      const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
+
+      const uploadTask = storageRef.put(file)
+
+      uploadTask.on('state_changed', (snapshot) => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        snapshot.ref.getDownloadURL().then((downloadURL) => {
+          this.image = downloadURL
+          console.log('File available at', downloadURL)
+        })
+      })
+    },
     addProduct() {
       if (this.title) {
         this.$fire.firestore
@@ -112,6 +186,7 @@ export default {
           .add({
             title: this.title,
             price: this.price,
+            image: this.image,
           })
           .then(() => {
             this.title = null

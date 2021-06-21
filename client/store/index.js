@@ -71,20 +71,20 @@ export const mutations = {
 }
 export const actions = {
   //  fetching the products from server side passing to set products mutaions
-  getProducts({ commit }) {
-    const products = []
-    this.$fire.firestore
-      .collection('Products')
-      .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          const product = doc.data()
-          product.id = doc.id
-          products.push(product)
-        })
-        commit('setProducts', products)
-      })
-  },
+  // getProducts({ commit }) {
+  //   const Products = []
+  //   this.$fire.firestore
+  //     .collection('Products')
+  //     .get()
+  //     .then((snapshot) => {
+  //       snapshot.forEach((doc) => {
+  //         const product = doc.data()
+  //         product.id = doc.id
+  //         Products.push(product)
+  //       })
+  //       commit('setProducts', Products)
+  //     })
+  // },
   addProductToCart({ commit }, { product, quantity }) {
     commit('AddToCart', { product, quantity })
   },
