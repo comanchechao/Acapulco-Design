@@ -110,7 +110,7 @@ export default {
             persistence: 'local', // default
             initialize: {
               onAuthStateChangedMutation: 'setUser',
-              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              // onAuthStateChangedAction: 'onAuthStateChangedAction',
               subscribeManually: false,
             },
           },

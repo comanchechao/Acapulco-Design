@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" class="">
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -32,7 +32,7 @@
       scrollable
       app
       bottom
-      class="drawer red lighten-4 z-10"
+      class="drawer red lighten-4"
       width="33%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
@@ -137,10 +137,6 @@ export default {
   grid-row-gap: 30px;
   /* width: 600px; */
   height: 90%;
-}
-
-.drawer {
-  z-index: 1;
 }
 
 .items {

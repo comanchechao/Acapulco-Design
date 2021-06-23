@@ -23,7 +23,7 @@
             "
           >
             We here care about
-            <span class="text-mainRed font-extrabold"> personality </span>
+            <span class="text-mainRed font-extrabold span"> personality </span>
           </h1>
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
@@ -75,7 +75,7 @@
                 v-for="product in products"
                 id="product-card"
                 :key="product.id"
-                class="p-4 opacity-0 productCard"
+                class="p-4 productCard"
                 :product="product"
               />
             </div>
@@ -237,12 +237,12 @@ export default {
         ease: 'power3.out',
         stagger: 0.1,
       })
-      tl.to('.productCard', {
-        opacity: 1,
-        y: -20,
-        ease: 'power3.out',
-        stagger: 0.1,
-      })
+      // tl.to('.productCard', {
+      //   opacity: 1,
+      //   y: -20,
+      //   ease: 'power3.out',
+      //   stagger: 0.1,
+      // })
     },
   },
 }
