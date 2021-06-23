@@ -38,15 +38,15 @@
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->
       <div class="container">
-        <div v-for="item in cart" :key="item.product.id">
+        <div v-for="item in cartItem" :key="item.id">
           <div class="title d-flex">
             <img
               class="productImage mx-4 mt-6"
-              src="/davisuko-rhUU1pemhQ0-unsplash.jpg"
+              :src="item.item.image"
               alt="John"
             />
             <div>
-              <h3 class="itemName mb-5">{{ item.product.title }}</h3>
+              <h3 class="itemName mb-5">{{ item.item.title }}</h3>
               <v-btn rounded outlined color="#d32f2f">
                 <h4
                   class="delete"
@@ -60,7 +60,7 @@
           <v-spacer></v-spacer>
           <div class="right mr-1">
             <div class="price d-flex justify-center align-center">
-              <p class="">{{ item.product.price }}</p>
+              <p class="">{{ item.item.price }}</p>
             </div>
             <div class="d-flex align-center justify-center mr-6">
               <v-btn
@@ -108,6 +108,9 @@ export default {
   computed: {
     cartTotalAmount() {
       return this.$store.getters.cartItemCount
+    },
+    cartItem(){
+      return this.$store.state.cart
     },
   },
   methods: {
