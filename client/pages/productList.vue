@@ -13,7 +13,14 @@
       <div class="w-full flex flex-col align-center justify-center">
         <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
-            class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0"
+            class="
+              text-8xl
+              lg:text-9xl
+              text-center text-mainBlue
+              capitalize
+              firstText
+              opacity-0
+            "
           >
             We here care about
             <span class="text-mainRed font-extrabold"> personality </span>
@@ -21,7 +28,15 @@
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
           <div
-            class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
+            class="
+              menuNavbar
+              sticky
+              flex
+              align-center
+              py-6
+              divide-x-2 divide-black
+              col-span-8
+            "
           >
             <NuxtLink to="/">
               <span class="p-9"
@@ -46,7 +61,15 @@
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="grid grid-cols-2 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+              class="
+                grid grid-cols-2
+                gap-6
+                p-4
+                mt-6
+                place-items-center
+                self-center
+                justify-self-center
+              "
             >
               <ProductCard
                 v-for="product in products"
@@ -60,7 +83,19 @@
             <!-- </div> -->
           </div>
           <div
-            class="col-span-2 self-start justify-self-end sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="
+              col-span-2
+              self-start
+              justify-self-end
+              sidebar
+              opacity-0
+              space-y-4
+              sticky
+              h-auto
+              flex flex-col
+              justify-between
+              align-center
+            "
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -68,7 +103,13 @@
               </h1> -->
             <div class="mt-12 px-4 text-center">
               <h3
-                class="p-3 text-mainBlue text-6xl border-red-600 font-black sidebarText"
+                class="
+                  p-3
+                  text-mainBlue text-6xl
+                  border-red-600
+                  font-black
+                  sidebarText
+                "
               >
                 Discover!
               </h3>
@@ -148,6 +189,7 @@ export default {
 
   mounted() {
     this.animateBackground()
+    this.$store.dispatch('getProducts')
   },
 
   methods: {

@@ -30,48 +30,61 @@ export const mutations = {
     state.products = productsPayload
   },
   // set products in store states as array
-  setProducts(state, product) {
-    state.products = product
+  setProducts(state, Products) {
+    state.products = Products
   },
-  AddToCart(state, { product, quantity }) {
-    const productInCart = state.cart.find(
-      (item) => item.product.id === product.id
+  AddToCart(state, Product) {
+    console.log(Product)
+    const productInCart = state.cart.find((item) =>
+      item.item.id === Product.item.id
     )
 
-    console.log(productInCart)
-
     if (productInCart) {
-      productInCart.quantity += quantity
-      return
+      productInCart.quantity++
+    } else {
+      state.cart.push(Product)
     }
-
-    state.cart.push({
-      product,
-      quantity,
-    })
-    // const productList = state.products.find(
-    //   (item) => item.product.id === product.id
-    // )
-    //   const productInCart = state.cart.find(
-    //     (item) => item.productId === product.id
-    //   )
-
-    //   if (productInCart) {
-    //     productInCart.quantity++
-    //   } else {
-    //     state.cart.push({ product })
-    //   }
-    //   // productList.quantity--;
-    // },
-    // removeProduct(state, product) {
-    //   state.cart = state.cart.filter((item) => {
-    //     return item.product.id !== product.id
-    //   })
   },
+  // const productList = state.products.find(
+  //   (item) => item.product.id === product.id
+  // )
+  //   const productInCart = state.cart.find(
+  //     (item) => item.productId === product.id
+  //   )
+
+  //   if (productInCart) {
+  //     productInCart.quantity++
+  //   } else {
+  //     state.cart.push({ product })
+  //   }
+  //   // productList.quantity--;
+  // },
+  // removeProduct(state, product) {
+  //   state.cart = state.cart.filter((item) => {
+  //     return item.product.id !== product.id
+  //   })
 }
 export const actions = {
   //  fetching the products from server side passing to set products mutaions
-  // getProducts({ commit }) {
+  getProducts({ commit }) {
+    const ref = this.$fire.firestore.collection('Products')
+    const Products = []
+    ref.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          Products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+            image: doc.data().image,
+          })
+        }
+      })
+      commit('setProducts', Products)
+    })
+  },
+
   //   const Products = []
   //   this.$fire.firestore
   //     .collection('Products')
@@ -161,6 +174,10 @@ export const actions = {
 export const getters = {
   getUser: (state, getters) => {
     return state.user
+  },
+
+  Products: (state) => {
+    return state.products
   },
 
   // open some place for this big G

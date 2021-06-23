@@ -146,9 +146,7 @@ export default {
       feedback: null,
     }
   },
-  mounted() {
-    console.log(this.image)
-  },
+  mounted() {},
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
@@ -175,7 +173,6 @@ export default {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         snapshot.ref.getDownloadURL().then((downloadURL) => {
           this.image = downloadURL
-          console.log('File available at', downloadURL)
         })
       })
     },

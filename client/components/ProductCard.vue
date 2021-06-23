@@ -1,10 +1,25 @@
 <template>
   <div
-    class="flex flex-col lg:flex-row justify-between align-center space-y-4 cardBackground productCard"
+    class="
+      flex flex-col
+      lg:flex-row
+      justify-between
+      align-center
+      space-y-4
+      cardBackground
+      productCard
+    "
   >
     <div class="relative h-56 w-56 rounded-full max-w-xl">
       <div
-        class="absolute inset-0 bg-gray-300 shadow-lg rounded-full lg:rounded-none"
+        class="
+          absolute
+          inset-0
+          bg-gray-300
+          shadow-lg
+          rounded-full
+          lg:rounded-none
+        "
       >
         <div class="max-w-md mx-auto">
           <img
@@ -15,12 +30,17 @@
       </div>
     </div>
     <div class="flex flex-col justify-between align-center mt-2 space-y-2">
-      <h1 class="text-5xl text-blueGray-900 font-bold mt-5">Dragon Ball</h1>
+      <h1 class="text-5xl text-blueGray-900 font-bold mt-5">
+        {{ product.title }}
+      </h1>
       <h3 class="text-2xl text-gray-600 font-thin">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h3>
-      <p class="text-4xl text-CoolGray-900">2500 IRL</p>
-      <button class="learnMoreBtn flex align-center justify-center">
+      <p class="text-4xl text-CoolGray-900">{{ product.price }} IRL</p>
+      <button
+        @click="addToCart"
+        class="learnMoreBtn flex align-center justify-center"
+      >
         <span class="learnMoreText px-4">
           Add to Cart
           <v-icon
@@ -59,12 +79,18 @@
 export default {
   props: ['product'],
 
+  data(){
+    return{
+      Product:{
+        item: this.product,
+        quantity: 1
+      }
+    }
+  }, 
+
   methods: {
     addToCart() {
-      this.$store.dispatch('addProductToCart', {
-        product: this.product,
-        quantity: 1,
-      })
+      this.$store.commit('AddToCart', this.Product)
     },
   },
 }
