@@ -25,18 +25,14 @@ export const mutations = {
   //   state.user = payload
   // },
 
-  setUpProducts(state, productsPayload) {
-    // sets the state's  products property to the products array recieved as payload
-    state.products = productsPayload
-  },
   // set products in store states as array
   setProducts(state, Products) {
     state.products = Products
   },
   AddToCart(state, Product) {
     console.log(Product)
-    const productInCart = state.cart.find((item) =>
-      item.item.id === Product.item.id
+    const productInCart = state.cart.find(
+      (item) => item.item.id === Product.item.id
     )
 
     if (productInCart) {
@@ -59,10 +55,23 @@ export const mutations = {
   //   }
   //   // productList.quantity--;
   // },
-  // removeProduct(state, product) {
-  //   state.cart = state.cart.filter((item) => {
-  //     return item.product.id !== product.id
-  //   })
+  removeProduct(state, Product) {
+    state.cart = state.cart.filter((item) => {
+      return item.item.id !== Product.item.id
+    })
+  },
+  incerementQuantity(state, Product) {
+    const Tproduct = state.cart.find((item) => item.item.id === Product.item.id)
+    if (Tproduct) {
+      Tproduct.quantity++
+    }
+  },
+  decrementQuantity(state, Product) {
+    const Tproduct = state.cart.find((item) => item.item.id === Product.item.id)
+    if (Tproduct) {
+      Tproduct.quantity--
+    }
+  },
 }
 export const actions = {
   //  fetching the products from server side passing to set products mutaions
@@ -98,12 +107,9 @@ export const actions = {
   //       commit('setProducts', Products)
   //     })
   // },
-  addProductToCart({ commit }, { product, quantity }) {
-    commit('AddToCart', { product, quantity })
-  },
 
-  removeCartProduct({ commit }, product) {
-    commit('removeProduct', product)
+  removeCartProduct({ commit }, Product) {
+    commit('removeProduct', Product)
   },
   autoSignIn({ commit }, payload) {
     commit('setUser', payload)

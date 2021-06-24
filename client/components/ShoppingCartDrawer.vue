@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class=" ">
+  <div id="main" class="">
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -48,10 +48,7 @@
             <div>
               <h3 class="itemName mb-5">{{ item.item.title }}</h3>
               <v-btn rounded outlined color="#d32f2f">
-                <h4
-                  class="delete"
-                  @click.prevent="removeCartProduct(item.product)"
-                >
+                <h4 class="delete" @click.prevent="removeCartProduct(item)">
                   Delete
                 </h4>
               </v-btn>
@@ -70,12 +67,19 @@
                 plain
                 class="minus"
                 color="#00ffaa"
-                @click="incrementQuantity()"
+                @click="decrementQuantity(item)"
               >
                 <v-icon>mdi-minus</v-icon></v-btn
               >
               <p class="px-3">{{ item.quantity }}</p>
-              <v-btn light large fab plain class="plus" color="#00ffaa"
+              <v-btn
+                light
+                large
+                fab
+                plain
+                class="plus"
+                color="#00ffaa"
+                @click="incrementQuantity(item)"
                 ><v-icon>mdi-plus</v-icon></v-btn
               >
             </div>
@@ -114,11 +118,14 @@ export default {
     },
   },
   methods: {
-    removeCartProduct(product) {
-      this.$store.dispatch('removeCartProduct', product)
+    removeCartProduct(Product) {
+      this.$store.dispatch('removeCartProduct', Product)
     },
-    incrementQuantity(product) {
-      this.$store.dispatch('incrementQuantity', product)
+    incrementQuantity(Product) {
+      this.$store.commit('incerementQuantity', Product)
+    },
+    decrementQuantity(Product) {
+      this.$store.commit('decrementQuantity', Product)
     },
   },
 }
