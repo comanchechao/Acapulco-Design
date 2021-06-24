@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="">
+  <div id="main" class=" ">
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -32,7 +32,7 @@
       scrollable
       app
       bottom
-      class="drawer red lighten-4"
+      class="drawer red lighten-4 z-10"
       width="33%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
@@ -109,7 +109,7 @@ export default {
     cartTotalAmount() {
       return this.$store.getters.cartItemCount
     },
-    cartItem(){
+    cartItem() {
       return this.$store.state.cart
     },
   },
@@ -125,10 +125,6 @@ export default {
 </script>
 
 <style scoped>
-#main {
-  color: #7a7a7a;
-}
-
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
