@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-Rose-200 w-80 h-96"></div>
+  <div class="w-11/12 h-dialog"></div>
 </template>
 
 <script>

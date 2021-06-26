@@ -191,60 +191,7 @@ span {
   background-color: #fff;
 } */
 
-#navbar {
+/* #navbar {
   animation: 30s ease-in-out infinite alternate-reverse color-change;
-}
-@-webkit-keyframes color-change {
-  0% {
-    background-color: #ade7e7;
-  }
-  /* 15% {
-      background-color: #7ec6c8;
-    }
-    30% {
-      background-color: #a1dfa1;
-    } */
-  45% {
-    background-color: #a6a6db;
-  }
-  /* 60% {
-      background-color: #d8a5d8;
-    }
-    75% {
-      background-color: #c6b1ec;
-    }
-    90% {
-      background-color: #ade7e7;
-    } */
-  100% {
-    background-color: #d8bbff;
-  }
-}
-
-@keyframes color-change {
-  0% {
-    background-color: #83f1f1;
-  }
-  /* 15% {
-      background-color: #7ec6c8;
-    }
-    30% {
-      background-color: #a1dfa1;
-    } */
-  50% {
-    background-color: #55dd8e;
-  }
-  /* 60% {
-      background-color: #d8a5d8;
-    }
-    75% {
-      background-color: #c6b1ec;
-    }
-    90% {
-      background-color: #ade7e7;
-    } */
-  100% {
-    background-color: #595bee;
-  }
-}
+} */
 </style>

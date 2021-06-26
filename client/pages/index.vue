@@ -6,8 +6,7 @@
         id="navbar"
         v-gsap.to="{
           opacity: 1,
-          duration: 1.5,
-          delay: 1,
+          duration: 1,
           ease: 'circ.out',
         }"
         class="mt-4"
@@ -21,7 +20,7 @@
               v-gsap.to="{
                 y: 40,
                 opacity: 1,
-                duration: 1.5,
+                duration: 1,
 
                 ease: 'circ.out',
               }"

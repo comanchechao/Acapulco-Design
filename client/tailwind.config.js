@@ -15,6 +15,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      height: {
+        dialog: '30rem',
+      },
       fontFamily: {
         mainFont: ['Yanone Kaffeesatz'],
       },

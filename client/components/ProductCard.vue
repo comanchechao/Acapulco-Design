@@ -52,10 +52,10 @@
           </div>
         </div>
       </template>
-      <div class="bg-mainBlue">
+      <div class="bg-mainBlue flex flex-col p-2">
         <v-btn
-          x-large
-          class="ml-4 self-start justify-self-start"
+          large
+          class="self-start justify-self-start"
           icon
           dark
           @click="dialog = false"
@@ -63,7 +63,7 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <!-- <div class="p-6 bg-Rose-200"></div> -->
-        <div>
+        <div class="flex justify-center flex-col align-center mb-9">
           <ProductDetail />
         </div>
       </div>
@@ -126,7 +126,7 @@ export default {
   color: #ff4a68;
 }
 .cardBackground {
-  /* background: #b3bbbd33; */
+  background: #e6e6e6;
   box-shadow: 0 8px 32px 0 #1f26875e;
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);

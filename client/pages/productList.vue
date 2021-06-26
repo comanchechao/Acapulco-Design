@@ -67,35 +67,39 @@
                 Shop
               </h1> -->
             <div class="mt-12 px-4 text-center">
-              <h3
-                class="p-3 text-mainBlue text-6xl border-red-600 font-black sidebarText"
-              >
+              <h3 class="p-3 text-mainBlue text-6xl border-red-600 font-black">
                 Discover!
               </h3>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
+                  <h1
+                    class="text-3xl text-mainBlue border-mainBlue border-b-2 p-4 sidebarText"
+                  >
                     Lighters🔥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
+                  <h1
+                    class="text-3xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
+                  >
                     Acapulco Shirts🌴
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
+                  <h1
+                    class="text-3xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
+                  >
                     Custom Matchboxes💥
                   </h1>
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
                 <span>
-                  <h1 class="text-3xl text-mainBlue p-3 sidebarText">
+                  <h1 class="text-3xl text-mainBlue p-4 sidebarText">
                     Collections🗿
                   </h1>
                 </span>
@@ -209,6 +213,15 @@ export default {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
+}
+
+.sidebarText {
+  transition: ease-in-out 0.5s;
+}
+
+.sidebarText:hover {
+  color: #ff4a68;
+  border-bottom: #ff4a68 solid 2px;
 }
 </style>
 2
