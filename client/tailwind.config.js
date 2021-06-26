@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        dialog: '30rem',
+        dialog: '39rem',
       },
       fontFamily: {
         mainFont: ['Yanone Kaffeesatz'],

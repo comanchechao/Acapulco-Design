@@ -202,7 +202,7 @@ export default {
 }
 
 .sidebar {
-  background: rgba(255, 209, 209, 0.65);
+  background: #ffeeeeef;
   box-shadow: 0 18px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);

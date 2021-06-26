@@ -52,10 +52,10 @@
           </div>
         </div>
       </template>
-      <div class="bg-mainBlue flex flex-col p-2">
+      <div class="productDetailBackground flex flex-col p-2">
         <v-btn
           large
-          class="self-start justify-self-start"
+          class="self-start justify-self-start m-2"
           icon
           dark
           @click="dialog = false"
@@ -133,6 +133,14 @@ export default {
   border-radius: 10px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   transition: ease-in-out 0.5s;
+}
+.productDetailBackground {
+  background: #120129c9;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .cardBackground:hover {
