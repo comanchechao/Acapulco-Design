@@ -4,6 +4,8 @@
       v-model="dialog"
       transition="dialog-bottom-transition"
       class="dialog"
+      width="900px"
+      :fullscreen="$vuetify.breakpoint.xsOnly"
     >
       <template v-slot:activator="{ on, attrs }">
         <div
@@ -52,20 +54,9 @@
           </div>
         </div>
       </template>
-      <div class="productDetailBackground flex flex-col p-2">
-        <v-btn
-          large
-          class="self-start justify-self-start m-2"
-          icon
-          dark
-          @click="dialog = false"
-        >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-        <!-- <div class="p-6 bg-Rose-200"></div> -->
-        <div class="flex justify-center flex-col align-center mb-9">
-          <ProductDetail />
-        </div>
+
+      <div class="flex justify-center flex-col align-center rounded-full">
+        <ProductDetail />
       </div>
     </v-dialog>
   </div>
@@ -134,14 +125,14 @@ export default {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   transition: ease-in-out 0.5s;
 }
-.productDetailBackground {
+/* .productDetailBackground {
   background: #120129c9;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(11px);
   -webkit-backdrop-filter: blur(11px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
+} */
 
 .cardBackground:hover {
   transform: scale(1.05);
