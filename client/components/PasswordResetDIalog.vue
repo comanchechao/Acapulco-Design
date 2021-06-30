@@ -1,3 +1,4 @@
+y
 <template>
   <v-dialog v-model="dialog" max-width="900px" transition="dialog-transition">
     <template v-slot:activator="{ on, attrs }">
@@ -7,8 +8,8 @@
         v-bind="attrs"
         rounded
         large
-        v-on="on"
         outlined
+        v-on="on"
       >
         <span class="signup-text px-3 capitalize"> reset your password </span>
       </v-btn>
