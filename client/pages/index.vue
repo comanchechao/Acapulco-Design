@@ -486,4 +486,5 @@ export default {
 .limitedSpan {
   color: #ff4a68;
 }
+
 </style>

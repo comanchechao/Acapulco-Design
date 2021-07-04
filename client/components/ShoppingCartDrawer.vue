@@ -43,7 +43,6 @@
             <img
               class="productImage mx-4 mt-6"
               :src="item.item.image"
-              alt="John"
             />
             <div>
               <h3 class="itemName mb-5">{{ item.item.title }}</h3>
