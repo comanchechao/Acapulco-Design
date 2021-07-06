@@ -115,14 +115,8 @@ export const actions = {
     commit('setUser', payload)
   },
 
-  signUp({ commit }, { email, password, userName }) {
-    return this.$fire.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((cred) => {
-        return this.$fire.firestore.collection('users').doc(cred.user.uid).set({
-          username: userName,
-        })
-      })
+  signUp({ commit }, { email, password }) {
+    return this.$fire.auth.createUserWithEmailAndPassword(email, password)
     // .then(() => {
     //   const user = this.$fire.auth.currentUser
     //   const actionCodeSettings = {
@@ -201,8 +195,8 @@ export const getters = {
   cartTotalPrice(state) {
     let total = 0
 
-    state.cart.forEach((product) => {
-      total += product.item.price * product.quantity
+    state.cart.forEach((item) => {
+      total = item.product.price * item.quantity
     })
 
     return total

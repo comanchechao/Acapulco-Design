@@ -182,46 +182,20 @@
                     flex-col
                     place-items-stretch
                     flex-shrink
-                    overflow-y-auto
-                    h-full
+                    max-h-56
                   "
-                  :class="{
-                    hidden: openTab !== 1,
-                    block: openTab === 1,
-                  }"
                 >
-                  <p v-gsap.from="{ scale: 0.3 }" class="text-black">
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br />
-                    Dramatically visualize customer directed convergence without
-                    revolutionary ROI.
-                  </p>
-                </div>
-                <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
-                  <div
-                    v-gsap.from="{ opacity: 0, scale: 0.2 }"
-                    class="
-                      flex
-                      max-w-1/3
-                      flex-col
-                      place-items-stretch
-                      flex-shrink
-                      max-h-56
-                    "
-                  >
-                    <div class="flex flex-col place-items-center">
-                      <button
-                        class="focus:outline-none addButton w-1/2"
-                        @click="showModal"
-                      >
-                        Add
-                      </button>
-                      <h1 id="products">products</h1>
-                    </div>
-                    <div class="h-full overflow-y-scroll">
+                  <div class="flex flex-col place-items-center">
+                    <button
+                      class="focus:outline-none addButton w-1/2"
+                      @click="showModal"
+                    >
+                      Add
+                    </button>
+                    <h1 id="products">products</h1>
+                  </div>
+                  <div class="h-full overflow-y-scroll">
+                    <div v-for="product in Products" :key="product.id" class="">
                       <div
                         id="products"
                         class="flex flex-row place-content-around"
@@ -248,28 +222,28 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  class="
-                    flex
-                    max-w-1/3
-                    flex-col
-                    place-items-stretch
-                    flex-shrink
-                    overflow-y-auto
-                    max-h-72
-                  "
-                  :class="{ hidden: openTab !== 3, block: openTab === 3 }"
-                >
-                  <p v-gsap.from="{ scale: 0.3 }" class="text-black">
-                    Efficiently unleash cross-media information without
-                    cross-media value. Quickly maximize timely deliverables for
-                    real-time schemas.
-                    <br />
-                    <br />
-                    Dramatically maintain clicks-and-mortar solutions without
-                    functional solutions.
-                  </p>
-                </div>
+              </div>
+              <div
+                class="
+                  flex
+                  max-w-1/3
+                  flex-col
+                  place-items-stretch
+                  flex-shrink
+                  overflow-y-auto
+                  max-h-72
+                "
+                :class="{ hidden: openTab !== 3, block: openTab === 3 }"
+              >
+                <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                  Efficiently unleash cross-media information without
+                  cross-media value. Quickly maximize timely deliverables for
+                  real-time schemas.
+                  <br />
+                  <br />
+                  Dramatically maintain clicks-and-mortar solutions without
+                  functional solutions.
+                </p>
               </div>
             </div>
           </div>
@@ -277,20 +251,19 @@
       </div>
     </div>
 
-      <div
-        class="
-          absolute
-          flex
-          place-content-around
-          align-items-center
-          h-2/3
-          w-full
-          bottom-0
-          palms
-        "
-      >
-        <img class="" src="/palmtrees.png" alt="" />
-      </div>
+    <div
+      class="
+        absolute
+        flex
+        place-content-around
+        align-items-center
+        h-2/3
+        w-full
+        bottom-0
+        palms
+      "
+    >
+      <img class="" src="/palmtrees.png" alt="" />
     </div>
   </div>
 </template>
@@ -321,23 +294,23 @@ export default {
       },
     },
   },
-  // created() {
-  //   const ref = this.$fire.firestore.collection('Products')
+  created() {
+    const ref = this.$fire.firestore.collection('Products')
 
-  //   ref.onSnapshot((snapshot) => {
-  //     snapshot.docChanges().forEach((change) => {
-  //       if (change.type === 'added') {
-  //         const doc = change.doc
-  //         this.Products.push({
-  //           id: doc.id,
-  //           title: doc.data().title,
-  //           price: doc.data().price,
-  //           image: doc.data().image,
-  //         })
-  //       }
-  //     })
-  //   })
-  // },
+    ref.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          this.Products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+            image: doc.data().image,
+          })
+        }
+      })
+    })
+  },
   mounted() {
     this.welcome()
   },
@@ -379,6 +352,14 @@ export default {
       })
       tl.from('.bees', {
         scale: 0.1,
+      })
+    },
+    pineapple() {
+      const gsap = this.$gsap
+
+      gsap.to('.pineapple', {
+        y: -20,
+        scale: 1.2,
       })
     },
   },
@@ -428,8 +409,5 @@ input[type='number'] {
 #products {
   font-family: 'Yanone Kaffeesatz';
   font-size: 22px;
-}
-.adminastration {
-  z-index: 10;
 }
 </style>
