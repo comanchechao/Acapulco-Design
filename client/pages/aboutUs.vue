@@ -1,24 +1,20 @@
 <template>
-  <v-app>
-    <div id="main">
-      <div class="grid gap-4 grid-rows-2">
-        <div class="title-div row-span-2">
-          <h1 class="who black--text">Who are We?</h1>
-        </div>
-        <div class="p-div row-span-1">
-          <p>
-            Hi. we are a bunch of guys, from a less known city of a dystopian
-            country, while we're not lost and consumed by the sheer pressure of
-            human survival, we tend to smoke, and create stuff, in the hope of
-            finding the long lost peace that we all crave along the way.
-          </p>
-        </div>
-        <div class="welcome">
-          <p class="alcapulco">Welcome to Acapulco!</p>
-        </div>
-      </div>
+  <div class="grid gap-4 grid-rows-2">
+    <div class="title-div row-span-2">
+      <h1 class="who black--text">Who are We?</h1>
     </div>
-  </v-app>
+    <div class="p-div row-span-1">
+      <p>
+        Hi. we are a bunch of guys, from a less known city of a dystopian
+        country, while we're not lost and consumed by the sheer pressure of
+        human survival, we tend to smoke, and create stuff, in the hope of
+        finding the long lost peace that we all crave along the way.
+      </p>
+    </div>
+    <div class="welcome">
+      <p class="alcapulco">Welcome to Acapulco!</p>
+    </div>
+  </div>
 </template>
 
 <script>

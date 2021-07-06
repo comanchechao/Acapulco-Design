@@ -29,7 +29,6 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
-  components: false,
   // Middleware
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -50,6 +49,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/tailwindcss',
+    'nuxt-purgecss',
   ],
 
   gsap: {
