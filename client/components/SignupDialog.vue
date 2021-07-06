@@ -25,6 +25,7 @@
           required
           label="Name"
         /> -->
+          <v-text-field v-model="userName" light label="Username" />
           <v-text-field
             v-model="email"
             :rules="emailRules"
@@ -90,6 +91,7 @@ export default {
     //   (v) => !!v || 'Name is required',
     //   (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
     // ],
+    userName: '',
     email: '',
     emailRules: [
       (v) => !!v || 'E-mail is required',
@@ -115,7 +117,7 @@ export default {
         .dispatch('signUp', {
           email: this.email,
           password: this.password,
-          // displayName: this.displayName,
+          userName: this.userName,
         })
         .then((data) => {
           this.$router.push('/')
