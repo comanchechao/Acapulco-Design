@@ -23,12 +23,14 @@
       >
         <div>
           <NuxtLink to="/productList">
-            <button class="text-3xl text-gray-50">Shop</button>
+            <v-btn depressed x-large color="transparent" class="">
+              <span class="white--text"> Shop </span>
+            </v-btn>
           </NuxtLink>
         </div>
         <div>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">
-            <v-btn depressed x-large color="transparent" class="">
+            <v-btn depressed x-large color="transparent Btn" class="">
               <span class="white--text pr-2">admin</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
             </v-btn>

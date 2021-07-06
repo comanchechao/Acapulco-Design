@@ -56,10 +56,41 @@
   border: 1px solid red;
 } */
 
-/* html {
+html {
   height: 100%;
-} */
+}
 
+#main {
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
+  height: 100%;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+
+  45% {
+    background-color: #a6a6db;
+  }
+
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #83f1f1;
+  }
+
+  50% {
+    background-color: #55dd8e;
+  }
+
+  100% {
+    background-color: #595bee;
+  }
+}
 * {
   scroll-behavior: smooth;
   scrollbar-width: thin;
