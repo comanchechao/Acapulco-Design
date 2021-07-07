@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <div id="main" class="">
+      <LazyHydrate when-idle>
       <Navbar
         v-gsap.to="{
           opacity: 1,
@@ -10,6 +11,7 @@
         }"
         class="mt-4 navbar sticky"
       />
+      </LazyHydrate>
       <div class="w-full flex flex-col align-center justify-center">
         <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
@@ -114,12 +116,10 @@
 </template>
 
 <script>
-import Navbar from '../layouts/Navbar'
-import ProductCard from '../components/ProductCard'
 export default {
   components: {
-    ProductCard,
-    Navbar,
+    ProductCard: () => import('../components/ProductCard.vue'),
+    Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {
     products() {
