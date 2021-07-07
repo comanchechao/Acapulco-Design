@@ -116,9 +116,10 @@
 </template>
 
 <script>
+import ProductCard from '../components/ProductCard.vue'
 export default {
   components: {
-    ProductCard: () => import('../components/ProductCard.vue'),
+    ProductCard,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {

@@ -38,6 +38,7 @@
               <v-row>
                 <v-col cols="6">
                   <v-text-field
+                    v-model="order.Name"
                     color=""
                     dark
                     label="Name"
@@ -46,6 +47,7 @@
                 </v-col>
                 <v-col cols="6">
                   <v-text-field
+                    v-model="order.lastName"
                     color="red lighten-5"
                     dark
                     label="Last name"
@@ -63,6 +65,7 @@
                 </v-col> -->
                 <v-col cols="6">
                   <v-text-field
+                    v-model="order.City"
                     color="red lighten-5"
                     dark
                     label="City"
@@ -71,6 +74,7 @@
                 </v-col>
                 <v-col cols="6">
                   <v-text-field
+                    v-model="order.Region"
                     color="red lighten-5"
                     dark
                     label="Region"
@@ -79,6 +83,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                    v-model="order.Address"
                     color="red lighten-5"
                     dark
                     label="Address"
@@ -87,6 +92,7 @@
                 </v-col>
                 <v-col cols="12" sm="6">
                   <v-select
+                    v-model="order.Age"
                     color="red lighten-5"
                     dark
                     :items="['0-17', '18-29', '30-54', '54+']"
@@ -96,7 +102,7 @@
                 </v-col>
                 <v-col cols="6">
                   <div class="mt-3 d-flex flex-column justify-end align-center">
-                    <button class="checkoutBtnNew">
+                    <button @click="checkout()" class="checkoutBtnNew">
                       <span class="pl-6 py-7 checkoutText"> Checkout </span>
                       <v-icon x-large class="pink--text text--darken-2"
                         >mdi-arrow-right-circle</v-icon
@@ -114,13 +120,55 @@
               </v-row>
             </v-container>
           </div>
-          <div class="cartSummary bg-mainRed rounded-2xl mr-11">
-            <h1 class="pa-5">
-              <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
-              <span class="shoppingSummaryText text-4xl">
-                Shopping Summary
-              </span>
-            </h1>
+          <div
+            class="
+              grid-flow-col grid-rows-3 grid-cols-1
+              cartSummary
+              bg-mainRed
+              rounded-2xl
+              mr-11
+            "
+          >
+            <div>
+              <h1 class="pa-5">
+                <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
+                <span class="shoppingSummaryText text-4xl">
+                  Shopping Summary
+                </span>
+              </h1>
+            </div>
+            <div
+              class="items flex container align-center rounded-xl m-px flex-col"
+            >
+              <p v-for="item in cartItem" :key="item.id">
+                {{ item.item.title }}
+              </p>
+            </div>
+            <div
+              class="
+                total
+                flex flex-end
+                m-3
+                flex-row
+                align-start
+                justify-content-end
+              "
+            >
+              <img class="w-16 m-px" src="/buy-button.png" alt="" />
+              total: {{ cartTotalPrice }}
+            </div>
+            <!-- <div>
+              Icons made by
+              <a
+                href="https://www.flaticon.com/authors/vitaly-gorbachev"
+                title="Vitaly Gorbachev"
+                >Vitaly Gorbachev</a
+              >
+              from
+              <a href="https://www.flaticon.com/" title="Flaticon"
+                >www.flaticon.com</a
+              >
+            </div> -->
           </div>
         </div>
       </div>
@@ -132,8 +180,49 @@
 export default {
   data() {
     return {
+      order: {
+        Name: null,
+        lastName: null,
+        City: null,
+        Region: null,
+        Address: null,
+        Age: null,
+      },
       dialog: false,
     }
+  },
+  computed: {
+    cartItem() {
+      return this.$store.state.cart
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
+    },
+  },
+  methods: {
+    checkout() {
+      const user = this.$fire.auth.currentUser
+      if (user) {
+        this.$fire.firestore
+          .collection('users')
+          .doc(user.uid)
+          .update({
+            order: {
+              cart: this.cartItem,
+              Name: this.order.Name,
+              lastName: this.order.lastName,
+              City: this.order.City,
+              Region: this.order.Region,
+              Address: this.order.Address,
+              Age: this.order.Age,
+            },
+          })
+          .then(() => console.log('lolo'))
+          .catch((err) => {
+            console.error(err)
+          })
+      }
+    },
   },
 }
 </script>
@@ -142,7 +231,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
 .wrapper {
   background-image: linear-gradient(
     to right top,
@@ -162,7 +250,6 @@ export default {
   grid-column-gap: 19px;
   grid-row-gap: 0px;
 }
-
 .shippingInfo {
   display: flex;
   flex-direction: column;
@@ -186,28 +273,22 @@ export default {
   border-radius: 20px;
   box-shadow: -1px 11px 19px 0px #0000005c;
 }
-
 .shippingDetailText {
   font-family: 'Londrina Solid', cursive;
 }
-
 .shoppingSummaryText {
   font-family: 'Londrina Solid', cursive;
 }
-
 /* .saveText {
   font-size: 2rem;
   font-family: 'Londrina Solid', cursive;
 } */
-
 .saveBtn {
   /* background-color: #0baf78; */
   /* border: 3px solid #0baf78; */
-
   /* color: #f3f3f3; */
   transition: ease-in-out 0.5s;
 }
-
 .saveBtn:hover {
   background-color: #120129;
   color: #ff4a68;
@@ -215,11 +296,9 @@ export default {
   color: #001d2f; */
   /* border: 3px solid #0793c2; */
 }
-
 .dialog {
   z-index: 1;
 }
-
 .checkoutText {
   font-family: 'Lato', sans-serif;
   text-transform: capitalize;
@@ -239,7 +318,6 @@ export default {
   background-color: #120129;
   color: #ff4a68;
 }
-
 .checkoutBtnNew {
   font-size: 30px;
   border: solid 2px #120129;
@@ -252,5 +330,15 @@ export default {
 .checkoutBtnNew:hover {
   color: #120129;
   background-color: #ff4a68;
+}
+.items {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: #120129;
+  font-size: 26px;
+}
+.total {
+  font-family: 'Londrina Solid', cursive;
+  text-transform: capitalize;
+  font-size: 30px;
 }
 </style>
