@@ -2,19 +2,29 @@
 <template>
   <v-app>
     <div id="main" class="">
-      <Navbar
-        id="navbar"
-        v-gsap.to="{
-          opacity: 1,
-          duration: 1,
-          ease: 'circ.out',
-        }"
-        class="mt-4"
-      />
+      <LazyHydrate when-idle>
+        <Navbar
+          id="navbar"
+          v-gsap.to="{
+            opacity: 1,
+            duration: 1,
+            ease: 'circ.out',
+          }"
+          class="mt-4"
+        />
+      </LazyHydrate>
       <div class="w-full">
         <div class="grid place-items-center w-screen">
           <div
-            class="acapulco-div flex flex-col align-center justify-between h-5/6 w-3/5 mb-40"
+            class="
+              acapulco-div
+              flex flex-col
+              align-center
+              justify-between
+              h-5/6
+              w-3/5
+              mb-40
+            "
           >
             <h1
               v-gsap.to="{
@@ -24,7 +34,17 @@
 
                 ease: 'circ.out',
               }"
-              class="acapulco tracking-wider text-9xl md:text-9xl lg:text-10xl pr-8 text-center leading-none text-gray-200"
+              class="
+                acapulco
+                tracking-wider
+                text-9xl
+                md:text-9xl
+                lg:text-10xl
+                pr-8
+                text-center
+                leading-none
+                text-gray-200
+              "
             >
               Acapulco Design
             </h1>
@@ -54,14 +74,27 @@
           <v-spacer></v-spacer>
 
           <div
-            class="grid grid-cols-3 place-items-center h-4/5 firstContainer content mb-40"
+            class="
+              grid grid-cols-3
+              place-items-center
+              h-4/5
+              firstContainer
+              content
+              mb-40
+            "
           >
             <div class="logo">
               <img src="@/static/9757(2).png" alt="" />
             </div>
             <div class="limited justify-self-center">
               <h2
-                class="h2-home capitalize text-center text-5xl md:text-7xl lg:text-8xl"
+                class="
+                  h2-home
+                  capitalize
+                  text-center text-5xl
+                  md:text-7xl
+                  lg:text-8xl
+                "
               >
                 <span class="limitedSpan">Limited</span>, <span>custom</span>,
                 <i class="">handmade </i>
@@ -74,14 +107,31 @@
           </div>
 
           <div
-            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 secondContainer content mt-15"
+            class="
+              grid grid-rows-2
+              lg:grid-cols-2
+              place-items-center
+              h-4/5
+              lg:h-screen
+              lg:w-4/5
+              secondContainer
+              content
+              mt-15
+            "
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex flex-row align-center justify-center">
                 <h3 class="text-6xl lg:text-7xl">Lighters</h3>
                 <div class="w-1/2 lg:w-full">
                   <img
-                    class="transform -translate-y-3 lg:pb-5 lg:pl-3 scale-75 lg:scale-75"
+                    class="
+                      transform
+                      -translate-y-3
+                      lg:pb-5
+                      lg:pl-3
+                      scale-75
+                      lg:scale-75
+                    "
                     src="/zoozoo(1).png"
                     alt=""
                   />
@@ -99,7 +149,16 @@
           </div>
 
           <div
-            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 thirdContainer content"
+            class="
+              grid grid-rows-2
+              lg:grid-cols-2
+              place-items-center
+              h-4/5
+              lg:h-screen
+              lg:w-4/5
+              thirdContainer
+              content
+            "
           >
             <div class="pictureDiv">
               <v-img> </v-img>
@@ -120,7 +179,16 @@
           </div>
 
           <div
-            class="grid grid-rows-2 lg:grid-cols-2 place-items-center h-4/5 lg:h-screen lg:w-4/5 forthContainer content"
+            class="
+              grid grid-rows-2
+              lg:grid-cols-2
+              place-items-center
+              h-4/5
+              lg:h-screen
+              lg:w-4/5
+              forthContainer
+              content
+            "
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
@@ -143,7 +211,17 @@
           </div>
 
           <div
-            class="grid grid-row-2 h-4/6 lg:h-4/5 place-items-center gap-4 fifthContainer content mb-5 justify-self-stretch"
+            class="
+              grid grid-row-2
+              h-4/6
+              lg:h-4/5
+              place-items-center
+              gap-4
+              fifthContainer
+              content
+              mb-5
+              justify-self-stretch
+            "
           >
             <img
               class="absolute tropicalImage bg-cover bg-center"
@@ -164,7 +242,17 @@
           </div>
 
           <div
-            class="grid h-screen grid-row-2 place-items-center gap-4 sixthContainer content mb-5 mt-36"
+            class="
+              grid
+              h-screen
+              grid-row-2
+              place-items-center
+              gap-4
+              sixthContainer
+              content
+              mb-5
+              mt-36
+            "
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
               <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
@@ -173,7 +261,14 @@
                 based in Iran
               </h1>
               <h3
-                class="learnMore font-thin text-4xl lg:text-6xl py-5 text-center"
+                class="
+                  learnMore
+                  font-thin
+                  text-4xl
+                  lg:text-6xl
+                  py-5
+                  text-center
+                "
               >
                 If you want to know us more, maybe get a cup of coffee, you can!
                 <!-- <button id="contactUsBtn" class="learnMoreBtn">
@@ -204,12 +299,13 @@
     </div> -->
 
 <script>
-import Navbar from '@/layouts/Navbar.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 
 // import gsap from 'gsap'
 export default {
   components: {
-    Navbar,
+    LazyHydrate,
+    Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {
     // CartDisplay() {
