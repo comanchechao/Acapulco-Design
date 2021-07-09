@@ -266,7 +266,7 @@ export default {
   background-size: cover;
   background-position: 0px 0px;
   background-repeat: repeat-y;
-  animation: animatedBackground 10s ease infinite alternate;
+  animation: animatedBackground 60s ease-in-out infinite alternate;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
@@ -286,7 +286,7 @@ export default {
     background-position: 0 0;
   }
   to {
-    background-position: 0 100% ;
+    background-position: 0 100%;
   }
 }
 </style>
