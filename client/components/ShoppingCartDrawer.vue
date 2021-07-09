@@ -85,6 +85,9 @@
             </div>
           </div>
         </div>
+      <div class="absolute w-1/3 md:w-1/2 lg:w-full bottom-16 z-30">
+        <img class="m-0" src="/freeLove.png" alt="" />
+      </div>
       </div>
       <v-spacer></v-spacer>
       <div class="checkout mb-5 d-flex justify-center align-end">

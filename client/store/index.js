@@ -115,8 +115,14 @@ export const actions = {
     commit('setUser', payload)
   },
 
-  signUp({ commit }, { email, password }) {
-    return this.$fire.auth.createUserWithEmailAndPassword(email, password)
+  signUp({ commit }, { displayName, email, password }) {
+    return this.$fire.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        return this.$fire.firestore.collection('users').doc(cred.user.uid).set({
+          displayName,
+        })
+      })
     // .then(() => {
     //   const user = this.$fire.auth.currentUser
     //   const actionCodeSettings = {

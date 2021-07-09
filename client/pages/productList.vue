@@ -2,20 +2,27 @@
   <v-app>
     <div id="main" class="">
       <LazyHydrate when-idle>
-      <Navbar
-        v-gsap.to="{
-          opacity: 1,
-          duration: 1.5,
-          delay: 1,
-          ease: 'circ.out',
-        }"
-        class="mt-4 navbar sticky"
-      />
+        <Navbar
+          v-gsap.to="{
+            opacity: 1,
+            duration: 1.5,
+            delay: 1,
+            ease: 'circ.out',
+          }"
+          class="mt-4 navbar sticky"
+        />
       </LazyHydrate>
       <div class="w-full flex flex-col align-center justify-center">
         <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
-            class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0"
+            class="
+              text-8xl
+              lg:text-9xl
+              text-center text-mainBlue
+              capitalize
+              firstText
+              opacity-0
+            "
           >
             We here care about
             <span class="text-mainRed font-extrabold span"> personality </span>
@@ -23,7 +30,15 @@
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
           <div
-            class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
+            class="
+              menuNavbar
+              sticky
+              flex
+              align-center
+              py-6
+              divide-x-2 divide-black
+              col-span-8
+            "
           >
             <NuxtLink to="/">
               <span class="p-9"
@@ -33,13 +48,13 @@
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-4xl text-mainBlue font-semibold">
+              <span class="menu px-5 text-4xl text-gray-100 font-semibold">
                 Home
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-mainBlue font-semibold">Shop</h1>
+                <h1 class="px-5 text-4xl text-gray-100 font-semibold">Shop</h1>
               </span>
             </NuxtLink>
           </div>
@@ -48,7 +63,15 @@
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="grid grid-cols-2 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+              class="
+                grid grid-cols-2
+                gap-6
+                p-4
+                mt-6
+                place-items-center
+                self-center
+                justify-self-center
+              "
             >
               <ProductCard
                 v-for="product in products"
@@ -62,7 +85,19 @@
             <!-- </div> -->
           </div>
           <div
-            class="col-span-2 self-start justify-self-end sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="
+              col-span-2
+              self-start
+              justify-self-end
+              sidebar
+              opacity-0
+              space-y-4
+              sticky
+              h-auto
+              flex flex-col
+              justify-between
+              align-center
+            "
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -75,7 +110,12 @@
               <NuxtLink to="/productList">
                 <span>
                   <h1
-                    class="text-3xl text-mainBlue border-mainBlue border-b-2 p-4 sidebarText"
+                    class="
+                      text-3xl text-mainBlue
+                      border-mainBlue border-b-2
+                      p-4
+                      sidebarText
+                    "
                   >
                     Lighters🔥
                   </h1>
@@ -84,7 +124,12 @@
               <NuxtLink to="/productList">
                 <span>
                   <h1
-                    class="text-3xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
+                    class="
+                      text-3xl text-mainBlue
+                      p-4
+                      border-mainBlue border-b-2
+                      sidebarText
+                    "
                   >
                     Acapulco Shirts🌴
                   </h1>
@@ -93,7 +138,12 @@
               <NuxtLink to="/productList">
                 <span>
                   <h1
-                    class="text-3xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
+                    class="
+                      text-3xl text-mainBlue
+                      p-4
+                      border-mainBlue border-b-2
+                      sidebarText
+                    "
                   >
                     Custom Matchboxes💥
                   </h1>
@@ -116,9 +166,11 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import ProductCard from '../components/ProductCard.vue'
 export default {
   components: {
+    LazyHydrate,
     ProductCard,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
@@ -210,7 +262,11 @@ export default {
 }
 
 .menuNavbar {
-  background: #ff4a68;
+  background-image: url('/trippy.jpg');
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: repeat-y;
+  animation: animatedBackground 10s ease infinite alternate;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
@@ -224,5 +280,13 @@ export default {
   color: #ff4a68;
   border-bottom: #ff4a68 solid 2px;
 }
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100% ;
+  }
+}
 </style>
-2

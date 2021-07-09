@@ -25,7 +25,14 @@
       <div class="h-full w-full backround bg-Cyan-400">
         <!-- <div class="bg-blue-300"></div> -->
         <div
-          class="w-full h-full flex flex-col justify-between lg:justify-around align-center"
+          class="
+            w-full
+            h-full
+            flex flex-col
+            justify-between
+            lg:justify-around
+            align-center
+          "
         >
           <v-btn
             x-large
@@ -37,7 +44,14 @@
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <div
-            class="w-56 h-56 rounded-full shadow-lg bg-Emerald-400 flex-shrink-0"
+            class="
+              w-56
+              h-56
+              rounded-full
+              shadow-lg
+              bg-Emerald-400
+              flex-shrink-0
+            "
           >
             <img
               class="bg-cover"
@@ -47,11 +61,22 @@
           </div>
           <div class="self-center justify-self-center">
             <h1 class="text-center text-6xl font-mainFont text-mainBlue">
-              Comanche
+              {{ user.displayName }}
             </h1>
             <button class="text-lg">
               <span
-                class="text-mainBlue font-thin px-12 py-2 ml-40 rounded-full editBtn border-mainBlue border-2 mt-3 font-mainFont"
+                class="
+                  text-mainBlue
+                  font-thin
+                  px-12
+                  py-2
+                  ml-40
+                  rounded-full
+                  editBtn
+                  border-mainBlue border-2
+                  mt-3
+                  font-mainFont
+                "
               >
                 Edit
               </span>
@@ -64,6 +89,7 @@
               <v-icon x-large dark>mdi-notebook-check</v-icon>
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
+                <p>{{ user.order }}</p>
               </h1>
             </div>
           </div>
@@ -80,12 +106,26 @@ export default {
       dialog: false,
       error: null,
       emailSending: false,
+      user:{
+        displayName: null, 
+        email: null,
+        order: {}
+      }
     }
   },
-  computed: {
-    user() {
-      return this.$store.getters.getUser
-    },
+
+  created() {
+   const user = this.$fire.auth.currentUser;
+
+if (user !== null) {
+  user.providerData.forEach((profile) => {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log("  Provider-specific UID: " + profile.uid);
+    console.log("  Name: " + profile.username);
+    console.log("  Email: " + profile.email);
+    console.log("  Photo URL: " + profile.photoURL);
+  });
+}
   },
   methods: {
     signOut() {

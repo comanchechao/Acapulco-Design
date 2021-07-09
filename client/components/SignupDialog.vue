@@ -25,6 +25,15 @@
           required
           label="Name"
         /> -->
+        <v-text-field
+            v-model="displayName"
+            light
+            label="Display Name"
+            type="email"
+            autocomplete="username"
+            required
+            class=""
+          />
           <v-text-field
             v-model="email"
             :rules="emailRules"
@@ -115,7 +124,7 @@ export default {
         .dispatch('signUp', {
           email: this.email,
           password: this.password,
-          // displayName: this.displayName,
+          displayName: this.displayName,
         })
         .then((data) => {
           this.$router.push('/')

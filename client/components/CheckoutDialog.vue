@@ -74,10 +74,10 @@
                 </v-col>
                 <v-col cols="6">
                   <v-text-field
-                    v-model="order.Region"
+                    v-model="order.Province"
                     color="red lighten-5"
                     dark
-                    label="Region"
+                    label="Province"
                     required
                   ></v-text-field>
                 </v-col>
@@ -87,6 +87,15 @@
                     color="red lighten-5"
                     dark
                     label="Address"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                    v-model="order.PhoneNumber"
+                    color="red lighten-5"
+                    dark
+                    label="Phone Number"
                     required
                   ></v-text-field>
                 </v-col>
@@ -120,6 +129,7 @@
               </v-row>
             </v-container>
           </div>
+
           <div
             class="
               grid-flow-col grid-rows-3 grid-cols-1
@@ -168,6 +178,10 @@
               <a href="https://www.flaticon.com/" title="Flaticon"
                 >www.flaticon.com</a
               >
+              <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
+              <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+              <a href="https://storyset.com/people">People illustrations by Storyset</a>
+              <a href='https://www.freepik.com/vectors/sale'>Sale vector created by macrovector - www.freepik.com</a>
             </div> -->
           </div>
         </div>
@@ -184,8 +198,9 @@ export default {
         Name: null,
         lastName: null,
         City: null,
-        Region: null,
+        Province: null,
         Address: null,
+        PhoneNumber: null,
         Age: null,
       },
       dialog: false,
@@ -212,8 +227,9 @@ export default {
               Name: this.order.Name,
               lastName: this.order.lastName,
               City: this.order.City,
-              Region: this.order.Region,
+              Province: this.order.Province,
               Address: this.order.Address,
+              PhoneNumber: this.order.PhoneNumber,
               Age: this.order.Age,
             },
           })
