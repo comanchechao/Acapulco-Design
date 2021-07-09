@@ -10,11 +10,12 @@
             duration: 1,
             ease: 'circ.out',
           }"
-          class="mt-4"
+          class="mt-4 navbar sticky"
         />
       </LazyHydrate>
       <div class="w-full">
-        <div class="grid place-items-center w-screen">
+        <div class="grid place-items-center w-full">
+          <div></div>
           <div
             class="
               acapulco-div
@@ -22,32 +23,60 @@
               align-center
               justify-between
               h-5/6
-              w-3/5
+              w-full
               mb-40
             "
           >
-            <h1
+            <div
               v-gsap.to="{
-                y: 40,
                 opacity: 1,
                 duration: 1,
-
                 ease: 'circ.out',
               }"
               class="
-                acapulco
-                tracking-wider
-                text-9xl
-                md:text-9xl
-                lg:text-10xl
-                pr-8
-                text-center
-                leading-none
-                text-gray-200
+                w-60
+                h-60
+                justify-self-center
+                self-center
+                peaceSignDiv
+                opacity-0
               "
             >
-              Acapulco Design
-            </h1>
+              <img class="peaceSign" src="/moomoole.png" alt="" />
+            </div>
+            <div
+              v-gsap.to="{
+                opacity: 1,
+                duration: 1,
+                delay: 1,
+                ease: 'circ.out',
+              }"
+              class="grid grid-cols-3 place-items-center w-full opacity-0"
+            >
+              <div class="self-start transform -translate-y-24">
+                <img src="/sketch-162443588438sdfs.png" alt="" />
+              </div>
+
+              <div>
+                <h1
+                  class="
+                    acapulco
+                    tracking-wider
+                    text-9xl
+                    md:text-9xl
+                    lg:text-10xl
+                    text-center
+                    leading-none
+                    text-gray-200
+                  "
+                >
+                  Acapulco Design
+                </h1>
+              </div>
+              <div class="transform -translate-y-24">
+                <img src="/sketch-1624435884386sdfsd(1).png" alt="" />
+              </div>
+            </div>
             <div
               v-gsap.to="{
                 opacity: 1,
@@ -112,8 +141,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               secondContainer
               content
               mt-15
@@ -127,8 +155,7 @@
                     class="
                       transform
                       -translate-y-3
-                      lg:pb-5
-                      lg:pl-3
+                      lg:pb-5 lg:pl-3
                       scale-75
                       lg:scale-75
                     "
@@ -154,8 +181,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               thirdContainer
               content
             "
@@ -184,8 +210,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               forthContainer
               content
             "
@@ -213,8 +238,8 @@
           <div
             class="
               grid grid-row-2
-              h-4/6
-              lg:h-4/5
+              h-5/6
+              lg:h-full
               place-items-center
               gap-4
               fifthContainer
@@ -224,12 +249,12 @@
             "
           >
             <img
-              class="absolute tropicalImage bg-cover bg-center"
+              class="absolute tropicalImage md:bg-cover bg-contain bg-center"
               src="/hhjhhUntitled-2.png"
               alt=""
             />
 
-            <div class="collections lg:max-w-6xl max-w-2xl"></div>
+            <div class="collections lg:max-w-6xl md:max-w-2xl max-w-lg"></div>
 
             <div class="textDiv mt-4 z-10">
               <h3 class="text-6xl">Collections 🗿</h3>
@@ -244,7 +269,9 @@
           <div
             class="
               grid
-              h-screen
+              h-4/6
+              md:h-5/6
+              lg:h-screen
               grid-row-2
               place-items-center
               gap-4
@@ -276,15 +303,30 @@
               </button> -->
               </h3>
             </div>
-            <div class="h-5/6 flex align-center justify-center mt-36">
-              <video width="720" height="140" autoplay loop muted>
+            <div class="md:h-5/6 h-4/6 flex align-center justify-center mt-36">
+              <video width="720" height="140" autoplay loop muted class="">
                 <source src="/Y064cQ6.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
-          <div class="seventhContainer h-screen flex bg-Indigo-800 mt-36">
-            <img class="self-end justify-self-end" src="/fsdfsdf.png" alt="" />
+          <div
+            class="
+              seventhContainer
+              h-dialog
+              lg:h-screen
+              grid grid-rows-2
+              gap-4
+              bg-yellow-300
+              mt-36
+            "
+          >
+            <div class="bg-red-400 h-full flex align-center justify-center">
+              <div class="h-4/5 w-3/4 bg-Lime-400"></div>
+            </div>
+            <div class="bg-Rose-400 flex justify-end align-end">
+              <img class="bg-cover" src="/fsdfsdf.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -316,7 +358,7 @@ export default {
     this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
-    // this.animateChiefHead()
+    // this.animatePeaceSign()
   },
   methods: {
     animatePictureDiv() {
@@ -371,15 +413,19 @@ export default {
         })
       })
     },
-    // animateChiefHead() {
+    // animatePeaceSign() {
     //   const gsap = this.$gsap
-    //   const tl = gsap.timeline({ repeat: -1, yoyo: true })
-    //   tl.fromTo(
-    //     '.ChiefHead',
-    //     1,
-    //     { ease: 'power1.inOut', rotation: '-10deg' },
-    //     { ease: 'power1.inOut', rotation: '10deg' }
-    //   )
+    //   gsap.to('.peaceSign', {
+    //     opacity: 1,
+    //     rotation: 27,
+    //     scrollTrigger: {
+    //       start: 'top top',
+    //       end: 'bottom center',
+    //       scrub: 0.5,
+    //       trigger: '.peaceSignDiv',
+    //       marker: true,
+    //     },
+    //   })
     // },
 
     animateScrollDownBtn() {
@@ -522,6 +568,7 @@ export default {
 } */
 
 .pictureDiv {
+  cursor: pointer;
   width: 300px;
   height: 500px;
   background-color: #dddddd;
@@ -534,7 +581,15 @@ export default {
     0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
 
+.pictureDiv:hover {
+  transition: ease-in-out 0.5s;
+
+  transform: scale(1.02);
+}
+
 .collections {
+  cursor: pointer;
+  /* transition: linear; */
   width: 100%;
   height: 500px;
   background-color: #dddddd;
@@ -547,6 +602,9 @@ export default {
     0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
 
+.collections:hover {
+  transform: scale(1.02);
+}
 /* .limited {
   grid-area: 4 / 3 / 5 / 4;
   justify-content: center;
@@ -563,7 +621,6 @@ export default {
 } */
 
 .acapulco {
-  opacity: 0;
   font-family: 'Sail';
   text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
     16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
@@ -581,5 +638,9 @@ export default {
 }
 .limitedSpan {
   color: #ff4a68;
+}
+
+.seventhContainer {
+  border: 1px solid red;
 }
 </style>

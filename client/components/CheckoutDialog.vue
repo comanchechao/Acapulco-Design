@@ -221,7 +221,7 @@ export default {
         this.$fire.firestore
           .collection('users')
           .doc(user.uid)
-          .update({
+          .set({
             order: {
               cart: this.cartItem,
               Name: this.order.Name,

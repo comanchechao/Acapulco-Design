@@ -16,7 +16,9 @@
         <div class="tropicalLeaves absolute lg:w-1/2 top-0">
           <img src="/TropicalLeaves.png" alt="" />
         </div>
-        <div class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1">
+        <div
+          class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
+        >
           <Adminastration
             ref="Adminastration"
             v-gsap.from="{
@@ -298,6 +300,23 @@ export default {
     Adminastration,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
+  beforeCreated() {
+    const ref = this.$fire.firestore.collection('Products')
+
+    ref.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          this.Products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+            image: doc.data().image,
+          })
+        }
+      })
+    })
+  },
   data() {
     return {
       Products: [],
@@ -315,23 +334,6 @@ export default {
         }
       },
     },
-  },
-  async created() {
-    const ref = await this.$fire.firestore.collection('Products')
-
-    ref.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === 'added') {
-          const doc = change.doc
-          this.Products.push({
-            id: doc.id,
-            title: doc.data().title,
-            price: doc.data().price,
-            image: doc.data().image,
-          })
-        }
-      })
-    })
   },
   mounted() {
     this.welcome()
