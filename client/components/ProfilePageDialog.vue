@@ -61,7 +61,8 @@
           </div>
           <div class="self-center justify-self-center">
             <h1 class="text-center text-6xl font-mainFont text-mainBlue">
-              {{ user.displayName }}
+              {{ displayName }}
+              {{ email }}
             </h1>
             <button class="text-lg">
               <span
@@ -89,7 +90,7 @@
               <v-icon x-large dark>mdi-notebook-check</v-icon>
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
-                <p>{{ user.order }}</p>
+                <p>{{ order }}</p>
               </h1>
             </div>
           </div>
@@ -106,26 +107,21 @@ export default {
       dialog: false,
       error: null,
       emailSending: false,
-      user:{
-        displayName: null, 
-        email: null,
-        order: {}
-      }
+      displayName: null,
+      email: null,
+      order: {}
     }
   },
 
   created() {
-   const user = this.$fire.auth.currentUser;
-
-if (user !== null) {
-  user.providerData.forEach((profile) => {
-    console.log("Sign-in provider: " + profile.providerId);
-    console.log("  Provider-specific UID: " + profile.uid);
-    console.log("  Name: " + profile.username);
-    console.log("  Email: " + profile.email);
-    console.log("  Photo URL: " + profile.photoURL);
-  });
-}
+    const user = this.$fire.auth.currentUser;
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      this.displayName = user.displayName
+      this.email = user.email
+      this.order = user.order
+    }
+    console.log(user);
   },
   methods: {
     signOut() {

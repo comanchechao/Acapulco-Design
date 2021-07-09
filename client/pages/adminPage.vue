@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div id="main" class="">
-      <LazyHydrate when-idle>
+      <LazyHydrate class="z-40" when-idle>
         <Navbar
           v-gsap.to="{
             opacity: 1,
@@ -9,11 +9,11 @@
             delay: 1,
             ease: 'circ.out',
           }"
-          class="mt-4"
+          class="mt-4 z-50"
         />
       </LazyHydrate>
       <div class="w-full h-screen flex place-items-center">
-        <div class="tropicalLeaves absolute lg:w-1/2 top-0">
+        <div class="tropicalLeaves absolute w-1/2 top-0">
           <img src="/TropicalLeaves.png" alt="" />
         </div>
         <div
@@ -87,7 +87,7 @@
                 "
                 :class="{
                   'text-pink-600 bg-white': openTab !== 1,
-                  'text-white bg-pink-600': openTab === 1,
+                  'text-white bg-Indigo-500': openTab === 1,
                 }"
                 @click="toggleTabs(1)"
               >
@@ -147,6 +147,7 @@
               relative
               flex flex-col
               min-w-0
+              bees
               break-words
               bg-CoolGray-300
               w-2/3
@@ -157,7 +158,7 @@
           >
             <div
               :class="{
-                'bg-pink-600': openTab === 1,
+                'bg-Indigo-500': openTab === 1,
                 'bg-green-600': openTab === 2,
                 'bg-Amber-600': openTab === 3,
               }"
@@ -179,7 +180,7 @@
                     block: openTab === 1,
                   }"
                 >
-                  <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                  <p class="text-black">
                     Collaboratively administrate empowered markets via
                     plug-and-play networks. Dynamically procrastinate B2C users
                     after installed base benefits.
@@ -191,7 +192,6 @@
                 </div>
                 <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                   <div
-                    v-gsap.from="{ opacity: 0, scale: 0.2 }"
                     class="
                       flex
                       max-w-1/3
@@ -255,7 +255,7 @@
                   "
                   :class="{ hidden: openTab !== 3, block: openTab === 3 }"
                 >
-                  <p v-gsap.from="{ scale: 0.3 }" class="text-black">
+                  <p class="text-black">
                     Efficiently unleash cross-media information without
                     cross-media value. Quickly maximize timely deliverables for
                     real-time schemas.
@@ -376,13 +376,17 @@ export default {
       })
       tl.from('.bees', {
         scale: 0.1,
+        duration: 1,
+        opacity: 0,
+        y: 200
       })
     },
     pineapple() {
       const gsap = this.$gsap
 
       gsap.to('.pineapple', {
-        y: -20,
+        y: -100,
+        opacity: 0,
         scale: 1.2,
       })
     },
@@ -430,6 +434,12 @@ input[type='number'] {
 .middle {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
+
+.admin{ 
+  background-image: url('/sunSet.jpg');
+  background-size: cover;
+}
+
 #products {
   font-family: 'Yanone Kaffeesatz';
   font-size: 22px;

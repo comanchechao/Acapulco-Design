@@ -37,7 +37,7 @@
     >
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->
-      <div class="container">
+      <div class="container flex flex-col">
         <div v-for="item in cartItem" :key="item.id">
           <div class="title d-flex">
             <img
@@ -85,7 +85,7 @@
             </div>
           </div>
         </div>
-      <div class="absolute w-1/3 md:w-1/2 lg:w-full bottom-16 z-30">
+      <div class="absolute w-1/3 md:w-1/3 min-w-1/3 right-0 lg:w-full bottom-16 z-30">
         <img class="m-0" src="/freeLove.png" alt="" />
       </div>
       </div>

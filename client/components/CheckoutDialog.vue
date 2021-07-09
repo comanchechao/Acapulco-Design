@@ -182,6 +182,8 @@
               <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
               <a href="https://storyset.com/people">People illustrations by Storyset</a>
               <a href='https://www.freepik.com/vectors/sale'>Sale vector created by macrovector - www.freepik.com</a>
+              <a href='https://www.freepik.com/vectors/tree'>Tree vector created by upklyak - www.freepik.com</a>
+              <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
             </div> -->
           </div>
         </div>
