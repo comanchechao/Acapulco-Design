@@ -317,14 +317,31 @@
               lg:h-screen
               grid grid-rows-2
               gap-4
-              bg-yellow-300
+              bg-mainRed
               mt-36
             "
           >
-            <div class="bg-red-400 h-full flex align-center justify-center">
-              <div class="h-4/5 w-3/4 bg-Lime-400"></div>
+            <div class="h-full flex align-center justify-center">
+              <div class="h-4/5 w-3/4 flex justify-center">
+                <div class="">
+                  <h1
+                    class="
+                      ml-5
+                      mt-6
+                      font-mainFont font-extrabold
+                      capitalize
+                      text-7xl text-mainBlue
+                    "
+                  >
+                    find us on social media!
+                  </h1>
+                </div>
+              </div>
+              <div class="self-end">
+                <img src="/ppp.png" alt="" />
+              </div>
             </div>
-            <div class="bg-Rose-400 flex justify-end align-end">
+            <div class="flex justify-end align-end">
               <img class="bg-cover" src="/fsdfsdf.png" alt="" />
             </div>
           </div>
@@ -638,9 +655,5 @@ export default {
 }
 .limitedSpan {
   color: #ff4a68;
-}
-
-.seventhContainer {
-  border: 1px solid red;
 }
 </style>

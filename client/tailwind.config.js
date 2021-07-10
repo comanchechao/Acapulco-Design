@@ -12,7 +12,6 @@ module.exports = {
 
     './nuxt.config.{js,ts}',
   ],
-  mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
