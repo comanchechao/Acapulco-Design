@@ -337,7 +337,7 @@
                   </h1>
                 </div>
               </div>
-              <div class="self-end">
+              <div class="self-end mr-9 z-10">
                 <img src="/ppp.png" alt="" />
               </div>
             </div>
