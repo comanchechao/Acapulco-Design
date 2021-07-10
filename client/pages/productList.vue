@@ -256,6 +256,8 @@ export default {
 
 .sidebar {
   background: #ffeeeeef;
+  background-image: url('/bamboo.jpg');
+
   box-shadow: 0 18px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
@@ -266,7 +268,7 @@ export default {
   background-size: cover;
   background-position: 0px 0px;
   background-repeat: repeat-y;
-  animation: animatedBackground 56s ease-in-out infinite alternate;
+  animation: animatedBackground 45s ease-in-out infinite alternate;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
@@ -274,6 +276,7 @@ export default {
 
 .sidebarText {
   transition: ease-in-out 0.5s;
+  color: #001524;
 }
 
 .sidebarText:hover {

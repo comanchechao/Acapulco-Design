@@ -155,6 +155,7 @@
               </p>
             </div>
             <div
+            v-if="cartTotalPrice"
               class="
                 total
                 flex flex-end
@@ -165,7 +166,7 @@
               "
             >
               <img class="w-16 m-px" src="/buy-button.png" alt="" />
-              total: {{ cartTotalPrice }}
+              total: {{ cartTotalPrice }}$
             </div>
             <!-- <div>
               Icons made by
@@ -184,6 +185,7 @@
               <a href='https://www.freepik.com/vectors/sale'>Sale vector created by macrovector - www.freepik.com</a>
               <a href='https://www.freepik.com/vectors/tree'>Tree vector created by upklyak - www.freepik.com</a>
               <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
+              <a href='https://www.freepik.com/vectors/frame'>Frame vector created by upklyak - www.freepik.com</a>
             </div> -->
           </div>
         </div>
