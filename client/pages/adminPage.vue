@@ -61,6 +61,7 @@
         >
           <ul
             class="
+              tabBar
               flex
               mb-0
               list-none
@@ -300,7 +301,7 @@ export default {
     Adminastration,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
-  beforeCreated() {
+  created() {
     const ref = this.$fire.firestore.collection('Products')
 
     ref.onSnapshot((snapshot) => {
@@ -370,9 +371,14 @@ export default {
         opacity: 0,
       })
       tl.from('.admin', {
-        x: -300,
         duration: 1,
+        y: -300,
         opacity: 0,
+      })
+      tl.from('.tabBar' , {
+        opacity: 0, 
+        scale: 0.5,
+        duration: 0.5
       })
       tl.from('.bees', {
         scale: 0.1,

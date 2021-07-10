@@ -102,6 +102,7 @@
           <input type="file" @change="uploadImage" />
           <input
             id="check1"
+            v-model="inStock"
             class="inline-flex rounded-full"
             type="checkbox"
             name="check1"
@@ -122,7 +123,7 @@
           rounded-bl-lg rounded-br-lg
         "
       >
-        <p class="font-semibold text-gray-600" @click="closeModal()">Cancel</p>
+        <p class="font-semibold text-gray-600">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           @click="addProduct()"
@@ -143,6 +144,7 @@ export default {
       title: null,
       price: null,
       image: null,
+      inStock: null,
       feedback: null,
     }
   },
@@ -151,17 +153,7 @@ export default {
     toggleModal() {
       this.showModal = !this.showModal
     },
-    closeModal() {
-      this.showModal = false
-      const gsap = this.$gsap
-      if (this.title) {
-        gsap.to('.modal', {
-          x: 400,
-          opacity: 0,
-          ease: 'yoyo',
-        })
-      }
-    },
+
     uploadImage(e) {
       const file = e.target.files[0]
       const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
@@ -172,6 +164,7 @@ export default {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         snapshot.ref.getDownloadURL().then((downloadURL) => {
+          console.log(downloadURL);
           this.image = downloadURL
         })
       })
@@ -184,10 +177,13 @@ export default {
             title: this.title,
             price: this.price,
             image: this.image,
+            inStock: this.inStock,
           })
           .then(() => {
             this.title = null
             this.price = null
+            this.image = null
+            this.inStock = null
             this.feedback = null
           })
           .catch((err) => {
