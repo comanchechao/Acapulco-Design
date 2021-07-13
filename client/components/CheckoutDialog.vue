@@ -155,7 +155,7 @@
               </p>
             </div>
             <div
-            v-if="cartTotalPrice"
+              v-if="cartTotalPrice"
               class="
                 total
                 flex flex-end
@@ -223,10 +223,11 @@ export default {
       const user = this.$fire.auth.currentUser
       if (user) {
         this.$fire.firestore
-          .collection('users')
+          .collection('orders')
           .doc(user.uid)
           .set({
             order: {
+              userId: user.uid,
               cart: this.cartItem,
               Name: this.order.Name,
               lastName: this.order.lastName,
@@ -238,9 +239,12 @@ export default {
             },
           })
           .then(() => console.log('lolo'))
-          .catch((err) => {
-            console.error(err)
-          })
+          .catch(
+            (err) => {
+              console.error(err)
+            },
+            { merge: true }
+          )
       }
     },
   },

@@ -109,19 +109,30 @@ export default {
       emailSending: false,
       displayName: null,
       email: null,
-      order: {}
+      order: null
     }
   },
 
   created() {
-    const user = this.$fire.auth.currentUser;
+    const user = this.$fire.auth.currentUser
     if (user !== null) {
       // The user object has basic properties such as display name, email, etc.
       this.displayName = user.displayName
       this.email = user.email
-      this.order = user.order
     }
-    console.log(user);
+
+    const orders = this.$fire.firestore
+      .collection('orders')
+      .where('userId', '==', user.uid)
+      .get().then(snapshot => {
+        if(snapshot.exists){
+          console.log("here" , snapshot.data());
+        }else{
+          console.log("no");
+        }
+      }).catch((err) => {console.log(err);})
+      
+     console.log(orders);
   },
   methods: {
     signOut() {

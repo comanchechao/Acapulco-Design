@@ -276,15 +276,14 @@
         class="
           absolute
           flex
-          place-content-around
-          align-items-center
-          h-2/3
+          justify-contents-center
+          h-54
           w-full
           bottom-0
           palms
         "
       >
-        <img class="" src="/palmtrees.png" alt="" />
+        <img class="w-1/2 self-center" src="/palmtrees.png" alt="" />
       </div>
     </div>
   </v-app>
