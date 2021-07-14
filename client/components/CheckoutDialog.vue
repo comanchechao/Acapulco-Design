@@ -226,8 +226,8 @@ export default {
           .collection('orders')
           .doc(user.uid)
           .set({
+            userId: user.uid,
             order: {
-              userId: user.uid,
               cart: this.cartItem,
               Name: this.order.Name,
               lastName: this.order.lastName,
@@ -239,12 +239,9 @@ export default {
             },
           })
           .then(() => console.log('lolo'))
-          .catch(
-            (err) => {
-              console.error(err)
-            },
-            { merge: true }
-          )
+          .catch((err) => {
+            console.error(err)
+          })
       }
     },
   },

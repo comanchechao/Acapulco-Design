@@ -109,7 +109,7 @@ export default {
       emailSending: false,
       displayName: null,
       email: null,
-      order: null
+      order: null,
     }
   },
 
@@ -124,15 +124,18 @@ export default {
     const orders = this.$fire.firestore
       .collection('orders')
       .where('userId', '==', user.uid)
-      .get().then(snapshot => {
-        if(snapshot.exists){
-          console.log("here" , snapshot.data());
-        }else{
-          console.log("no");
-        }
-      }).catch((err) => {console.log(err);})
-      
-     console.log(orders);
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.order = doc.data()
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    console.log(orders)
   },
   methods: {
     signOut() {
