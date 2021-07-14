@@ -1,6 +1,6 @@
 <template>
   <!-- <v-app> -->
-  <div class="w-full bg-transparent Navbar opacity-0 z-50">
+  <div class="lg:w-full w-60 bg-transparent Navbar opacity-0 z-50">
     <div class="grid grid-cols-4 place-content-center">
       <div class="col-span-2 justify-self-start self-center">
         <NuxtLink to="/aboutUs">

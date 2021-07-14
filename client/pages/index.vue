@@ -125,9 +125,10 @@
                   lg:text-8xl
                 "
               >
-                <span class="limitedSpan">Limited</span>, <span>custom</span>,
-                <i class="">handmade </i>
-                merchendise by :
+                <span class="limitedSpan animatedSpans">Limited</span>,
+                <span class="animatedSpans">custom</span>,
+                <i class="animatedSpans">handmade </i>
+                <span class="animatedSpans"> merchendise by : </span>
               </h2>
             </div>
             <div class="logo">
@@ -337,7 +338,16 @@
                   </h1>
                 </div>
               </div>
-              <div class="self-end mr-9 z-10">
+              <div
+                class="
+                  self-end
+                  mr-9
+                  z-10
+                  transform
+                  -translate-x-14
+                  translate-y-7
+                "
+              >
                 <img src="/ppp.png" alt="" />
               </div>
             </div>
@@ -474,6 +484,22 @@ export default {
           },
         }
       )
+      const spans = this.$gsap.utils.toArray('.animatedSpans')
+      spans.forEach((span) => {
+        this.$gsap.from(span, {
+          fontSize: 130,
+          opacity: 0,
+          autoRound: false,
+          ease: 'Sine.easeOut',
+          scrollTrigger: {
+            start: 'top bottom',
+            scrub: 0.5,
+            end: 'top 70%',
+            markers: true,
+            trigger: span,
+          },
+        })
+      })
 
       const contents = this.$gsap.utils.toArray('.content')
       contents.forEach((content) => {
