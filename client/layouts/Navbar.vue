@@ -61,7 +61,9 @@
             <v-list dense class="space-y-4 p-4">
               <v-list-item>
                 <v-list-item-icon>
-                  <ProfilePageDialog />
+                  <LazyHydrate on-interaction>
+                    <ProfilePageDialog />
+                  </LazyHydrate>
                 </v-list-item-icon>
               </v-list-item>
               <v-list-item>
@@ -106,14 +108,15 @@
       > -->
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import LoginDialog from '../components/LoginDialog'
-import ProfilePageDialog from '../components/ProfilePageDialog'
 import ShoppingCartDrawer from '../components/ShoppingCartDrawer'
 
 // import axios from 'axios'
 export default {
   components: {
-    ProfilePageDialog,
+    LazyHydrate,
+    ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
     LoginDialog,
     ShoppingCartDrawer,
   },

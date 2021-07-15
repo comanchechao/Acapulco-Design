@@ -495,7 +495,6 @@ export default {
             start: 'top bottom',
             scrub: 0.5,
             end: 'top 70%',
-            markers: true,
             trigger: span,
           },
         })

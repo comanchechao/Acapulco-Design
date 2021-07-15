@@ -90,7 +90,19 @@
               <v-icon x-large dark>mdi-notebook-check</v-icon>
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
-                <p>{{ order }}</p>
+                <p>{{ order.Name }}</p>
+                <p>{{ order.lastName }}</p>
+                <p>{{ order.City }}</p>
+                <p>{{ order.phoneNumber }}</p>
+                <p>{{ order.Address }}</p>
+                <div
+                  v-for="item in orderProduct"
+                  :key="item.id"
+                  class="flex flex-row justify-contents-around"
+                >
+                  <p>{{ item.item.title }}</p>
+                  <p>{{ item.quantity }}</p>
+                </div>
               </h1>
             </div>
           </div>
@@ -109,7 +121,8 @@ export default {
       emailSending: false,
       displayName: null,
       email: null,
-      order: null,
+      order: [],
+      orderProduct: [],
     }
   },
 
@@ -128,7 +141,8 @@ export default {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
-          this.order = doc.data()
+          this.order = doc.data().order
+          this.orderProduct = doc.data().order.cart
         })
       })
       .catch((err) => {

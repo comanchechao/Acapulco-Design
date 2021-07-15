@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <div id="main" class="">
-      <LazyHydrate class="z-40" when-idle>
+    <div id="main" class="h-screen w-screen">
+      <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
             opacity: 1,
@@ -13,9 +13,10 @@
         />
       </LazyHydrate>
       <div class="w-full h-screen flex place-items-center">
-        <div class="tropicalLeaves absolute w-1/2 top-0">
-          <img src="/TropicalLeaves.png" alt="" />
+         <div class="tropicalLeaves absolute w-1/2 z-0 top-0">
+          <img src="/hat.png" alt="" />
         </div>
+      
         <div
           class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
         >
@@ -181,7 +182,7 @@
                     block: openTab === 1,
                   }"
                 >
-                  <p class="text-black">
+                  <h3 class="text-black text-xl">
                     Collaboratively administrate empowered markets via
                     plug-and-play networks. Dynamically procrastinate B2C users
                     after installed base benefits.
@@ -189,7 +190,7 @@
                     <br />
                     Dramatically visualize customer directed convergence without
                     revolutionary ROI.
-                  </p>
+                  </h3>
                 </div>
                 <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                   <div
@@ -249,41 +250,30 @@
                     flex
                     max-w-1/3
                     flex-col
-                    place-items-stretch
+                    place-items-center
                     flex-shrink
                     overflow-y-auto
                     max-h-72
+                    text-xl
                   "
                   :class="{ hidden: openTab !== 3, block: openTab === 3 }"
                 >
-                  <p class="text-black">
-                    Efficiently unleash cross-media information without
-                    cross-media value. Quickly maximize timely deliverables for
-                    real-time schemas.
-                    <br />
-                    <br />
-                    Dramatically maintain clicks-and-mortar solutions without
-                    functional solutions.
-                  </p>
+                  <div class="flex flex row place-content-around">
+                    <p>{{ order.Name }}</p>
+                  </div>
+                  <div
+                    v-for="item in orderProduct"
+                    :key="item.id"
+                    class="flex flex row place-content-around"
+                  >
+                    <p class="text-black">{{ item.item.title }}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        class="
-          absolute
-          flex
-          justify-contents-center
-          h-54
-          w-full
-          bottom-0
-          palms
-        "
-      >
-        <img class="w-1/2 self-center" src="/palmtrees.png" alt="" />
+        <img class="absolute palms w-full h-2/3 bottom-0 self-center" src="/palmtrees.png" alt="" />
       </div>
     </div>
   </v-app>
@@ -299,6 +289,26 @@ export default {
     LazyHydrate,
     Adminastration,
     Navbar: () => import('../layouts/Navbar.vue'),
+  },
+  data() {
+    return {
+      Products: [],
+      openTab: 1,
+      order: [],
+      orderProduct: [],
+    }
+  },
+
+  watch: {
+    isOpen: {
+      immediate: true,
+      handler(isOpen) {
+        if (process.client) {
+          if (isOpen) document.body.style.setProperty('overflow', 'hidden')
+          else document.body.style.removeProperty('overflow')
+        }
+      },
+    },
   },
   created() {
     const ref = this.$fire.firestore.collection('Products')
@@ -316,24 +326,22 @@ export default {
         }
       })
     })
-  },
-  data() {
-    return {
-      Products: [],
-      openTab: 1,
-    }
-  },
 
-  watch: {
-    isOpen: {
-      immediate: true,
-      handler(isOpen) {
-        if (process.client) {
-          if (isOpen) document.body.style.setProperty('overflow', 'hidden')
-          else document.body.style.removeProperty('overflow')
-        }
-      },
-    },
+    const orders = this.$fire.firestore
+      .collection('orders')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.order = doc.data().order
+          this.orderProduct = doc.data().order.cart
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    console.log(orders)
   },
   mounted() {
     this.welcome()
@@ -359,11 +367,7 @@ export default {
     welcome() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
-      tl.from('.tropicalLeaves', {
-        duration: 1,
-        y: -300,
-        opacity: 0,
-      })
+      
       tl.from('.palms', {
         y: 300,
         duration: 1,
@@ -374,16 +378,21 @@ export default {
         y: -300,
         opacity: 0,
       })
-      tl.from('.tabBar' , {
-        opacity: 0, 
+      tl.from('.tabBar', {
+        opacity: 0,
         scale: 0.5,
-        duration: 0.5
+        duration: 0.5,
       })
       tl.from('.bees', {
         scale: 0.1,
         duration: 1,
         opacity: 0,
-        y: 200
+        y: 200,
+      })
+      tl.from('.tropicalLeaves', {
+        duration: 1,
+        x: -300,
+        opacity: 0,
       })
     },
     pineapple() {
@@ -440,8 +449,9 @@ input[type='number'] {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.admin{ 
+.admin {
   background-image: url('/sunSet.jpg');
+  font-family: 'Yanone Kaffeesatz';
   background-size: cover;
 }
 
