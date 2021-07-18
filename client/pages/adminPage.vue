@@ -13,10 +13,10 @@
         />
       </LazyHydrate>
       <div class="w-full h-screen flex place-items-center">
-         <div class="tropicalLeaves absolute w-1/2 z-0 top-0">
+        <div class="tropicalLeaves absolute w-1/2 z-0 top-0">
           <img src="/hat.png" alt="" />
         </div>
-      
+
         <div
           class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
         >
@@ -273,7 +273,11 @@
             </div>
           </div>
         </div>
-        <img class="absolute palms w-full h-2/3 bottom-0 self-center" src="/palmtrees.png" alt="" />
+        <img
+          class="absolute palms w-full h-2/3 bottom-0 self-center"
+          src="/palmtrees.png"
+          alt=""
+        />
       </div>
     </div>
   </v-app>
@@ -326,24 +330,25 @@ export default {
         }
       })
     })
-
-    const orders = this.$fire.firestore
-      .collection('orders')
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          this.order = doc.data().order
-          this.orderProduct = doc.data().order.cart
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-    console.log(orders)
   },
   mounted() {
+    if (this.openTab === 3) {
+      const orders = this.$fire.firestore
+        .collection('orders')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            this.order = doc.data().order
+            this.orderProduct = doc.data().order.cart
+          })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+
+      console.log(orders)
+    }
     this.welcome()
   },
   methods: {
@@ -367,7 +372,7 @@ export default {
     welcome() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
-      
+
       tl.from('.palms', {
         y: 300,
         duration: 1,

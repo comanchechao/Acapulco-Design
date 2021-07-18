@@ -394,15 +394,9 @@ export default {
   transition: {
     mode: 'out-in',
     css: false,
-    beforeEnter (el) {
-      this.$gsap.set(el, {
-        transformPerspective: 2000,
-        perspective: 800,
-        transformStyle: 'preserve-3d'
-      })
-    },
+   
     enter (el, done) {
-      this.$gsap.to(el, 1, {
+      this.$gsap.from(el, 1, {
         rotationY: 360,
         transformOrigin: '50% 80%',
         ease: 'Back.easeOut'
@@ -410,8 +404,8 @@ export default {
       done()
     },
     leave (el, done) {
-      this.$gsap.to(el, 1, {
-        rotationY: 0,
+      this.$gsap.from(el, 1, {
+        rotationY: 180,
         transformOrigin: '80% 50%',
         ease: 'Back.easeIn'
       })

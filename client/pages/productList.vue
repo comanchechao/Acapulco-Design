@@ -185,6 +185,29 @@ export default {
     this.$store.dispatch('getProducts')
   },
 
+  transition: {
+    mode: 'out-in',
+    css: false,
+   
+    enter (el, done) {
+      this.$gsap.from(el, 1, {
+        scale: 0.2,
+        transformOrigin: '50% 80%',
+        ease: 'Back.easeOut'
+      })
+      done()
+    },
+    leave (el, done) {
+      this.$gsap.from(el, 1, {
+        scale: 6,
+        transformOrigin: '80% 50%',
+        ease: 'Back.easeIn'
+      })
+      done()
+    }
+  },
+
+
   methods: {
     animateBackground() {
       const gsap = this.$gsap
