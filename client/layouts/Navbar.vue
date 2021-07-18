@@ -30,7 +30,7 @@
         </div>
         <div>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">
-            <v-btn depressed x-large color="transparent Btn" class="">
+            <v-btn depressed dark x-large color="transparent" class="">
               <span class="white--text pr-2">admin</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
             </v-btn>

@@ -513,7 +513,7 @@ export default {
       const spans = this.$gsap.utils.toArray('.animatedSpans')
       spans.forEach((span) => {
         this.$gsap.from(span, {
-          fontSize: 130,
+          fontSize: 125,
           opacity: 0,
           autoRound: false,
           ease: 'Sine.easeOut',

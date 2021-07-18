@@ -4,8 +4,6 @@
       v-model="dialog"
       fullscreen
       transition="dialog-bottom-transition"
-      scrollable
-      max-width="600px"
       hide-overlay
       class="dialog"
     >
@@ -22,113 +20,96 @@
           >
         </button>
       </template>
-      <div class="wrapper">
-        <v-btn x-large class="ml-6 mt-6 pa-3" icon dark @click="dialog = false">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-        <div class="grid">
-          <div class="shippingInfo">
-            <h1 class="pa-5">
-              <v-icon x-large dark>mdi-notebook-check</v-icon>
-              <span class="shippingDetailText text-Cyan-50 text-4xl">
-                Shipping Details
-              </span>
-            </h1>
-            <v-container light class="pa-8">
-              <v-row>
-                <v-col cols="6">
-                  <v-text-field
-                    v-model="order.Name"
-                    color=""
-                    dark
-                    label="Name"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="6">
-                  <v-text-field
-                    v-model="order.lastName"
-                    color="red lighten-5"
-                    dark
-                    label="Last name"
-                    hint="example of helper text only on focus"
-                  ></v-text-field>
-                </v-col>
-                <!-- <v-col cols="12" sm="6" md="4">
-                  <v-text-field
-                    light
-                    label="Legal last name*"
-                    hint="example of persistent helper text"
-                    persistent-hint
-                    required
-                  ></v-text-field>
-                </v-col> -->
-                <v-col cols="6">
-                  <v-text-field
-                    v-model="order.City"
-                    color="red lighten-5"
-                    dark
-                    label="City"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="6">
-                  <v-text-field
-                    v-model="order.Province"
-                    color="red lighten-5"
-                    dark
-                    label="Province"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    v-model="order.Address"
-                    color="red lighten-5"
-                    dark
-                    label="Address"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    v-model="order.PhoneNumber"
-                    color="red lighten-5"
-                    dark
-                    label="Phone Number"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-select
-                    v-model="order.Age"
-                    color="red lighten-5"
-                    dark
-                    :items="['0-17', '18-29', '30-54', '54+']"
-                    label="Age*"
-                    required
-                  ></v-select>
-                </v-col>
-                <v-col cols="6">
-                  <div class="mt-3 d-flex flex-column justify-end align-center">
-                    <button @click="checkout()" class="checkoutBtnNew">
-                      <span class="pl-6 py-7 checkoutText"> Checkout </span>
-                      <v-icon x-large class="pink--text text--darken-2"
-                        >mdi-arrow-right-circle</v-icon
-                      >
-                    </button>
-                    <!-- <v-btn x-large rounded color="#000A36">
-                      <span class="saveText my-3 py-9 px-5"> Save </span>
-                      <v-icon class="pl-1" large>mdi-check-circle</v-icon>
-                    </v-btn> -->
-                  </div>
-                </v-col>
-                <!-- <v-col cols="12" sm="6">
-                  <v-btn x-large rounded color="success">Save</v-btn>
-                </v-col> -->
-              </v-row>
-            </v-container>
+      <div id="main" class="h-full w-full">
+        <div class="w-full h-11">
+          <v-btn x-large class="m-4" icon dark @click="dialog = false">
+            <v-icon x-large>mdi-close</v-icon>
+          </v-btn>
+        </div>
+        <div class="h-full w-full flex align-center justify-center">
+          <div class="h-4/5 w-4/5 bg-red-300 self-center"></div>
+        </div>
+        <!-- <div class="grid grid-cols-2 grid-rows-5 bg-blue-300 w-full h-2/4">
+          <h1 class="pa-5">
+            <v-icon x-large dark>mdi-notebook-check</v-icon>
+            <span class="shippingDetailText text-Cyan-50 text-4xl">
+              Shipping Details
+            </span>
+          </h1>
+          <div class="col-span-1">
+            <v-text-field
+              v-model="order.Name"
+              color=""
+              dark
+              label="Name"
+              required
+            ></v-text-field>
           </div>
+          <div class="col-span-1">
+            <v-text-field
+              v-model="order.lastName"
+              color="red lighten-5"
+              dark
+              label="Last name"
+              hint="example of helper text only on focus"
+            ></v-text-field>
+          </div>
+          <v-col cols="6">
+            <v-text-field
+              v-model="order.City"
+              color="red lighten-5"
+              dark
+              label="City"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field
+              v-model="order.Province"
+              color="red lighten-5"
+              dark
+              label="Province"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="order.Address"
+              color="red lighten-5"
+              dark
+              label="Address"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="order.PhoneNumber"
+              color="red lighten-5"
+              dark
+              label="Phone Number"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-select
+              v-model="order.Age"
+              color="red lighten-5"
+              dark
+              :items="['0-17', '18-29', '30-54', '54+']"
+              label="Age*"
+              required
+            ></v-select>
+          </v-col>
+          <v-col cols="6">
+            <div class="mt-3 d-flex flex-column justify-end align-center">
+              <button class="checkoutBtnNew" @click="checkout()">
+                <span class="pl-6 py-7 checkoutText"> Checkout </span>
+                <v-icon x-large class="pink--text text--darken-2"
+                  >mdi-arrow-right-circle</v-icon
+                >
+              </button>
+            </div>
+          </v-col>
 
           <div
             class="
@@ -168,26 +149,8 @@
               <img class="w-16 m-px" src="/buy-button.png" alt="" />
               total: {{ cartTotalPrice }}$
             </div>
-            <!-- <div>
-              Icons made by
-              <a
-                href="https://www.flaticon.com/authors/vitaly-gorbachev"
-                title="Vitaly Gorbachev"
-                >Vitaly Gorbachev</a
-              >
-              from
-              <a href="https://www.flaticon.com/" title="Flaticon"
-                >www.flaticon.com</a
-              >
-              <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
-              <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-              <a href="https://storyset.com/people">People illustrations by Storyset</a>
-              <a href='https://www.freepik.com/vectors/sale'>Sale vector created by macrovector - www.freepik.com</a>
-              <a href='https://www.freepik.com/vectors/tree'>Tree vector created by upklyak - www.freepik.com</a> palm
-              <a href='https://www.freepik.com/photos/background'>Background photo created by valeria_aksakova - www.freepik.com</a> hat
-            </div> -->
           </div>
-        </div>
+        </div> -->
       </div>
     </v-dialog>
   </div>
@@ -251,7 +214,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-.wrapper {
+/* .wrapper {
   background-image: linear-gradient(
     to right top,
     #009b87,
@@ -262,15 +225,15 @@ export default {
   );
   /* width: 300px;
   height: 300px; */
-}
-.grid {
+*
+/* .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 19px;
   grid-row-gap: 0px;
-}
-.shippingInfo {
+} */
+/* .shippingInfo {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -281,8 +244,8 @@ export default {
   width: 80%;
   border-radius: 20px;
   box-shadow: -1px 11px 19px 0px #0000005c;
-}
-.shoppingSummary {
+} */
+/* .shoppingSummary {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -292,13 +255,13 @@ export default {
   width: 80%;
   border-radius: 20px;
   box-shadow: -1px 11px 19px 0px #0000005c;
-}
-.shippingDetailText {
+} */
+/* .shippingDetailText {
   font-family: 'Londrina Solid', cursive;
 }
 .shoppingSummaryText {
   font-family: 'Londrina Solid', cursive;
-}
+} */
 /* .saveText {
   font-size: 2rem;
   font-family: 'Londrina Solid', cursive;

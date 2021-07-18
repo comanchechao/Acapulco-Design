@@ -36,12 +36,12 @@
         >
           <v-btn
             x-large
-            class="self-start ml-11 bg-mainBlue"
+            class="self-start ml-11 mt-6"
             icon
-            dark
+            light
             @click="dialog = false"
           >
-            <v-icon>mdi-close</v-icon>
+            <v-icon x-large>mdi-close</v-icon>
           </v-btn>
           <div
             class="
@@ -84,26 +84,34 @@
             </button>
           </div>
           <div
-            class="bg-mainBlue w-11/12 lg:h-2/6 h-5/6 rounded-3xl font-mainFont"
+            class="
+              bg-mainBlue
+              w-11/12
+              lg:h-2/6
+              h-5/6
+              rounded-3xl
+              font-mainFont
+              mainDiv
+            "
           >
             <div class="w-full h-full flex align-start p-7">
               <v-icon x-large dark>mdi-notebook-check</v-icon>
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
-                <p>{{ order.Name }}</p>
-                <p>{{ order.lastName }}</p>
-                <p>{{ order.City }}</p>
-                <p>{{ order.phoneNumber }}</p>
-                <p>{{ order.Address }}</p>
-                <div
-                  v-for="item in orderProduct"
-                  :key="item.id"
-                  class="flex flex-row justify-contents-around"
-                >
-                  <p>{{ item.item.title }}</p>
-                  <p>{{ item.quantity }}</p>
-                </div>
               </h1>
+              <p>{{ order.Name }}</p>
+              <p>{{ order.lastName }}</p>
+              <p>{{ order.City }}</p>
+              <p>{{ order.phoneNumber }}</p>
+              <p>{{ order.Address }}</p>
+              <div
+                v-for="item in orderProduct"
+                :key="item.id"
+                class="flex flex-row justify-contents-around"
+              >
+                <p>{{ item.item.title }}</p>
+                <p>{{ item.quantity }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -199,6 +207,10 @@ span {
 .editBtn:hover {
   color: #ff4a68;
   background-color: #120129;
+}
+
+.mainDiv {
+  border: solid 1px red;
 }
 
 /* .backround {
