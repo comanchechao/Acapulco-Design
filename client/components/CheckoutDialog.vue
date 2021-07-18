@@ -20,137 +20,175 @@
           >
         </button>
       </template>
-      <div id="main" class="h-full w-full">
+      <div id="main" class="h-full w-full overflow-hidden">
         <div class="w-full h-11">
           <v-btn x-large class="m-4" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div>
-        <div class="h-full w-full flex align-center justify-center">
-          <div class="h-4/5 w-4/5 bg-red-300 self-center"></div>
-        </div>
-        <!-- <div class="grid grid-cols-2 grid-rows-5 bg-blue-300 w-full h-2/4">
-          <h1 class="pa-5">
-            <v-icon x-large dark>mdi-notebook-check</v-icon>
-            <span class="shippingDetailText text-Cyan-50 text-4xl">
-              Shipping Details
-            </span>
-          </h1>
-          <div class="col-span-1">
-            <v-text-field
-              v-model="order.Name"
-              color=""
-              dark
-              label="Name"
-              required
-            ></v-text-field>
-          </div>
-          <div class="col-span-1">
-            <v-text-field
-              v-model="order.lastName"
-              color="red lighten-5"
-              dark
-              label="Last name"
-              hint="example of helper text only on focus"
-            ></v-text-field>
-          </div>
-          <v-col cols="6">
-            <v-text-field
-              v-model="order.City"
-              color="red lighten-5"
-              dark
-              label="City"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="6">
-            <v-text-field
-              v-model="order.Province"
-              color="red lighten-5"
-              dark
-              label="Province"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12">
-            <v-text-field
-              v-model="order.Address"
-              color="red lighten-5"
-              dark
-              label="Address"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12">
-            <v-text-field
-              v-model="order.PhoneNumber"
-              color="red lighten-5"
-              dark
-              label="Phone Number"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-select
-              v-model="order.Age"
-              color="red lighten-5"
-              dark
-              :items="['0-17', '18-29', '30-54', '54+']"
-              label="Age*"
-              required
-            ></v-select>
-          </v-col>
-          <v-col cols="6">
-            <div class="mt-3 d-flex flex-column justify-end align-center">
-              <button class="checkoutBtnNew" @click="checkout()">
-                <span class="pl-6 py-7 checkoutText"> Checkout </span>
-                <v-icon x-large class="pink--text text--darken-2"
-                  >mdi-arrow-right-circle</v-icon
-                >
-              </button>
-            </div>
-          </v-col>
-
-          <div
-            class="
-              grid-flow-col grid-rows-3 grid-cols-1
-              cartSummary
-              bg-mainRed
-              rounded-2xl
-              mr-11
-            "
-          >
+        <div class="h-full w-full flex flex-col align-center justify-center">
+          <div class="h-4/5 w-4/5 backGround grid grid-rows-2">
             <div>
-              <h1 class="pa-5">
-                <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
-                <span class="shoppingSummaryText text-4xl">
-                  Shopping Summary
-                </span>
-              </h1>
-            </div>
-            <div
-              class="items flex container align-center rounded-xl m-px flex-col"
-            >
-              <p v-for="item in cartItem" :key="item.id">
-                {{ item.item.title }}
-              </p>
-            </div>
-            <div
-              v-if="cartTotalPrice"
-              class="
-                total
-                flex flex-end
-                m-3
-                flex-row
-                align-start
-                justify-content-end
-              "
-            >
-              <img class="w-16 m-px" src="/buy-button.png" alt="" />
-              total: {{ cartTotalPrice }}$
+              <div class="w-full h-20 bg-green-400">
+                <h1 class="pa-5">
+                  <v-icon x-large dark>mdi-notebook-check</v-icon>
+                  <span
+                    class="font-mainFont text-mainBlue font-extrabold text-4xl"
+                  >
+                    Shipping Details
+                  </span>
+                </h1>
+              </div>
+              <div
+                class="
+                  grid grid-cols-2 grid-rows-4 grid-flow-row
+                  w-full
+                  h-full
+                  p-5
+                  space-x-5
+                  bg-CoolGray-900
+                "
+              >
+                <div>
+                  <v-text-field
+                    v-model="order.Name"
+                    color="blue darken-4"
+                    dark
+                    label="Name"
+                    class="pl-4"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+                <div class="">
+                  <v-text-field
+                    v-model="order.lastName"
+                    color="red lighten-5"
+                    dark
+                    label="Last name"
+                    hint="example of helper text only on focus"
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+                <div>
+                  <v-text-field
+                    v-model="order.City"
+                    color="red lighten-5"
+                    dark
+                    label="City"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+                <div>
+                  <v-text-field
+                    v-model="order.Province"
+                    color="red lighten-5"
+                    dark
+                    label="Province"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+                <div>
+                  <v-text-field
+                    v-model="order.PhoneNumber"
+                    color="red lighten-5"
+                    dark
+                    label="Phone Number"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+                <div>
+                  <v-select
+                    v-model="order.Age"
+                    color="red lighten-5"
+                    dark
+                    :items="['0-17', '18-29', '30-54', '54+']"
+                    label="Age*"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-select>
+                </div>
+                <div class="col-span-2">
+                  <v-text-field
+                    v-model="order.Address"
+                    color="red lighten-5"
+                    dark
+                    label="Address"
+                    required
+                    rounded
+                    dense
+                    filled
+                  ></v-text-field>
+                </div>
+
+                <!-- <div>
+                  <div class="mt-3 d-flex flex-column justify-end align-center">
+                    <button class="checkoutBtnNew" @click="checkout()">
+                      <span class="pl-6 py-7 checkoutText"> Checkout </span>
+                      <v-icon x-large class="pink--text text--darken-2"
+                        >mdi-arrow-right-circle</v-icon
+                      >
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+              <div class="w-full h-20">
+                <h1 class="pa-5">
+                  <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
+                  <span
+                    class="font-mainFont text-mainBlue font-extrabold text-4xl"
+                  >
+                    Shopping Summary
+                  </span>
+                </h1>
+              </div>
+              <!-- <div
+                class="
+                  items
+                  flex
+                  container
+                  align-center
+                  rounded-xl
+                  m-px
+                  flex-col
+                "
+              >
+                <p v-for="item in cartItem" :key="item.id">
+                  {{ item.item.title }}
+                </p>
+              </div>
+              <div
+                v-if="cartTotalPrice"
+                class="
+                  total
+                  flex flex-end
+                  m-3
+                  flex-row
+                  align-start
+                  justify-content-end
+                "
+              >
+                <img class="w-16 m-px" src="/buy-button.png" alt="" />
+                total: {{ cartTotalPrice }}$
+              </div> -->
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </v-dialog>
   </div>
@@ -263,9 +301,20 @@ export default {
   font-family: 'Londrina Solid', cursive;
 } */
 /* .saveText {
+  
   font-size: 2rem;
   font-family: 'Londrina Solid', cursive;
 } */
+
+
+.backGround {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+}
+
 .saveBtn {
   /* background-color: #0baf78; */
   /* border: 3px solid #0baf78; */
