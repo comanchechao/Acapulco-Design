@@ -42,7 +42,7 @@
                 opacity-0
               "
             >
-              <img class="peaceSign" src="/moomoole.png" alt="" />
+                <img class="peaceSign" src="/moomoole.png" alt="" />
             </div>
             <div
               v-gsap.to="{
@@ -53,7 +53,7 @@
               }"
               class="grid grid-cols-3 place-items-center w-full opacity-0"
             >
-              <div class="self-start transform -translate-y-24">
+              <div class="peace self-start transform -translate-y-24">
                 <img src="/sketch-162443588438sdfs.png" alt="" />
               </div>
 
@@ -142,7 +142,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               secondContainer
               content
               mt-15
@@ -156,7 +157,8 @@
                     class="
                       transform
                       -translate-y-3
-                      lg:pb-5 lg:pl-3
+                      lg:pb-5
+                      lg:pl-3
                       scale-75
                       lg:scale-75
                     "
@@ -182,7 +184,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               thirdContainer
               content
             "
@@ -211,7 +214,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               forthContainer
               content
             "
@@ -387,6 +391,34 @@ export default {
     this.animateScrollDownBtn()
     // this.animatePeaceSign()
   },
+  transition: {
+    mode: 'out-in',
+    css: false,
+    beforeEnter (el) {
+      this.$gsap.set(el, {
+        transformPerspective: 2000,
+        perspective: 800,
+        transformStyle: 'preserve-3d'
+      })
+    },
+    enter (el, done) {
+      this.$gsap.to(el, 1, {
+        rotationY: 360,
+        transformOrigin: '50% 80%',
+        ease: 'Back.easeOut'
+      })
+      done()
+    },
+    leave (el, done) {
+      this.$gsap.to(el, 1, {
+        rotationY: 0,
+        transformOrigin: '80% 50%',
+        ease: 'Back.easeIn'
+      })
+      done()
+    }
+  },
+
   methods: {
     animatePictureDiv() {
       const gsap = this.$gsap
