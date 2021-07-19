@@ -4,6 +4,7 @@
     <div id="main" class="">
       <LazyHydrate when-idle>
         <Navbar
+        
           id="navbar"
           v-gsap.to="{
             opacity: 1,
@@ -42,7 +43,7 @@
                 opacity-0
               "
             >
-                <img class="peaceSign" src="/moomoole.png" alt="" />
+              <img class="peaceSign" src="/moomoole.png" alt="" />
             </div>
             <div
               v-gsap.to="{
@@ -391,28 +392,22 @@ export default {
     this.animateScrollDownBtn()
     // this.animatePeaceSign()
   },
-  transition: {
+ transition: {
     mode: 'out-in',
     css: false,
-   
-    enter (el, done) {
-      this.$gsap.from(el, 1, {
-        rotationY: 360,
-        transformOrigin: '50% 80%',
-        ease: 'Back.easeOut'
-      })
+
+    beforeEnter(el) {
+      this.$gsap.set(el, { opacity: 0 , })
+    },
+    enter(el, done) {
+      this.$gsap.to(el, 1, { opacity: 1,})
       done()
     },
-    leave (el, done) {
-      this.$gsap.from(el, 1, {
-        rotationY: 180,
-        transformOrigin: '80% 50%',
-        ease: 'Back.easeIn'
-      })
+    leave(el, done) {
+      this.$gsap.to(el, 1, { opacity: 0})
       done()
-    }
+    },
   },
-
   methods: {
     animatePictureDiv() {
       const gsap = this.$gsap

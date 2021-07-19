@@ -273,11 +273,7 @@
             </div>
           </div>
         </div>
-        <img
-          class="absolute palms w-full h-2/3 bottom-0 self-center"
-          src="/palmtrees.png"
-          alt=""
-        />
+       
       </div>
     </div>
   </v-app>
@@ -331,6 +327,23 @@ export default {
       })
     })
   },
+ transition: {
+    mode: 'out-in',
+    css: false,
+
+    beforeEnter(el) {
+      this.$gsap.set(el, { opacity: 0  , scale: 5})
+    },
+    enter(el, done) {
+      this.$gsap.to(el, 1, { opacity: 1, scale: 1})
+      done()
+    },
+    leave(el, done) {
+      this.$gsap.to(el, 1, { opacity: 0.5})
+      done()
+    },
+  },
+
   mounted() {
     if (this.openTab === 3) {
       const orders = this.$fire.firestore
@@ -374,7 +387,7 @@ export default {
       const tl = gsap.timeline()
 
       tl.from('.palms', {
-        y: 300,
+        x: 300,
         duration: 1,
         opacity: 0,
       })

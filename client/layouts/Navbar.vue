@@ -61,7 +61,7 @@
             <v-list dense class="space-y-4 p-4">
               <v-list-item>
                 <v-list-item-icon>
-                  <LazyHydrate on-interaction>
+                  <LazyHydrate  :on-interaction="['click', 'focus']">
                     <ProfilePageDialog />
                   </LazyHydrate>
                 </v-list-item-icon>

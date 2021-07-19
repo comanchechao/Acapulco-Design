@@ -188,25 +188,19 @@ export default {
   transition: {
     mode: 'out-in',
     css: false,
-   
-    enter (el, done) {
-      this.$gsap.from(el, 1, {
-        scale: 0.2,
-        transformOrigin: '50% 80%',
-        ease: 'Back.easeOut'
-      })
+
+    beforeEnter(el) {
+      this.$gsap.set(el, { opacity: 0 })
+    },
+    enter(el, done) {
+      this.$gsap.to(el, 1, { opacity: 1,})
       done()
     },
-    leave (el, done) {
-      this.$gsap.from(el, 1, {
-        scale: 6,
-        transformOrigin: '80% 50%',
-        ease: 'Back.easeIn'
-      })
+    leave(el, done) {
+      this.$gsap.to(el, 1, { opacity: 0})
       done()
-    }
+    },
   },
-
 
   methods: {
     animateBackground() {
