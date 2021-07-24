@@ -20,16 +20,18 @@
         <div
           class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
         >
-          <Adminastration
-            ref="Adminastration"
-            v-gsap.from="{
-              y: -250,
-              opacity: 0,
-              duration: 1.5,
-              ease: 'expo.out',
-            }"
-            class="adminastration"
-          />
+          <transition name="fade">
+            <Adminastration
+              ref="Adminastration"
+              v-gsap.from="{
+                y: -250,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'expo.out',
+              }"
+              class="adminastration"
+            />
+          </transition>
         </div>
         <!-- <div class="bees flex middle flex-col place-items-center">
           <img src="/Orders.png" alt="" />
@@ -42,131 +44,194 @@
           <img src="/Market.png" alt="" />
           <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div> -->
-        <div
+      </div>
+
+      <div>
+        <ul
           class="
-            w-1/3
-            admin
+            tabBar
             flex
-            sm:flex-row
-            flex-col
-            container
-            z-10
-            h-2/3
-            text-center
-            shadow-lg
-            bg-blueGray-200
-            rounded-lg
-            justify-between
+            mb-0
+            list-none
+            w-1/2
+            h-24
             align-center
+            flex-wrap
+            pt-3
+            pb-4
+            flex-row
           "
         >
-          <ul
+          <li
             class="
-              tabBar
-              flex
-              mb-0
-              list-none
-              w-1/2
-              align-center
-              flex-wrap
-              pt-3
-              pb-4
-              flex-row
+              lis
+              h-full
+              border-2 border-black
+              -mb-px
+              mr-2
+              last:mr-0
+              flex-auto
+              text-center
             "
           >
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 1,
-                  'text-white bg-Indigo-500': openTab === 1,
-                }"
-                @click="toggleTabs(1)"
-              >
-                <img src="/Market.png" alt="" />
-              </a>
-            </li>
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 2,
-                  'text-white bg-green-600': openTab === 2,
-                }"
-                @click="toggleTabs(2)"
-              >
-                <img class="place-self-center" src="/Add.png" alt="" />
-              </a>
-            </li>
-            <li
-              class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center"
-            >
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 3,
-                  'text-white bg-Amber-600': openTab === 3,
-                }"
-                @click="toggleTabs(3)"
-              >
-                <img class="place-self-center" src="/Orders.png" alt="" />
-              </a>
-            </li>
-          </ul>
-
-          <div
-            class="
-              relative
-              flex flex-col
-              min-w-0
-              bees
-              break-words
-              bg-CoolGray-300
-              w-2/3
-              mb-6
-              shadow-lg
-              rounded
-            "
-          >
-            <div
+            <a
+              class="
+                text-xs
+                px-5
+                py-3
+                h-full
+                shadow-lg
+                rounded
+                block
+                leading-normal
+              "
               :class="{
-                'bg-Indigo-500': openTab === 1,
-                'bg-green-600': openTab === 2,
-                'bg-Amber-600': openTab === 3,
+                'text-pink-600 bg-white': openTab !== 1,
+                'text-white bg-Indigo-500': openTab === 1,
               }"
-              class="px-4 py-5 flex-auto rounded h-full border-2 border-black"
+              @click="toggleTabs(1)"
             >
-              <div class="tab-content tab-space">
+              <img src="/Market.png" alt="" />
+            </a>
+          </li>
+          <li
+            class="
+              lis
+              h-32
+              border-2 border-black
+              -mb-px
+              mr-2
+              last:mr-0
+              flex-auto
+              text-center
+            "
+          >
+            <a
+              class="
+                text-xs
+                font-bold
+                uppercase
+                h-full
+                px-5
+                py-3
+                shadow-lg
+                rounded
+                block
+                leading-normal
+              "
+              :class="{
+                'text-pink-600 bg-white': openTab !== 2,
+                'text-white bg-green-600': openTab === 2,
+              }"
+              @click="toggleTabs(2)"
+            >
+              <img class="place-self-center" src="/Add.png" alt="" />
+            </a>
+          </li>
+          <li
+            class="
+              lis
+              border-2 border-black
+              -mb-px
+              mr-2
+              h-32
+              last:mr-0
+              mt-1
+              flex-auto
+              place-content-center
+            "
+          >
+            <a
+              class="
+                text-xs
+                font-bold
+                h-full
+                uppercase
+                px-5
+                py-3
+                shadow-lg
+                rounded
+                block
+                leading-normal
+              "
+              :class="{
+                'text-pink-600 bg-white': openTab !== 3,
+                'text-white bg-Amber-600': openTab === 3,
+              }"
+              @click="toggleTabs(3)"
+            >
+              <img class="place-self-center" src="/Orders.png" alt="" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="
+          w-1/2
+          admin
+          flex
+          sm:flex-row
+          flex-col
+          container
+          z-10
+          h-2/3
+          text-center
+          shadow-lg
+          bg-blueGray-200
+          rounded-lg
+          justify-between
+          align-center
+        "
+      >
+        <div
+          class="
+            relative
+            flex flex-col
+            min-w-0
+            bees
+            break-words
+            bg-CoolGray-300
+            w-2/3
+            mb-6
+            shadow-lg
+            rounded
+          "
+        >
+          <div
+            :class="{
+              'bg-Indigo-500': openTab === 1,
+              'bg-green-600': openTab === 2,
+              'bg-Amber-600': openTab === 3,
+            }"
+            class="px-4 py-5 flex-auto rounded h-full border-2 border-black"
+          >
+            <div class="tab-content tab-space">
+              <div
+                class="
+                  flex
+                  max-w-1/3
+                  flex-col
+                  place-items-stretch
+                  flex-shrink
+                  overflow-y-auto
+                  h-full
+                "
+                :class="{
+                  hidden: openTab !== 1,
+                  block: openTab === 1,
+                }"
+              >
+                <h3 class="text-black text-xl">
+                  Collaboratively administrate empowered markets via
+                  plug-and-play networks. Dynamically procrastinate B2C users
+                  after installed base benefits.
+                  <br />
+                  <br />
+                  Dramatically visualize customer directed convergence without
+                  revolutionary ROI.
+                </h3>
+              </div>
+              <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                 <div
                   class="
                     flex
@@ -174,106 +239,74 @@
                     flex-col
                     place-items-stretch
                     flex-shrink
-                    overflow-y-auto
-                    h-full
+                    max-h-56
                   "
-                  :class="{
-                    hidden: openTab !== 1,
-                    block: openTab === 1,
-                  }"
                 >
-                  <h3 class="text-black text-xl">
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br />
-                    Dramatically visualize customer directed convergence without
-                    revolutionary ROI.
-                  </h3>
-                </div>
-                <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
-                  <div
-                    class="
-                      flex
-                      max-w-1/3
-                      flex-col
-                      place-items-stretch
-                      flex-shrink
-                      max-h-56
-                    "
-                  >
-                    <div class="flex flex-col place-items-center">
-                      <button
-                        class="focus:outline-none addButton w-1/2"
-                        @click="showModal"
-                      >
-                        Add
-                      </button>
-                      <h1 id="products">products</h1>
-                    </div>
-                    <div class="h-full overflow-y-scroll">
+                  <div class="flex flex-col place-items-center">
+                    <button
+                      class="focus:outline-none addButton w-1/2"
+                      @click="showModal"
+                    >
+                      Add
+                    </button>
+                    <h1 id="products">products</h1>
+                  </div>
+                  <div class="h-full overflow-y-scroll">
+                    <div v-for="product in Products" :key="product.id" class="">
                       <div
-                        v-for="product in Products"
-                        :key="product.id"
-                        class=""
+                        id="products"
+                        class="flex flex-row place-content-around"
                       >
-                        <div
-                          id="products"
-                          class="flex flex-row place-content-around"
-                        >
-                          <h3>{{ product.title }}</h3>
-                          <button class="">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="text-red-500 h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              @click="deleteProduct(product.id)"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
-                          </button>
-                        </div>
+                        <h3>{{ product.title }}</h3>
+                        <button class="">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-red-500 h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            @click="deleteProduct(product.id)"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="
+                  flex
+                  max-w-1/3
+                  flex-col
+                  place-items-center
+                  flex-shrink
+                  overflow-y-auto
+                  max-h-72
+                  text-xl
+                "
+                :class="{ hidden: openTab !== 3, block: openTab === 3 }"
+              >
+                <div class="flex flex row place-content-around">
+                  <p>{{ order.Name }}</p>
+                </div>
                 <div
-                  class="
-                    flex
-                    max-w-1/3
-                    flex-col
-                    place-items-center
-                    flex-shrink
-                    overflow-y-auto
-                    max-h-72
-                    text-xl
-                  "
-                  :class="{ hidden: openTab !== 3, block: openTab === 3 }"
+                  v-for="item in orderProduct"
+                  :key="item.id"
+                  class="flex flex row place-content-around"
                 >
-                  <div class="flex flex row place-content-around">
-                    <p>{{ order.Name }}</p>
-                  </div>
-                  <div
-                    v-for="item in orderProduct"
-                    :key="item.id"
-                    class="flex flex row place-content-around"
-                  >
-                    <p class="text-black">{{ item.item.title }}</p>
-                  </div>
+                  <p class="text-black">{{ item.item.title }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-       
       </div>
     </div>
   </v-app>
@@ -327,41 +360,40 @@ export default {
       })
     })
   },
- transition: {
+  transition: {
     mode: 'out-in',
     css: false,
 
     beforeEnter(el) {
-      this.$gsap.set(el, { opacity: 0  , scale: 5})
+      this.$gsap.set(el, { opacity: 0, x: 1000 })
     },
     enter(el, done) {
-      this.$gsap.to(el, 1, { opacity: 1, scale: 1})
+      this.$gsap.to(el, 1, { opacity: 1, x: 0 })
       done()
     },
     leave(el, done) {
-      this.$gsap.to(el, 1, { opacity: 0.5})
+      this.$gsap.to(el, 1, { opacity: 0.5 })
       done()
     },
   },
 
   mounted() {
-    if (this.openTab === 3) {
-      const orders = this.$fire.firestore
-        .collection('orders')
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            this.order = doc.data().order
-            this.orderProduct = doc.data().order.cart
-          })
+    const orders = this.$fire.firestore
+      .collection('orders')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.order = doc.data().order
+          this.orderProduct = doc.data().order.cart
         })
-        .catch((err) => {
-          console.log(err)
-        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
-      console.log(orders)
-    }
+    console.log(orders)
+
     this.welcome()
   },
   methods: {
@@ -441,6 +473,11 @@ input[type='number'] {
 #leaves {
   z-index: -1;
 }
+
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
 .addButton {
   background-color: #ff4a68;
   color: #120129;
@@ -454,6 +491,23 @@ input[type='number'] {
   transition: ease-in-out 0.3s;
   padding: 5px 8px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.lis {
+  clip-path: polygon(
+    0% 15%,
+    15% 15%,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    100% 85%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    15% 85%,
+    0% 85%
+  );
 }
 
 .addButton:hover {
