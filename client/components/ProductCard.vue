@@ -10,12 +10,31 @@
       <template v-slot:activator="{ on, attrs }">
         <div
           v-bind="attrs"
-          class="flex flex-col lg:flex-row justify-between align-center space-y-4 cardBackground productCard"
+          class="
+            flex flex-col
+            lg:flex-row
+            justify-between
+            align-center
+            space-y-4
+            cardBackground
+            productCard
+          "
           @click="dialog = true"
           v-on="on"
         >
           <div
-            class="md:mt-4 lg:w-3/4 lg:h-80 w-52 h-52 rounded-full bg-Rose-400 lg:rounded-none lg:flex-shrink lg:flex-grow flex justify-center align-center"
+            class="
+              md:mt-4
+              lg:w-3/4 lg:h-80
+              w-52
+              h-52
+              rounded-full
+              bg-Rose-400
+              lg:rounded-none lg:flex-shrink lg:flex-grow
+              flex
+              justify-center
+              align-center
+            "
           >
             <!-- <div
               class="absolute inset-0 bg-gray-300 shadow-lg rounded-full lg:rounded-none h-full"
@@ -28,7 +47,14 @@
             <!-- </div> -->
           </div>
           <div
-            class="flex flex-col justify-between align-center mt-2 space-y-2 p-6"
+            class="
+              flex flex-col
+              justify-between
+              align-center
+              mt-2
+              space-y-2
+              p-6
+            "
           >
             <h1 class="text-5xl text-blueGray-900 font-bold mt-5">
               {{ product.title }}
@@ -123,7 +149,7 @@ export default {
   -webkit-backdrop-filter: blur(12.5px);
   border-radius: 10px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.2s;
 }
 /* .productDetailBackground {
   background: #120129c9;
@@ -135,6 +161,6 @@ export default {
 } */
 
 .cardBackground:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 </style>

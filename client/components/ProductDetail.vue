@@ -121,7 +121,7 @@ export default {
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.2s;
   padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }

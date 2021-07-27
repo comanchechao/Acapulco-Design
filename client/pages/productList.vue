@@ -193,11 +193,11 @@ export default {
       this.$gsap.set(el, { opacity: 0 })
     },
     enter(el, done) {
-      this.$gsap.to(el, 1, { opacity: 1,})
+      this.$gsap.to(el, 1, { opacity: 1 })
       done()
     },
     leave(el, done) {
-      this.$gsap.to(el, 1, { opacity: 0})
+      this.$gsap.to(el, 1, { opacity: 0 })
       done()
     },
   },
@@ -223,13 +223,13 @@ export default {
         opacity: 1,
         scale: 1,
         ease: 'expo.Out',
-        duration: 1.1,
+        duration: 0.5,
       })
       tl.from('.menuNavbar', {
         opacity: 0,
         y: -10,
 
-        duration: 0.7,
+        duration: 0.3,
 
         ease: 'expo.Out',
       })
@@ -290,7 +290,7 @@ export default {
 }
 
 .sidebarText {
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
   color: #001524;
 }
 

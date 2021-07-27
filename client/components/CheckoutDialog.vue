@@ -342,7 +342,7 @@ export default {
   color: #120129;
   border: solid 2px #120129;
   border-radius: 35px;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.2s;
   padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
@@ -350,19 +350,19 @@ export default {
   background-color: #120129;
   color: #ff4a68;
 }
-.checkoutBtnNew {
+/* .checkoutBtnNew {
   font-size: 30px;
   border: solid 2px #120129;
   color: #ff4a68;
   border-radius: 35px;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.2s;
   padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .checkoutBtnNew:hover {
   color: #120129;
   background-color: #ff4a68;
-}
+} */
 .items {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   color: #120129;

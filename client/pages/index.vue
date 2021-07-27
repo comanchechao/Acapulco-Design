@@ -4,7 +4,6 @@
     <div id="main" class="">
       <LazyHydrate when-idle>
         <Navbar
-        
           id="navbar"
           v-gsap.to="{
             opacity: 1,
@@ -143,8 +142,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               secondContainer
               content
               mt-15
@@ -158,8 +156,7 @@
                     class="
                       transform
                       -translate-y-3
-                      lg:pb-5
-                      lg:pl-3
+                      lg:pb-5 lg:pl-3
                       scale-75
                       lg:scale-75
                     "
@@ -185,8 +182,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               thirdContainer
               content
             "
@@ -215,8 +211,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               forthContainer
               content
             "
@@ -304,6 +299,7 @@
                 "
               >
                 If you want to know us more, maybe get a cup of coffee, you can!
+
                 <!-- <button id="contactUsBtn" class="learnMoreBtn">
                 <span class="learnMoreText"> Contact Us </span>
               </button> -->
@@ -328,8 +324,8 @@
             "
           >
             <div class="h-full flex align-center justify-center">
-              <div class="h-4/5 w-3/4 flex justify-center">
-                <div class="">
+              <div class="h-4/5 w-3/4 flex flex-col justify-center bg-red-300">
+                <div class="bg-blue-400 self-center">
                   <h1
                     class="
                       ml-5
@@ -342,6 +338,16 @@
                     find us on social media!
                   </h1>
                 </div>
+                <div
+                  class="
+                    bg-yellow-100
+                    w-3/5
+                    h-3/5
+                    self-center
+                    flex
+                    justify-center
+                  "
+                ></div>
               </div>
               <div
                 class="
@@ -392,19 +398,19 @@ export default {
     this.animateScrollDownBtn()
     // this.animatePeaceSign()
   },
- transition: {
+  transition: {
     mode: 'out-in',
     css: false,
 
     beforeEnter(el) {
-      this.$gsap.set(el, { opacity: 0 , })
+      this.$gsap.set(el, { opacity: 0 })
     },
     enter(el, done) {
-      this.$gsap.to(el, 1, { opacity: 1,})
+      this.$gsap.to(el, 1, { opacity: 1 })
       done()
     },
     leave(el, done) {
-      this.$gsap.to(el, 1, { opacity: 0})
+      this.$gsap.to(el, 1, { opacity: 0 })
       done()
     },
   },
