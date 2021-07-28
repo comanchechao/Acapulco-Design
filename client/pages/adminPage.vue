@@ -74,7 +74,7 @@
               flex-row
             "
           >
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li class="lis -mb-px mr-2 last:mr-0 flex-auto text-center">
               <a
                 class="
                   text-xs
@@ -96,7 +96,7 @@
                 <img src="/Market.png" alt="" />
               </a>
             </li>
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li class="lis -mb-px mr-2 last:mr-0 flex-auto text-center">
               <a
                 class="
                   text-xs
@@ -119,7 +119,7 @@
               </a>
             </li>
             <li
-              class="-mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center"
+              class="lis -mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center"
             >
               <a
                 class="
@@ -460,21 +460,8 @@ input[type='number'] {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.lis {
-  clip-path: polygon(
-    0% 15%,
-    15% 15%,
-    15% 0%,
-    85% 0%,
-    85% 15%,
-    100% 15%,
-    100% 85%,
-    85% 85%,
-    85% 100%,
-    15% 100%,
-    15% 85%,
-    0% 85%
-  );
+a {
+ animation: 30s ease-in-out infinite alternate-reverse color-change;
 }
 
 .addButton:hover {
@@ -486,6 +473,34 @@ input[type='number'] {
 }
 .middle {
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+
+  45% {
+    background-color: #a6a6db;
+  }
+
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #83f1f1;
+  }
+
+  50% {
+    background-color: #55dd8e;
+  }
+
+  100% {
+    background-color: #595bee;
+  }
 }
 
 .admin {
