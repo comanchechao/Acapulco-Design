@@ -1,19 +1,26 @@
 <template>
   <v-app id="orginal">
-      <canvas id="bg"></canvas>
-      <div class=" z-10 w-full grid grid-cols-2 h-full absolute">
-        <div class="text-white ">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-          delectus perspiciatis asperiores! Quasi, quas ab. Consectetur ullam
-          vel sunt, esse tempora animi nihil.
-        </div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quasi dolorem, ut temporibus deleniti sit, eaque quibusdam ratione voluptatibus reiciendis nam. Doloremque, veniam.</div>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae
-          veniam laboriosam molestias, tenetur laborum ipsum officia natus eos.
-          Error veritatis quod dolore nobis voluptates molestiae minus ex
-        </div>
+    <LazyHydrate when-idle>
+      <Navbar class="w-full top-0 mt-4 navbar absolute z-50" />
+    </LazyHydrate>
+    <canvas id="bg"></canvas>
+    <div class="theDiv z-10 w-full grid grid-cols-2 h-full absolute">
+      <div class="text-white">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+        delectus perspiciatis asperiores! Quasi, quas ab. Consectetur ullam vel
+        sunt, esse tempora animi nihil.
       </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quasi
+        dolorem, ut temporibus deleniti sit, eaque quibusdam ratione
+        voluptatibus reiciendis nam. Doloremque, veniam.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae
+        veniam laboriosam molestias, tenetur laborum ipsum officia natus eos.
+        Error veritatis quod dolore nobis voluptates molestiae minus ex
+      </div>
+    </div>
     <!-- <p>ESO/VISTA/J. Emerson, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
     Photo by <a href="https://unsplash.com/@thecreativv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">The Creativv</a> on <a href="https://unsplash.com/s/photos/stone-wall-texture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
@@ -22,8 +29,13 @@
 
 <script>
 import * as THREE from 'three'
+import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
+  components: {
+    LazyHydrate,
+    Navbar: () => import('../layouts/Navbar.vue'),
+  },
   data() {
     return {
       selected: '',
@@ -49,12 +61,11 @@ export default {
     camera.position.setZ(30)
 
     const renderer = new THREE.WebGLRenderer({
-      canvas: document.querySelector("#bg")
+      canvas: document.querySelector('#bg'),
     })
-    renderer.setSize(window.innerWidth, window.innerHeight ,false)
+    renderer.setSize(window.innerWidth, window.innerHeight, false)
     renderer.setPixelRatio = window.devicePixelRatio
     document.body.appendChild(renderer.domElement)
-
 
     // shapes
 
@@ -100,7 +111,7 @@ export default {
     scene.add(sphere)
     // lights
     const pointLight = new THREE.PointLight(0xFFFFFF)
-    pointLight.position.set(5, 5, 5)
+    pointLight.position.set(5, 20, 5)
 
     const ambientLight = new THREE.AmbientLight(0xFFFFF0)
 
@@ -156,7 +167,6 @@ export default {
     function moveCamera() {
       const t = document.body.getBoundingClientRect().top
 
-
       scene.rotation.z = t * -0.01
       scene.rotation.y = t * -0.002
     }
@@ -190,10 +200,14 @@ export default {
   margin: 0;
 }
 
-#bg{
+#bg {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -2222;
+}
+
+.theDiv{
+  width: 100% !important;
 }
 </style>

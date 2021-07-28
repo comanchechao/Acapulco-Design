@@ -464,6 +464,23 @@ a {
  animation: 30s ease-in-out infinite alternate-reverse color-change;
 }
 
+.lis{
+   clip-path: polygon(
+    0% 15%,
+    15% 15%,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    100% 85%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    15% 85%,
+    0% 85%
+  );
+}
+
 .addButton:hover {
   background-color: #120129;
   color: #ff4a68;

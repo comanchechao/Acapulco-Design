@@ -99,18 +99,20 @@
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
               </h1>
-              <p>{{ order.Name }}</p>
-              <p>{{ order.lastName }}</p>
-              <p>{{ order.City }}</p>
-              <p>{{ order.phoneNumber }}</p>
-              <p>{{ order.Address }}</p>
-              <div
-                v-for="item in orderProduct"
-                :key="item.id"
-                class="flex flex-row justify-contents-around"
-              >
-                <p>{{ item.item.title }}</p>
-                <p>{{ item.quantity }}</p>
+              <div class="flex flex-col text-2xl self-center justify-center items-center text-gray-200">
+                <p>{{ order.Name }}</p>
+                <p>{{ order.lastName }}</p>
+                <p>{{ order.City }}</p>
+                <p>{{ order.phoneNumber }}</p>
+                <p>{{ order.Address }}</p>
+                <div
+                  v-for="item in orderProduct"
+                  :key="item.id"
+                  class="flex flex-row justify-contents-around"
+                >
+                  <p>{{ item.item.title }}</p>
+                  <p>{{ item.quantity }}</p>
+                </div>
               </div>
             </div>
           </div>
