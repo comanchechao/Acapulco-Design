@@ -54,9 +54,9 @@
     src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
   }
 }
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 html {
   height: 100%;

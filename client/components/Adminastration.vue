@@ -71,7 +71,7 @@
             border border-gray-200
             rounded
             shadow-sm
-            h-24
+            h-16
             focus:outline-none
           "
         />
@@ -93,10 +93,36 @@
             border border-gray-200
             rounded
             shadow-sm
-            h-24
+            h-16
             focus:outline-none
           "
         />
+        <label class="block mt-4 mb-2 font-semibold text-gray-100 text-3xl">
+          <span class="text-gray-100">Catagory</span>
+          <select
+          v-model="catagory"
+            placeholder="Catagory"
+            class="
+              shadow-sm
+              focus:outline-none
+              bg-white
+              h-16
+              text-black
+              rounded
+              text-base
+              form-select
+              mt-1
+              p-2
+              mb-3
+              w-full
+            "
+          >
+            <option>Lighters</option>
+            <option>Shirts</option>
+            <option>Custom Matchboxes</option>
+            <option>Collections</option>
+          </select>
+        </label>
 
         <div class="flex place-content-center mt-5 space-x-4">
           <input type="file" @change="uploadImage" />
@@ -117,13 +143,14 @@
           flex flex-row
           items-center
           justify-between
+          bg-green-500
           p-5
           bg-white
           border-t border-gray-200
           rounded-bl-lg rounded-br-lg
         "
       >
-        <p class="font-semibold text-gray-600">Cancel</p>
+        <p class="font-semibold text-gray-600" @click="toggleModal">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           @click="addProduct()"
@@ -145,6 +172,7 @@ export default {
       price: null,
       image: null,
       inStock: null,
+      catagory: null,
       feedback: null,
     }
   },
@@ -164,7 +192,7 @@ export default {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log(downloadURL);
+          console.log(downloadURL)
           this.image = downloadURL
         })
       })
@@ -178,12 +206,13 @@ export default {
             price: this.price,
             image: this.image,
             inStock: this.inStock,
+            catagory: this.catagory,
           })
           .then(() => {
             this.title = null
             this.price = null
-            this.image = null
             this.inStock = null
+            this.catagory = null
             this.feedback = null
           })
           .catch((err) => {
