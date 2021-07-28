@@ -1,7 +1,8 @@
 <template>
   <v-app id="orginal">
-      <div class="w-full grid grid-cols-2 h-full absolute">
-        <div>
+      <canvas id="bg"></canvas>
+      <div class=" z-10 w-full grid grid-cols-2 h-full absolute">
+        <div class="text-white ">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
           delectus perspiciatis asperiores! Quasi, quas ab. Consectetur ullam
           vel sunt, esse tempora animi nihil.
@@ -47,7 +48,9 @@ export default {
     )
     camera.position.setZ(30)
 
-    const renderer = new THREE.WebGLRenderer()
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("#bg")
+    })
     renderer.setSize(window.innerWidth, window.innerHeight ,false)
     renderer.setPixelRatio = window.devicePixelRatio
     document.body.appendChild(renderer.domElement)
@@ -113,7 +116,7 @@ export default {
 
     // scene background
 
-    const beachTexture = new THREE.TextureLoader().load('/Space.jpg')
+    const beachTexture = new THREE.TextureLoader().load('/Space4.jpg')
     scene.background = beachTexture
 
     // 3d animations
@@ -185,5 +188,12 @@ export default {
 #orginal {
   position: absolute;
   margin: 0;
+}
+
+#bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2222;
 }
 </style>
