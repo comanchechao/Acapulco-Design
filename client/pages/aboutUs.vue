@@ -1,25 +1,16 @@
 <template>
   <v-app id="orginal">
-    <LazyHydrate when-idle>
-      <Navbar class="w-full top-0 mt-4 navbar absolute z-50" />
-    </LazyHydrate>
     <canvas id="bg"></canvas>
-    <div class="theDiv z-10 w-full grid grid-cols-2 h-full absolute">
-      <div class="text-white">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-        delectus perspiciatis asperiores! Quasi, quas ab. Consectetur ullam vel
-        sunt, esse tempora animi nihil.
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quasi
-        dolorem, ut temporibus deleniti sit, eaque quibusdam ratione
-        voluptatibus reiciendis nam. Doloremque, veniam.
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae
-        veniam laboriosam molestias, tenetur laborum ipsum officia natus eos.
-        Error veritatis quod dolore nobis voluptates molestiae minus ex
-      </div>
+    <div class="navbar absolute">
+      <LazyHydrate when-idle>
+        <Navbar class="w-full top-0 mt-4 navbar absolute z-50" />
+      </LazyHydrate>
+    </div>
+    <div class="whoAreWe w-full flex flex-row content-around self-center absolute">
+      <h1 class="opacity-0 text-3xl text-Amber-300 who">WHO </h1>
+      <h1 class="opacity-0 text-3xl text-Amber-300 are">ARE </h1>
+      <h1 class="opacity-0 text-3xl text-Amber-300 we">WE </h1>
+      <h1 class="opacity-0 text-3xl text-Amber-300 mark">???????????</h1>
     </div>
     <!-- <p>ESO/VISTA/J. Emerson, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
     Photo by <a href="https://unsplash.com/@thecreativv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">The Creativv</a> on <a href="https://unsplash.com/s/photos/stone-wall-texture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -49,6 +40,8 @@ export default {
   //   })
   // },
   mounted() {
+    this.WhoAnimate()
+
     // scene and camera
 
     const scene = new THREE.Scene()
@@ -175,6 +168,46 @@ export default {
     animate()
   },
   methods: {
+    WhoAnimate() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+      tl.to('.navbar', 1 , {
+        zIndex: 100,
+        width: '100%'
+
+
+      })
+
+      tl.to('.who', 1, {
+        rotation: 360,
+        opacity: 1,
+        x: 530,
+        y: 100,
+        transformOrigin: 'left top',
+      })
+      tl.to('.are', 1, {
+        rotation: 360,
+        opacity: 1,
+        x: 580,
+        y: 100,
+        transformOrigin: 'left top',
+      })
+      tl.to('.we', 1, {
+        rotation: 360,
+        opacity: 1,
+        x: 620,
+        y: 100,
+        transformOrigin: 'left top',
+      })
+      tl.to('.mark', 1, {
+        rotation: 360,
+        opacity: 1,
+        x: 530,
+        y: 150,
+        transformOrigin: 'left top',
+      })
+    },
     hoverAnimation() {
       const gsap = this.$gsap
       gsap.to('.welcome', {
@@ -198,16 +231,20 @@ export default {
 #orginal {
   position: absolute;
   margin: 0;
+  z-index: -20;
 }
 
 #bg {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: -2222;
 }
 
-.theDiv{
-  width: 100% !important;
+.navbar {
+  z-index: 99;
+}
+
+.whoAreWe{font-family: 'Do Hyeon', sans-serif;
 }
 </style>

@@ -48,6 +48,8 @@
             admin
             flex
             sm:flex-row
+            border-2 
+            border-black
             flex-col
             container
             z-10
