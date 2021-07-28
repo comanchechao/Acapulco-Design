@@ -12,6 +12,8 @@
       <h1 class="opacity-0 text-3xl text-Amber-300 we">WE </h1>
       <h1 class="opacity-0 text-3xl text-Amber-300 mark">???????????</h1>
     </div>
+
+    <div class="absolute h-screen">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid quis aperiam voluptas veritatis magni ipsum id aspernatur asperiores deleniti molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi debitis perferendis, ex consequatur molestias porro illo, sapiente quo architecto eius, dolorum ipsam at iure consectetur. Quibusdam nemo necessitatibus commodi veniam. Ratione cum sunt blanditiis deleniti. Ad, rerum, laboriosam similique alias in assumenda corporis ducimus voluptatum perferendis repellat fugit hic commodi fugiat at quis fuga? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus voluptas dolor vero at sapiente aliquam quo animi enim dicta atque.</div>
     <!-- <p>ESO/VISTA/J. Emerson, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
     Photo by <a href="https://unsplash.com/@thecreativv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">The Creativv</a> on <a href="https://unsplash.com/s/photos/stone-wall-texture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
@@ -133,7 +135,7 @@ export default {
 
       const [x, y, z] = Array(3)
         .fill()
-        .map(() => THREE.MathUtils.randFloatSpread(200))
+        .map(() => THREE.MathUtils.randFloatSpread(100))
 
       star.position.set(x, y, z)
       scene.add(star)
