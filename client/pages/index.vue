@@ -2,6 +2,14 @@
 <template>
   <v-app>
     <div id="main" class="">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+          crossorigin="anonymous"
+        />
+      </head>
       <LazyHydrate when-idle>
         <Navbar
           id="navbar"
@@ -323,16 +331,16 @@
               mt-36
             "
           >
-            <div class="h-full flex align-center justify-center">
-              <div class="h-4/5 w-3/4 flex flex-col justify-center bg-red-300">
-                <div class="bg-blue-400 self-center">
+            <div class="h-full flex align-center justify-center bg-mainBlue">
+              <div class="h-4/5 w-3/4 flex flex-col justify-center">
+                <div class="self-center">
                   <h1
                     class="
                       ml-5
                       mt-6
                       font-mainFont font-extrabold
                       capitalize
-                      text-7xl text-mainBlue
+                      text-7xl text-mainRed
                     "
                   >
                     find us on social media!
@@ -340,26 +348,25 @@
                 </div>
                 <div
                   class="
-                    bg-yellow-100
-                    w-3/5
+                    w-full
                     h-3/5
                     self-center
                     flex
                     justify-center
+                    align-center
+                    space-x-9
                   "
-                ></div>
-              </div>
-              <div
-                class="
-                  self-end
-                  mr-9
-                  z-10
-                  transform
-                  -translate-x-14
-                  translate-y-7
-                "
-              >
-                <img src="/ppp.png" alt="" />
+                >
+                  <i class="fab fa-twitter fa-10x icon-3d"></i>
+                  <i class="fab fa-facebook fa-10x icon-3d"></i>
+                  <i class="fab fa-instagram fa-10x icon-3d"></i>
+                  <i class="fab fa-whatsapp fa-10x icon-3d"></i>
+                  <img
+                    class="self-end justify-self-end"
+                    src="/ppp.png"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
             <div class="flex justify-end align-end">
@@ -572,6 +579,39 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+$redColor: rgba(244, 67, 54, 1);
+$blueColor: rgba(33, 150, 243, 1);
+.icon-3d {
+  cursor: pointer;
+  padding: 10px;
+  -webkit-animation: icon3d 200ms 10;
+  animation: icon3d 200ms 10;
+  color: #f6f6f6;
+  &:hover {
+    -webkit-animation: icon3d 200ms infinite;
+    animation: icon3d 200ms infinite;
+  }
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px $redColor, -5px -6px $blueColor;
+  }
+  25% {
+    text-shadow: -5px -6px $redColor, 5px 4px $blueColor;
+  }
+  50% {
+    text-shadow: 5px -4px $redColor, -8px 4px $blueColor;
+  }
+  75% {
+    text-shadow: -8px -4px $redColor, -5px -4px $blueColor;
+  }
+  100% {
+    text-shadow: -5px 0 $redColor, 5px -4px $blueColor;
+  }
+}
+</style>
 
 <style scoped>
 /* Hide scrollbar for IE, Edge and Firefox */

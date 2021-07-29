@@ -24,8 +24,11 @@
               opacity-0
             "
           >
-            We here care about
-            <span class="text-mainRed font-extrabold span"> personality </span>
+               take a trip with us
+            <br />
+            <span class="text-mainRed font-extrabold span text-10xl">
+              be free
+            </span>
           </h1>
         </div>
         <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
