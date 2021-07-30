@@ -9,10 +9,10 @@
     <div
       class="whoAreWe w-full flex flex-row content-around self-center absolute"
     >
-      <h1 class="opacity-0 text-Amber-300 who">WHO</h1>
-      <h1 class="opacity-0 text-Amber-300 are">ARE</h1>
-      <h1 class="opacity-0 text-Amber-300 we">WE</h1>
-      <h1 class="opacity-0 text-Amber-300 mark">???????????</h1>
+      <h1 class="opacity-0 who">WHO</h1>
+      <h1 class="opacity-0 are">ARE</h1>
+      <h1 class="opacity-0 we">WE</h1>
+      <h1 class="opacity-0 mark">?????</h1>
     </div>
 
     <div class="absolute grid-row-6 h-full">
@@ -243,35 +243,63 @@ export default {
         width: '100%',
       })
 
-      tl.to('.who', 1, {
-        opacity: 1,
-        x: 400,
-        y: 100,
-        transformOrigin: 'left top',
-      })
-      tl.to('.are', 1, {
-        opacity: 1,
-        x: 430,
-        y: 110,
-        transformOrigin: 'left top',
-      })
-      tl.to('.we', 1, {
-        opacity: 1,
-        x: 480,
-        y: 120,
-        transformOrigin: 'left top',
-      })
-      tl.to('.mark', 1, {
-        opacity: 1,
-        x: 410,
-        y: 180,
-        transformOrigin: 'left top',
-      })
-      tl.to('.follow', 1, {
+      tl.fromTo(
+        '.who',
+        0.5,
+        { y: -800, opacity: 0, x: 500 },
+        {
+          opacity: 1,
+          x: 400,
+          y: 100,
+          transformOrigin: 'left top',
+          ease: "back.out(1.7)"
+        }
+      )
+      tl.fromTo(
+        '.are',
+        0.5,
+        { y: -800, opacity: 0, x: 500 },
+        {
+          opacity: 1,
+          x: 420,
+          y: 110,
+          transformOrigin: 'left top',
+          ease: "back.out(1.7)"
+        }
+      )
+      tl.fromTo(
+        '.we',
+        0.5,
+        { y: -800, opacity: 0, x: 500 },
+        {
+          opacity: 1,
+          x: 440,
+          y: 120,
+          transformOrigin: 'left top',
+          ease: "back.out(1.7)"
+        }
+      )
+      tl.fromTo(
+        '.mark',
+        0.5,
+        { y: -800, opacity: 0, x: 500 },
+        {
+          opacity: 1,
+          x: 410,
+          y: 180,
+          transformOrigin: 'left top',
+          ease: "back.out(1.7)"
+        }
+      )
+      tl.fromTo('.follow', 1, {
+        x: 600,
+        y: -800,
+        ease: "slow(0.7, 0.7, false)"
+      }, {
         opacity: 1,
         width: '300px',
         height: '150px',
-        x: 350,
+        x: 600,
         y: 280,
         transformOrigin: 'left top',
       })
@@ -388,10 +416,11 @@ export default {
 h2 {
   font-family: 'Londrina Solid', cursive;
   font-size: 50px;
-  color: #72efdd;
+  color: #deff0a;
 }
 .whoAreWe {
-  font-family: 'Spirax', cursive;
+  font-family: 'Fascinate Inline', cursive;
   font-size: 80px;
+  color: #C70039;
 }
 </style>
