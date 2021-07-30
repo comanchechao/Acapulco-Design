@@ -6,14 +6,53 @@
         <Navbar class="w-full top-0 mt-4 navbar absolute z-50" />
       </LazyHydrate>
     </div>
-    <div class="whoAreWe w-full flex flex-row content-around self-center absolute">
-      <h1 class="opacity-0 text-3xl text-Amber-300 who">WHO </h1>
-      <h1 class="opacity-0 text-3xl text-Amber-300 are">ARE </h1>
-      <h1 class="opacity-0 text-3xl text-Amber-300 we">WE </h1>
-      <h1 class="opacity-0 text-3xl text-Amber-300 mark">???????????</h1>
+    <div
+      class="whoAreWe w-full flex flex-row content-around self-center absolute"
+    >
+      <h1 class="opacity-0 text-Amber-300 who">WHO</h1>
+      <h1 class="opacity-0 text-Amber-300 are">ARE</h1>
+      <h1 class="opacity-0 text-Amber-300 we">WE</h1>
+      <h1 class="opacity-0 text-Amber-300 mark">???????????</h1>
     </div>
 
-    <div class="absolute h-screen">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid quis aperiam voluptas veritatis magni ipsum id aspernatur asperiores deleniti molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi debitis perferendis, ex consequatur molestias porro illo, sapiente quo architecto eius, dolorum ipsam at iure consectetur. Quibusdam nemo necessitatibus commodi veniam. Ratione cum sunt blanditiis deleniti. Ad, rerum, laboriosam similique alias in assumenda corporis ducimus voluptatum perferendis repellat fugit hic commodi fugiat at quis fuga? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus voluptas dolor vero at sapiente aliquam quo animi enim dicta atque.</div>
+    <div class="absolute grid-row-6 h-full">
+      <div class="h-screen justify-center flex flex-col">
+        <div class="follow justify-center opacity-0 w-0 h-0 rounded">
+          <h2 class="text-CoolGray-300 self-center">follow along</h2>
+        </div>
+      </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="secend justify-center opacity-0 w-0 h-0 rounded">
+          <h2>Hi. we are a bunch of guys</h2>
+        </div>
+      </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="justify-center w-0 h-0 rounded opacity-0 third">
+          <h2>from a less known city of a dystopian country,</h2>
+        </div>
+      </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="fourth justify-center opacity-0 w-0 h-0 rounded">
+          <h2>
+            while we're not lost and consumed by the sheer pressure of human
+            survival
+          </h2>
+        </div>
+      </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="fifth justify-center opacity-0 w-0 h-0 rounded">
+          <h2>we tend to smoke, and create stuff</h2>
+        </div>
+      </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="sixth justify-center w-0 h-0 opacity-0 rounded">
+          <h2>
+            in the hope of finding the long lost peace that we all crave along
+            the way.
+          </h2>
+        </div>
+      </div>
+    </div>
     <!-- <p>ESO/VISTA/J. Emerson, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
     Photo by <a href="https://unsplash.com/@thecreativv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">The Creativv</a> on <a href="https://unsplash.com/s/photos/stone-wall-texture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
@@ -105,12 +144,16 @@ export default {
     const sphere = new THREE.Mesh(planetGeometry, planetMaterial)
     scene.add(sphere)
     // lights
+
+    const spotLight = new THREE.SpotLight(0xFFFFFF)
+    spotLight.position.set(0, 0, 100)
+
     const pointLight = new THREE.PointLight(0xFFFFFF)
     pointLight.position.set(5, 20, 5)
 
     const ambientLight = new THREE.AmbientLight(0xFFFFF0)
 
-    scene.add(pointLight, ambientLight)
+    scene.add(pointLight, ambientLight, spotLight)
 
     // helpers
 
@@ -122,7 +165,7 @@ export default {
 
     // scene background
 
-    const beachTexture = new THREE.TextureLoader().load('/Space4.jpg')
+    const beachTexture = new THREE.TextureLoader().load('/Space7.jpg')
     scene.background = beachTexture
 
     // 3d animations
@@ -143,6 +186,26 @@ export default {
 
     Array(200).fill().forEach(addStars)
 
+    // traiangles
+
+    function particles() {
+      const particleGeometry = new THREE.ConeGeometry(0.2, 0.8, 32, 20)
+      const particleMaterial = new THREE.MeshBasicMaterial({ color: '#FB13DF' })
+
+      const particle = new THREE.Mesh(particleGeometry, particleMaterial)
+
+      const [x, y, z] = Array(3)
+        .fill()
+        .map(() => THREE.MathUtils.randFloatSpread(100))
+
+      particle.position.set(x, y, z)
+      scene.add(particle)
+    }
+
+    Array(80).fill().forEach(particles)
+
+    // animate function
+
     function animate() {
       requestAnimationFrame(animate)
       ring.rotation.z += 0.01
@@ -154,7 +217,7 @@ export default {
       ring2.rotation.z += 0.005
       ring2.rotation.x += 0.005
 
-      sphere.rotation.y += 0.001
+      sphere.rotation.z += 0.001
 
       renderer.render(scene, camera)
     }
@@ -164,6 +227,7 @@ export default {
 
       scene.rotation.z = t * -0.01
       scene.rotation.y = t * -0.002
+      scene.rotation.x = t * -0.002
     }
 
     document.body.onscroll = moveCamera
@@ -174,40 +238,114 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      tl.to('.navbar', 1 , {
+      tl.to('.navbar', 1, {
         zIndex: 100,
-        width: '100%'
-
-
+        width: '100%',
       })
 
       tl.to('.who', 1, {
-        rotation: 360,
         opacity: 1,
-        x: 530,
+        x: 400,
         y: 100,
         transformOrigin: 'left top',
       })
       tl.to('.are', 1, {
-        rotation: 360,
         opacity: 1,
-        x: 580,
-        y: 100,
+        x: 430,
+        y: 110,
         transformOrigin: 'left top',
       })
       tl.to('.we', 1, {
-        rotation: 360,
         opacity: 1,
-        x: 620,
-        y: 100,
+        x: 480,
+        y: 120,
         transformOrigin: 'left top',
       })
       tl.to('.mark', 1, {
-        rotation: 360,
         opacity: 1,
-        x: 530,
-        y: 150,
+        x: 410,
+        y: 180,
         transformOrigin: 'left top',
+      })
+      tl.to('.follow', 1, {
+        opacity: 1,
+        width: '300px',
+        height: '150px',
+        x: 350,
+        y: 280,
+        transformOrigin: 'left top',
+      })
+      tl.to('.secend', {
+        x: 380,
+        opacity: 1,
+        width: '500px',
+        height: '150px',
+        y: 100,
+        scrollTrigger: {
+          start: 'top 110%',
+          end: 'bottom center',
+          trigger: '.secend',
+          scrub: 1,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      tl.to('.third', {
+        x: 380,
+        opacity: 1,
+        width: '500px',
+        height: '150px',
+        y: 100,
+        scrollTrigger: {
+          trigger: '.third',
+
+          end: 'bottom center',
+          start: 'top 110%',
+          scrub: 1,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      tl.to('.fourth', {
+        x: 380,
+        opacity: 1,
+        width: '500px',
+
+        height: '150px',
+        y: 100,
+        scrollTrigger: {
+          trigger: '.fourth',
+          start: 'top 110%',
+          end: 'bottom center',
+          scrub: 1,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      tl.to('.fifth', {
+        x: 380,
+        opacity: 1,
+        width: '500px',
+
+        start: 'top 110%',
+        height: '150px',
+        y: 100,
+        scrollTrigger: {
+          trigger: '.fifth',
+          start: 'top 110%',
+          end: 'bottom center',
+          scrub: 1,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      tl.to('.sixth', {
+        x: 380,
+        opacity: 1,
+        width: '500px',
+
+        height: '150px',
+        y: 0,
+        scrollTrigger: {
+          trigger: '.sixth',
+          toggleActions: 'restart none resume pause',
+        },
       })
     },
     hoverAnimation() {
@@ -247,6 +385,13 @@ export default {
   z-index: 99;
 }
 
-.whoAreWe{font-family: 'Do Hyeon', sans-serif;
+h2 {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 50px;
+  color: #72efdd;
+}
+.whoAreWe {
+  font-family: 'Spirax', cursive;
+  font-size: 80px;
 }
 </style>
