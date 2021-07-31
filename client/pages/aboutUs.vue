@@ -11,11 +11,10 @@
     >
       <h1 class="opacity-0 who">WHO</h1>
       <h1 class="opacity-0 are">ARE</h1>
-      <h1 class="opacity-0 we">WE</h1>
-      <h1 class="opacity-0 mark">?????</h1>
+      <h1 class="opacity-0 we">WE?</h1>
     </div>
 
-    <div class="absolute grid-row-6 h-full">
+    <div class="absolute grid-row-6 grid-col-2 h-full">
       <div class="h-screen justify-center flex flex-col">
         <div class="follow justify-center opacity-0 w-0 h-0 rounded">
           <h2 class="text-CoolGray-300 self-center">follow along</h2>
@@ -45,7 +44,7 @@
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="sixth justify-center w-0 h-0 opacity-0 rounded">
+        <div class="sixth justify-center opacity-0 rounded">
           <h2>
             in the hope of finding the long lost peace that we all crave along
             the way.
@@ -115,7 +114,7 @@ export default {
     const ring2 = new THREE.Mesh(RingGeometry2, RingMaterial2)
 
     scene.add(ring2)
-    ring2.position.set(0, 1, -1)
+    ring2.position.set(0, 0,0)
 
     const RingGeometry1 = new THREE.RingGeometry(11, 9, 32)
     const RingMaterial1 = new THREE.MeshBasicMaterial({
@@ -125,7 +124,7 @@ export default {
     const ring1 = new THREE.Mesh(RingGeometry1, RingMaterial1)
 
     scene.add(ring1)
-    ring1.position.set(0, 1, -1)
+    ring1.position.set(0, 0, 0)
 
     const RingGeometry = new THREE.RingGeometry(8, 7, 32)
     const RingMaterial = new THREE.MeshBasicMaterial({
@@ -134,7 +133,7 @@ export default {
     })
     const ring = new THREE.Mesh(RingGeometry, RingMaterial)
     scene.add(ring)
-    ring.position.set(0, 1, -1)
+    ring.position.set(0, 0, 0)
 
     // planet
     const planetTexture = new THREE.TextureLoader().load('/earth1.jpg')
@@ -165,7 +164,7 @@ export default {
 
     // scene background
 
-    const beachTexture = new THREE.TextureLoader().load('/Space7.jpg')
+    const beachTexture = new THREE.TextureLoader().load('/Space7.png')
     scene.background = beachTexture
 
     // 3d animations
@@ -292,33 +291,38 @@ export default {
         }
       )
       tl.fromTo('.follow', 1, {
-        x: 600,
+        x: 150,
         y: -800,
         ease: "slow(0.7, 0.7, false)"
       }, {
         opacity: 1,
         width: '300px',
         height: '150px',
-        x: 600,
+        x: 150,
         y: 280,
         transformOrigin: 'left top',
       })
-      tl.to('.secend', {
-        x: 380,
+      tl.fromTo('.secend', 1 , {
+        x: -600,
+      }, {
+        x: 50,
         opacity: 1,
         width: '500px',
         height: '150px',
         y: 100,
+        ease: "slow(0.7, 0.7, false)",
         scrollTrigger: {
-          start: 'top 110%',
-          end: 'bottom center',
           trigger: '.secend',
+          start: 'top 110%',
+          end: 'top center',
           scrub: 1,
           toggleActions: 'restart none resume pause',
         },
       })
-      tl.to('.third', {
-        x: 380,
+      tl.fromTo('.third',1 , {
+        x: 1300
+      }, {
+        x: 900,
         opacity: 1,
         width: '500px',
         height: '150px',
@@ -332,8 +336,10 @@ export default {
           toggleActions: 'restart none resume pause',
         },
       })
-      tl.to('.fourth', {
-        x: 380,
+      tl.fromTo('.fourth',1 , {
+        x:-100
+      }, {
+        x: 50,
         opacity: 1,
         width: '500px',
 
@@ -347,8 +353,10 @@ export default {
           toggleActions: 'restart none resume pause',
         },
       })
-      tl.to('.fifth', {
-        x: 380,
+      tl.fromTo('.fifth',1 , {
+        x: 1300
+      }, {
+        x: 900,
         opacity: 1,
         width: '500px',
 
@@ -363,18 +371,22 @@ export default {
           toggleActions: 'restart none resume pause',
         },
       })
-      tl.to('.sixth', {
-        x: 380,
+     tl.fromTo('.sixth',1 , {
+       x: -200
+     }, {
+        x: 100,
         opacity: 1,
-        width: '500px',
-
+        width: '800px',
         height: '150px',
-        y: 0,
+        y: 100,
         scrollTrigger: {
           trigger: '.sixth',
+
+          end: 'bottom center',
+          start: 'top 110%',
+          scrub: 1,
           toggleActions: 'restart none resume pause',
-        },
-      })
+        }})
     },
     hoverAnimation() {
       const gsap = this.$gsap
