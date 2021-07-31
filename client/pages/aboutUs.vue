@@ -51,6 +51,11 @@
           </h2>
         </div>
       </div>
+      <div class="h-screen justify-center flex flex-col">
+        <div class="seventh justify-center opacity-0 rounded">
+          <h2>along the way.</h2>
+        </div>
+      </div>
     </div>
     <!-- <p>ESO/VISTA/J. Emerson, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
     Photo by <a href="https://unsplash.com/@thecreativv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">The Creativv</a> on <a href="https://unsplash.com/s/photos/stone-wall-texture?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -114,7 +119,7 @@ export default {
     const ring2 = new THREE.Mesh(RingGeometry2, RingMaterial2)
 
     scene.add(ring2)
-    ring2.position.set(0, 0,0)
+    ring2.position.set(0, 0, 0)
 
     const RingGeometry1 = new THREE.RingGeometry(11, 9, 32)
     const RingMaterial1 = new THREE.MeshBasicMaterial({
@@ -251,7 +256,7 @@ export default {
           x: 400,
           y: 100,
           transformOrigin: 'left top',
-          ease: "back.out(1.7)"
+          ease: 'back.out(1.7)',
         }
       )
       tl.fromTo(
@@ -263,7 +268,7 @@ export default {
           x: 420,
           y: 110,
           transformOrigin: 'left top',
-          ease: "back.out(1.7)"
+          ease: 'back.out(1.7)',
         }
       )
       tl.fromTo(
@@ -275,7 +280,7 @@ export default {
           x: 440,
           y: 120,
           transformOrigin: 'left top',
-          ease: "back.out(1.7)"
+          ease: 'back.out(1.7)',
         }
       )
       tl.fromTo(
@@ -287,106 +292,162 @@ export default {
           x: 410,
           y: 180,
           transformOrigin: 'left top',
-          ease: "back.out(1.7)"
+          ease: 'back.out(1.7)',
         }
       )
-      tl.fromTo('.follow', 1, {
-        x: 150,
-        y: -800,
-        ease: "slow(0.7, 0.7, false)"
-      }, {
-        opacity: 1,
-        width: '300px',
-        height: '150px',
-        x: 150,
-        y: 280,
-        transformOrigin: 'left top',
-      })
-      tl.fromTo('.secend', 1 , {
-        x: -600,
-      }, {
-        x: 50,
-        opacity: 1,
-        width: '500px',
-        height: '150px',
-        y: 100,
-        ease: "slow(0.7, 0.7, false)",
-        scrollTrigger: {
-          trigger: '.secend',
-          start: 'top 110%',
-          end: 'top center',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
+      tl.fromTo(
+        '.follow',
+        1,
+        {
+          x: 150,
+          y: -800,
+          ease: 'slow(0.7, 0.7, false)',
         },
-      })
-      tl.fromTo('.third',1 , {
-        x: 1300
-      }, {
-        x: 900,
-        opacity: 1,
-        width: '500px',
-        height: '150px',
-        y: 100,
-        scrollTrigger: {
-          trigger: '.third',
-
-          end: 'bottom center',
-          start: 'top 110%',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
+        {
+          opacity: 1,
+          width: '300px',
+          height: '150px',
+          x: 150,
+          y: 280,
+          transformOrigin: 'left top',
+        }
+      )
+      tl.fromTo(
+        '.secend',
+        1,
+        {
+          x: -600,
         },
-      })
-      tl.fromTo('.fourth',1 , {
-        x:-100
-      }, {
-        x: 50,
-        opacity: 1,
-        width: '500px',
-
-        height: '150px',
-        y: 100,
-        scrollTrigger: {
-          trigger: '.fourth',
-          start: 'top 110%',
-          end: 'bottom center',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
+        {
+          x: 50,
+          opacity: 1,
+          width: '500px',
+          height: '150px',
+          y: 100,
+          ease: 'slow(0.7, 0.7, false)',
+          scrollTrigger: {
+            trigger: '.secend',
+            start: 'top 110%',
+            end: 'top center',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
+      tl.fromTo(
+        '.third',
+        1,
+        {
+          x: 1300,
         },
-      })
-      tl.fromTo('.fifth',1 , {
-        x: 1300
-      }, {
-        x: 900,
-        opacity: 1,
-        width: '500px',
+        {
+          x: 900,
+          opacity: 1,
+          width: '500px',
+          height: '150px',
+          y: 100,
+          scrollTrigger: {
+            trigger: '.third',
 
-        start: 'top 110%',
-        height: '150px',
-        y: 100,
-        scrollTrigger: {
-          trigger: '.fifth',
-          start: 'top 110%',
-          end: 'bottom center',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
+            end: 'bottom center',
+            start: 'top 110%',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
+      tl.fromTo(
+        '.fourth',
+        1,
+        {
+          x: -100,
         },
-      })
-     tl.fromTo('.sixth',1 , {
-       x: -200
-     }, {
-        x: 100,
-        opacity: 1,
-        width: '800px',
-        height: '150px',
-        y: 100,
-        scrollTrigger: {
-          trigger: '.sixth',
+        {
+          x: 50,
+          opacity: 1,
+          width: '500px',
 
-          end: 'bottom center',
+          height: '150px',
+          y: 100,
+          scrollTrigger: {
+            trigger: '.fourth',
+            start: 'top 110%',
+            end: 'bottom center',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
+      tl.fromTo(
+        '.fifth',
+        1,
+        {
+          x: 1300,
+        },
+        {
+          x: 900,
+          opacity: 1,
+          width: '500px',
+
           start: 'top 110%',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
-        }})
+          height: '150px',
+          y: 100,
+          scrollTrigger: {
+            trigger: '.fifth',
+            start: 'top 110%',
+            end: 'bottom center',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
+      tl.fromTo(
+        '.sixth',
+        1,
+        {
+          x: -200,
+        },
+        {
+          x: 100,
+          opacity: 1,
+          width: '800px',
+          height: '150px',
+          y: 100,
+          scrollTrigger: {
+            trigger: '.sixth',
+
+            end: 'bottom center',
+            start: 'top 110%',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
+       tl.fromTo(
+        '.seventh',
+        1,
+        {
+          x: 600,
+          y: 50,
+          scale: 0.1
+        },
+        {
+          y:900,
+          x: 600,
+          scale: 1.2,
+          opacity: 1,
+          width: '800px',
+          height: '150px',
+          scrollTrigger: {
+            trigger: '.seventh',
+
+            end: 'bottom center',
+            start: 'top 110%',
+            scrub: 1,
+            toggleActions: 'restart none resume pause',
+          },
+        }
+      )
     },
     hoverAnimation() {
       const gsap = this.$gsap
@@ -433,6 +494,6 @@ h2 {
 .whoAreWe {
   font-family: 'Fascinate Inline', cursive;
   font-size: 80px;
-  color: #C70039;
+  color: #c70039;
 }
 </style>
