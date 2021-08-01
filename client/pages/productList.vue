@@ -27,7 +27,7 @@
                take a trip with us
             <br />
             <span class="text-mainRed font-extrabold span text-10xl">
-              be free
+              stay free
             </span>
           </h1>
         </div>

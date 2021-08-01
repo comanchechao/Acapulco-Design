@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div id="main" class="h-screen w-screen">
+    <div id="main" class="h-screen w-screen grid justify-items-center">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -44,21 +44,15 @@
         </div> -->
         <div
           class="
-            w-1/3
+            w-10/12
             admin
-            flex
-            sm:flex-row
-            border-2 
-            border-black
-            flex-col
-            container
+            grid grid-rows-6
             z-10
             h-2/3
             text-center
             shadow-lg
             bg-blueGray-200
             rounded-lg
-            justify-between
             align-center
           "
         >
@@ -68,7 +62,8 @@
               flex
               mb-0
               list-none
-              w-1/2
+              justify-self-end
+              w-full
               align-center
               flex-wrap
               pt-3
@@ -121,7 +116,15 @@
               </a>
             </li>
             <li
-              class="lis -mb-px mr-2 last:mr-0 mt-1 flex-auto place-content-center"
+              class="
+                lis
+                -mb-px
+                mr-2
+                last:mr-0
+                mt-1
+                flex-auto
+                place-content-center
+              "
             >
               <a
                 class="
@@ -166,7 +169,7 @@
                 'bg-green-600': openTab === 2,
                 'bg-Amber-600': openTab === 3,
               }"
-              class="px-4 py-5 flex-auto rounded h-full border-2 border-black"
+              class="px-4 py-5 flex-auto rounded h-full"
             >
               <div class="tab-content tab-space">
                 <div
@@ -260,13 +263,13 @@
                   "
                   :class="{ hidden: openTab !== 3, block: openTab === 3 }"
                 >
-                  <div class="flex flex row place-content-around">
+                  <div class="flex row place-content-around">
                     <p>{{ order.Name }}</p>
                   </div>
                   <div
                     v-for="item in orderProduct"
                     :key="item.id"
-                    class="flex flex row place-content-around"
+                    class="flex row place-content-around"
                   >
                     <p class="text-black">{{ item.item.title }}</p>
                   </div>
@@ -275,7 +278,6 @@
             </div>
           </div>
         </div>
-       
       </div>
     </div>
   </v-app>
@@ -463,24 +465,7 @@ input[type='number'] {
 }
 
 a {
- animation: 30s ease-in-out infinite alternate-reverse color-change;
-}
-
-.lis{
-   clip-path: polygon(
-    0% 15%,
-    15% 15%,
-    15% 0%,
-    85% 0%,
-    85% 15%,
-    100% 15%,
-    100% 85%,
-    85% 85%,
-    85% 100%,
-    15% 100%,
-    15% 85%,
-    0% 85%
-  );
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
 }
 
 .addButton:hover {

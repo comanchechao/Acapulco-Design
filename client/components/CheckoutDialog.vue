@@ -27,7 +27,9 @@
           </v-btn>
         </div>
         <div class="h-full w-full flex flex-col align-center justify-center">
-          <div class="h-4/5 w-4/5 backGround grid grid-rows-2">
+          <div
+            class="lg:h-4/5 lg:w-4/5 w-full h-full backGround grid grid-rows-2"
+          >
             <div>
               <div class="w-full h-20 bg-green-400">
                 <h1 class="pa-5">

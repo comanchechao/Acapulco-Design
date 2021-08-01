@@ -12,6 +12,7 @@
       <h1 class="opacity-0 who">WHO</h1>
       <h1 class="opacity-0 are">ARE</h1>
       <h1 class="opacity-0 we">WE?</h1>
+      <!-- <h1 class="opacity-0 mark">?</h1> -->
     </div>
 
     <div class="absolute grid-row-6 grid-col-2 h-full">
@@ -227,11 +228,22 @@ export default {
     }
 
     function moveCamera() {
-      const t = document.body.getBoundingClientRect().top
+      // const t = document.body.getBoundingClientRect().top
 
-      scene.rotation.z = t * -0.01
-      scene.rotation.y = t * -0.002
-      scene.rotation.x = t * -0.002
+      // scene.rotation.z = t * -0.01
+      // scene.rotation.y = t * -0.002
+      // scene.rotation.x = t * -0.002
+
+      ring.rotation.z += 0.5
+      ring.rotation.x += 0.05
+
+      ring1.rotation.z += -0.1
+      ring1.rotation.x += -0.05
+
+      ring2.rotation.z += 0.05
+      ring2.rotation.x += 0.05
+
+      sphere.rotation.z += 0.1
     }
 
     document.body.onscroll = moveCamera
@@ -299,7 +311,7 @@ export default {
         '.follow',
         1,
         {
-          x: 150,
+          x: 600,
           y: -800,
           ease: 'slow(0.7, 0.7, false)',
         },
@@ -307,11 +319,12 @@ export default {
           opacity: 1,
           width: '300px',
           height: '150px',
-          x: 150,
+          x: 600,
           y: 280,
           transformOrigin: 'left top',
         }
       )
+
       tl.fromTo(
         '.secend',
         1,
@@ -423,16 +436,16 @@ export default {
           },
         }
       )
-       tl.fromTo(
+      tl.fromTo(
         '.seventh',
         1,
         {
           x: 600,
           y: 50,
-          scale: 0.1
+          scale: 0.1,
         },
         {
-          y:900,
+          y: 900,
           x: 600,
           scale: 1.2,
           opacity: 1,

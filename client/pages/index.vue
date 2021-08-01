@@ -362,7 +362,7 @@
                   <i class="fab fa-instagram fa-10x icon-3d"></i>
                   <i class="fab fa-whatsapp fa-10x icon-3d"></i>
                   <img
-                    class="self-end justify-self-end"
+                    class="self-end justify-self-end icon-3d"
                     src="/ppp.png"
                     alt=""
                   />
@@ -584,11 +584,18 @@ $redColor: rgba(244, 67, 54, 1);
 $blueColor: rgba(33, 150, 243, 1);
 .icon-3d {
   cursor: pointer;
-  padding: 10px;
+  padding: 16px;
   -webkit-animation: icon3d 200ms 10;
   animation: icon3d 200ms 10;
   color: #f6f6f6;
+  border-bottom: 5px solid #120129;
+  border-radius: 25px;
+  // border-right: 5px solid #120129;
   &:hover {
+    border-bottom: 5px solid #ff4a68;
+    // border-right: 5px solid #ff4a68;
+
+    transition: ease-in-out 0.7s;
     -webkit-animation: icon3d 200ms infinite;
     animation: icon3d 200ms infinite;
   }
