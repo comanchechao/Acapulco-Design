@@ -10,7 +10,6 @@ export default {
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
     title: 'Acapulco',
     meta: [
@@ -25,7 +24,6 @@ export default {
         href: '/icon.ico',
       },
     ],
-    
   },
   loading: '~/components/loading.vue',
   // Global CSS (https://go.nuxtjs.dev/config-css)

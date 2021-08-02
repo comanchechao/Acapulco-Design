@@ -22,28 +22,29 @@
         </v-btn>
       </template>
 
-      <div class="h-full w-full backround bg-Cyan-400">
+      <div class="h-screen w-screen backround bg-Cyan-400">
         <!-- <div class="bg-blue-300"></div> -->
         <div
           class="
             w-full
             h-full
             flex flex-col
-            justify-between
+            justify-start
             lg:justify-around
             align-center
           "
         >
-          <v-btn
-            x-large
-            class="self-start ml-11 mt-6"
-            icon
-            light
-            @click="dialog = false"
-          >
-            <v-icon x-large>mdi-close</v-icon>
-          </v-btn>
-          <div
+          <div class="w-full h-1/4 bg-yellow-100">
+            <v-btn
+              x-large
+              class="ml-11 mt-6"
+              icon
+              light
+              @click="dialog = false"
+            >
+              <v-icon x-large>mdi-close</v-icon>
+            </v-btn>
+            <!-- <div
             class="
               w-56
               h-56
@@ -58,32 +59,56 @@
               src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
               alt=""
             />
-          </div>
-          <div class="self-center justify-self-center">
-            <h1 class="text-center text-6xl font-mainFont text-mainBlue">
-              {{ displayName }}
-              {{ email }}
-            </h1>
-            <button class="text-lg">
-              <span
+          </div> -->
+            <div class="flex align-center flex-col justify-center">
+              <h1
                 class="
-                  text-mainBlue
-                  font-thin
-                  px-12
-                  py-2
-                  ml-40
-                  rounded-full
-                  editBtn
-                  border-mainBlue border-2
-                  mt-3
+                  text-center text-3xl
+                  lg:text-6xl
                   font-mainFont
+                  text-mainBlue
                 "
               >
-                Edit
-              </span>
-            </button>
+                {{ displayName }}
+                {{ email }}
+              </h1>
+              <button class="text-lg">
+                <span
+                  class="
+                    text-mainBlue
+                    font-thin
+                    px-12
+                    py-2
+                    rounded-full
+                    editBtn
+                    border-mainBlue border-2
+                    mt-3
+                    font-mainFont
+                  "
+                >
+                  Edit
+                </span>
+              </button>
+            </div>
           </div>
-          <div
+          <div class="h-3/4 w-full bg-yellow-800">
+            <h1 class="font-mainFont font-bold text-2xl absolute p-4">
+              My Orders
+            </h1>
+            <div class="w-full h-1/4 bg-Lime-900">
+              <div class="flex space-x-2 h-full w-full">
+                <div class="bg-yellow-200 h-full w-full"></div>
+                <div class="bg-yellow-900 h-full w-full"></div>
+                <div class="bg-yellow-500 h-full w-full"></div>
+              </div>
+            </div>
+
+            <div class="w-full h-3/4 bg-green-300 space-y-2">
+              <div class="w-full h-3/6 bg-pink-300"></div>
+              <div class="w-full h-3/6 bg-pink-700"></div>
+            </div>
+          </div>
+          <!-- <div
             class="
               bg-mainBlue
               w-11/12
@@ -99,7 +124,16 @@
               <h1 class="text-4xl font-mainFont text-mainRed">
                 <span class="ml-3"> Your Shipping Details </span>
               </h1>
-              <div class="flex flex-col text-2xl self-center justify-center items-center text-gray-200">
+              <div
+                class="
+                  flex flex-col
+                  text-2xl
+                  self-center
+                  justify-center
+                  items-center
+                  text-gray-200
+                "
+              >
                 <p>{{ order.Name }}</p>
                 <p>{{ order.lastName }}</p>
                 <p>{{ order.City }}</p>
@@ -115,7 +149,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </v-dialog>

@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
   <v-app>
-    <div id="main" class="">
+    <div id="main" class="w-screen">
       <head>
         <link
           rel="stylesheet"
@@ -21,8 +21,8 @@
           class="mt-4 navbar sticky"
         />
       </LazyHydrate>
-      <div class="w-full">
-        <div class="grid place-items-center w-full">
+      <div class="w-screen">
+        <div class="grid place-items-center w-screen">
           <div></div>
           <div
             class="
@@ -31,7 +31,7 @@
               align-center
               justify-between
               h-5/6
-              w-full
+              w-screen
               mb-40
             "
           >
@@ -59,7 +59,7 @@
                 delay: 1,
                 ease: 'circ.out',
               }"
-              class="grid grid-cols-3 place-items-center w-full opacity-0"
+              class="grid grid-cols-3 place-items-center w-screen opacity-0"
             >
               <div class="peace self-start transform -translate-y-24">
                 <img src="/sketch-162443588438sdfs.png" alt="" />
@@ -69,8 +69,9 @@
                 <h1
                   class="
                     acapulco
+                    px-6
                     tracking-wider
-                    text-9xl
+                    text-8xl
                     md:text-9xl
                     lg:text-10xl
                     text-center
@@ -336,11 +337,12 @@
                 <div class="self-center">
                   <h1
                     class="
-                      ml-5
-                      mt-6
                       font-mainFont font-extrabold
                       capitalize
-                      text-7xl text-mainRed
+                      text-5xl
+                      p-4
+                      lg:text-7xl
+                      text-mainRed
                     "
                   >
                     find us on social media!
@@ -348,21 +350,31 @@
                 </div>
                 <div
                   class="
-                    w-full
+                    w-screen
                     h-3/5
                     self-center
                     flex
-                    justify-center
+                    justify-around
+                    lg:justify-center
                     align-center
-                    space-x-9
+                    space-x-4
+                    lg:space-x-9
                   "
                 >
-                  <i class="fab fa-twitter fa-10x icon-3d"></i>
-                  <i class="fab fa-facebook fa-10x icon-3d"></i>
-                  <i class="fab fa-instagram fa-10x icon-3d"></i>
-                  <i class="fab fa-whatsapp fa-10x icon-3d"></i>
+                  <i class="fab fa-twitter fa-5x lg:fa-10x icon-3d"></i>
+                  <i class="fab fa-facebook fa-5x lg:fa-10x icon-3d"></i>
+                  <i class="fab fa-instagram fa-5x lg:fa-10x icon-3d"></i>
+                  <i class="fab fa-whatsapp fa-5x lg:fa-10x icon-3d"></i>
                   <img
-                    class="self-end justify-self-end icon-3d"
+                    class="
+                      self-end
+                      justify-self-end
+                      icon-3d
+                      transform
+                      translate-y-40
+                      scale-75
+                      lg:scale-100
+                    "
                     src="/ppp.png"
                     alt=""
                   />
@@ -584,7 +596,6 @@ $redColor: rgba(244, 67, 54, 1);
 $blueColor: rgba(33, 150, 243, 1);
 .icon-3d {
   cursor: pointer;
-  padding: 16px;
   -webkit-animation: icon3d 200ms 10;
   animation: icon3d 200ms 10;
   color: #f6f6f6;

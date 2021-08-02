@@ -228,9 +228,7 @@ export default {
     }
 
     function moveCamera() {
-      // const t = document.body.getBoundingClientRect().top
-
-      // scene.rotation.z = t * -0.01
+      
       // scene.rotation.y = t * -0.002
       // scene.rotation.x = t * -0.002
 

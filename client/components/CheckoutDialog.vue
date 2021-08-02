@@ -21,14 +21,20 @@
         </button>
       </template>
       <div id="main" class="h-full w-full overflow-hidden">
-        <div class="w-full h-11">
+        <div class="w-full h-11 invisible md:visible lg:visible">
           <v-btn x-large class="m-4" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div>
         <div class="h-full w-full flex flex-col align-center justify-center">
           <div
-            class="lg:h-4/5 lg:w-4/5 w-full h-full backGround grid grid-rows-2"
+            class="
+              lg:h-4/5 lg:w-4/5
+              w-full
+              h-screen
+              backGround
+              grid grid-rows-2
+            "
           >
             <div>
               <div class="w-full h-20 bg-green-400">

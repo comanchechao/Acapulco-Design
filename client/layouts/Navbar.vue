@@ -1,26 +1,17 @@
 <template>
   <!-- <v-app> -->
-  <div class="lg:w-full w-60 bg-transparent Navbar opacity-0 z-50">
-    <div class="grid grid-cols-4 place-content-center">
-      <div class="col-span-2 justify-self-start self-center">
+  <div class="w-screen bg-transparent Navbar opacity-0 z-50">
+    <div class="flex align-center justify-around px-9">
+      <div class="">
         <NuxtLink to="/aboutUs">
-          <v-btn
-            class="ml-14 Btn"
-            dark
-            depressed
-            rounded
-            x-large
-            color="transparent"
-          >
+          <v-btn class="Btn" dark depressed rounded x-large color="transparent">
             <v-icon class="pr-2" large>mdi-meditation</v-icon>
             <span class="aboutUs"> About Us </span>
           </v-btn>
         </NuxtLink>
       </div>
 
-      <div
-        class="flex col-span-2 align-center space-x-3 justify-self-end mr-14"
-      >
+      <div class="flex align-center justify-end">
         <div>
           <NuxtLink to="/productList">
             <v-btn depressed x-large color="transparent" class="">
@@ -61,7 +52,7 @@
             <v-list dense class="space-y-4 p-4">
               <v-list-item>
                 <v-list-item-icon>
-                  <LazyHydrate  :on-interaction="['click', 'focus']">
+                  <LazyHydrate :on-interaction="['click', 'focus']">
                     <ProfilePageDialog />
                   </LazyHydrate>
                 </v-list-item-icon>
