@@ -20,19 +20,27 @@
           >
         </button>
       </template>
-      <div id="main" class="h-full w-full overflow-hidden">
-        <div class="w-full h-11 invisible md:visible lg:visible">
-          <v-btn x-large class="m-4" icon dark @click="dialog = false">
+      <div id="main" class="h-screen w-screen overflow-hidden">
+        <div class="hidden lg:flex">
+          <v-btn
+            x-large
+            class="ml-4 absolute mt-5 self-start"
+            icon
+            dark
+            @click="dialog = false"
+          >
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div>
-        <div class="h-full w-full flex flex-col align-center justify-center">
+        <div class="h-full w-full flex flex-col justify-center">
           <div
             class="
               lg:h-4/5 lg:w-4/5
               w-full
-              h-screen
+              h-full
               backGround
+              self-center
+              justify-self-center
               grid grid-rows-2
             "
           >
