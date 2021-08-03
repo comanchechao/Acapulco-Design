@@ -14,31 +14,33 @@
       </LazyHydrate>
 
       <div
-          class="absolute lg:w-1/3 inset-x-0 top-20 z-20 shadow-xl w-full sm:w-full md:w-2/5 mx-auto -mt-1"
-        >
-          <Adminastration
-            ref="Adminastration"
-            v-gsap.from="{
-              y: -180,
-              opacity: 0,
-              duration: 1.5,
-              ease: 'expo.out',
-            }"
-            class="adminastration sm:w-full"
-          />
-        </div>
-
-
-      <div
         class="
-          w-screen
-          h-screen
-          mt-9
-          grid
-          align-center
-          grid-rows-4
+          absolute
+          lg:w-1/3
+          inset-x-0
+          top-20
+          z-20
+          shadow-xl
+          w-full
+          sm:w-full
+          md:w-2/5
+          mx-auto
+          -mt-1
         "
       >
+        <Adminastration
+          ref="Adminastration"
+          v-gsap.from="{
+            y: -180,
+            opacity: 0,
+            duration: 1.5,
+            ease: 'expo.out',
+          }"
+          class="adminastration sm:w-full"
+        />
+      </div>
+
+      <div class="w-screen h-screen mt-9 grid align-center grid-rows-4">
         <div
           class="
             flex
@@ -51,12 +53,9 @@
           "
         >
           <div
-            :class="{
-              'bg-Rose-900': openTab === 1,
-              'bg-Indigo-600': openTab === 2,
-              'bg-Lime-600': openTab === 3,
-            }"
             class="
+              admin
+              bg-Cyan-700
               px-4
               py-8
               flex flex-row
@@ -94,7 +93,7 @@
                   block: openTab === 1,
                 }"
               >
-                <h3 class="text-gray-200 text-xl">
+                <h3 class="rates text-gray-200 text-xl">
                   Collaboratively administrate empowered markets via
                   plug-and-play networks. Dynamically procrastinate B2C users
                   after installed base benefits.
@@ -108,7 +107,8 @@
                 <div class="grid grid-cols-2 grid-rows-2">
                   <div
                     class="
-                    container
+                      catagories
+                      container
                       col-span-2
                       flex flex-wrap flex-row
                       justify-center
@@ -151,7 +151,7 @@
                   </div>
 
                   <div
-                    class="flex flex-col  w-full h-full self-center align-center"
+                    class="addSomthing flex flex-col w-full h-full self-center align-center"
                   >
                     <h2 class="text-3xl">SOMETHING TO ADD?</h2>
                     <button
@@ -168,7 +168,7 @@
                       +
                     </button>
                   </div>
-                  <div class="w-full overflow-y-scroll h-2/3  text-gray-200">
+                  <div class="w-full overflow-y-scroll h-2/3 text-gray-200">
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
                         id="products"
@@ -210,9 +210,9 @@
                 "
                 :class="{ hidden: openTab !== 3, block: openTab === 3 }"
               >
-                <div class="flex flex-row">
+                <div class="orders flex flex-row">
                   <div class="text-gray-200">
-                    <p>{{ order }}</p>
+                    <p>{{ order.Name }}</p>
                   </div>
                   <div v-for="item in orderProduct" :key="item.id" class="">
                     <p class="">{{ item.item.title }}</p>
@@ -223,16 +223,7 @@
           </div>
         </div>
 
-        <div
-          class="
-            flex
-            align-center
-            justify-center
-            w-full
-            h-full
-            row-span-1
-          "
-        >
+        <div class="flex align-center justify-center w-full h-full row-span-1">
           <ul
             class="
               tabBar
@@ -250,7 +241,7 @@
               flex-row
             "
           >
-            <li class="lis w-full text-center">
+            <li  class="lis w-full text-center" @click="tab1()">
               <a
                 class="
                   text-xs
@@ -274,7 +265,7 @@
                 <img src="/Market.png" alt="" />
               </a>
             </li>
-            <li class="lis w-full text-center">
+            <li  class="lis w-full text-center" @click="tab2()">
               <a
                 class="
                   text-xs
@@ -297,7 +288,7 @@
                 <img class="place-self-center" src="/Add.png" alt="" />
               </a>
             </li>
-            <li class="lis w-full text-center">
+            <li class="lis w-full text-center" @click="tab3()">
               <a
                 class="
                   text-xs
@@ -496,6 +487,43 @@ export default {
           })
         })
     },
+
+    tab2() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+      tl.from('.catagories', 0.5, {
+        x: 100,
+        opacity: 0,
+      })
+      tl.from('.addSomthing' , 0.5 , {
+        y: 100,
+        opacity: 0,
+        scale: 0.2
+      })
+      console.log(' you clicked me ');
+    },
+
+     tab3() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+      tl.from('.orders', 0.5, {
+        x: 100,
+        opacity: 0,
+      })
+    },
+
+     tab1() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+      tl.from('.rates', 0.5, {
+        x: 100,
+        opacity: 0,
+      })
+    },
+
     welcome() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
@@ -514,6 +542,7 @@ export default {
         opacity: 0,
         scale: 0.5,
         duration: 0.5,
+        stagger: 0.4,
       })
       tl.from('.bees', {
         scale: 0.1,
@@ -591,9 +620,7 @@ input[type='number'] {
 }
 
 .admin {
-  background-image: url('/sunSet.jpg');
   font-family: 'Yanone Kaffeesatz';
-  background-size: cover;
 }
 
 #products {
