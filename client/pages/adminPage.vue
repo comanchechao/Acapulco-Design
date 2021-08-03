@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <div id="main" class="h-screen w-screen grid self-center justify-center">
+    <div id="main" class="h-screen w-screen overflow-hidden grid self-center justify-center">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -40,7 +40,7 @@
         />
       </div>
 
-      <div class="w-screen h-screen mt-9 grid align-center grid-rows-4">
+      <div class="w-screen h-screen mt-15 grid align-center grid-rows-4">
         <div
           class="
             flex
@@ -151,7 +151,14 @@
                   </div>
 
                   <div
-                    class="addSomthing flex flex-col w-full h-full self-center align-center"
+                    class="
+                      addSomthing
+                      flex flex-col
+                      w-full
+                      h-full
+                      self-center
+                      align-center
+                    "
                   >
                     <h2 class="text-3xl">SOMETHING TO ADD?</h2>
                     <button
@@ -168,13 +175,32 @@
                       +
                     </button>
                   </div>
-                  <div class="w-full overflow-y-scroll h-2/3 text-gray-200">
+                  <div
+                    class="
+                      w-full
+                      products
+                    
+                      p-5
+                      rounded-lg
+                      shadow-2xl
+                      overflow-y-scroll
+                      h-2/3
+                      text-gray-200
+                    "
+                  >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
                         id="products"
-                        class="flex flex-row place-content-around"
+                        class="
+                          flex flex-row
+                          divide-y
+                          border-black
+                          text-black
+                          place-content-around
+                        "
                       >
-                        <h3>{{ product.title }}</h3>
+                        <div class="bottomBorder flex flex-row place-content-between border-b-2 w-full">
+                          <h3 class="">{{ product.title }}</h3>
                         <button class="">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -192,6 +218,7 @@
                             />
                           </svg>
                         </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -223,7 +250,7 @@
           </div>
         </div>
 
-        <div class="flex align-center justify-center w-full h-full row-span-1">
+        <div class="flex align-center mb-10 justify-center w-full h-full row-span-1">
           <ul
             class="
               tabBar
@@ -241,7 +268,7 @@
               flex-row
             "
           >
-            <li  class="lis w-full text-center" @click="tab1()">
+            <li class="lis w-full text-center" @click="tab1()">
               <a
                 class="
                   text-xs
@@ -257,7 +284,7 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-white': openTab !== 1,
+                  'text-pink-600 bg-blue-300': openTab !== 1,
                   'text-white bg-Rose-900': openTab === 1,
                 }"
                 @click="toggleTabs(1)"
@@ -265,7 +292,7 @@
                 <img src="/Market.png" alt="" />
               </a>
             </li>
-            <li  class="lis w-full text-center" @click="tab2()">
+            <li class="lis w-full text-center" @click="tab2()">
               <a
                 class="
                   text-xs
@@ -280,7 +307,7 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-white': openTab !== 2,
+                  'text-pink-600 bg-blue-300': openTab !== 2,
                   'text-white bg-Indigo-600': openTab === 2,
                 }"
                 @click="toggleTabs(2)"
@@ -303,7 +330,7 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-white': openTab !== 3,
+                  'text-pink-600 bg-blue-300': openTab !== 3,
                   'text-white bg-Lime-600': openTab === 3,
                 }"
                 @click="toggleTabs(3)"
@@ -493,18 +520,22 @@ export default {
       const tl = gsap.timeline()
 
       tl.from('.catagories', 0.5, {
+        x: -100,
+        opacity: 0,
+      })
+      tl.from('.addSomthing', 0.5, {
+        x: -100,
+        opacity: 0,
+        scale: 0.2,
+      })
+      tl.from('.products', 0.5, {
         x: 100,
         opacity: 0,
       })
-      tl.from('.addSomthing' , 0.5 , {
-        y: 100,
-        opacity: 0,
-        scale: 0.2
-      })
-      console.log(' you clicked me ');
+      console.log(' you clicked me ')
     },
 
-     tab3() {
+    tab3() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
@@ -514,7 +545,7 @@ export default {
       })
     },
 
-     tab1() {
+    tab1() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
@@ -578,6 +609,7 @@ input::-webkit-inner-spin-button {
 }
 
 #app {
+  overflow: hidden;
   height: 100%;
   width: 100%;
 }
@@ -626,5 +658,18 @@ input[type='number'] {
 #products {
   font-family: 'Yanone Kaffeesatz';
   font-size: 22px;
+  
+}
+
+.bottomBorder{
+  border-color: #dee2ff;
+  color: #023047;
+}
+.products{
+  background-color: #ffb703;
+}
+.addSomthing{
+  color: #ffb703;
+font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 </style>
