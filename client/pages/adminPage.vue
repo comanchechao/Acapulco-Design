@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <div id="main" class="h-screen w-screen grid justify-items-center">
+  <v-app id="app">
+    <div id="main" class="h-screen w-screen grid self-center justify-center">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -9,13 +9,325 @@
             delay: 1,
             ease: 'circ.out',
           }"
-          class="mt-4 z-50"
+          class="mt-4 absolute z-50"
         />
       </LazyHydrate>
-      <div class="w-full h-screen flex place-items-center">
+
+      <div
+          class="absolute lg:w-1/3 inset-x-0 top-20 z-20 shadow-xl w-full sm:w-full md:w-2/5 mx-auto -mt-1"
+        >
+          <Adminastration
+            ref="Adminastration"
+            v-gsap.from="{
+              y: -180,
+              opacity: 0,
+              duration: 1.5,
+              ease: 'expo.out',
+            }"
+            class="adminastration sm:w-full"
+          />
+        </div>
+
+
+      <div
+        class="
+          w-screen
+          h-screen
+          mt-9
+          grid
+          align-center
+          grid-rows-4
+        "
+      >
+        <div
+          class="
+            flex
+            justify-center
+            align-center
+            w-full
+            h-full
+            container
+            row-span-3
+          "
+        >
+          <div
+            :class="{
+              'bg-Rose-900': openTab === 1,
+              'bg-Indigo-600': openTab === 2,
+              'bg-Lime-600': openTab === 3,
+            }"
+            class="
+              px-4
+              py-8
+              flex flex-row
+              justify-center
+              self-center
+              w-full
+              rounded
+              h-full
+            "
+          >
+            <div
+              class="
+                tab-content
+                h-full
+                w-full
+                place-items-center
+                content-center
+                justify-center
+                flex
+                self-center
+                tab-space
+              "
+            >
+              <div
+                class="
+                  flex flex-col
+                  place-items-center
+                  justify-center
+                  h-full
+                  w-full
+                  text-gray-200
+                "
+                :class="{
+                  hidden: openTab !== 1,
+                  block: openTab === 1,
+                }"
+              >
+                <h3 class="text-gray-200 text-xl">
+                  Collaboratively administrate empowered markets via
+                  plug-and-play networks. Dynamically procrastinate B2C users
+                  after installed base benefits.
+                  <br />
+                  <br />
+                  Dramatically visualize customer directed convergence without
+                  revolutionary ROI.
+                </h3>
+              </div>
+              <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
+                <div class="grid grid-cols-2 grid-rows-2">
+                  <div
+                    class="
+                    container
+                      col-span-2
+                      flex flex-wrap flex-row
+                      justify-center
+                      content-center
+                      h-full
+                      w-full
+                      m-3
+                      p-5
+                    "
+                  >
+                    <v-btn
+                      elevation="7"
+                      x-large
+                      color="amber"
+                      class="border-2 border-CoolGray-600 p-2 m-3"
+                    >
+                      <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
+                    >
+                    <v-btn
+                      elevation="7"
+                      x-large
+                      color="amber"
+                      class="border-2 border-CoolGray-600 p-2 m-3"
+                      ><v-icon dark>mdi-fire</v-icon></v-btn
+                    >
+                    <v-btn
+                      elevation="7"
+                      x-large
+                      color="amber"
+                      class="border-2 border-CoolGray-600 p-2 m-3"
+                      ><v-icon dark>mdi-package</v-icon></v-btn
+                    >
+                    <v-btn
+                      elevation="7"
+                      x-large
+                      color="amber"
+                      class="border-2 border-CoolGray-600 p-2 m-3"
+                      ><v-icon dark>mdi-toolbox</v-icon></v-btn
+                    >
+                  </div>
+
+                  <div
+                    class="flex flex-col  w-full h-full self-center align-center"
+                  >
+                    <h2 class="text-3xl">SOMETHING TO ADD?</h2>
+                    <button
+                      class="
+                        focus:outline-none
+                        my-8
+                        addButton
+                        text-center
+                        h-1/3
+                        w-2/3
+                      "
+                      @click="showModal"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="w-full overflow-y-scroll h-2/3  text-gray-200">
+                    <div v-for="product in Products" :key="product.id" class="">
+                      <div
+                        id="products"
+                        class="flex flex-row place-content-around"
+                      >
+                        <h3>{{ product.title }}</h3>
+                        <button class="">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-red-500 h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            @click="deleteProduct(product.id)"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="
+                  flex
+                  max-w-1/3
+                  flex-col
+                  place-items-center
+                  flex-shrink
+                  overflow-y-auto
+                  max-h-72
+                  text-xl
+                "
+                :class="{ hidden: openTab !== 3, block: openTab === 3 }"
+              >
+                <div class="flex flex-row">
+                  <div class="text-gray-200">
+                    <p>{{ order }}</p>
+                  </div>
+                  <div v-for="item in orderProduct" :key="item.id" class="">
+                    <p class="">{{ item.item.title }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="
+            flex
+            align-center
+            justify-center
+            w-full
+            h-full
+            row-span-1
+          "
+        >
+          <ul
+            class="
+              tabBar
+              flex
+              list-none
+              w-full
+              h-full
+              align-center
+              content-center
+              justify-items-center
+              pt-3
+              pb-4
+              place-content-evenly
+              m-6
+              flex-row
+            "
+          >
+            <li class="lis w-full text-center">
+              <a
+                class="
+                  text-xs
+                  font-bold
+                  uppercase
+                  mx-1
+                  sm:h-full
+                  px-5
+                  py-3
+                  shadow-lg
+                  rounded
+                  block
+                  leading-normal
+                "
+                :class="{
+                  'text-pink-600 bg-white': openTab !== 1,
+                  'text-white bg-Rose-900': openTab === 1,
+                }"
+                @click="toggleTabs(1)"
+              >
+                <img src="/Market.png" alt="" />
+              </a>
+            </li>
+            <li class="lis w-full text-center">
+              <a
+                class="
+                  text-xs
+                  font-bold
+                  uppercase
+                  px-5
+                  mx-1
+                  py-3
+                  shadow-lg
+                  rounded
+                  block
+                  leading-normal
+                "
+                :class="{
+                  'text-pink-600 bg-white': openTab !== 2,
+                  'text-white bg-Indigo-600': openTab === 2,
+                }"
+                @click="toggleTabs(2)"
+              >
+                <img class="place-self-center" src="/Add.png" alt="" />
+              </a>
+            </li>
+            <li class="lis w-full text-center">
+              <a
+                class="
+                  text-xs
+                  font-bold
+                  uppercase
+                  mx-1
+                  px-5
+                  py-3
+                  shadow-lg
+                  rounded
+                  block
+                  leading-normal
+                "
+                :class="{
+                  'text-pink-600 bg-white': openTab !== 3,
+                  'text-white bg-Lime-600': openTab === 3,
+                }"
+                @click="toggleTabs(3)"
+              >
+                <img class="place-self-center" src="/Orders.png" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="absolute w-full z-0 h-screen flex place-items-center">
         <div class="tropicalLeaves absolute w-1/2 z-0 top-0">
           <img src="/hat.png" alt="" />
         </div>
+      </div>
 
         <div
           class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
@@ -30,8 +342,8 @@
             }"
             class="adminastration mb-10"
           />
-        </div>
-        <!-- <div class="bees flex middle flex-col place-items-center">
+        </div> -->
+      <!-- <div class="bees flex middle flex-col place-items-center">
           <img src="/Orders.png" alt="" />
           <h2 class="text-blue-700 text-3xl">Check</h2>
         </div>
@@ -42,13 +354,16 @@
           <img src="/Market.png" alt="" />
           <h2 class="text-blue-700 text-3xl">Rates</h2>
         </div> -->
-        <div
+      <!-- <div
           class="
-            w-10/12
+            m-8
+            w-screen
             admin
-            grid grid-rows-6
-            z-10
-            h-2/3
+            grid grid-rows-4
+            self-center
+            z-30
+            h-screen
+            self-center
             text-center
             shadow-lg
             bg-blueGray-200
@@ -56,229 +371,24 @@
             align-center
           "
         >
-          <ul
-            class="
-              tabBar
-              flex
-              mb-0
-              list-none
-              justify-self-end
-              w-full
-              align-center
-              flex-wrap
-              pt-3
-              pb-4
-              flex-row
-            "
-          >
-            <li class="lis -mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 1,
-                  'text-white bg-Indigo-500': openTab === 1,
-                }"
-                @click="toggleTabs(1)"
-              >
-                <img src="/Market.png" alt="" />
-              </a>
-            </li>
-            <li class="lis -mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 2,
-                  'text-white bg-green-600': openTab === 2,
-                }"
-                @click="toggleTabs(2)"
-              >
-                <img class="place-self-center" src="/Add.png" alt="" />
-              </a>
-            </li>
-            <li
-              class="
-                lis
-                -mb-px
-                mr-2
-                last:mr-0
-                mt-1
-                flex-auto
-                place-content-center
-              "
-            >
-              <a
-                class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
-                  py-3
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 bg-white': openTab !== 3,
-                  'text-white bg-Amber-600': openTab === 3,
-                }"
-                @click="toggleTabs(3)"
-              >
-                <img class="place-self-center" src="/Orders.png" alt="" />
-              </a>
-            </li>
-          </ul>
+          
 
-          <div
+           <div
             class="
-              relative
+              row-span-3
               flex flex-col
-              min-w-0
+              align-center
+              justify-center
+              self-center
               bees
               break-words
               bg-CoolGray-300
               w-2/3
-              mb-6
+              h-2/3
               shadow-lg
               rounded
             "
-          >
-            <div
-              :class="{
-                'bg-Indigo-500': openTab === 1,
-                'bg-green-600': openTab === 2,
-                'bg-Amber-600': openTab === 3,
-              }"
-              class="px-4 py-5 flex-auto rounded h-full"
-            >
-              <div class="tab-content tab-space">
-                <div
-                  class="
-                    flex
-                    max-w-1/3
-                    flex-col
-                    place-items-stretch
-                    flex-shrink
-                    overflow-y-auto
-                    h-full
-                  "
-                  :class="{
-                    hidden: openTab !== 1,
-                    block: openTab === 1,
-                  }"
-                >
-                  <h3 class="text-black text-xl">
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br />
-                    Dramatically visualize customer directed convergence without
-                    revolutionary ROI.
-                  </h3>
-                </div>
-                <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
-                  <div
-                    class="
-                      flex
-                      max-w-1/3
-                      flex-col
-                      place-items-stretch
-                      flex-shrink
-                      max-h-56
-                    "
-                  >
-                    <div class="flex flex-col place-items-center">
-                      <button
-                        class="focus:outline-none addButton w-1/2"
-                        @click="showModal"
-                      >
-                        Add
-                      </button>
-                      <h1 id="products">products</h1>
-                    </div>
-                    <div class="h-full overflow-y-scroll">
-                      <div
-                        v-for="product in Products"
-                        :key="product.id"
-                        class=""
-                      >
-                        <div
-                          id="products"
-                          class="flex flex-row place-content-around"
-                        >
-                          <h3>{{ product.title }}</h3>
-                          <button class="">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="text-red-500 h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              @click="deleteProduct(product.id)"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="
-                    flex
-                    max-w-1/3
-                    flex-col
-                    place-items-center
-                    flex-shrink
-                    overflow-y-auto
-                    max-h-72
-                    text-xl
-                  "
-                  :class="{ hidden: openTab !== 3, block: openTab === 3 }"
-                >
-                  <div class="flex row place-content-around">
-                    <p>{{ order.Name }}</p>
-                  </div>
-                  <div
-                    v-for="item in orderProduct"
-                    :key="item.id"
-                    class="flex row place-content-around"
-                  >
-                    <p class="text-black">{{ item.item.title }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          > -->
     </div>
   </v-app>
 </template>
@@ -349,6 +459,7 @@ export default {
   },
 
   mounted() {
+    console.log(this.order)
     const orders = this.$fire.firestore
       .collection('orders')
       .get()
@@ -437,6 +548,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#app {
+  height: 100%;
+  width: 100%;
+}
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
@@ -455,17 +570,13 @@ input[type='number'] {
 }
 
 .addButton {
-  font-size: 20px;
+  font-size: 70px;
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  padding: 5px 8px;
+  padding: 5px 5px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-a {
-  animation: 30s ease-in-out infinite alternate-reverse color-change;
 }
 
 .addButton:hover {
@@ -477,34 +588,6 @@ a {
 }
 .middle {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-@-webkit-keyframes color-change {
-  0% {
-    background-color: #ade7e7;
-  }
-
-  45% {
-    background-color: #a6a6db;
-  }
-
-  100% {
-    background-color: #d8bbff;
-  }
-}
-
-@keyframes color-change {
-  0% {
-    background-color: #83f1f1;
-  }
-
-  50% {
-    background-color: #55dd8e;
-  }
-
-  100% {
-    background-color: #595bee;
-  }
 }
 
 .admin {
