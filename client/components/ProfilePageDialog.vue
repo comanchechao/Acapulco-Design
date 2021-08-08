@@ -22,7 +22,7 @@
         </v-btn>
       </template>
 
-      <div class="h-screen w-screen backround bg-Cyan-400">
+      <div id="main" class="h-screen w-screen backround overflow-hidden">
         <!-- <div class="bg-blue-300"></div> -->
         <div
           class="
@@ -34,7 +34,7 @@
             align-center
           "
         >
-          <div class="w-full h-1/4 bg-yellow-100">
+          <div class="w-full h-1/4">
             <v-btn
               x-large
               class="ml-11 mt-6"
@@ -60,7 +60,7 @@
               alt=""
             />
           </div> -->
-            <div class="flex align-center flex-col justify-center">
+            <!-- <div class="flex align-center flex-col justify-center">
               <h1
                 class="
                   text-center text-3xl
@@ -72,40 +72,86 @@
                 {{ displayName }}
                 {{ email }}
               </h1>
-              <button class="text-lg">
+              <button class="text-lg mb-5">
                 <span
                   class="
                     text-mainBlue
                     font-thin
-                    px-12
                     py-2
+                    px-12
                     rounded-full
                     editBtn
                     border-mainBlue border-2
-                    mt-3
                     font-mainFont
                   "
                 >
                   Edit
                 </span>
               </button>
-            </div>
+            </div> -->
           </div>
-          <div class="h-3/4 w-full bg-yellow-800">
+          <div class="h-full w-full lg:w-5/6 lg:rounded-lg">
             <h1 class="font-mainFont font-bold text-2xl absolute p-4">
               My Orders
             </h1>
-            <div class="w-full h-1/4 bg-Lime-900">
-              <div class="flex space-x-2 h-full w-full">
-                <div class="bg-yellow-200 h-full w-full"></div>
-                <div class="bg-yellow-900 h-full w-full"></div>
-                <div class="bg-yellow-500 h-full w-full"></div>
+            <div class="w-full h-1/4">
+              <div
+                class="
+                  flex
+                  space-x-2
+                  h-full
+                  w-full
+                  ordersDiv
+                  divide-x-4
+                  p-4
+                  divide-gray-500
+                "
+              >
+                <div class="h-full w-full"></div>
+                <div class="h-full w-full"></div>
+                <div class="h-full w-full"></div>
               </div>
             </div>
 
-            <div class="w-full h-3/4 bg-green-300 space-y-2">
-              <div class="w-full h-3/6 bg-pink-300"></div>
-              <div class="w-full h-3/6 bg-pink-700"></div>
+            <div class="w-full h-3/4">
+              <div class="w-full h-3/6">
+                <div class="w-full h-1/3 bg-green-400">
+                  <h2
+                    class="
+                      font-mainFont
+                      text-mainBlue
+                      font-bold
+                      text-2xl
+                      p-4
+                      flex
+                    "
+                  >
+                    <v-icon x-large dark>mdi-home</v-icon>
+
+                    <span class="ml-3"> My Address </span>
+                  </h2>
+                </div>
+                <div class="w-full h-2/3 bg-CoolGray-900"></div>
+              </div>
+              <div class="w-full h-3/6 ordersDiv">
+                <div class="w-full h-1/3">
+                  <h2
+                    class="
+                      font-mainFont
+                      text-mainBlue
+                      font-bold
+                      text-2xl
+                      p-4
+                      flex
+                    "
+                  >
+                    <v-icon x-large light>mdi-account</v-icon>
+
+                    <span class="ml-3"> Account Information </span>
+                  </h2>
+                </div>
+                <div class="w-full h-2/3"></div>
+              </div>
             </div>
           </div>
           <!-- <div
@@ -245,8 +291,11 @@ span {
   background-color: #120129;
 }
 
-.mainDiv {
-  border: solid 1px red;
+.ordersDiv {
+  background: rgba(255, 255, 255, 0.651);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 /* .backround {

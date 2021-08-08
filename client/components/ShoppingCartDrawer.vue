@@ -29,11 +29,9 @@
       v-model="drawer"
       right
       temporary
-      scrollable
       app
-      bottom
       class="drawer red lighten-4 z-10"
-      width="33%"
+      width="40%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->
@@ -147,13 +145,6 @@ export default {
 
 <style scoped>
 .container {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 30px;
-  /* width: 600px; */
-  height: 90%;
 }
 
 .items {
@@ -168,7 +159,6 @@ export default {
   line-height: 30px;
 }
 .price {
-  grid-area: 1 / 3 / 2 / 4;
   font-family: 'Monserrat', sans-serif;
   font-size: 25px;
   font-weight: 700;

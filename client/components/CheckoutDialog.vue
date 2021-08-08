@@ -45,8 +45,13 @@
             "
           >
             <div>
-              <div class="w-full h-20 bg-green-400">
+              <div class="w-full h-20 bg-green-400 flex">
                 <h1 class="pa-5">
+                  <span class="md:hidden lg:hidden span" @click="dialog = false"
+                    ><v-icon light x-large color="pink lighten-5"
+                      >mdi-chevron-double-left</v-icon
+                    ></span
+                  >
                   <v-icon x-large dark>mdi-notebook-check</v-icon>
                   <span
                     class="font-mainFont text-mainBlue font-extrabold text-4xl"
@@ -322,6 +327,14 @@ export default {
   font-family: 'Londrina Solid', cursive;
 } */
 
+.span {
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+
+.span:hover {
+  filter: brightness(85%);
+}
 
 .backGround {
   background: rgba(255, 255, 255, 0.2);
