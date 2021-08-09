@@ -82,7 +82,7 @@
       </template>
 
       <div class="flex justify-center flex-col align-center rounded-full">
-        <ProductDetail />
+        <ProductDetail :product="product" />
       </div>
     </v-dialog>
   </div>

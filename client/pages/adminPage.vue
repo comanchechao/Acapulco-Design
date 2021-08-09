@@ -238,8 +238,8 @@
                 :class="{ hidden: openTab !== 3, block: openTab === 3 }"
               >
                 <div class="orders flex flex-row">
-                  <div class="text-gray-200">
-                    <p>{{ order.Name }}</p>
+                  <div class="text-black">
+                    <p>{{ orders.Name }}</p>
                   </div>
                   <div v-for="item in orderProduct" :key="item.id" class="">
                     <p class="">{{ item.item.title }}</p>
@@ -426,7 +426,7 @@ export default {
     return {
       Products: [],
       openTab: 1,
-      order: [],
+      orders: [],
       orderProduct: [],
     }
   },
@@ -477,22 +477,33 @@ export default {
   },
 
   mounted() {
-    console.log(this.order)
-    const orders = this.$fire.firestore
-      .collection('orders')
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          this.order = doc.data().order
-          this.orderProduct = doc.data().order.cart
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
 
-    console.log(orders)
+    this.$fire.firestore.collection("orders").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+
+        this.orders = doc.data().order
+          this.orderProduct = doc.data().order.cart
+    });
+});
+
+
+    // console.log(this.order)
+    // const orders = this.$fire.firestore
+    //   .collection('orders')
+    //   .get()
+    //   .then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //       // doc.data() is never undefined for query doc snapshots
+    //       this.order = doc.data().order
+    //       this.orderProduct = doc.data().order.cart
+    //     })
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
+
+    // console.log(orders)
 
     this.welcome()
   },
@@ -632,8 +643,8 @@ input[type='number'] {
 
 .addButton {
   font-size: 70px;
-  background-color: #ff4a68;
-  color: #120129;
+  background-color: #023047;
+  color: #fb8500;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
   padding: 5px 5px;
@@ -641,8 +652,8 @@ input[type='number'] {
 }
 
 .addButton:hover {
-  background-color: #120129;
-  color: #ff4a68;
+  background-color: #ffb703;
+  color: #120129;
 }
 #surfer {
   z-index: 2;

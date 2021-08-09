@@ -11,13 +11,13 @@
     <div class="w-3/5 p-9 bg-gray-100 flex-col flex justify-around">
       <div class="flex justify-between flex-grow-0">
         <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
-          ProductName
+          {{ product.title }}
           <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
-            Lighters
+            {{ product.catagory }}
           </h3>
         </h1>
         <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
-          3500$
+          {{ product.price }}$
         </h1>
       </div>
 
@@ -88,9 +88,15 @@
 
 <script>
 export default {
+  props: ['product'],
   data() {
     return {
       cart: [],
+
+      Product: {
+        item: this.product,
+        quantity: 1,
+      },
     }
   },
   computed: {

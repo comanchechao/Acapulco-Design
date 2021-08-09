@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import * as THREE from 'three'
+import * as THREE from 'three';
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
@@ -168,6 +168,9 @@ export default {
 
     // orbit controls
 
+   
+
+
     // scene background
 
     const beachTexture = new THREE.TextureLoader().load('/Space7.png')
@@ -225,6 +228,7 @@ export default {
       sphere.rotation.z += 0.001
 
       renderer.render(scene, camera)
+      
     }
 
     function moveCamera() {
@@ -486,6 +490,7 @@ export default {
   position: absolute;
   margin: 0;
   z-index: -20;
+  background-color: black;
 }
 
 #bg {

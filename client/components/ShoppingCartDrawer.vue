@@ -41,7 +41,6 @@
             <img
               class="productImage mx-4 mt-6"
               :src="item.item.image"
-              alt="John"
             />
             <div>
               <h3 class="itemName mb-5">{{ item.item.title }}</h3>
@@ -85,6 +84,7 @@
         </div>
         <div
           class="
+          freeLovePic
             absolute
             w-1/3
             md:w-1/3
@@ -92,10 +92,10 @@
             right-0
             lg:w-full
             bottom-16
-            z-30
+            z-0
           "
         >
-          <img class="m-0" src="/freeLove.png" alt="" />
+          <img class="m-0 " src="/freeLove.png" alt="" />
         </div>
       </div>
       <v-spacer></v-spacer>
@@ -207,4 +207,8 @@ export default {
   display: flex;
   justify-self: center;
 } */
+
+.freeLovePic{
+  z-index: -5;
+}
 </style>

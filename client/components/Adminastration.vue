@@ -15,13 +15,13 @@
   >
     <div
       class="
+        topBar
         flex flex-col
         w-11/12
         sm:w-5/6
         lg:w-1/2
         max-w-2xl
         mx-auto
-        bg-green-500
         rounded-lg
         border border-green-300
         shadow-xl
@@ -53,7 +53,7 @@
           ></path>
         </svg>
       </div>
-      <div class="flex flex-col px-6 py-5 bg-Indigo-500">
+      <div class="flex flex-col px-6 py-5 background">
         <label for="title" class="mb-2 font-semibold text-gray-100 text-3xl"
           >Title</label
         >
@@ -143,7 +143,7 @@
           flex flex-row
           items-center
           justify-between
-          bg-green-500
+          topBar
           p-5
           bg-white
           border-t border-gray-200
@@ -231,5 +231,13 @@ export default {
 #modal {
   font-family: 'Yanone Kaffeesatz';
   font-size: 20px;
+}
+
+.topBar{
+  background-color: #fb8500;
+}
+
+.background{
+   background-color: #219ebc;
 }
 </style>
