@@ -12,6 +12,7 @@ export const state = () => ({
   account: null,
   products: [],
   cart: [],
+  catagory: ''
 })
 
 export const mutations = {
@@ -40,6 +41,10 @@ export const mutations = {
     } else {
       state.cart.push(Product)
     }
+  },
+
+  ChangeCatagory(state , selected){
+    state.catagory = selected
   },
   // const productList = state.products.find(
   //   (item) => item.product.id === product.id
@@ -87,6 +92,7 @@ export const actions = {
             title: doc.data().title,
             price: doc.data().price,
             image: doc.data().image,
+            catagory: doc.data().catagory
           })
         }
       })
@@ -107,7 +113,9 @@ export const actions = {
   //       commit('setProducts', Products)
   //     })
   // },
-
+  changeCatagory({commit} , selected){
+    commit('ChangeCatagory', selected)
+  },
   removeCartProduct({ commit }, Product) {
     commit('removeProduct', Product)
   },

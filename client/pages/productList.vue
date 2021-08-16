@@ -24,7 +24,7 @@
               opacity-0
             "
           >
-               take a trip with us
+            take a trip with us
             <br />
             <span class="text-mainRed font-extrabold span text-10xl">
               stay free
@@ -79,6 +79,7 @@
               <ProductCard
                 v-for="product in products"
                 id="product-card"
+                ref="ProductCard"
                 :key="product.id"
                 class="p-4 productCard"
                 :product="product"
@@ -111,7 +112,7 @@
                 Discover!
               </h3>
               <NuxtLink to="/productList">
-                <span>
+                <span @click="changeCatagory('Lighters')">
                   <h1
                     class="
                       text-3xl text-mainBlue
@@ -125,7 +126,7 @@
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
-                <span>
+                <span @click="changeCatagory('Shirts')">
                   <h1
                     class="
                       text-3xl text-mainBlue
@@ -139,7 +140,7 @@
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
-                <span>
+                <span @click="changeCatagory('CustomMatchboxes')">
                   <h1
                     class="
                       text-3xl text-mainBlue
@@ -153,7 +154,7 @@
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
-                <span>
+                <span @click="changeCatagory('Collections')">
                   <h1 class="text-3xl text-mainBlue p-4 sidebarText">
                     Collections🗿
                   </h1>
@@ -177,6 +178,9 @@ export default {
     ProductCard,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
+
+  
+
   computed: {
     products() {
       return this.$store.state.products
@@ -206,6 +210,9 @@ export default {
   },
 
   methods: {
+    changeCatagory(selected) {
+     this.$store.dispatch('changeCatagory' , selected)
+    },
     animateBackground() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
