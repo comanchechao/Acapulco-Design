@@ -3,7 +3,6 @@
     <v-dialog
       v-model="dialog"
       transition="dialog-bottom-transition"
-      scrollable
       fullscreen
       class="dialog"
     >
@@ -22,78 +21,187 @@
         </v-btn>
       </template>
 
-      <div id="main" class="h-screen w-screen backround overflow-hidden">
-        <!-- <div class="bg-blue-300"></div> -->
-        <div
-          class="
-            w-full
-            h-full
-            flex flex-col
-            justify-center
-            lg:justify-around
-            align-center
-          "
-        >
-          <div class="w-full h-1/4">
-            <v-btn
-              x-large
-              class="ml-11 mt-6"
-              icon
-              light
-              @click="dialog = false"
-            >
-              <v-icon x-large>mdi-close</v-icon>
-            </v-btn>
-            <!-- <div
+      <div id="main" class="h-screen w-screen">
+        <div class="hidden self-start absolute lg:flex">
+          <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
+            <v-icon x-large>mdi-close</v-icon>
+          </v-btn>
+        </div>
+        <div class="flex flex-col justify-center h-full w-full align-center">
+          <div
             class="
-              w-56
-              h-56
-              rounded-full
-              shadow-lg
-              bg-Emerald-400
-              flex-shrink-0
+              lg:h-4/5 lg:w-4/5
+              h-full
+              w-full
+              backGround
+              space-y-4
+              overflow-hidden
             "
           >
-            <img
-              class="bg-cover"
-              src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-              alt=""
-            />
-          </div> -->
-            <!-- <div class="flex align-center flex-col justify-center">
-              <h1
-                class="
-                  text-center text-3xl
-                  lg:text-6xl
-                  font-mainFont
-                  text-mainBlue
-                "
-              >
-                {{ displayName }}
-                {{ email }}
-              </h1>
-              <button class="text-lg mb-5">
-                <span
+            <div class="w-full h-3/4">
+              <div class="w-full h-3/6">
+                <div
                   class="
-                    text-mainBlue
-                    font-thin
-                    py-2
-                    px-12
-                    rounded-full
-                    editBtn
-                    border-mainBlue border-2
-                    font-mainFont
+                    w-full
+                    h-1/3
+                    bg-green-400
+                    flex flex-col
+                    align-start
+                    justify-center
                   "
                 >
-                  Edit
-                </span>
-              </button>
-            </div> -->
-          </div>
-          <div class="h-full w-full lg:w-5/6 lg:rounded-lg">
-            <h1 class="font-mainFont font-bold text-2xl absolute p-4">
-              My Orders
-            </h1>
+                  <h2
+                    class="
+                      p-4
+                      flex
+                      font-mainFont
+                      text-mainBlue
+                      font-extrabold
+                      lg:text-3xl
+                      text-2xl
+                    "
+                  >
+                    <span
+                      class="md:hidden lg:hidden span"
+                      @click="dialog = false"
+                      ><v-icon light x-large color="pink lighten-5"
+                        >mdi-chevron-double-left</v-icon
+                      ></span
+                    >
+                    <v-icon x-large dark>mdi-home-edit-outline</v-icon>
+
+                    <span class="ml-3"> My Address </span>
+                  </h2>
+                </div>
+                <div
+                  class="
+                    w-full
+                    h-2/3
+                    bg-CoolGray-900
+                    grid grid-cols-2 grid-rows-2
+                    p-5
+                  "
+                >
+                  <div>
+                    <v-text-field
+                      v-model="order.City"
+                      color="red lighten-5"
+                      dark
+                      label="City"
+                      required
+                      rounded
+                      dense
+                      filled
+                      class="pr-3"
+                    ></v-text-field>
+                  </div>
+                  <div>
+                    <v-text-field
+                      v-model="order.Province"
+                      color="red lighten-5"
+                      dark
+                      label="Province"
+                      required
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </div>
+                  <div class="col-span-2 mt-2">
+                    <v-text-field
+                      v-model="order.Address"
+                      color="red lighten-5"
+                      dark
+                      label="Address"
+                      required
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full h-3/6 ordersDiv">
+                <div class="w-full h-1/3">
+                  <h1 class="pa-5 flex text-3xl">
+                    <v-icon x-large dark>mdi-account-edit-outline</v-icon>
+                    <span
+                      class="
+                        font-mainFont
+                        text-mainBlue
+                        font-extrabold
+                        text-5xl
+                        ml-2
+                      "
+                    >
+                      Account Information
+                    </span>
+                  </h1>
+                </div>
+                <div
+                  class="
+                    w-full
+                    h-2/3
+                    bg-CoolGray-900
+                    p-5
+                    grid grid-cols-2 grid-rows-2
+                  "
+                >
+                  <div>
+                    <v-text-field
+                      v-model="order.Name"
+                      color="blue darken-4"
+                      dark
+                      label="Name"
+                      class="pr-3"
+                      required
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </div>
+                  <div class="">
+                    <v-text-field
+                      v-model="order.lastName"
+                      color="red lighten-5"
+                      dark
+                      label="Last name"
+                      hint="example of helper text only on focus"
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </div>
+                  <div>
+                    <v-text-field
+                      v-model="order.PhoneNumber"
+                      color="red lighten-5"
+                      dark
+                      label="Phone Number"
+                      class="pr-3 mt-2"
+                      required
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </div>
+                  <div>
+                    <v-select
+                      v-model="order.Age"
+                      color="red lighten-5"
+                      dark
+                      :items="['0-17', '18-29', '30-54', '54+']"
+                      label="Age*"
+                      required
+                      rounded
+                      dense
+                      filled
+                      class="mt-2"
+                    ></v-select>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="w-full h-1/4">
               <div
                 class="
@@ -104,7 +212,8 @@
                   ordersDiv
                   divide-x-4
                   p-4
-                  divide-gray-500
+                  divide-gray-300
+                  rounded-full
                 "
               >
                 <div class="h-full w-full"></div>
@@ -112,49 +221,9 @@
                 <div class="h-full w-full"></div>
               </div>
             </div>
-
-            <div class="w-full h-3/4">
-              <div class="w-full h-3/6">
-                <div class="w-full h-1/3 bg-green-400">
-                  <h2
-                    class="
-                      font-mainFont
-                      text-mainBlue
-                      font-bold
-                      text-2xl
-                      p-4
-                      flex
-                    "
-                  >
-                    <v-icon x-large dark>mdi-home</v-icon>
-
-                    <span class="ml-3"> My Address </span>
-                  </h2>
-                </div>
-                <div class="w-full h-2/3 bg-CoolGray-900"></div>
-              </div>
-              <div class="w-full h-3/6 ordersDiv">
-                <div class="w-full h-1/3">
-                  <h2
-                    class="
-                      font-mainFont
-                      text-mainBlue
-                      font-bold
-                      text-2xl
-                      p-4
-                      flex
-                    "
-                  >
-                    <v-icon x-large light>mdi-account</v-icon>
-
-                    <span class="ml-3"> Account Information </span>
-                  </h2>
-                </div>
-                <div class="w-full h-2/3"></div>
-              </div>
-            </div>
           </div>
-          <!-- <div
+        </div>
+        <!-- <div
             class="
               bg-mainBlue
               w-11/12
@@ -196,7 +265,6 @@
               </div>
             </div>
           </div> -->
-        </div>
       </div>
     </v-dialog>
   </div>
@@ -291,13 +359,20 @@ span {
   background-color: #120129;
 }
 
-.ordersDiv {
+.backGround {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }
+.span {
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
 
+.span:hover {
+  filter: brightness(90%);
+}
 /* .backround {
   background: rgba(233, 233, 233, 0.959);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

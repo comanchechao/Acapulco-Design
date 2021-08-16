@@ -12,36 +12,47 @@
           v-on="on"
           @click="drawer = !drawer"
         >
+          <v-badge
+            :content="cartTotalAmount"
+            :value="cartTotalAmount"
+            color="blue"
+            overlap
+            bordered
+            light
+          >
+          </v-badge>
           <v-icon color="white">mdi-shopping-outline</v-icon>
         </v-btn>
-        <v-badge
-          :content="cartTotalAmount"
-          :value="cartTotalAmount"
-          color="green"
-          overlap
-        >
-        </v-badge>
       </template>
       <span>Shopping Cart</span>
     </v-tooltip>
 
     <v-navigation-drawer
       v-model="drawer"
+      bottom
       right
       temporary
+      scrollable
       app
       class="drawer red lighten-4 z-10"
-      width="40%"
+      width="30%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->
-      <div class="container flex flex-col">
+      <!-- <div
+        class="
+          container
+          bg-Lime-500
+          w-full
+          h-full
+          align-center
+          justify-start
+          flex flex-col
+        "
+      >
         <div v-for="item in cartItem" :key="item.id">
           <div class="title d-flex">
-            <img
-              class="productImage mx-4 mt-6"
-              :src="item.item.image"
-            />
+            <img class="productImage mx-4 mt-6" :src="item.item.image" />
             <div>
               <h3 class="itemName mb-5">{{ item.item.title }}</h3>
               <v-btn rounded outlined color="#d32f2f">
@@ -84,7 +95,7 @@
         </div>
         <div
           class="
-          freeLovePic
+            freeLovePic
             absolute
             w-1/3
             md:w-1/3
@@ -95,15 +106,89 @@
             z-0
           "
         >
-          <img class="m-0 " src="/freeLove.png" alt="" />
+          <img class="m-0" src="/freeLove.png" alt="" />
         </div>
       </div>
-      <v-spacer></v-spacer>
-      <div class="checkout mb-5 d-flex justify-center align-end">
-        <button class="mx-7 editBtn">
-          <span class="px-9 py-8 editText"> Edit </span>
-        </button>
-        <CheckoutDialog />
+      <v-spacer></v-spacer> -->
+
+      <div class="w-full h-2/3 flex flex-col justify-around align-center">
+        <div class="w-5/6 h-4/5 space-y-3">
+          <div v-for="item in cartItem" :key="item.id" class="w-full h-24 flex">
+            <div
+              class="w-2/3 h-full flex justify-center align-center space-x-3"
+            >
+              <img
+                class="float-left rounded-full w-24 h-24"
+                :src="item.item.image"
+              />
+              <div class="space-y-2 flex justify-end flex-col align-start">
+                <h1 class="font-mainFont font-extrabold text-2xl">
+                  {{ item.item.title }}
+                </h1>
+                <button
+                  class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
+                  @click.prevent="removeCartProduct(item)"
+                >
+                  <span class="px-5 font-mainFont text-2xl text-pink-800">
+                    Delete
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="w-1/3 h-full flex justify-between align-center flex-col"
+            >
+              <h1 class="font-mainFont font-black text-2xl">
+                {{ item.item.price }}
+              </h1>
+              <div class="flex justify-center align-center">
+                <v-btn small large fab plain class="minus" color="#00ffaa">
+                  <v-icon>mdi-minus</v-icon></v-btn
+                >
+                <p class="font-black font-mainFont text-mainBlue">2</p>
+                <v-btn light large fab plain class="plus" color="#00ffaa"
+                  ><v-icon>mdi-plus</v-icon></v-btn
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="checkout w-full lg:h-1/3 flex justify-center align-end p-5">
+        <div class="w-4/5 h-full flex flex-col justify-center align-end">
+          <div class="w-full h-2/3 flex justify-evenly flex-col">
+            <div class="flex justify-around">
+              <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
+                Subtotal
+              </h1>
+              <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
+                Shipping
+              </h1>
+
+              <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
+                Total
+              </h1>
+            </div>
+            <div class="flex justify-around h-full align-center">
+              <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
+                4399 IRL
+              </h1>
+              <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
+                15 IRL
+              </h1>
+
+              <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
+                4499 IRL
+              </h1>
+            </div>
+          </div>
+          <div class="h-1/3 w-full flex justify-center align-end space-x-4">
+            <button class="py-2 editBtn">
+              <span class="px-12 font-mainFont text-2xl editText"> Edit </span>
+            </button>
+            <CheckoutDialog />
+          </div>
+        </div>
       </div>
     </v-navigation-drawer>
   </div>
@@ -144,15 +229,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-}
-
-.items {
-  /* background-color: rgb(5, 0, 32); */
-  box-shadow: black 1px;
-}
-
-.itemName {
+/* .itemName {
   font-family: 'Poppins', sans-serif;
   font-size: 1.3rem;
   margin-bottom: 10px;
@@ -175,22 +252,17 @@ export default {
   float: left;
   width: 70px;
   height: 70px;
-}
+} */
 .checkoutText,
 .editText {
-  font-family: 'Lato', sans-serif;
   text-transform: capitalize;
-  font-size: 1.3rem;
 }
 
 .editBtn {
-  font-size: 30px;
   background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
   transition: ease-in-out 0.2s;
-  padding: 9px 20px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .editBtn:hover {
@@ -208,7 +280,7 @@ export default {
   justify-self: center;
 } */
 
-.freeLovePic{
+.freeLovePic {
   z-index: -5;
 }
 </style>

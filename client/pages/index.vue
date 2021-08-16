@@ -329,7 +329,6 @@
               grid grid-rows-2
               gap-4
               bg-mainRed
-              mt-36
             "
           >
             <div class="h-full flex align-center justify-center bg-mainBlue">

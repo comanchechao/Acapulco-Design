@@ -9,26 +9,22 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <button
-          class="checkoutBtn"
+          class="checkoutBtn py-1 flex justify-center align-center"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
         >
-          <span class="pl-6 py-7 checkoutText"> Checkout </span>
+          <span class="pl-4 checkoutText font-mainFont text-2xl">
+            Checkout
+          </span>
           <v-icon x-large class="pink--text text--darken-2"
             >mdi-arrow-right-circle</v-icon
           >
         </button>
       </template>
       <div id="main" class="h-screen w-screen overflow-hidden">
-        <div class="hidden lg:flex">
-          <v-btn
-            x-large
-            class="ml-4 absolute mt-5 self-start"
-            icon
-            dark
-            @click="dialog = false"
-          >
+        <div class="hidden self-start absolute lg:flex">
+          <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div>
@@ -159,12 +155,6 @@
 
                 <!-- <div>
                   <div class="mt-3 d-flex flex-column justify-end align-center">
-                    <button class="checkoutBtnNew" @click="checkout()">
-                      <span class="pl-6 py-7 checkoutText"> Checkout </span>
-                      <v-icon x-large class="pink--text text--darken-2"
-                        >mdi-arrow-right-circle</v-icon
-                      >
-                    </button>
                   </div>
                 </div> -->
               </div>
@@ -177,6 +167,30 @@
                     Shopping Summary
                   </span>
                 </h1>
+              </div>
+
+              <div class="w-full flex flex-col p-7">
+                <div class="bg-blueGray-900 flex flex-col self-start">
+                  <p
+                    v-for="item in cartItem"
+                    :key="item.id"
+                    class="font-mainFont text-3xl text-mainBlue font-bold"
+                  >
+                    {{ item.item.title }}
+                  </p>
+                </div>
+                <div class="self-end justify-self-end">
+                  <button
+                    class="checkoutBtn py-1 flex justify-center align-center"
+                  >
+                    <span class="pl-4 checkoutText font-mainFont text-2xl">
+                      Checkout
+                    </span>
+                    <v-icon x-large class="pink--text text--darken-2"
+                      >mdi-arrow-right-circle</v-icon
+                    >
+                  </button>
+                </div>
               </div>
               <!-- <div
                 class="
@@ -360,20 +374,17 @@ export default {
 .dialog {
   z-index: 1;
 }
-.checkoutText {
+/* .checkoutText {
   font-family: 'Lato', sans-serif;
   text-transform: capitalize;
   font-size: 1.3rem;
-}
+} */
 .checkoutBtn {
-  font-size: 30px;
   background-color: transparent;
   color: #120129;
   border: solid 2px #120129;
   border-radius: 35px;
   transition: ease-in-out 0.2s;
-  padding: 9px 20px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .checkoutBtn:hover {
   background-color: #120129;
