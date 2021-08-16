@@ -1,6 +1,9 @@
 <template>
   <v-app id="app">
-    <div id="main" class="h-screen w-screen overflow-hidden grid self-center justify-center">
+    <div
+      id="main"
+      class="h-screen w-screen overflow-hidden grid self-center justify-center"
+    >
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -124,6 +127,7 @@
                       x-large
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
+                      @click="catagorySelect('Shirts')"
                     >
                       <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
                     >
@@ -132,6 +136,7 @@
                       x-large
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
+                      @click="catagorySelect('Lighters')"
                       ><v-icon dark>mdi-fire</v-icon></v-btn
                     >
                     <v-btn
@@ -139,6 +144,7 @@
                       x-large
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
+                      @click="catagorySelect('CustomMatchboxes')"
                       ><v-icon dark>mdi-package</v-icon></v-btn
                     >
                     <v-btn
@@ -146,6 +152,7 @@
                       x-large
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
+                      @click="catagorySelect('Collections')"
                       ><v-icon dark>mdi-toolbox</v-icon></v-btn
                     >
                   </div>
@@ -179,7 +186,6 @@
                     class="
                       w-full
                       products
-                    
                       p-5
                       rounded-lg
                       shadow-2xl
@@ -190,6 +196,7 @@
                   >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
+                      v-if="product.catagory === catagory"
                         id="products"
                         class="
                           flex flex-row
@@ -199,25 +206,33 @@
                           place-content-around
                         "
                       >
-                        <div class="bottomBorder flex flex-row place-content-between border-b-2 w-full">
+                        <div
+                          class="
+                            bottomBorder
+                            flex flex-row
+                            place-content-between
+                            border-b-2
+                            w-full
+                          "
+                        >
                           <h3 class="">{{ product.title }}</h3>
-                        <button class="">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="text-red-500 h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            @click="deleteProduct(product.id)"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </button>
+                          <button class="">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="text-red-500 h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              @click="deleteProduct(product.id)"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -250,7 +265,17 @@
           </div>
         </div>
 
-        <div class="flex align-center mb-10 justify-center w-full h-full row-span-1">
+        <div
+          class="
+            flex
+            align-center
+            mb-10
+            justify-center
+            w-full
+            h-full
+            row-span-1
+          "
+        >
           <ul
             class="
               tabBar
@@ -424,6 +449,8 @@ export default {
   },
   data() {
     return {
+      catagory: '',
+
       Products: [],
       openTab: 1,
       orders: [],
@@ -454,6 +481,7 @@ export default {
             title: doc.data().title,
             price: doc.data().price,
             image: doc.data().image,
+            catagory: doc.data().catagory
           })
         }
       })
@@ -477,16 +505,17 @@ export default {
   },
 
   mounted() {
+    this.$fire.firestore
+      .collection('orders')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
 
-    this.$fire.firestore.collection("orders").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-
-        this.orders = doc.data().order
+          this.orders = doc.data().order
           this.orderProduct = doc.data().order.cart
-    });
-});
-
+        })
+      })
 
     // console.log(this.order)
     // const orders = this.$fire.firestore
@@ -506,8 +535,13 @@ export default {
     // console.log(orders)
 
     this.welcome()
+    console.log(this.catagory);
   },
   methods: {
+    catagorySelect(selectedTab){
+      this.catagory = selectedTab
+    },
+    
     toggleTabs(tabNumber) {
       this.openTab = tabNumber
     },
@@ -669,18 +703,17 @@ input[type='number'] {
 #products {
   font-family: 'Yanone Kaffeesatz';
   font-size: 22px;
-  
 }
 
-.bottomBorder{
+.bottomBorder {
   border-color: #dee2ff;
   color: #023047;
 }
-.products{
+.products {
   background-color: #ffb703;
 }
-.addSomthing{
+.addSomthing {
   color: #ffb703;
-font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 </style>

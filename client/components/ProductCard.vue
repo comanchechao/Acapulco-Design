@@ -9,6 +9,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <div
+        v-show="product.catagory === catagory"
           v-bind="attrs"
           class="
             flex flex-col
@@ -23,6 +24,7 @@
           v-on="on"
         >
           <div
+          
             class="
               md:mt-4
               lg:w-3/4 lg:h-80
@@ -107,7 +109,17 @@ export default {
     }
   },
 
+  computed:{
+    catagory(){
+      return this.$store.state.catagory
+    }
+  },
+
   methods: {
+    catagorySelect(selected){
+      this.catagory = selected
+      console.log(this.catagory)
+    },
     addToCart() {
       this.$store.commit('AddToCart', this.Product)
     },
