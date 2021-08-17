@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="product.catagory === catagory">
     <v-dialog
       v-model="dialog"
       transition="dialog-bottom-transition"
@@ -9,7 +9,6 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <div
-        v-show="product.catagory === catagory"
           v-bind="attrs"
           class="
             flex flex-col
@@ -24,15 +23,16 @@
           v-on="on"
         >
           <div
-          
             class="
               md:mt-4
-              lg:w-3/4 lg:h-80
+              lg:w-3/4
+              lg:h-80
               w-52
               h-52
               rounded-full
               bg-Rose-400
-              lg:rounded-none lg:flex-shrink lg:flex-grow
+              lg:rounded-none
+              lg:flex-shrink lg:flex-grow
               flex
               justify-center
               align-center
@@ -109,14 +109,14 @@ export default {
     }
   },
 
-  computed:{
-    catagory(){
+  computed: {
+    catagory() {
       return this.$store.state.catagory
-    }
+    },
   },
 
   methods: {
-    catagorySelect(selected){
+    catagorySelect(selected) {
       this.catagory = selected
       console.log(this.catagory)
     },

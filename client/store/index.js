@@ -12,7 +12,7 @@ export const state = () => ({
   account: null,
   products: [],
   cart: [],
-  catagory: ''
+  catagory: 'Lighters'
 })
 
 export const mutations = {

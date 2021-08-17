@@ -173,6 +173,7 @@
                         focus:outline-none
                         my-8
                         addButton
+                        self-center
                         text-center
                         h-1/3
                         w-2/3
@@ -196,7 +197,7 @@
                   >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
-                      v-if="product.catagory === catagory"
+                      v-show="product.catagory === catagory"
                         id="products"
                         class="
                           flex flex-row
