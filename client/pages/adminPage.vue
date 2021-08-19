@@ -58,7 +58,7 @@
           <div
             class="
               admin
-              bg-Cyan-700
+              shadow-2xl
               px-4
               py-8
               flex flex-row
@@ -96,15 +96,82 @@
                   block: openTab === 1,
                 }"
               >
-                <h3 class="rates text-gray-200 text-xl">
-                  Collaboratively administrate empowered markets via
-                  plug-and-play networks. Dynamically procrastinate B2C users
-                  after installed base benefits.
-                  <br />
-                  <br />
-                  Dramatically visualize customer directed convergence without
-                  revolutionary ROI.
-                </h3>
+                <div class="w-full h-full grid grid-rows-1 grid-cols-3">
+                  <div
+                    class="
+                      totalProducts
+                      w-full
+                      h-full
+                      flex flex-col
+                      justify-center
+                      align-center
+                    "
+                  >
+                    <h2 class="text-center">total</h2>
+                    <h2
+                      class="
+                        ProductLength
+                        border-t-2
+                        w-1/3
+                        text-center
+                        rounded
+                        border-b-2
+                      "
+                    >
+                      {{ Products.length }}
+                    </h2>
+                    <h2 class="text-center">Products</h2>
+                  </div>
+
+                  <div
+                    class="
+                      sellsRecord
+                      flex flex-col
+                      justify-center
+                      align-center
+                      border-r-2 border-l-2
+                    "
+                  >
+                    <h2 class="text-center">sells</h2>
+                    <h2
+                      class="
+                        SellsLength
+                        border-t-2
+                        w-1/3
+                        text-center
+                        rounded
+                        border-b-2
+                      "
+                    >
+                      25
+                    </h2>
+                    <h2 class="text-center">Records</h2>
+                  </div>
+
+                  <div
+                    class="
+                      totalShipment
+                      flex flex-col
+                      justify-center
+                      align-center
+                    "
+                  >
+                    <h2 class="text-center">Shipment</h2>
+                    <h2
+                      class="
+                        ShipmentLength
+                        border-t-2
+                        w-1/3
+                        text-center
+                        rounded
+                        border-b-2
+                      "
+                    >
+                      25
+                    </h2>
+                    <h2 class="text-center">Delivered</h2>
+                  </div>
+                </div>
               </div>
               <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
                 <div class="grid grid-cols-2 grid-rows-2">
@@ -144,7 +211,7 @@
                       x-large
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
-                      @click="catagorySelect('CustomMatchboxes')"
+                      @click="catagorySelect('Custom Matchboxes')"
                       ><v-icon dark>mdi-package</v-icon></v-btn
                     >
                     <v-btn
@@ -197,7 +264,7 @@
                   >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
-                      v-show="product.catagory === catagory"
+                        v-show="product.catagory === catagory"
                         id="products"
                         class="
                           flex flex-row
@@ -294,7 +361,7 @@
               flex-row
             "
           >
-            <li class="lis w-full text-center" @click="tab1()">
+            <li class="lis shadow-2xl w-full text-center" @click="tab1()">
               <a
                 class="
                   text-xs
@@ -311,14 +378,14 @@
                 "
                 :class="{
                   'text-pink-600 bg-blue-300': openTab !== 1,
-                  'text-white bg-Rose-900': openTab === 1,
+                  'text-white bg-Lime-500': openTab === 1,
                 }"
                 @click="toggleTabs(1)"
               >
                 <img src="/Market.png" alt="" />
               </a>
             </li>
-            <li class="lis w-full text-center" @click="tab2()">
+            <li class="lis shadow-2xl w-full text-center" @click="tab2()">
               <a
                 class="
                   text-xs
@@ -334,14 +401,14 @@
                 "
                 :class="{
                   'text-pink-600 bg-blue-300': openTab !== 2,
-                  'text-white bg-Indigo-600': openTab === 2,
+                  'text-white bg-Indigo-500': openTab === 2,
                 }"
                 @click="toggleTabs(2)"
               >
                 <img class="place-self-center" src="/Add.png" alt="" />
               </a>
             </li>
-            <li class="lis w-full text-center" @click="tab3()">
+            <li class="lis shadow-2xl w-full text-center" @click="tab3()">
               <a
                 class="
                   text-xs
@@ -450,7 +517,7 @@ export default {
   },
   data() {
     return {
-      catagory: '',
+      catagory: 'Lighters',
 
       Products: [],
       openTab: 1,
@@ -482,7 +549,7 @@ export default {
             title: doc.data().title,
             price: doc.data().price,
             image: doc.data().image,
-            catagory: doc.data().catagory
+            catagory: doc.data().catagory,
           })
         }
       })
@@ -493,10 +560,10 @@ export default {
     css: false,
 
     beforeEnter(el) {
-      this.$gsap.set(el, { opacity: 0, x: 1000 })
+      this.$gsap.set(el, { opacity: 0 })
     },
     enter(el, done) {
-      this.$gsap.to(el, 1, { opacity: 1, x: 0 })
+      this.$gsap.to(el, 1, { opacity: 1 })
       done()
     },
     leave(el, done) {
@@ -536,13 +603,28 @@ export default {
     // console.log(orders)
 
     this.welcome()
-    console.log(this.catagory);
+    console.log(this.catagory)
+
+    this.numberAnimation()
   },
   methods: {
-    catagorySelect(selectedTab){
+    catagorySelect(selectedTab) {
       this.catagory = selectedTab
     },
-    
+
+    numberAnimation() {
+      const gsap = this.$gsap
+
+      gsap.from('.ProductLength', {
+        textContent: 54,
+        duration: 4,
+        ease: 'Power1.easeIn',
+        snap: { textContent: 3 },
+        stagger: 1,
+        // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+      })
+    },
+
     toggleTabs(tabNumber) {
       this.openTab = tabNumber
     },
@@ -595,8 +677,16 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      tl.from('.rates', 0.5, {
+      tl.from('.totalProducts', 0.5, {
+        x: -100,
+        opacity: 0,
+      })
+      tl.from('.totalShipment', 0.5, {
         x: 100,
+        opacity: 0,
+      })
+      tl.from('.sellsRecord', 0.5, {
+        y: 100,
         opacity: 0,
       })
     },
@@ -605,11 +695,6 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      tl.from('.palms', {
-        x: 300,
-        duration: 1,
-        opacity: 0,
-      })
       tl.from('.admin', {
         duration: 1,
         y: -300,
@@ -618,28 +703,11 @@ export default {
       tl.from('.tabBar', {
         opacity: 0,
         scale: 0.5,
-        duration: 0.5,
+        duration: 1,
         stagger: 0.4,
       })
-      tl.from('.bees', {
-        scale: 0.1,
-        duration: 1,
+      tl.from('.tab-content', 0.5, {
         opacity: 0,
-        y: 200,
-      })
-      tl.from('.tropicalLeaves', {
-        duration: 1,
-        x: -300,
-        opacity: 0,
-      })
-    },
-    pineapple() {
-      const gsap = this.$gsap
-
-      gsap.to('.pineapple', {
-        y: -100,
-        opacity: 0,
-        scale: 1.2,
       })
     },
   },
@@ -699,6 +767,7 @@ input[type='number'] {
 
 .admin {
   font-family: 'Yanone Kaffeesatz';
+  background-color: #14c2dd;
 }
 
 #products {
@@ -716,5 +785,35 @@ input[type='number'] {
 .addSomthing {
   color: #ffb703;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.totalProducts {
+  font-size: 35px;
+  border-color: #54086b;
+  color: #050833;
+}
+
+.totalShipment {
+  font-size: 35px;
+  color: #050833;
+  border-color: #54086b;
+}
+
+.sellsRecord {
+  font-size: 35px;
+  border-color: #54086b;
+  color: #050833;
+}
+
+.SellsLength {
+  border-color: #c7f954;
+}
+
+.ProductLength {
+  border-color: #c7f954;
+}
+
+.ShipmentLength {
+  border-color: #c7f954;
 }
 </style>

@@ -234,7 +234,7 @@ export default {
 }
 
 .topBar{
-  background-color: #fb8500;
+  background-color: #041F60;
 }
 
 .background{
