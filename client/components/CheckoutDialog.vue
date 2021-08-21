@@ -158,7 +158,7 @@
                   </div>
                 </div> -->
               </div>
-              <div class="w-full h-20">
+              <div class="w-full h-20 bg-red-400">
                 <h1 class="pa-5">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
@@ -169,19 +169,121 @@
                 </h1>
               </div>
 
-              <div class="w-full flex flex-col p-7">
-                <div class="bg-blueGray-900 flex flex-col self-start">
-                  <p
+              <div class="w-full h-3/5 flex p-7 ">
+                <div
+                  class="w-full lg:w-5/6 h-full flex justify-start self-start"
+                >
+                  <div
+                    v-for="item in cartItem"
+                    :key="item.id"
+                    class="
+                      h-full
+                      lg:w-1/5
+                      w-1/3
+                      flex flex-col
+                      justify-between
+                      align-center
+                    "
+                  >
+                    <img
+                      class="
+                        bg-Lime-900
+                        rounded-full
+                        w-24
+                        h-24
+                        justify-self-end
+                      "
+                      :src="item.item.image"
+                    />
+                    <h1 class="font-mainFont text-3xl text-mainBlue font-bold">
+                      {{ item.item.title }}
+                    </h1>
+                    <h1
+                      class="font-mainFont text-2xl text-mainBlue font-medium"
+                    >
+                      {{ item.item.price }}
+                    </h1>
+                  </div>
+                  <!-- <p
                     v-for="item in cartItem"
                     :key="item.id"
                     class="font-mainFont text-3xl text-mainBlue font-bold"
                   >
                     {{ item.item.title }}
-                  </p>
+                  </p> -->
                 </div>
-                <div class="self-end justify-self-end">
+                <div class="w-1/6 h-full flex justify-around flex-col">
+                  <h1
+                    class="
+                      font-mainFont
+                      text-3xl text-mainBlue
+                      font-bold
+                      m-auto
+                    "
+                  >
+                    Payment Method :
+                  </h1>
+                  <div class="flex justify-center m-auto">
+                    <div class="flex items-center mr-4 mb-4">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="radio"
+                        class="hidden"
+                        checked
+                      />
+                      <label
+                        for="radio1"
+                        class="flex items-center cursor-pointer"
+                      >
+                        <span
+                          class="
+                            w-4
+                            h-4
+                            inline-block
+                            mr-1
+                            rounded-full
+                            border border-grey
+                          "
+                        ></span>
+                        Best choice</label
+                      >
+                    </div>
+                    <div class="flex items-center mr-4 mb-4">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="radio"
+                        class="hidden"
+                        checked
+                      />
+                      <label
+                        for="radio1"
+                        class="flex items-center cursor-pointer"
+                      >
+                        <span
+                          class="
+                            w-4
+                            h-4
+                            inline-block
+                            mr-1
+                            rounded-full
+                            border border-grey
+                          "
+                        ></span>
+                        Best choice</label
+                      >
+                    </div>
+                  </div>
                   <button
-                    class="checkoutBtn py-1 flex justify-center align-center"
+                    class="
+                      checkoutBtn
+                      py-1
+                      flex
+                      justify-center
+                      align-center
+                      m-auto
+                    "
                   >
                     <span class="pl-4 checkoutText font-mainFont text-2xl">
                       Checkout
@@ -412,5 +514,23 @@ export default {
   font-family: 'Londrina Solid', cursive;
   text-transform: capitalize;
   font-size: 30px;
+}
+
+input[type='radio'] + label span {
+  transition: background 0.2s, transform 0.2s;
+}
+
+input[type='radio'] + label span:hover,
+input[type='radio'] + label:hover span {
+  transform: scale(1.2);
+}
+
+input[type='radio']:checked + label span {
+  background-color: #3490dc;
+  box-shadow: 0px 0px 0px 2px white inset;
+}
+
+input[type='radio']:checked + label {
+  color: #3490dc;
 }
 </style>
