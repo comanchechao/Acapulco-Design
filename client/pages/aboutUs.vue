@@ -47,8 +47,7 @@
       <div class="h-screen justify-center flex flex-col">
         <div class="sixth justify-center opacity-0 rounded">
           <h2>
-            in the hope of finding the long lost peace that we all crave along
-            the way.
+            in the hope of finding the long lost peace that we all crave
           </h2>
         </div>
       </div>

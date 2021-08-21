@@ -140,7 +140,7 @@
                 </span>
               </NuxtLink>
               <NuxtLink to="/productList">
-                <span @click="changeCatagory('CustomMatchboxes')">
+                <span @click="changeCatagory('Custom Matchboxes')">
                   <h1
                     class="
                       text-3xl text-mainBlue
