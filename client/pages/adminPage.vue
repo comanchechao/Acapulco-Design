@@ -518,6 +518,7 @@
                             h-full
                             p-2
                             border-r-2 border-b-2 border-l-2 border-Cyan-600
+                            rounded
                           "
                         >
                           <div
@@ -526,11 +527,15 @@
                               container
                               grid grid-cols-2
                               overflow-y-scroll
+                              shadow-inner
+                              p-2
                             "
                           >
                             <div
                               class="
                                 detailCards
+                                shadow-2xl
+                                border-2
                                 p-2
                                 my-1
                                 mx-1
@@ -553,6 +558,8 @@
                             <div
                               class="
                                 detailCards
+                                shadow-2xl
+                                border-2
                                 p-2
                                 my-1
                                 mx-1
@@ -575,13 +582,15 @@
                             <div
                               class="
                                 detailCards
+                                shadow-2xl
+                                border-2
                                 p-2
                                 my-1
                                 mx-1
                                 rounded
                               "
                             >
-                              <h1 class="self-center">Status: processing</h1>
+                              <h1 class="">Status: processing</h1>
                               <h1 class="text-xl border-b-2">Name: blah</h1>
                               <h1 class="text-xl border-b-2">lastName: blah</h1>
                               <h1 class="text-xl border-b-2">
@@ -597,6 +606,8 @@
                             <div
                               class="
                                 detailCards
+                                shadow-2xl
+                                border-2
                                 p-2
                                 my-1
                                 mx-1
@@ -950,15 +961,18 @@ export default {
       tl.from('.catagories', 0.5, {
         x: -100,
         opacity: 0,
+        ease: "power4.out"
       })
       tl.from('.addSomthing', 0.5, {
         x: -100,
         opacity: 0,
         scale: 0.2,
+        ease: "power4.out"
       })
       tl.from('.products', 0.5, {
         x: 100,
         opacity: 0,
+        ease: "power4.out"
       })
       console.log(' you clicked me ')
     },
@@ -991,14 +1005,17 @@ export default {
       tl.from('.totalProducts', 0.5, {
         x: -100,
         opacity: 0,
+        ease: "power4.out"
       })
       tl.from('.totalShipment', 0.5, {
         x: 100,
         opacity: 0,
+        ease: "power4.out"
       })
       tl.from('.sellsRecord', 0.5, {
         y: 100,
         opacity: 0,
+        ease: "power4.out"
       })
     },
 
@@ -1008,7 +1025,7 @@ export default {
 
       tl.from('.detailCards', 0.5, {
         y: 200,
-         ease:  "sine.out",
+         ease:  'Power3.easeIn',
         opacity: 0 ,
         stagger: {
           each: 0.3
@@ -1041,12 +1058,13 @@ export default {
       tl.from('.admin', {
         duration: 1,
         y: -300,
+        ease:  'Power1.easeIn',
         opacity: 0,
       })
       tl.from('.lis', {
         opacity: 0,
         scale: 0.5,
-        ease: "bounce.out",
+        ease:  'Power1.easeIn',
         duration: 0.5,
         stagger: {
           each: 0.2,
@@ -1173,7 +1191,7 @@ input[type='number'] {
 }
 
 .orderDetail {
-  max-height: 25rem;
+  max-height: 24rem;
 }
 
 .detailCards{
@@ -1187,5 +1205,9 @@ input[type='number'] {
 .listCard{
   background-color: #28FFBF;
   color: #451881;
+}
+
+h1{ 
+  border-color: #e2e9e0;
 }
 </style>

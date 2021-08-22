@@ -38,7 +38,7 @@
       >
         <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
-          class="w-6 h-6"
+          class="w-6 h-6 cursor-pointer text-white"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -150,7 +150,7 @@
           rounded-bl-lg rounded-br-lg
         "
       >
-        <p class="font-semibold text-gray-600" @click="toggleModal">Cancel</p>
+        <p class="font-semibold text-gray-600 cursor-pointer" @click="toggleModal">Cancel</p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           @click="addProduct()"
