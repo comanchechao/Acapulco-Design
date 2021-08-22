@@ -52,8 +52,13 @@
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="seventh justify-center opacity-0 rounded">
+        <div class="seventh justify-center opacity-0 rounded flex flex-col">
           <h2>along the way.</h2>
+          <NuxtLink to="/">
+              <span class="menu px-5 text-4xl rounded-full bg-Amber-500 text-gray-100 font-semibold">
+                back to our shopping journey .. 
+              </span>
+            </NuxtLink>
         </div>
       </div>
     </div>
@@ -200,6 +205,7 @@ export default {
       const particleMaterial = new THREE.MeshBasicMaterial({ color: '#FB13DF' })
 
       const particle = new THREE.Mesh(particleGeometry, particleMaterial)
+      
 
       const [x, y, z] = Array(3)
         .fill()
@@ -448,9 +454,9 @@ export default {
           scale: 0.1,
         },
         {
-          y: 900,
-          x: 600,
-          scale: 1.2,
+          y:1200,
+          x: 300,
+          scale: 1,
           opacity: 1,
           width: '800px',
           height: '150px',

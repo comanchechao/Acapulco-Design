@@ -308,24 +308,323 @@
                 </div>
               </div>
               <div
-                class="
-                  flex
-                  max-w-1/3
-                  flex-col
-                  place-items-center
-                  flex-shrink
-                  overflow-y-auto
-                  max-h-72
-                  text-xl
-                "
+                class="w-full h-full justify-center"
                 :class="{ hidden: openTab !== 3, block: openTab === 3 }"
               >
-                <div class="orders flex flex-row">
-                  <div class="text-black">
-                    <p>{{ orders.Name }}</p>
-                  </div>
-                  <div v-for="item in orderProduct" :key="item.id" class="">
-                    <p class="">{{ item.item.title }}</p>
+                <div class="orders w-full h-full">
+                  <div class="w-full h-full">
+                    <div
+                      class="w-full h-full"
+                      :class="{
+                        hidden: ordersTab !== 'List',
+                        block: ordersTab === 'List',
+                      }"
+                    >
+                      <div class="w-full h-full grid grid-rows-7">
+                        <div class="">
+                          <div
+                            class="
+                              List
+                              h-1/2
+                              w-full
+                              flex flex-row
+                              justify-between
+                              align-center
+                            "
+                          >
+                            <button
+                              class="p-2 rounded px-3"
+                              :class="{
+                                'bg-Amber-500': ordersTab === 'List',
+                                'bg-red-500': ordersTab !== 'List',
+                              }"
+                              @click="orderTab('List')"
+                            >
+                              List
+                            </button>
+                            <button
+                              class="p-2 rounded px-3"
+                              :class="{
+                                'bg-Amber-500': ordersTab === 'Detail',
+                                'bg-red-500': ordersTab !== 'Detail',
+                              }"
+                              @click="detailAnime() & orderTab('Detail')"
+                            >
+                              Detail
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          class="
+                            orderBar
+                            w-full
+                            flex flex-row
+                            place-content-around
+                            align-center
+                            row-span-1
+                          "
+                        >
+                          <h1
+                            class="
+                              text-2xl
+                              px-3
+                              lg:text-3xl
+                              lg:px-12
+                              border-2 border-blueGray-400
+                              rounded-full
+                              bg-blueGray-500
+                              shadow-xl
+                            "
+                          >
+                            Name
+                          </h1>
+                          <h1
+                            class="
+                              text-2xl
+                              px-3
+                              lg:text-3xl
+                              lg:px-12
+                              border-2 border-blueGray-400
+                              rounded-full
+                              bg-blueGray-500
+                              shadow-xl
+                            "
+                          >
+                            Date
+                          </h1>
+                          <h1
+                            class="
+                              text-2xl
+                              px-3
+                              lg:text-3xl
+                              lg:px-12
+                              border-2 border-blueGray-400
+                              rounded-full
+                              bg-blueGray-500
+                              shadow-xl
+                            "
+                          >
+                            Status
+                          </h1>
+                        </div>
+                        <div
+                          class="
+                            ordersList
+                            rounded
+                            border-r-2 border-b-2 border-l-2 border-Cyan-600
+                            h-full
+                            row-span-5
+                            overflow-y-scroll overflow-x-hidden
+                          "
+                        >
+                          <div
+                            class="
+                              bg-Emerald-500
+                              test
+                              w-full
+                              shadow-xl
+                              flex flex-row
+                              rounded-full
+                              my-3
+                              p-4
+                              place-content-around
+                            "
+                          >
+                            <h1 class="text-3xl">name</h1>
+                            <h1 class="text-3xl">date</h1>
+                            <h1 class="text-3xl">status</h1>
+                          </div>
+
+                          <div
+                            class="
+                              bg-Emerald-500
+                              test
+                              w-full
+                              shadow-xl
+                              flex flex-row
+                              rounded-full
+                              my-3
+                              p-4
+                              place-content-around
+                            "
+                          >
+                            <h1 class="text-3xl">name</h1>
+                            <h1 class="text-3xl">date</h1>
+                            <h1 class="text-3xl">status</h1>
+                          </div>
+                          <div
+                            class="
+                              bg-Emerald-500
+                              test
+                              w-full
+                              shadow-xl
+                              flex flex-row
+                              rounded-full
+                              my-3
+                              p-4
+                              place-content-around
+                            "
+                          >
+                            <h1 class="text-3xl">name</h1>
+                            <h1 class="text-3xl">date</h1>
+                            <h1 class="text-3xl">status</h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="w-full h-full"
+                      :class="{
+                        hidden: ordersTab !== 'Detail',
+                        block: ordersTab === 'Detail',
+                      }"
+                    >
+                      <div class="grid grid-rows-7 w-full h-full">
+                        <div
+                          class="
+                            List
+                            h-1/2
+                            row-span-1
+                            w-full
+                            flex flex-row
+                            justify-between
+                            align-center
+                          "
+                        >
+                          <button
+                            class="p-2 rounded px-3"
+                            :class="{
+                              'bg-Amber-500': ordersTab === 'List',
+                              'bg-red-500': ordersTab !== 'List',
+                            }"
+                            @click="tab3() & orderTab('List')"
+                          >
+                            List
+                          </button>
+                          <button
+                            class="p-2 rounded px-3"
+                            :class="{
+                              'bg-Amber-500': ordersTab === 'Detail',
+                              'bg-red-500': ordersTab !== 'Detail',
+                            }"
+                            @click=" orderTab('Detail')"
+                          >
+                            Detail
+                          </button>
+                        </div>
+                        <div
+                          class="
+                            w-full
+                            row-span-6
+                            h-full
+                            p-2
+                            border-r-2 border-b-2 border-l-2 border-Cyan-600
+                          "
+                        >
+                          <div
+                            class="
+                              orderDetail
+                              container
+                              grid grid-cols-2
+                              overflow-y-scroll
+                            "
+                          >
+                            <div
+                              class="
+                                detailCards
+                                p-2
+                                my-1
+                                mx-1
+                                bg-purple-500
+                                rounded
+                              "
+                            >
+                              <h1 class="self-center">Status: processing</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">lastName: blah</h1>
+                              <h1 class="text-xl border-b-2">
+                                Address: someshit place far away from here
+                              </h1>
+                              <h1 class="text-xl border-b-2">
+                                Phone Number: blah
+                              </h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                            </div>
+                            <div
+                              class="
+                                detailCards
+                                p-2
+                                my-1
+                                mx-1
+                                bg-purple-500
+                                rounded
+                              "
+                            >
+                              <h1 class="self-center">Status: processing</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">lastName: blah</h1>
+                              <h1 class="text-xl border-b-2">
+                                Address: someshit place far away from here
+                              </h1>
+                              <h1 class="text-xl border-b-2">
+                                Phone Number: blah
+                              </h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                            </div>
+                            <div
+                              class="
+                                detailCards
+                                p-2
+                                my-1
+                                mx-1
+                                bg-purple-500
+                                rounded
+                              "
+                            >
+                              <h1 class="self-center">Status: processing</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">lastName: blah</h1>
+                              <h1 class="text-xl border-b-2">
+                                Address: someshit place far away from here
+                              </h1>
+                              <h1 class="text-xl border-b-2">
+                                Phone Number: blah
+                              </h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                            </div>
+                            <div
+                              class="
+                                detailCards
+                                p-2
+                                my-1
+                                mx-1
+                                bg-purple-500
+                                rounded
+                              "
+                            >
+                              <h1 class="self-center">Status: processing</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">lastName: blah</h1>
+                              <h1 class="text-xl border-b-2">
+                                Address: someshit place far away from here
+                              </h1>
+                              <h1 class="text-xl border-b-2">
+                                Phone Number: blah
+                              </h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -356,7 +655,7 @@
               justify-items-center
               pt-3
               pb-4
-              place-content-evenly
+              place-content-around
               m-6
               flex-row
             "
@@ -364,6 +663,7 @@
             <li class="lis shadow-2xl w-full text-center" @click="tab1()">
               <a
                 class="
+                  place-items-center
                   text-xs
                   font-bold
                   uppercase
@@ -382,7 +682,7 @@
                 }"
                 @click="toggleTabs(1)"
               >
-                <img src="/Market.png" alt="" />
+                <img class="" src="/Market.png" alt="" />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab2()">
@@ -401,7 +701,7 @@
                 "
                 :class="{
                   'text-pink-600 bg-blue-300': openTab !== 2,
-                  'text-white bg-Indigo-500': openTab === 2,
+                  'text-white bg-Amber-500': openTab === 2,
                 }"
                 @click="toggleTabs(2)"
               >
@@ -523,6 +823,7 @@ export default {
       openTab: 1,
       orders: [],
       orderProduct: [],
+      ordersTab: 'List',
     }
   },
 
@@ -612,6 +913,10 @@ export default {
       this.catagory = selectedTab
     },
 
+    orderTab(tab) {
+      this.ordersTab = tab
+    },
+
     numberAnimation() {
       const gsap = this.$gsap
 
@@ -667,9 +972,19 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      tl.from('.orders', 0.5, {
+      tl.from('.List', 0.3, {
+        y: 100,
+      })
+      tl.from('.orderBar', 0.3, {
+        opacity: 0,
+      })
+      tl.from('.test', 0.5, {
         x: 100,
         opacity: 0,
+        ease: 'expo.out',
+        stagger: {
+          each: 0.3,
+        },
       })
     },
 
@@ -688,6 +1003,20 @@ export default {
       tl.from('.sellsRecord', 0.5, {
         y: 100,
         opacity: 0,
+      })
+    },
+
+    detailAnime() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+      tl.from('.detailCards', 0.5, {
+        y: 200,
+         ease: 'expo.out',
+        opacity: 0 ,
+        stagger: {
+          each: 0.3
+        }
       })
     },
 
@@ -815,5 +1144,17 @@ input[type='number'] {
 
 .ShipmentLength {
   border-color: #c7f954;
+}
+
+.List {
+  font-size: 30px;
+}
+
+.ordersList {
+  max-height: 30rem;
+}
+
+.orderDetail {
+  max-height: 25rem;
 }
 </style>
