@@ -1,10 +1,9 @@
 <template lang="html">
   <v-overlay v-if="loading" :value="overlay">
     <v-progress-circular
-      :size="70"
-      :width="7"
-      color="purple"
       indeterminate
+      size="64"
+      color="primary"
     ></v-progress-circular>
   </v-overlay>
 </template>

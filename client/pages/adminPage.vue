@@ -335,8 +335,9 @@
                             <button
                               class="p-2 rounded px-3"
                               :class="{
-                                'bg-Amber-500': ordersTab === 'List',
-                                'bg-red-500': ordersTab !== 'List',
+                                'bg-Lime-500': ordersTab === 'List',
+                                'transform scale-125': ordersTab ==='List',
+                                'bg-Amber-400': ordersTab !== 'List',
                               }"
                               @click="orderTab('List')"
                             >
@@ -345,8 +346,8 @@
                             <button
                               class="p-2 rounded px-3"
                               :class="{
-                                'bg-Amber-500': ordersTab === 'Detail',
-                                'bg-red-500': ordersTab !== 'Detail',
+                                'bg-Lime-500': ordersTab === 'Detail',
+                                'bg-Amber-400': ordersTab !== 'Detail',
                               }"
                               @click="detailAnime() & orderTab('Detail')"
                             >
@@ -366,13 +367,13 @@
                         >
                           <h1
                             class="
+                              headers
                               text-2xl
                               px-3
                               lg:text-3xl
                               lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
-                              bg-blueGray-500
                               shadow-xl
                             "
                           >
@@ -380,13 +381,13 @@
                           </h1>
                           <h1
                             class="
+                            headers
                               text-2xl
                               px-3
                               lg:text-3xl
                               lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
-                              bg-blueGray-500
                               shadow-xl
                             "
                           >
@@ -394,13 +395,13 @@
                           </h1>
                           <h1
                             class="
+                            headers
                               text-2xl
                               px-3
                               lg:text-3xl
                               lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
-                              bg-blueGray-500
                               shadow-xl
                             "
                           >
@@ -419,8 +420,7 @@
                         >
                           <div
                             class="
-                              bg-Emerald-500
-                              test
+                              listCard
                               w-full
                               shadow-xl
                               flex flex-row
@@ -437,8 +437,7 @@
 
                           <div
                             class="
-                              bg-Emerald-500
-                              test
+                              listCard
                               w-full
                               shadow-xl
                               flex flex-row
@@ -454,8 +453,7 @@
                           </div>
                           <div
                             class="
-                              bg-Emerald-500
-                              test
+                              listCard
                               w-full
                               shadow-xl
                               flex flex-row
@@ -494,18 +492,19 @@
                           <button
                             class="p-2 rounded px-3"
                             :class="{
-                              'bg-Amber-500': ordersTab === 'List',
-                              'bg-red-500': ordersTab !== 'List',
+                              'bg-Lime-500': ordersTab === 'List',
+                              'bg-Amber-400': ordersTab !== 'List',
                             }"
-                            @click="tab3() & orderTab('List')"
+                            @click="listAnime() & orderTab('List')"
                           >
                             List
                           </button>
                           <button
                             class="p-2 rounded px-3"
                             :class="{
-                              'bg-Amber-500': ordersTab === 'Detail',
-                              'bg-red-500': ordersTab !== 'Detail',
+                              'bg-Lime-500': ordersTab === 'Detail',
+                              'transform scale-125': ordersTab ==='Detail',
+                              'bg-Amber-400': ordersTab !== 'Detail',
                             }"
                             @click=" orderTab('Detail')"
                           >
@@ -535,7 +534,6 @@
                                 p-2
                                 my-1
                                 mx-1
-                                bg-purple-500
                                 rounded
                               "
                             >
@@ -558,7 +556,6 @@
                                 p-2
                                 my-1
                                 mx-1
-                                bg-purple-500
                                 rounded
                               "
                             >
@@ -581,7 +578,6 @@
                                 p-2
                                 my-1
                                 mx-1
-                                bg-purple-500
                                 rounded
                               "
                             >
@@ -604,7 +600,6 @@
                                 p-2
                                 my-1
                                 mx-1
-                                bg-purple-500
                                 rounded
                               "
                             >
@@ -973,12 +968,13 @@ export default {
       const tl = gsap.timeline()
 
       tl.from('.List', 0.3, {
-        y: 100,
+        scale: 0.3,
+        opacity: 0
       })
       tl.from('.orderBar', 0.3, {
         opacity: 0,
       })
-      tl.from('.test', 0.5, {
+      tl.from('.listCard', 0.5, {
         x: 100,
         opacity: 0,
         ease: 'expo.out',
@@ -1012,11 +1008,29 @@ export default {
 
       tl.from('.detailCards', 0.5, {
         y: 200,
-         ease: 'expo.out',
+         ease:  "sine.out",
         opacity: 0 ,
         stagger: {
           each: 0.3
         }
+      })
+    },
+
+    listAnime(){
+
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+
+       tl.from('.orderBar', 0.3, {
+        opacity: 0,
+      })
+      tl.from('.listCard', 0.5, {
+        x: 100,
+        opacity: 0,
+        ease: 'expo.out',
+        stagger: {
+          each: 0.3,
+        },
       })
     },
 
@@ -1029,11 +1043,15 @@ export default {
         y: -300,
         opacity: 0,
       })
-      tl.from('.tabBar', {
+      tl.from('.lis', {
         opacity: 0,
         scale: 0.5,
-        duration: 1,
-        stagger: 0.4,
+        ease: "bounce.out",
+        duration: 0.5,
+        stagger: {
+          each: 0.2,
+          from: "center"
+        },
       })
       tl.from('.tab-content', 0.5, {
         opacity: 0,
@@ -1156,5 +1174,18 @@ input[type='number'] {
 
 .orderDetail {
   max-height: 25rem;
+}
+
+.detailCards{
+  background-color: #BF1363;
+}
+
+.headers{
+  background-color: #F5FDB0;
+}
+
+.listCard{
+  background-color: #28FFBF;
+  color: #451881;
 }
 </style>
