@@ -122,7 +122,7 @@
                 </div>
               </div>
               <div class="w-full h-3/6 ordersDiv">
-                <div class="w-full h-1/3">
+                <div class="w-full h-1/3 bg-red-400">
                   <h1 class="pa-5 flex text-3xl">
                     <v-icon x-large dark>mdi-account-edit-outline</v-icon>
                     <span

@@ -169,7 +169,7 @@
                 </h1>
               </div>
 
-              <div class="w-full h-3/5 flex p-7 ">
+              <div class="w-full h-3/5 flex p-7">
                 <div
                   class="w-full lg:w-5/6 h-full flex justify-start self-start"
                 >
@@ -186,13 +186,7 @@
                     "
                   >
                     <img
-                      class="
-                        bg-Lime-900
-                        rounded-full
-                        w-24
-                        h-24
-                        justify-self-end
-                      "
+                      class="rounded-full w-24 h-24 justify-self-end"
                       :src="item.item.image"
                     />
                     <h1 class="font-mainFont text-3xl text-mainBlue font-bold">
