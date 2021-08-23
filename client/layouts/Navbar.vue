@@ -3,21 +3,21 @@
   <div class="w-screen bg-transparent Navbar opacity-0 z-50">
     <div class="flex align-center justify-around px-9">
       <div class="">
-        <NuxtLink to="/aboutUs">
+        <nuxt-link to="/aboutUs">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
             <v-icon class="pr-2" large>mdi-meditation</v-icon>
             <span class="aboutUs"> About Us </span>
           </v-btn>
-        </NuxtLink>
+        </nuxt-link>
       </div>
 
       <div class="flex align-center justify-end">
         <div>
-          <NuxtLink to="/productList">
+          <nuxt-link to="/productList">
             <v-btn depressed x-large color="transparent" class="">
               <span class="white--text"> Shop </span>
             </v-btn>
-          </NuxtLink>
+          </nuxt-link>
         </div>
         <div>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">

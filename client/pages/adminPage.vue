@@ -173,16 +173,16 @@
                   </div>
                 </div>
               </div>
-              <div :class="{ hidden: openTab !== 2, block: openTab === 2 }">
-                <div class="grid grid-cols-2 grid-rows-2">
+              <div class="w-full h-full" :class="{ hidden: openTab !== 2, block: openTab === 2 }">
+                <div class="h-full h-full grid grid-cols-2 gap-x-3 grid-rows-2">
                   <div
                     class="
                       catagories
                       container
                       col-span-2
                       flex flex-wrap flex-row
-                      justify-center
-                      content-center
+                      justify-around
+                      align-start
                       h-full
                       w-full
                       m-3
@@ -192,8 +192,9 @@
                     <v-btn
                       elevation="7"
                       x-large
+                      rounded
                       color="amber"
-                      class="border-2 border-CoolGray-600 p-2 m-3"
+                      class="border-2 border-CoolGray-600 p-5 m-3"
                       @click="catagorySelect('Shirts')"
                     >
                       <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
@@ -201,6 +202,7 @@
                     <v-btn
                       elevation="7"
                       x-large
+                      rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
                       @click="catagorySelect('Lighters')"
@@ -209,6 +211,7 @@
                     <v-btn
                       elevation="7"
                       x-large
+                      rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
                       @click="catagorySelect('Custom Matchboxes')"
@@ -217,6 +220,7 @@
                     <v-btn
                       elevation="7"
                       x-large
+                      rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
                       @click="catagorySelect('Collections')"
@@ -238,12 +242,12 @@
                     <button
                       class="
                         focus:outline-none
-                        my-8
                         addButton
                         self-center
                         text-center
-                        h-1/3
-                        w-2/3
+                        align-center
+                        h-1/2
+                        w-1/2
                       "
                       @click="showModal"
                     >
@@ -258,7 +262,7 @@
                       rounded-lg
                       shadow-2xl
                       overflow-y-scroll
-                      h-2/3
+                      h-full
                       text-gray-200
                     "
                   >
@@ -328,7 +332,7 @@
                               h-1/2
                               w-full
                               flex flex-row
-                              justify-between
+                              justify-around
                               align-center
                             "
                           >
@@ -430,9 +434,9 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">name</h1>
-                            <h1 class="text-3xl">date</h1>
-                            <h1 class="text-3xl">status</h1>
+                            <h1 class="text-3xl">bull</h1>
+                            <h1 class="text-3xl">10.5.2021</h1>
+                            <h1 class="text-3xl">processing</h1>
                           </div>
 
                           <div
@@ -447,9 +451,9 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">name</h1>
-                            <h1 class="text-3xl">date</h1>
-                            <h1 class="text-3xl">status</h1>
+                            <h1 class="text-3xl">Filask</h1>
+                            <h1 class="text-3xl">20.4.2053</h1>
+                            <h1 class="text-3xl">Shipped</h1>
                           </div>
                           <div
                             class="
@@ -463,9 +467,9 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">name</h1>
-                            <h1 class="text-3xl">date</h1>
-                            <h1 class="text-3xl">status</h1>
+                            <h1 class="text-3xl">Jessi</h1>
+                            <h1 class="text-3xl">25.5.2008</h1>
+                            <h1 class="text-3xl">Canceled</h1>
                           </div>
                         </div>
                       </div>
@@ -485,7 +489,7 @@
                             row-span-1
                             w-full
                             flex flex-row
-                            justify-between
+                            justify-around
                             align-center
                           "
                         >
@@ -683,7 +687,7 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-blue-300': openTab !== 1,
+                  'text-pink-600  border-2 bg-transparent': openTab !== 1,
                   'text-white bg-Lime-500': openTab === 1,
                 }"
                 @click="toggleTabs(1)"
@@ -706,7 +710,7 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-blue-300': openTab !== 2,
+                  'text-pink-600 border-2 bg-transparent': openTab !== 2,
                   'text-white bg-Amber-500': openTab === 2,
                 }"
                 @click="toggleTabs(2)"
@@ -729,8 +733,8 @@
                   leading-normal
                 "
                 :class="{
-                  'text-pink-600 bg-blue-300': openTab !== 3,
-                  'text-white bg-Lime-600': openTab === 3,
+                  'text-pink-600 border-2 bg-transparent': openTab !== 3,
+                  'text-white bg-purple-600': openTab === 3,
                 }"
                 @click="toggleTabs(3)"
               >
@@ -1025,7 +1029,7 @@ export default {
 
       tl.from('.detailCards', 0.5, {
         y: 200,
-         ease:  'Power3.easeIn',
+         ease:  'expo.out',
         opacity: 0 ,
         stagger: {
           each: 0.3
@@ -1115,7 +1119,8 @@ input[type='number'] {
   color: #fb8500;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  padding: 5px 5px;
+  padding: 3px 3px;
+  margin: 3px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -1132,7 +1137,7 @@ input[type='number'] {
 
 .admin {
   font-family: 'Yanone Kaffeesatz';
-  background-color: #14c2dd;
+  background-color: #23f4fc;
 }
 
 #products {
@@ -1148,7 +1153,7 @@ input[type='number'] {
   background-color: #ffb703;
 }
 .addSomthing {
-  color: #ffb703;
+  color: #0A1931;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 

@@ -1,16 +1,14 @@
-/* eslint-disable vue/no-parsing-error */
 <template>
   <v-app>
     <div id="main" class="w-screen">
-      <head>
+      <!-- <head>
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
           crossorigin="anonymous"
         />
-      </head>
-      <LazyHydrate when-idle>
+      </head> -->
         <Navbar
           id="navbar"
           v-gsap.to="{
@@ -20,7 +18,6 @@
           }"
           class="mt-4 navbar sticky"
         />
-      </LazyHydrate>
       <div class="w-screen">
         <div class="grid place-items-center w-screen">
           <div></div>
@@ -175,11 +172,11 @@
                 </div>
               </div>
               <div class="self-center lg:self-end">
-                <NuxtLink to="/productList">
+                <nuxt-link to="/productList">
                   <button class="learnMoreBtn">
                     <span class="px-9 py-5 learnMoreText"> Learn More </span>
                   </button>
-                </NuxtLink>
+                </nuxt-link>
               </div>
             </div>
             <div class="pictureDiv lg:order-last"></div>
@@ -397,12 +394,10 @@
     </div> -->
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 
 // import gsap from 'gsap'
 export default {
   components: {
-    LazyHydrate,
     Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {
