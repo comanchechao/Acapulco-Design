@@ -216,7 +216,7 @@
                   rounded-full
                 "
               >
-                <div class="h-full w-full"></div>
+                <div v-for="product in orderProduct" :key="product.id" class="h-full w-full">{{product.item.title}}</div>
                 <div class="h-full w-full"></div>
                 <div class="h-full w-full"></div>
               </div>
@@ -300,7 +300,7 @@ export default {
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           this.order = doc.data().order
-          this.orderProduct = doc.data().order.cart
+          this.orderProduct = doc.data().cart
         })
       })
       .catch((err) => {
@@ -309,12 +309,18 @@ export default {
 
     console.log(orders)
   },
+
+  mounted(){
+    console.log(this.orderProduct);
+  },
   methods: {
     signOut() {
       this.$store.dispatch('signOut').then((data) => {
         this.$router.push('/')
       })
     },
+
+
     // sendVerifyEmail() {
     //   this.emailSending = true
     //   const user = firebase.auth().currentUser

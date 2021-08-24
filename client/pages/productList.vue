@@ -111,22 +111,14 @@
               <h3 class="p-3 text-mainBlue text-6xl border-red-600 font-black">
                 Discover!
               </h3>
-              <NuxtLink to="/productList">
-                <span @click="changeCatagory('Lighters')">
-                  <h1
-                    class="
-                      text-3xl text-mainBlue
-                      border-mainBlue border-b-2
-                      p-4
-                      sidebarText
-                    "
-                  >
-                    Lighters🔥
-                  </h1>
-                </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span @click="changeCatagory('Shirts')">
+              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+                <h1
+                  class="text-3xl border-mainBlue border-b-2 p-4 sidebarText"
+                >
+                  Lighters🔥
+                </h1>
+              </span>
+                <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                   <h1
                     class="
                       text-3xl text-mainBlue
@@ -138,9 +130,7 @@
                     Acapulco Shirts🌴
                   </h1>
                 </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span @click="changeCatagory('Custom Matchboxes')">
+                <span class="cursor-pointer" @click="changeCatagory('Custom Matchboxes')">
                   <h1
                     class="
                       text-3xl text-mainBlue
@@ -152,14 +142,11 @@
                     Custom Matchboxes💥
                   </h1>
                 </span>
-              </NuxtLink>
-              <NuxtLink to="/productList">
-                <span @click="changeCatagory('Collections')">
+                <span class="cursor-pointer" @click="changeCatagory('Collections')">
                   <h1 class="text-3xl text-mainBlue p-4 sidebarText">
                     Collections🗿
                   </h1>
                 </span>
-              </NuxtLink>
             </div>
             <!-- </div> -->
           </div>
@@ -179,11 +166,12 @@ export default {
     Navbar: () => import('../layouts/Navbar.vue'),
   },
 
-  
-
   computed: {
     products() {
       return this.$store.state.products
+    },
+    catagory() {
+      return this.$store.state.catagory
     },
   },
 
@@ -211,7 +199,7 @@ export default {
 
   methods: {
     changeCatagory(selected) {
-     this.$store.dispatch('changeCatagory' , selected)
+      this.$store.dispatch('changeCatagory', selected)
     },
     animateBackground() {
       const gsap = this.$gsap

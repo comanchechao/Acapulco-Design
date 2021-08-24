@@ -34,12 +34,11 @@
         <Adminastration
           ref="Adminastration"
           v-gsap.from="{
-            y: -180,
-            opacity: 0,
+            y: 300,
             duration: 1.5,
             ease: 'expo.out',
           }"
-          class="adminastration sm:w-full"
+          class="adminastration bottom-10 sm:w-full"
         />
       </div>
 
@@ -173,7 +172,10 @@
                   </div>
                 </div>
               </div>
-              <div class="w-full h-full" :class="{ hidden: openTab !== 2, block: openTab === 2 }">
+              <div
+                class="w-full h-full"
+                :class="{ hidden: openTab !== 2, block: openTab === 2 }"
+              >
                 <div class="h-full h-full grid grid-cols-2 gap-x-3 grid-rows-2">
                   <div
                     class="
@@ -340,7 +342,7 @@
                               class="p-2 rounded px-3"
                               :class="{
                                 'bg-Lime-500': ordersTab === 'List',
-                                'transform scale-125': ordersTab ==='List',
+                                'transform scale-125': ordersTab === 'List',
                                 'bg-Amber-400': ordersTab !== 'List',
                               }"
                               @click="orderTab('List')"
@@ -385,7 +387,7 @@
                           </h1>
                           <h1
                             class="
-                            headers
+                              headers
                               text-2xl
                               px-3
                               lg:text-3xl
@@ -399,7 +401,7 @@
                           </h1>
                           <h1
                             class="
-                            headers
+                              headers
                               text-2xl
                               px-3
                               lg:text-3xl
@@ -422,7 +424,9 @@
                             overflow-y-scroll overflow-x-hidden
                           "
                         >
+                         
                           <div
+                          v-for="order in orders" :key="order.id"
                             class="
                               listCard
                               w-full
@@ -434,40 +438,7 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">bull</h1>
-                            <h1 class="text-3xl">10.5.2021</h1>
-                            <h1 class="text-3xl">processing</h1>
-                          </div>
-
-                          <div
-                            class="
-                              listCard
-                              w-full
-                              shadow-xl
-                              flex flex-row
-                              rounded-full
-                              my-3
-                              p-4
-                              place-content-around
-                            "
-                          >
-                            <h1 class="text-3xl">Filask</h1>
-                            <h1 class="text-3xl">20.4.2053</h1>
-                            <h1 class="text-3xl">Shipped</h1>
-                          </div>
-                          <div
-                            class="
-                              listCard
-                              w-full
-                              shadow-xl
-                              flex flex-row
-                              rounded-full
-                              my-3
-                              p-4
-                              place-content-around
-                            "
-                          >
-                            <h1 class="text-3xl">Jessi</h1>
+                            <h1 class="text-3xl">{{order.order.Name}}</h1>
                             <h1 class="text-3xl">25.5.2008</h1>
                             <h1 class="text-3xl">Canceled</h1>
                           </div>
@@ -507,10 +478,10 @@
                             class="p-2 rounded px-3"
                             :class="{
                               'bg-Lime-500': ordersTab === 'Detail',
-                              'transform scale-125': ordersTab ==='Detail',
+                              'transform scale-125': ordersTab === 'Detail',
                               'bg-Amber-400': ordersTab !== 'Detail',
                             }"
-                            @click=" orderTab('Detail')"
+                            @click="orderTab('Detail')"
                           >
                             Detail
                           </button>
@@ -536,6 +507,8 @@
                             "
                           >
                             <div
+                              v-for="order in orders"
+                              :key="order.id"
                               class="
                                 detailCards
                                 shadow-2xl
@@ -547,89 +520,42 @@
                               "
                             >
                               <h1 class="self-center">Status: processing</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">lastName: blah</h1>
                               <h1 class="text-xl border-b-2">
-                                Address: someshit place far away from here
+                                Name: {{ order.order.Name }}
                               </h1>
                               <h1 class="text-xl border-b-2">
-                                Phone Number: blah
-                              </h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                            </div>
-                            <div
-                              class="
-                                detailCards
-                                shadow-2xl
-                                border-2
-                                p-2
-                                my-1
-                                mx-1
-                                rounded
-                              "
-                            >
-                              <h1 class="self-center">Status: processing</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">lastName: blah</h1>
-                              <h1 class="text-xl border-b-2">
-                                Address: someshit place far away from here
+                                lastName: {{ order.order.lastName }}
                               </h1>
                               <h1 class="text-xl border-b-2">
-                                Phone Number: blah
-                              </h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                            </div>
-                            <div
-                              class="
-                                detailCards
-                                shadow-2xl
-                                border-2
-                                p-2
-                                my-1
-                                mx-1
-                                rounded
-                              "
-                            >
-                              <h1 class="">Status: processing</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">lastName: blah</h1>
-                              <h1 class="text-xl border-b-2">
-                                Address: someshit place far away from here
+                                Address: {{ order.order.Address }}
                               </h1>
                               <h1 class="text-xl border-b-2">
-                                Phone Number: blah
+                                Phone Number: {{ order.order.PhoneNumber }}
                               </h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                            </div>
-                            <div
-                              class="
-                                detailCards
-                                shadow-2xl
-                                border-2
-                                p-2
-                                my-1
-                                mx-1
-                                rounded
-                              "
-                            >
-                              <h1 class="self-center">Status: processing</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">lastName: blah</h1>
-                              <h1 class="text-xl border-b-2">
-                                Address: someshit place far away from here
+                               <h1 class="text-xl border-b-2">
+                                City: {{ order.order.City }}
                               </h1>
                               <h1 class="text-xl border-b-2">
-                                Phone Number: blah
+                                Province: {{ order.order.Province }}
                               </h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
-                              <h1 class="text-xl border-b-2">Name: blah</h1>
+                              
+                                <h1 class="text-xl">Items:</h1>
+                              <div
+                                v-for="item in order.orderProduct"
+                                :key="item.id"
+                              class="flex flex-row justify-around"
+                              >
+
+                                <h1 class="text-xl ">
+                                  Title: {{ item.item.title }}
+                                </h1>
+                                <h1 class="text-xl ">
+                                  Price: {{ item.item.price }}
+                                </h1>
+                                <h1 class="text-xl ">
+                                  Quantity: {{ item.quantity }}
+                                </h1>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -827,7 +753,7 @@ export default {
   },
   data() {
     return {
-      catagory: 'Lighters',
+      catagory: 'Shirts',
 
       Products: [],
       openTab: 1,
@@ -884,27 +810,29 @@ export default {
   },
 
   mounted() {
-    this.$fire.firestore
-      .collection('orders')
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
+    const ref = this.$fire.firestore.collection('orders')
+    const Orders = []
 
-          this.orders = doc.data().order
-          this.orderProduct = doc.data().order.cart
+    ref.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        const doc = change.doc
+        Orders.push({
+          order: doc.data().order,
+          orderProduct: doc.data().cart,
         })
       })
+    })
+    this.orders = Orders
 
-    // console.log(this.order)
     // const orders = this.$fire.firestore
     //   .collection('orders')
     //   .get()
     //   .then((querySnapshot) => {
     //     querySnapshot.forEach((doc) => {
     //       // doc.data() is never undefined for query doc snapshots
+    //       console.log(doc.data());
     //       this.order = doc.data().order
-    //       this.orderProduct = doc.data().order.cart
+    //       this.orderProduct = doc.data().cart
     //     })
     //   })
     //   .catch((err) => {
@@ -912,7 +840,7 @@ export default {
     //   })
 
     // console.log(orders)
-
+    // console.log(this.order);
     this.welcome()
     console.log(this.catagory)
 
@@ -965,18 +893,18 @@ export default {
       tl.from('.catagories', 0.5, {
         x: -100,
         opacity: 0,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
       tl.from('.addSomthing', 0.5, {
         x: -100,
         opacity: 0,
         scale: 0.2,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
       tl.from('.products', 0.5, {
         x: 100,
         opacity: 0,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
       console.log(' you clicked me ')
     },
@@ -987,7 +915,7 @@ export default {
 
       tl.from('.List', 0.3, {
         scale: 0.3,
-        opacity: 0
+        opacity: 0,
       })
       tl.from('.orderBar', 0.3, {
         opacity: 0,
@@ -1009,17 +937,17 @@ export default {
       tl.from('.totalProducts', 0.5, {
         x: -100,
         opacity: 0,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
       tl.from('.totalShipment', 0.5, {
         x: 100,
         opacity: 0,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
       tl.from('.sellsRecord', 0.5, {
         y: 100,
         opacity: 0,
-        ease: "power4.out"
+        ease: 'power4.out',
       })
     },
 
@@ -1029,20 +957,19 @@ export default {
 
       tl.from('.detailCards', 0.5, {
         y: 200,
-         ease:  'expo.out',
-        opacity: 0 ,
+        ease: 'expo.out',
+        opacity: 0,
         stagger: {
-          each: 0.3
-        }
+          each: 0.3,
+        },
       })
     },
 
-    listAnime(){
-
+    listAnime() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-       tl.from('.orderBar', 0.3, {
+      tl.from('.orderBar', 0.3, {
         opacity: 0,
       })
       tl.from('.listCard', 0.5, {
@@ -1062,17 +989,17 @@ export default {
       tl.from('.admin', {
         duration: 1,
         y: -300,
-        ease:  'Power1.easeIn',
+        ease: 'Power1.easeIn',
         opacity: 0,
       })
       tl.from('.lis', {
         opacity: 0,
         scale: 0.5,
-        ease:  'Power1.easeIn',
+        ease: 'Power1.easeIn',
         duration: 0.5,
         stagger: {
           each: 0.2,
-          from: "center"
+          from: 'center',
         },
       })
       tl.from('.tab-content', 0.5, {
@@ -1153,7 +1080,7 @@ input[type='number'] {
   background-color: #ffb703;
 }
 .addSomthing {
-  color: #0A1931;
+  color: #0a1931;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -1199,20 +1126,20 @@ input[type='number'] {
   max-height: 24rem;
 }
 
-.detailCards{
-  background-color: #BF1363;
+.detailCards {
+  background-color: #bf1363;
 }
 
-.headers{
-  background-color: #F5FDB0;
+.headers {
+  background-color: #f5fdb0;
 }
 
-.listCard{
-  background-color: #28FFBF;
+.listCard {
+  background-color: #28ffbf;
   color: #451881;
 }
 
-h1{ 
+h1 {
   border-color: #e2e9e0;
 }
 </style>

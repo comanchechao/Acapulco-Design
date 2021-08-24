@@ -31,7 +31,8 @@
         <div class="h-full w-full flex flex-col justify-center">
           <div
             class="
-              lg:h-4/5 lg:w-4/5
+              lg:h-4/5
+              lg:w-4/5
               w-full
               h-full
               backGround
@@ -279,7 +280,10 @@
                       m-auto
                     "
                   >
-                    <span class="pl-4 checkoutText font-mainFont text-2xl">
+                    <span
+                      class="pl-4 checkoutText font-mainFont text-2xl"
+                      @click="checkout"
+                    >
                       Checkout
                     </span>
                     <v-icon x-large class="pink--text text--darken-2"
@@ -355,11 +359,10 @@ export default {
       if (user) {
         this.$fire.firestore
           .collection('orders')
-          .doc(user.uid)
-          .set({
+          .add({
             userId: user.uid,
+            cart: this.cartItem,
             order: {
-              cart: this.cartItem,
               Name: this.order.Name,
               lastName: this.order.lastName,
               City: this.order.City,
