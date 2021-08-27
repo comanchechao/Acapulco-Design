@@ -134,7 +134,7 @@
                 <span class="limitedSpan animatedSpans">Limited</span>,
                 <span class="animatedSpans">custom</span>,
                 <i class="animatedSpans">handmade </i>
-                <span class="animatedSpans"> merchendise by : </span>
+                <span class="animatedSpans"> merchendise</span>
               </h2>
             </div>
             <div class="logo">
@@ -244,16 +244,45 @@
 
           <div
             class="
-              grid grid-row-2
+              grid grid-rows-2
+              lg:grid-cols-2
+              place-items-center
+              h-4/5
+              lg:h-screen lg:w-4/5
+              thirdContainer
+              content
+            "
+          >
+            <div class="pictureDiv">
+              <v-img> </v-img>
+            </div>
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex justify-end">
+                <h3 class="text-6xl p-5">Acapulco Shorts</h3>
+                <!-- <img class="transform scale-75" src="/fsdf.png" alt="" /> -->
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="
               h-5/6
               lg:h-full
-              place-items-center
-              gap-4
               fifthContainer
+              flex flex-col
+              align-center
+              justify-center
+              space-y-6
               content
               p-20
               justify-self-stretch
-              bg-mainRed
             "
           >
             <!-- <img
@@ -264,14 +293,15 @@
 
             <div class="collections lg:max-w-6xl md:max-w-2xl max-w-lg"></div>
 
-            <div class="textDiv mt-4 z-10">
-              <h3 class="text-6xl">Collections 🗿</h3>
-              <NuxtLink to="/productList">
-                <button class="learnMoreBtn">
-                  <span class="px-9 py-8 learnMoreText"> Learn More </span>
-                </button>
-              </NuxtLink>
+            <div class="textDiv">
+              <h3 class="text-6xl mt-3">Collections 🗿</h3>
             </div>
+            <NuxtLink to="/productList">
+              <button class="learnMoreBtn">
+                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+              </button>
+            </NuxtLink>
+            <div></div>
           </div>
 
           <div
@@ -363,14 +393,50 @@
                     justify-around
                     lg:justify-center
                     align-center
-                    space-x-4
+                    space-x-1
                     lg:space-x-9
                   "
                 >
-                  <i class="fab fa-twitter fa-10x icon-3d"></i>
-                  <i class="fab fa-facebook fa-10x icon-3d"></i>
-                  <i class="fab fa-instagram fa-10x icon-3d"></i>
-                  <i class="fab fa-whatsapp fa-10x icon-3d"></i>
+                  <i
+                    class="
+                      fab
+                      fa-twitter fa-10x
+                      icon-3d
+                      transform
+                      scale-50
+                      lg:scale-100
+                    "
+                  ></i>
+                  <i
+                    class="
+                      fab
+                      fa-facebook fa-10x
+                      icon-3d
+                      transform
+                      scale-50
+                      lg:scale-100
+                    "
+                  ></i>
+                  <i
+                    class="
+                      fab
+                      fa-instagram fa-10x
+                      icon-3d
+                      transform
+                      scale-50
+                      lg:scale-100
+                    "
+                  ></i>
+                  <i
+                    class="
+                      fab
+                      fa-whatsapp fa-10x
+                      icon-3d
+                      transform
+                      scale-50
+                      lg:scale-100
+                    "
+                  ></i>
                   <img
                     class="
                       self-end
@@ -678,7 +744,7 @@ $blueColor: rgba(33, 150, 243, 1);
 }
 
 .learnMoreBtn:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
   background-color: #120129;
   color: #ff4a68;
 }
