@@ -1,23 +1,23 @@
 <template>
   <v-app>
     <div id="main" class="w-screen">
-      <!-- <head>
+      <head>
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
           crossorigin="anonymous"
         />
-      </head> -->
-        <Navbar
-          id="navbar"
-          v-gsap.to="{
-            opacity: 1,
-            duration: 1,
-            ease: 'circ.out',
-          }"
-          class="mt-4 navbar sticky"
-        />
+      </head>
+      <Navbar
+        id="navbar"
+        v-gsap.to="{
+          opacity: 1,
+          duration: 1,
+          ease: 'circ.out',
+        }"
+        class="mt-4 navbar sticky"
+      />
       <div class="w-screen">
         <div class="grid place-items-center w-screen">
           <div></div>
@@ -251,15 +251,16 @@
               gap-4
               fifthContainer
               content
-              mb-5
+              p-20
               justify-self-stretch
+              bg-mainRed
             "
           >
-            <img
-              class="absolute tropicalImage md:bg-cover bg-contain bg-center"
-              src="/hhjhhUntitled-2.png"
-              alt=""
-            />
+            <!-- <img
+                class="absolute tropicalImage bg-contain bg-center"
+                src="/hhjhhUntitled-2.png"
+                alt=""
+              /> -->
 
             <div class="collections lg:max-w-6xl md:max-w-2xl max-w-lg"></div>
 
@@ -275,21 +276,30 @@
 
           <div
             class="
-              grid
-              h-4/6
+              flex flex-col
+              align-center
+              h-full
               md:h-5/6
               lg:h-screen
               grid-row-2
-              place-items-center
-              gap-4
+              justify-around
+              py-40
               sixthContainer
               content
-              mb-5
-              mt-36
             "
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
-              <h1 class="introText capitalize text-5xl lg:text-7xl text-center">
+              <h1
+                class="
+                  introText
+                  capitalize
+                  text-5xl
+                  lg:text-7xl
+                  text-center
+                  bg-goldie
+                  p-3
+                "
+              >
                 We are a
                 <span class="limitedSpan"> Creative Team </span>
                 based in Iran
@@ -312,7 +322,7 @@
               </h3>
             </div>
             <div class="md:h-5/6 h-4/6 flex align-center justify-center mt-36">
-              <video width="720" height="140" autoplay loop muted class="">
+              <video width="520" height="120" autoplay loop muted class="">
                 <source src="/Y064cQ6.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -357,17 +367,15 @@
                     lg:space-x-9
                   "
                 >
-                  <i class="fab fa-twitter fa-5x lg:fa-10x icon-3d"></i>
-                  <i class="fab fa-facebook fa-5x lg:fa-10x icon-3d"></i>
-                  <i class="fab fa-instagram fa-5x lg:fa-10x icon-3d"></i>
-                  <i class="fab fa-whatsapp fa-5x lg:fa-10x icon-3d"></i>
+                  <i class="fab fa-twitter fa-10x icon-3d"></i>
+                  <i class="fab fa-facebook fa-10x icon-3d"></i>
+                  <i class="fab fa-instagram fa-10x icon-3d"></i>
+                  <i class="fab fa-whatsapp fa-10x icon-3d"></i>
                   <img
                     class="
                       self-end
                       justify-self-end
                       icon-3d
-                      transform
-                      translate-y-40
                       scale-75
                       lg:scale-100
                     "
@@ -394,7 +402,6 @@
     </div> -->
 
 <script>
-
 // import gsap from 'gsap'
 export default {
   components: {
@@ -545,12 +552,12 @@ export default {
         this.$gsap.fromTo(
           content,
           {
-            y: 0,
+            y: -120,
             opacity: 0,
           },
           {
             opacity: 1,
-            y: -120,
+            y: 0,
             ease: 'Power1.easeInOut',
             scrollTrigger: {
               scrub: 0.7,
@@ -593,6 +600,7 @@ $blueColor: rgba(33, 150, 243, 1);
   -webkit-animation: icon3d 200ms 10;
   animation: icon3d 200ms 10;
   color: #f6f6f6;
+  padding-bottom: 5px;
   border-bottom: 5px solid #120129;
   border-radius: 25px;
   // border-right: 5px solid #120129;
@@ -758,6 +766,6 @@ $blueColor: rgba(33, 150, 243, 1);
   color: #120129;
 }
 .limitedSpan {
-  color: #ff4a68;
+  color: #be0a46;
 }
 </style>

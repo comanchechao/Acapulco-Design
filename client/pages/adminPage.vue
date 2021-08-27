@@ -176,7 +176,7 @@
                 class="w-full h-full"
                 :class="{ hidden: openTab !== 2, block: openTab === 2 }"
               >
-                <div class="h-full h-full grid grid-cols-2 gap-x-3 grid-rows-2">
+                <div class="h-full grid grid-cols-2 gap-x-3 grid-rows-2">
                   <div
                     class="
                       catagories
@@ -192,7 +192,7 @@
                     "
                   >
                     <v-btn
-                      elevation="7"
+                      depressed
                       x-large
                       rounded
                       color="amber"
@@ -202,7 +202,7 @@
                       <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
                     >
                     <v-btn
-                      elevation="7"
+                      depressed
                       x-large
                       rounded
                       color="amber"
@@ -211,7 +211,7 @@
                       ><v-icon dark>mdi-fire</v-icon></v-btn
                     >
                     <v-btn
-                      elevation="7"
+                      depressed
                       x-large
                       rounded
                       color="amber"
@@ -220,7 +220,7 @@
                       ><v-icon dark>mdi-package</v-icon></v-btn
                     >
                     <v-btn
-                      elevation="7"
+                      depressed
                       x-large
                       rounded
                       color="amber"
@@ -376,8 +376,7 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -390,8 +389,7 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -404,8 +402,7 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -424,9 +421,9 @@
                             overflow-y-scroll overflow-x-hidden
                           "
                         >
-                         
                           <div
-                          v-for="order in orders" :key="order.id"
+                            v-for="order in orders"
+                            :key="order.id"
                             class="
                               listCard
                               w-full
@@ -438,7 +435,7 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">{{order.order.Name}}</h1>
+                            <h1 class="text-3xl">{{ order.order.Name }}</h1>
                             <h1 class="text-3xl">25.5.2008</h1>
                             <h1 class="text-3xl">Canceled</h1>
                           </div>
@@ -532,27 +529,26 @@
                               <h1 class="text-xl border-b-2">
                                 Phone Number: {{ order.order.PhoneNumber }}
                               </h1>
-                               <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2">
                                 City: {{ order.order.City }}
                               </h1>
                               <h1 class="text-xl border-b-2">
                                 Province: {{ order.order.Province }}
                               </h1>
-                              
-                                <h1 class="text-xl">Items:</h1>
+
+                              <h1 class="text-xl">Items:</h1>
                               <div
                                 v-for="item in order.orderProduct"
                                 :key="item.id"
-                              class="flex flex-row justify-around"
+                                class="flex flex-row justify-around"
                               >
-
-                                <h1 class="text-xl ">
+                                <h1 class="text-xl">
                                   Title: {{ item.item.title }}
                                 </h1>
-                                <h1 class="text-xl ">
+                                <h1 class="text-xl">
                                   Price: {{ item.item.price }}
                                 </h1>
-                                <h1 class="text-xl ">
+                                <h1 class="text-xl">
                                   Quantity: {{ item.quantity }}
                                 </h1>
                               </div>
