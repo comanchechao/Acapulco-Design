@@ -131,7 +131,7 @@
                       border-r-2 border-l-2
                     "
                   >
-                    <h2 class="text-center">sells</h2>
+                    <h2 class="text-center">Total</h2>
                     <h2
                       class="
                         SellsLength
@@ -142,9 +142,9 @@
                         border-b-2
                       "
                     >
-                      25
+                      {{ orders.length }}
                     </h2>
-                    <h2 class="text-center">Records</h2>
+                    <h2 class="text-center">Orders</h2>
                   </div>
 
                   <div
@@ -376,7 +376,9 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl lg:px-12
+                              p-2
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -389,7 +391,9 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl lg:px-12
+                              p-2
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -402,7 +406,9 @@
                               headers
                               text-2xl
                               px-3
-                              lg:text-3xl lg:px-12
+                              p-2
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -436,7 +442,7 @@
                             "
                           >
                             <h1 class="text-3xl">{{ order.order.Name }}</h1>
-                            <h1 class="text-3xl">25.5.2008</h1>
+                            <h1 class="text-3xl">{{ order.Date }}</h1>
                             <h1 class="text-3xl">Canceled</h1>
                           </div>
                         </div>
@@ -510,45 +516,71 @@
                                 detailCards
                                 shadow-2xl
                                 border-2
-                                p-2
+                                p-8
                                 my-1
                                 mx-1
                                 rounded
                               "
                             >
-                              <h1 class="self-center">Status: processing</h1>
-                              <h1 class="text-xl border-b-2">
+                              <div class="w-full flex flex-row justify-between">
+                                <h1 class="self-center">Status: processing</h1>
+                                <button class="" @click="deleteOrder(order.id)">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="text-yellow-500 h-10 w-10"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                              <h1 class="text-xl border-b-2 p-1">
                                 Name: {{ order.order.Name }}
                               </h1>
-                              <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2 p-1">
                                 lastName: {{ order.order.lastName }}
                               </h1>
-                              <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2 p-1">
                                 Address: {{ order.order.Address }}
                               </h1>
-                              <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2 p-1">
                                 Phone Number: {{ order.order.PhoneNumber }}
                               </h1>
-                              <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2 p-1">
                                 City: {{ order.order.City }}
                               </h1>
-                              <h1 class="text-xl border-b-2">
+                              <h1 class="text-xl border-b-2 p-1">
                                 Province: {{ order.order.Province }}
                               </h1>
 
-                              <h1 class="text-xl">Items:</h1>
+                              <h1 class="text-xl p-1">Items:</h1>
                               <div
                                 v-for="item in order.orderProduct"
                                 :key="item.id"
-                                class="flex flex-row justify-around"
+                                class="
+                                  flex flex-shirnk flex-row
+                                  justify-around
+                                  bg-Amber-500
+                                  shadow-2xl
+                                  rounded-xl
+                                  p-5
+                                  m-1
+                                "
                               >
-                                <h1 class="text-xl">
+                                <h1 class="text-xl p-1">
                                   Title: {{ item.item.title }}
                                 </h1>
-                                <h1 class="text-xl">
+                                <h1 class="text-xl p-1">
                                   Price: {{ item.item.price }}
                                 </h1>
-                                <h1 class="text-xl">
+                                <h1 class="text-xl p-1">
                                   Quantity: {{ item.quantity }}
                                 </h1>
                               </div>
@@ -738,6 +770,7 @@
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
+import moment from 'moment'
 import Adminastration from '../components/Adminastration.vue'
 
 export default {
@@ -757,6 +790,12 @@ export default {
       orderProduct: [],
       ordersTab: 'List',
     }
+  },
+
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
   },
 
   watch: {
@@ -813,7 +852,9 @@ export default {
       snapshot.docChanges().forEach((change) => {
         const doc = change.doc
         Orders.push({
+          id: doc.id,
           order: doc.data().order,
+          Date : moment(doc.data().order.Date).format('LLL'),
           orderProduct: doc.data().cart,
         })
       })
@@ -839,8 +880,6 @@ export default {
     // console.log(this.order);
     this.welcome()
     console.log(this.catagory)
-
-    this.numberAnimation()
   },
   methods: {
     catagorySelect(selectedTab) {
@@ -849,19 +888,6 @@ export default {
 
     orderTab(tab) {
       this.ordersTab = tab
-    },
-
-    numberAnimation() {
-      const gsap = this.$gsap
-
-      gsap.from('.ProductLength', {
-        textContent: 54,
-        duration: 4,
-        ease: 'Power1.easeIn',
-        snap: { textContent: 3 },
-        stagger: 1,
-        // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-      })
     },
 
     toggleTabs(tabNumber) {
@@ -878,6 +904,18 @@ export default {
         .then(() => {
           this.Products = this.Products.filter((product) => {
             return product.id !== id
+          })
+        })
+    },
+
+    deleteOrder(id) {
+      this.$fire.firestore
+        .collection('orders')
+        .doc(id)
+        .delete()
+        .then(() => {
+          this.orders = this.orders.filter((order) => {
+            return order.id !== id
           })
         })
     },

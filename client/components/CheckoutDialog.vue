@@ -23,6 +23,13 @@
         </button>
       </template>
       <div id="main" class="h-screen w-screen overflow-hidden">
+        <LazyHydrate on-interaction>
+          <PaymentDialog
+            ref="PaymentDialog"
+            class="absolute left-1/3 bottom-1/2"
+          />
+        </LazyHydrate>
+
         <div class="hidden self-start absolute lg:flex">
           <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
@@ -330,7 +337,13 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
+
 export default {
+  components: {
+    LazyHydrate,
+    PaymentDialog: () => import('../components/PaymentDialog.vue'),
+  },
   data() {
     return {
       order: {
@@ -370,12 +383,19 @@ export default {
               Address: this.order.Address,
               PhoneNumber: this.order.PhoneNumber,
               Age: this.order.Age,
+              Date: Date.now()
             },
           })
-          .then(() => console.log('lolo'))
+          .then(
+            () => console.log('lolo'),
+            this.$refs.PaymentDialog.toggleDialog()
+          )
           .catch((err) => {
             console.error(err)
           })
+      } else {
+        console.log('this')
+        this.$refs.PaymentDialog.toggleDialog()
       }
     },
   },

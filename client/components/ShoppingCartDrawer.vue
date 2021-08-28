@@ -142,11 +142,26 @@
                 {{ item.item.price }}
               </h1>
               <div class="flex justify-center align-center">
-                <v-btn small large fab plain class="minus" color="#00ffaa">
+                <v-btn
+                  small
+                  large
+                  fab
+                  plain
+                  class="minus"
+                  color="#00ffaa"
+                  @click="decrementQuantity(item)"
+                >
                   <v-icon>mdi-minus</v-icon></v-btn
                 >
-                <p class="font-black font-mainFont text-mainBlue">2</p>
-                <v-btn light large fab plain class="plus" color="#00ffaa"
+                <p class="font-black font-mainFont text-mainBlue">{{ item.quantity}}</p>
+                <v-btn
+                  light
+                  large
+                  fab
+                  plain
+                  class="plus"
+                  color="#00ffaa"
+                  @click="incrementQuantity(item)"
                   ><v-icon>mdi-plus</v-icon></v-btn
                 >
               </div>
