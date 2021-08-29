@@ -34,7 +34,7 @@
         <Adminastration
           ref="Adminastration"
           v-gsap.from="{
-            y: 300,
+            y: 500,
             duration: 1.5,
             ease: 'expo.out',
           }"
@@ -129,6 +129,7 @@
                       justify-center
                       align-center
                       border-r-2 border-l-2
+                      rounded
                     "
                   >
                     <h2 class="text-center">Total</h2>
@@ -519,7 +520,7 @@
                                 p-8
                                 my-1
                                 mx-1
-                                rounded
+                                rounded-lg
                               "
                             >
                               <div class="w-full flex flex-row justify-between">
@@ -698,72 +699,6 @@
           </ul>
         </div>
       </div>
-      <!-- <div class="absolute w-full z-0 h-screen flex place-items-center">
-        <div class="tropicalLeaves absolute w-1/2 z-0 top-0">
-          <img src="/hat.png" alt="" />
-        </div>
-      </div>
-
-        <div
-          class="absolute inset-x-0 z-20 shadow-xl w-1/3 md:w-2/5 mx-auto -mt-1"
-        >
-          <Adminastration
-            ref="Adminastration"
-            v-gsap.from="{
-              y: -180,
-              opacity: 0,
-              duration: 1.5,
-              ease: 'expo.out',
-            }"
-            class="adminastration mb-10"
-          />
-        </div> -->
-      <!-- <div class="bees flex middle flex-col place-items-center">
-          <img src="/Orders.png" alt="" />
-          <h2 class="text-blue-700 text-3xl">Check</h2>
-        </div>
-        <div class="bees flex middle flex-col place-items-center">
-          <img src="/Add.png" alt="" />
-        </div>
-        <div class="bees flex middle flex-col place-items-center">
-          <img src="/Market.png" alt="" />
-          <h2 class="text-blue-700 text-3xl">Rates</h2>
-        </div> -->
-      <!-- <div
-          class="
-            m-8
-            w-screen
-            admin
-            grid grid-rows-4
-            self-center
-            z-30
-            h-screen
-            self-center
-            text-center
-            shadow-lg
-            bg-blueGray-200
-            rounded-lg
-            align-center
-          "
-        >
-          
-
-           <div
-            class="
-              row-span-3
-              flex flex-col
-              align-center
-              justify-center
-              self-center
-              bees
-              break-words
-              bg-CoolGray-300
-              w-2/3
-              h-2/3
-              shadow-lg
-              rounded
-            "
-          > -->
     </div>
   </v-app>
 </template>

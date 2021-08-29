@@ -33,21 +33,18 @@
             "
           >
             <div
-              v-gsap.to="{
-                opacity: 1,
-                duration: 1,
-                ease: 'circ.out',
-              }"
               class="
+                fixed
+                top-3
                 w-60
                 h-60
                 justify-self-center
                 self-center
                 peaceSignDiv
-                opacity-0
+                opacity-1
               "
             >
-              <img class="peaceSign" src="/moomoole.png" alt="" />
+              <img class="fixed peaceSign" src="/moomoole.png" alt="" />
             </div>
             <div
               v-gsap.to="{
@@ -148,7 +145,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               secondContainer
               content
               mt-15
@@ -162,7 +160,8 @@
                     class="
                       transform
                       -translate-y-3
-                      lg:pb-5 lg:pl-3
+                      lg:pb-5
+                      lg:pl-3
                       scale-75
                       lg:scale-75
                     "
@@ -188,7 +187,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               thirdContainer
               content
             "
@@ -217,7 +217,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               forthContainer
               content
             "
@@ -248,7 +249,8 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen lg:w-4/5
+              lg:h-screen
+              lg:w-4/5
               thirdContainer
               content
             "
@@ -482,6 +484,7 @@ export default {
     this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
+    this.peaceSignAnimation()
     // this.animatePeaceSign()
   },
   transition: {
@@ -553,6 +556,28 @@ export default {
         })
       })
     },
+
+    peaceSignAnimation() {
+      const gsap = this.$gsap
+      gsap.set('#peaceSignDiv', {xPercent:-50});
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.peaceSignDiv',
+            pin: true,
+            scrub: 0.2,
+            start: 'top top',
+            end: '+=10000',
+          },
+        })
+        .to('.peaceSignDiv', {
+          rotation: 360 * 5,
+          duration: 1,
+          y: 500,
+          ease: 'none',
+        })
+    },
     // animatePeaceSign() {
     //   const gsap = this.$gsap
     //   gsap.to('.peaceSign', {
@@ -580,6 +605,7 @@ export default {
     },
     animateOnScroll() {
       const tl = this.$gsap.timeline()
+
       tl.fromTo(
         '.acapulco-div',
         {
@@ -799,6 +825,10 @@ $blueColor: rgba(33, 150, 243, 1);
 
 .collections:hover {
   transform: scale(1.02);
+}
+
+.peaceSignDiv {
+  position: sticky;
 }
 /* .limited {
   grid-area: 4 / 3 / 5 / 4;

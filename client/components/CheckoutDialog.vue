@@ -394,7 +394,7 @@ export default {
             console.error(err)
           })
       } else {
-        console.log('this')
+        console.log('sign up and add order')
         this.$refs.PaymentDialog.toggleDialog()
       }
     },

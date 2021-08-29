@@ -153,7 +153,9 @@
                 >
                   <v-icon>mdi-minus</v-icon></v-btn
                 >
-                <p class="font-black font-mainFont text-mainBlue">{{ item.quantity}}</p>
+                <p class="font-black font-mainFont text-mainBlue">
+                  {{ item.quantity }}
+                </p>
                 <v-btn
                   light
                   large
@@ -186,14 +188,14 @@
             </div>
             <div class="flex justify-around h-full align-center">
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                4399 IRL
+                {{ cartTotalPrice }} IRL
               </h1>
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
                 15 IRL
               </h1>
 
               <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
-                4499 IRL
+                {{ total }} IRL
               </h1>
             </div>
           </div>
@@ -227,6 +229,12 @@ export default {
     },
     cartItem() {
       return this.$store.state.cart
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
+    },
+    total() {
+      return this.cartTotalPrice + 15
     },
   },
   methods: {
