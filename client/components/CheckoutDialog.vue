@@ -369,7 +369,7 @@ export default {
   methods: {
     checkout() {
       const user = this.$fire.auth.currentUser
-      if (user) {
+      if (user && this.order.Name !== null && this.cartItem.length > 0) {
         this.$fire.firestore
           .collection('orders')
           .add({

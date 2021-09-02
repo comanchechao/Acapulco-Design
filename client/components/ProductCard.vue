@@ -19,7 +19,7 @@
             cardBackground
             productCard
           "
-          @click="dialog = true"
+          @click.self="dialog = true"
           v-on="on"
         >
           <div
