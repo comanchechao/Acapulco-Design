@@ -66,7 +66,7 @@
       <div class="flex flex-grow-0">
         <button
           class="learnMoreBtn flex align-center justify-center"
-          @click="addToCart"
+          @click.stop="addToCart"
         >
           <span class="learnMoreText px-4">
             Add to Cart

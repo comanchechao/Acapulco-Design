@@ -22,43 +22,51 @@
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="secend justify-center opacity-0 w-0 h-0 rounded">
+        <div class="secend px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
           <h2>Hi. we are a bunch of guys</h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="justify-center w-0 h-0 rounded opacity-0 third">
-          <h2>from a less known city of a dystopian country,</h2>
+        <div class="justify-center w-0 h-0 rounded opacity-0 third px-2 bg-Lime-500">
+          <h2>From a less known city of a dystopian country,</h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="fourth justify-center opacity-0 w-0 h-0 rounded">
+        <div class="fourth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
           <h2>
-            while we're not lost and consumed by the sheer pressure of human
+            While we're not lost and consumed by the sheer pressure of human
             survival
           </h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="fifth justify-center opacity-0 w-0 h-0 rounded">
-          <h2>we tend to smoke, and create stuff</h2>
+        <div class="fifth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
+          <h2>We tend to smoke, and create stuff</h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="sixth justify-center opacity-0 rounded">
-          <h2>
-            in the hope of finding the long lost peace that we all crave
-          </h2>
+        <div class="sixth px-2 bg-Lime-500 justify-center opacity-0 rounded">
+          <h2>In the hope of finding the long lost peace that we all crave</h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
-        <div class="seventh justify-center opacity-0 rounded flex flex-col">
-          <h2>along the way.</h2>
+        <div class="seventh p-2 justify-center opacity-0 rounded flex flex-col">
+          <h2 class="">Along the way.</h2>
           <NuxtLink to="/">
-              <span class="menu px-5 text-4xl rounded-full bg-Amber-500 text-gray-100 font-semibold">
-                back to our shopping journey .. 
-              </span>
-            </NuxtLink>
+            <span
+              class="
+                menu
+                px-5
+                text-4xl
+                rounded-full
+                bg-Lime-500
+                text-gray-100
+                font-semibold
+              "
+            >
+              back to our shopping journey ..
+            </span>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -69,7 +77,7 @@
 </template>
 
 <script>
-import * as THREE from 'three';
+import * as THREE from 'three'
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
@@ -116,7 +124,7 @@ export default {
 
     const RingTexture = new THREE.TextureLoader().load('/ring.jpg')
 
-    const RingGeometry2 = new THREE.RingGeometry(14, 12, 32)
+    const RingGeometry2 = new THREE.RingGeometry(26, 22, 32)
     const RingMaterial2 = new THREE.MeshBasicMaterial({
       map: RingTexture,
       side: THREE.DoubleSide,
@@ -124,9 +132,9 @@ export default {
     const ring2 = new THREE.Mesh(RingGeometry2, RingMaterial2)
 
     scene.add(ring2)
-    ring2.position.set(0, 0, 0)
+    ring2.position.set(10, 0, 0)
 
-    const RingGeometry1 = new THREE.RingGeometry(11, 9, 32)
+    const RingGeometry1 = new THREE.RingGeometry(21, 17, 32)
     const RingMaterial1 = new THREE.MeshBasicMaterial({
       map: RingTexture,
       side: THREE.DoubleSide,
@@ -134,24 +142,25 @@ export default {
     const ring1 = new THREE.Mesh(RingGeometry1, RingMaterial1)
 
     scene.add(ring1)
-    ring1.position.set(0, 0, 0)
+    ring1.position.set(10, 0, 0)
 
-    const RingGeometry = new THREE.RingGeometry(8, 7, 32)
+    const RingGeometry = new THREE.RingGeometry(16, 11, 32)
     const RingMaterial = new THREE.MeshBasicMaterial({
       map: RingTexture,
       side: THREE.DoubleSide,
     })
     const ring = new THREE.Mesh(RingGeometry, RingMaterial)
     scene.add(ring)
-    ring.position.set(0, 0, 0)
+    ring.position.set(10, 0, 0)
 
     // planet
     const planetTexture = new THREE.TextureLoader().load('/earth1.jpg')
 
-    const planetGeometry = new THREE.SphereGeometry(5, 32, 32)
+    const planetGeometry = new THREE.SphereGeometry(9, 32, 32)
     const planetMaterial = new THREE.MeshBasicMaterial({ map: planetTexture })
     const sphere = new THREE.Mesh(planetGeometry, planetMaterial)
     scene.add(sphere)
+    sphere.position.set(10, 0, 0)
     // lights
 
     const spotLight = new THREE.SpotLight(0xFFFFFF)
@@ -171,9 +180,6 @@ export default {
     // scene.add(lightHelper, gridHelper)
 
     // orbit controls
-
-   
-
 
     // scene background
 
@@ -205,7 +211,6 @@ export default {
       const particleMaterial = new THREE.MeshBasicMaterial({ color: '#FB13DF' })
 
       const particle = new THREE.Mesh(particleGeometry, particleMaterial)
-      
 
       const [x, y, z] = Array(3)
         .fill()
@@ -233,26 +238,20 @@ export default {
       sphere.rotation.z += 0.001
 
       renderer.render(scene, camera)
-      
     }
 
     function moveCamera() {
+      //  const t = document.body.getBoundingClientRect().top
 
-       const t = document.body.getBoundingClientRect().top
-      
-      scene.rotation.y = t * -0.002
       // scene.rotation.x = t * -0.002
 
-      ring.rotation.z += 0.5
-      ring.rotation.x += 0.05
+      ring.rotation.y -= 0.05
 
-      ring1.rotation.z += -0.1
-      ring1.rotation.x += -0.05
+      ring1.rotation.y -= -0.05
 
-      ring2.rotation.z += 0.05
-      ring2.rotation.x += 0.05
+      ring2.rotation.y -= 0.05
 
-      sphere.rotation.z += 0.1
+      sphere.rotation.x -= 0.01
     }
 
     document.body.onscroll = moveCamera
@@ -274,7 +273,7 @@ export default {
         { y: -800, opacity: 0, x: 500 },
         {
           opacity: 1,
-          x: 400,
+          x: 200,
           y: 100,
           transformOrigin: 'left top',
           ease: 'back.out(1.7)',
@@ -286,7 +285,7 @@ export default {
         { y: -800, opacity: 0, x: 500 },
         {
           opacity: 1,
-          x: 420,
+          x: 220,
           y: 110,
           transformOrigin: 'left top',
           ease: 'back.out(1.7)',
@@ -298,7 +297,7 @@ export default {
         { y: -800, opacity: 0, x: 500 },
         {
           opacity: 1,
-          x: 440,
+          x: 240,
           y: 120,
           transformOrigin: 'left top',
           ease: 'back.out(1.7)',
@@ -310,7 +309,7 @@ export default {
         { y: -800, opacity: 0, x: 500 },
         {
           opacity: 1,
-          x: 410,
+          x: 210,
           y: 180,
           transformOrigin: 'left top',
           ease: 'back.out(1.7)',
@@ -322,15 +321,16 @@ export default {
         {
           x: 600,
           y: -800,
-          ease: 'slow(0.7, 0.7, false)',
+          
         },
         {
           opacity: 1,
           width: '300px',
           height: '150px',
-          x: 600,
+          x: 300,
           y: 280,
           transformOrigin: 'left top',
+          ease: 'expo.out',
         }
       )
 
@@ -346,7 +346,7 @@ export default {
           width: '500px',
           height: '150px',
           y: 100,
-          ease: 'slow(0.7, 0.7, false)',
+          ease: 'expo.out',
           scrollTrigger: {
             trigger: '.secend',
             start: 'top 110%',
@@ -360,14 +360,15 @@ export default {
         '.third',
         1,
         {
-          x: 1300,
+          x: -200,
         },
         {
-          x: 900,
+          x: 40,
           opacity: 1,
           width: '500px',
           height: '150px',
           y: 100,
+          ease: 'expo.out',
           scrollTrigger: {
             trigger: '.third',
 
@@ -387,9 +388,9 @@ export default {
         {
           x: 50,
           opacity: 1,
-          width: '500px',
+          width: '550px',
 
-          height: '150px',
+          height: '220px',
           y: 100,
           scrollTrigger: {
             trigger: '.fourth',
@@ -404,10 +405,10 @@ export default {
         '.fifth',
         1,
         {
-          x: 1300,
+          x: -200,
         },
         {
-          x: 900,
+          x: 40,
           opacity: 1,
           width: '500px',
 
@@ -454,7 +455,7 @@ export default {
           scale: 0.1,
         },
         {
-          y:1200,
+          y: 1200,
           x: 300,
           scale: 1,
           opacity: 1,
@@ -512,11 +513,11 @@ export default {
 h2 {
   font-family: 'Londrina Solid', cursive;
   font-size: 50px;
-  color: #deff0a;
+  color: #0717aa;
 }
 .whoAreWe {
   font-family: 'Fascinate Inline', cursive;
   font-size: 80px;
-  color: #c70039;
+  color: #eb6b16;
 }
 </style>
