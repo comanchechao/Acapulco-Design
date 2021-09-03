@@ -35,21 +35,10 @@
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div>
-        <div class="h-full w-full flex flex-col justify-center">
-          <div
-            class="
-              lg:h-4/5
-              lg:w-4/5
-              w-full
-              h-full
-              backGround
-              self-center
-              justify-self-center
-              grid grid-rows-2
-            "
-          >
-            <div>
-              <div class="w-full h-20 bg-green-400 flex">
+        <div class="h-full w-full flex flex-col justify-center align-center">
+          <div class="lg:h-4/5 lg:w-4/5 w-full h-full backGround">
+            <div class="w-full h-3/5 flex justify-center align-center flex-col">
+              <div class="w-full h-1/4 bg-green-400 flex">
                 <h1 class="pa-5">
                   <span class="md:hidden lg:hidden span" @click="dialog = false"
                     ><v-icon light x-large color="pink lighten-5"
@@ -68,10 +57,10 @@
                 class="
                   grid grid-cols-2 grid-rows-4 grid-flow-row
                   w-full
-                  h-full
+                  h-3/4
+                  bg-CoolGray-800
                   p-5
-                  space-x-5
-                  bg-CoolGray-900
+                  gap-4
                 "
               >
                 <div>
@@ -80,7 +69,7 @@
                     color="blue darken-4"
                     dark
                     label="Name"
-                    class="pl-4"
+                    class=""
                     required
                     rounded
                     dense
@@ -166,7 +155,10 @@
                   </div>
                 </div> -->
               </div>
-              <div class="w-full h-20 bg-red-400">
+            </div>
+
+            <div class="w-full h-2/5">
+              <div class="bg-red-400">
                 <h1 class="pa-5">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
@@ -177,34 +169,50 @@
                 </h1>
               </div>
 
-              <div class="w-full h-3/5 flex p-7">
-                <div
-                  class="w-full lg:w-5/6 h-full flex justify-start self-start"
-                >
+              <div class="w-full h-3/4 flex p-7">
+                <div class="w-full lg:w-5/6 h-full self-start">
                   <div
                     v-for="item in cartItem"
                     :key="item.id"
-                    class="
-                      h-full
-                      lg:w-1/5
-                      w-1/3
-                      flex flex-col
-                      justify-between
-                      align-center
-                    "
+                    class="w-52 h-full flex"
                   >
-                    <img
-                      class="rounded-full w-24 h-24 justify-self-end"
-                      :src="item.item.image"
-                    />
-                    <h1 class="font-mainFont text-3xl text-mainBlue font-bold">
-                      {{ item.item.title }}
-                    </h1>
-                    <h1
-                      class="font-mainFont text-2xl text-mainBlue font-medium"
+                    <div
+                      class="
+                        w-2/3
+                        h-full
+                        flex
+                        justify-center
+                        align-center
+                        space-x-3
+                      "
                     >
-                      {{ item.item.price }}
-                    </h1>
+                      <img
+                        class="float-left rounded-full w-24 h-24"
+                        :src="item.item.image"
+                      />
+                      <div
+                        class="space-y-2 flex justify-end flex-col align-start"
+                      >
+                        <h1 class="font-mainFont font-extrabold text-2xl">
+                          {{ item.item.title }}
+                        </h1>
+                        <button
+                          class="
+                            py-1
+                            bg-Rose-300
+                            border-2 border-pink-800
+                            rounded-full
+                          "
+                          @click.prevent="removeCartProduct(item)"
+                        >
+                          <span
+                            class="px-5 font-mainFont text-2xl text-pink-800"
+                          >
+                            Delete
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                   <!-- <p
                     v-for="item in cartItem"
@@ -214,8 +222,8 @@
                     {{ item.item.title }}
                   </p> -->
                 </div>
-                <div class="w-1/6 h-full flex justify-around flex-col">
-                  <h1
+                <div class="w-1/6 h-full bg-green-300 flex justify-center">
+                  <!-- <h1
                     class="
                       font-mainFont
                       text-3xl text-mainBlue
@@ -276,7 +284,7 @@
                         Best choice</label
                       >
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="
                       checkoutBtn
@@ -299,7 +307,8 @@
                   </button>
                 </div>
               </div>
-              <!-- <div
+            </div>
+            <!-- <div
                 class="
                   items
                   flex
@@ -328,7 +337,6 @@
                 <img class="w-16 m-px" src="/buy-button.png" alt="" />
                 total: {{ cartTotalPrice }}$
               </div> -->
-            </div>
           </div>
         </div>
       </div>
@@ -383,7 +391,7 @@ export default {
               Address: this.order.Address,
               PhoneNumber: this.order.PhoneNumber,
               Age: this.order.Age,
-              Date: Date.now()
+              Date: Date.now(),
             },
           })
           .then(

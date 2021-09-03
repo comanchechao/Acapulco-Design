@@ -53,17 +53,23 @@
                 delay: 1,
                 ease: 'circ.out',
               }"
-              class="grid grid-cols-3 place-items-center w-screen opacity-0"
+              class="
+                flex
+                align-center
+                justify-between
+                w-screen
+                opacity-0
+                h-screen
+              "
             >
-              <div class="peace self-start transform -translate-y-24">
+              <div class="peace">
                 <img src="/sketch-162443588438sdfs.png" alt="" />
               </div>
 
-              <div>
+              <div class="absolute lg:self-end transform lg:-translate-y-9">
                 <h1
                   class="
                     acapulco
-                    px-6
                     tracking-wider
                     text-8xl
                     md:text-9xl
@@ -76,7 +82,7 @@
                   Acapulco Design
                 </h1>
               </div>
-              <div class="transform -translate-y-24">
+              <div class="">
                 <img src="/sketch-1624435884386sdfsd(1).png" alt="" />
               </div>
             </div>
@@ -145,8 +151,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               secondContainer
               content
               mt-15
@@ -160,8 +165,7 @@
                     class="
                       transform
                       -translate-y-3
-                      lg:pb-5
-                      lg:pl-3
+                      lg:pb-5 lg:pl-3
                       scale-75
                       lg:scale-75
                     "
@@ -187,8 +191,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               thirdContainer
               content
             "
@@ -217,8 +220,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               forthContainer
               content
             "
@@ -249,8 +251,7 @@
               lg:grid-cols-2
               place-items-center
               h-4/5
-              lg:h-screen
-              lg:w-4/5
+              lg:h-screen lg:w-4/5
               thirdContainer
               content
             "
@@ -308,14 +309,13 @@
 
           <div
             class="
-              flex flex-col
+              flex
               align-center
-              h-full
-              md:h-5/6
+              h-screen
               lg:h-screen
               grid-row-2
-              justify-around
-              py-40
+              justify-center
+              bg-green-300
               sixthContainer
               content
             "
@@ -329,7 +329,7 @@
                   lg:text-7xl
                   text-center
                   bg-goldie
-                  p-3
+                  p-2
                 "
               >
                 We are a
@@ -353,12 +353,19 @@
               </button> -->
               </h3>
             </div>
-            <div class="md:h-5/6 h-4/6 flex align-center justify-center mt-36">
-              <video width="520" height="120" autoplay loop muted class="">
+            <!-- <div class="flex align-center justify-center">
+              <video
+                class="object-contain md:object-scale-down"
+                width="320"
+                height="220"
+                autoplay
+                loop
+                muted
+              >
                 <source src="/Y064cQ6.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div>
+            </div> -->
           </div>
           <div
             class="
@@ -446,6 +453,7 @@
                       icon-3d
                       scale-75
                       lg:scale-100
+                      z-10
                     "
                     src="/ppp.png"
                     alt=""
@@ -453,8 +461,12 @@
                 </div>
               </div>
             </div>
-            <div class="flex justify-end align-end">
-              <img class="bg-cover" src="/fsdfsdf.png" alt="" />
+            <div class="flex justify-end align-end z-10 md:mt-5">
+              <img
+                class="object-scale-down scale-50 lg:scale-100"
+                src="/fsdfsdf.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -559,7 +571,7 @@ export default {
 
     peaceSignAnimation() {
       const gsap = this.$gsap
-      gsap.set('#peaceSignDiv', {xPercent:-50});
+      gsap.set('#peaceSignDiv', { xPercent: -50 })
 
       gsap
         .timeline({

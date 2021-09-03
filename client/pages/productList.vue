@@ -26,7 +26,9 @@
           >
             take a trip with us
             <br />
-            <span class="text-mainRed font-extrabold span text-10xl">
+            <span
+              class="text-mainRed font-extrabold span text-8xl lg:text-10xl"
+            >
               stay free
             </span>
           </h1>
@@ -67,7 +69,9 @@
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
               class="
-                grid grid-cols-2
+                grid
+                lg:grid-cols-2
+                grid-cols-1
                 gap-6
                 p-4
                 mt-6
@@ -108,45 +112,67 @@
                 Shop
               </h1> -->
             <div class="mt-12 px-4 text-center">
-              <h3 class="p-3 text-mainBlue text-6xl border-red-600 font-black">
+              <h3
+                class="
+                  p-3
+                  text-mainBlue text-3xl
+                  lg:text-6xl
+                  border-red-600
+                  font-black
+                "
+              >
                 Discover!
               </h3>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
-                  class="text-3xl border-mainBlue border-b-2 p-4 sidebarText"
+                  class="
+                    lg:text-3xl
+                    text-2xl
+                    border-mainBlue border-b-2
+                    p-4
+                    sidebarText
+                  "
                 >
                   Lighters🔥
                 </h1>
               </span>
-                <span class="cursor-pointer" @click="changeCatagory('Shirts')">
-                  <h1
-                    class="
-                      text-3xl text-mainBlue
-                      p-4
-                      border-mainBlue border-b-2
-                      sidebarText
-                    "
-                  >
-                    Acapulco Shirts🌴
-                  </h1>
-                </span>
-                <span class="cursor-pointer" @click="changeCatagory('Custom Matchboxes')">
-                  <h1
-                    class="
-                      text-3xl text-mainBlue
-                      p-4
-                      border-mainBlue border-b-2
-                      sidebarText
-                    "
-                  >
-                    Custom Matchboxes💥
-                  </h1>
-                </span>
-                <span class="cursor-pointer" @click="changeCatagory('Collections')">
-                  <h1 class="text-3xl text-mainBlue p-4 sidebarText">
-                    Collections🗿
-                  </h1>
-                </span>
+              <span class="cursor-pointer" @click="changeCatagory('Shirts')">
+                <h1
+                  class="
+                    lg:text-3xl
+                    text-2xl text-mainBlue
+                    p-4
+                    border-mainBlue border-b-2
+                    sidebarText
+                  "
+                >
+                  Acapulco Shirts🌴
+                </h1>
+              </span>
+              <span
+                class="cursor-pointer"
+                @click="changeCatagory('Custom Matchboxes')"
+              >
+                <h1
+                  class="
+                    lg:text-3xl
+                    text-2xl text-mainBlue
+                    p-4
+                    border-mainBlue border-b-2
+                    sidebarText
+                  "
+                >
+                  Custom Matchboxes💥
+                </h1>
+              </span>
+              <span
+                class="cursor-pointer"
+                @click="changeCatagory('Collections')"
+              >
+                <h1 class="lg:text-3xl text-2xl text-mainBlue p-4 sidebarText">
+                  Collections🗿
+                </h1>
+              </span>
             </div>
             <!-- </div> -->
           </div>
