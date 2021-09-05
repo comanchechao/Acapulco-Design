@@ -1,88 +1,122 @@
 <template>
-  <div class="w-full h-dialog flex">
-    <div class="w-2/5 h-full bg-mainRed">
-      <img
-        src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-        alt=""
-        class=""
-      />
-    </div>
-
-    <div class="w-3/5 p-9 bg-gray-100 flex-col flex justify-around">
-      <div class="flex justify-between flex-grow-0">
-        <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
-          {{ product.title }}
-          <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
-            {{ product.catagory }}
-          </h3>
-        </h1>
-        <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
-          {{ product.price }}$
-        </h1>
-      </div>
-
-      <div class="">
-        <h2 class="text-mainBlue font-mainFont text-3xl font-thin">
-          Desctiption
-        </h2>
-        <p class="text-gray-500 text-2xl font-thin font-mainFont">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-          explicabo aut cum veniam iste aliquid perspiciatis, amet sed accusamus
-          numquam enim similique vel sit. Architecto incidunt aliquid esse
-          veniam sunt.
-        </p>
-      </div>
-      <div
-        v-for="item in cartItem"
-        :key="item.id"
-        class="flex align-center justify-center"
-      >
-        <v-btn
-          small
-          large
-          fab
-          plain
-          class="minus"
-          color="#00ffaa"
-          @click="decrementQuantity(item)"
-        >
-          <v-icon>mdi-minus</v-icon></v-btn
-        >
-        <p class="px-3 text-2xl text-mainBlue font-mainFont">
-          Quantity :
-          {{ item.quantity }}
-        </p>
-        <v-btn
-          light
-          large
-          fab
-          plain
-          class="plus"
-          color="#00ffaa"
-          @click="incrementQuantity(item)"
-          ><v-icon>mdi-plus</v-icon></v-btn
-        >
-      </div>
-      <div class="flex flex-grow-0">
+  <div>
+    <v-dialog
+      v-model="dialog"
+      transition="dialog-top-transition"
+      class="dialog"
+      width="900px"
+      :fullscreen="$vuetify.breakpoint.xsOnly"
+    >
+      <template v-slot:activator="{ on, attrs }">
         <button
-          class="learnMoreBtn flex align-center justify-center"
-          @click.stop="addToCart"
+          class="
+            checkoutBtn
+            flex
+            py-1
+            justify-center
+            align-center
+            bg-green-300
+            rounded-full
+          "
+          v-bind="attrs"
+          @click="dialog = true"
+          v-on="on"
         >
-          <span class="learnMoreText px-4">
-            Add to Cart
-            <v-icon
-              color="white
-"
-              class="pb-2 pl-2"
-              >mdi-shopping-outline</v-icon
-            >
+          <span class="checkoutText pl-2 font-mainFont text-xl">
+            Learn More!
           </span>
+          <v-icon large class="pink--text text--darken-2"
+            >mdi-arrow-right-circle</v-icon
+          >
         </button>
-        <v-btn text icon color="blue" x-large class="mx-2">
-          <v-icon>mdi-share-variant</v-icon>
-        </v-btn>
+      </template>
+
+      <div class="w-full h-dialog flex">
+        <div class="w-2/5 h-full bg-mainRed">
+          <img
+            src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+            alt=""
+            class=""
+          />
+        </div>
+
+        <div class="w-3/5 p-9 bg-gray-100 flex-col flex justify-around">
+          <div class="flex justify-between flex-grow-0">
+            <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
+              {{ product.title }}
+              <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
+                {{ product.catagory }}
+              </h3>
+            </h1>
+            <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
+              {{ product.price }}$
+            </h1>
+          </div>
+
+          <div class="">
+            <h2 class="text-mainBlue font-mainFont text-3xl font-thin">
+              Desctiption
+            </h2>
+            <p class="text-gray-500 text-2xl font-thin font-mainFont">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+              explicabo aut cum veniam iste aliquid perspiciatis, amet sed
+              accusamus numquam enim similique vel sit. Architecto incidunt
+              aliquid esse veniam sunt.
+            </p>
+          </div>
+          <div
+            v-for="item in cartItem"
+            :key="item.id"
+            class="flex align-center justify-center"
+          >
+            <v-btn
+              small
+              large
+              fab
+              plain
+              class="minus"
+              color="#00ffaa"
+              @click="decrementQuantity(item)"
+            >
+              <v-icon>mdi-minus</v-icon></v-btn
+            >
+            <p class="px-3 text-2xl text-mainBlue font-mainFont">
+              Quantity :
+              {{ item.quantity }}
+            </p>
+            <v-btn
+              light
+              large
+              fab
+              plain
+              class="plus"
+              color="#00ffaa"
+              @click="incrementQuantity(item)"
+              ><v-icon>mdi-plus</v-icon></v-btn
+            >
+          </div>
+          <div class="flex flex-grow-0">
+            <button
+              class="learnMoreBtn flex align-center justify-center"
+              @click.stop="addToCart"
+            >
+              <span class="learnMoreText px-4">
+                Add to Cart
+                <v-icon
+                  color="white
+"
+                  class="pb-2 pl-2"
+                  >mdi-shopping-outline</v-icon
+                >
+              </span>
+            </button>
+            <v-btn text icon color="blue" x-large class="mx-2">
+              <v-icon>mdi-share-variant</v-icon>
+            </v-btn>
+          </div>
+        </div>
       </div>
-    </div>
+    </v-dialog>
   </div>
 </template>
 
@@ -91,6 +125,8 @@ export default {
   props: ['product'],
   data() {
     return {
+      dialog: false,
+
       cart: [],
 
       Product: {

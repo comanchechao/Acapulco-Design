@@ -1,107 +1,91 @@
 <template>
   <div v-show="product.catagory === catagory">
-    <v-dialog
-      v-model="dialog"
-      transition="dialog-bottom-transition"
-      class="dialog"
-      width="900px"
-      :fullscreen="$vuetify.breakpoint.xsOnly"
+    <div
+      class="
+        flex flex-col
+        h-72
+        w-96
+        bg-goldie
+        lg:flex-row
+        justify-center
+        align-center
+        space-x-3
+        cardBackground
+        productCard
+      "
     >
-      <template v-slot:activator="{ on, attrs }">
-        <div
-          v-bind="attrs"
-          class="
-            flex flex-col
-            lg:flex-row
-            justify-between
-            align-center
-            space-y-4
-            cardBackground
-            productCard
-          "
-          @click.self="dialog = true"
-          v-on="on"
-        >
-          <div
-            class="
-              md:mt-4
-              lg:w-3/4
-              lg:h-80
-              w-52
-              h-52
-              rounded-full
-              bg-Rose-400
-              lg:rounded-none
-              lg:flex-shrink lg:flex-grow
-              flex
-              justify-center
-              align-center
-            "
-          >
-            <!-- <div
+      <div class="h-full w-2/5 bg-red-300">
+        <!-- <div
               class="absolute inset-0 bg-gray-300 shadow-lg rounded-full lg:rounded-none h-full"
             > -->
-            <img
-              src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-              alt=""
-              class="mx-auto"
-            />
-            <!-- </div> -->
-          </div>
-          <div
-            class="
-              flex flex-col
-              justify-between
-              align-center
-              mt-2
-              space-y-2
-              p-6
-            "
-          >
-            <h1 class="text-5xl text-blueGray-900 font-bold mt-5">
-              {{ product.title }}
-            </h1>
-            <h3 class="text-2xl text-gray-600 font-thin text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </h3>
-            <p class="text-4xl text-CoolGray-900">{{ product.price }} IRL</p>
-            <button
-              class="learnMoreBtn flex align-center justify-center"
-              @click="addToCart"
-            >
-              <span class="learnMoreText px-4">
-                Add to Cart
-                <v-icon
-                  color="white
-"
-                  class="pb-2 pl-2"
-                  >mdi-shopping-outline</v-icon
-                >
-              </span>
-            </button>
-          </div>
-        </div>
-      </template>
-
-      <div class="flex justify-center flex-col align-center rounded-full">
-        <ProductDetail :product="product" />
+        <!-- <img
+          src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+          alt=""
+          class="mx-auto object-cover"
+        /> -->
+        <!-- </div> -->
       </div>
-    </v-dialog>
+      <div
+        class="
+          bg-blue-400
+          w-3/5
+          h-full
+          flex flex-col
+          justify-between
+          align-center
+          space-y-2
+          p-6
+        "
+      >
+        <div class="w-full h-3/4 bg-Lime-900"></div>
+        <div class="w-full h-1/4 bg-CoolGray-900"></div>
+        <!-- <h1 class="text-5xl text-blueGray-900 font-bold mt-5">
+          {{ product.title }}
+        </h1>
+        <h3 class="text-2xl text-gray-600 font-thin text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h3>
+        <p class="text-4xl text-CoolGray-900">{{ product.price }} IRL</p>
+        <div class="flex align-center justify-center w-full h-full space-x-2">
+          <button
+            class="
+              learnMoreBtn
+              flex
+              py-2
+              align-center
+              justify-center
+              rounded-full
+              bg-green-300
+            "
+            @click="addToCart"
+          >
+            <span class="text-xl pl-2 font-mainFont text-mainBlue">
+              Add to Cart
+              <v-icon
+                color="white
+"
+                class=""
+                >mdi-shopping-outline</v-icon
+              >
+            </span>
+          </button>
+          <ProductDetail :product="product" />
+        </div> -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ProductDetail from './ProductDetail.vue'
+// import ProductDetail from './ProductDetail.vue'
 export default {
   components: {
-    ProductDetail,
+    // ProductDetail,
   },
   props: ['product'],
 
   data() {
     return {
-      dialog: false,
-
       Product: {
         item: this.product,
         quantity: 1,
@@ -139,23 +123,14 @@ export default {
   font-display: swap;
   src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
 }
-.learnMoreBtn {
-  font-size: 25px;
-  background-color: #ff4a68;
-  color: #120129;
-  border-radius: 35px;
-  transition: transform ease-in-out 0.5s;
-  padding: 9px 20px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-}
 
 .learnMoreBtn:hover {
-  transform: translateY(-5px);
+  transform: scale(0.95);
   background-color: #120129;
   color: #ff4a68;
 }
 .cardBackground {
-  background: #e6e6e6;
+  /* background: #e6e6e6; */
   box-shadow: 0 8px 32px 0 #1f26875e;
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
@@ -171,8 +146,4 @@ export default {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 } */
-
-.cardBackground:hover {
-  transform: scale(1.01);
-}
 </style>

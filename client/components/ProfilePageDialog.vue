@@ -216,7 +216,13 @@
                   rounded-full
                 "
               >
-                <div v-for="product in orderProduct" :key="product.id" class="h-full w-full">{{product.item.title}}</div>
+                <div
+                  v-for="product in orderProduct"
+                  :key="product.id"
+                  class="h-full w-full"
+                >
+                  {{ product.item.title }}
+                </div>
                 <div class="h-full w-full"></div>
                 <div class="h-full w-full"></div>
               </div>
@@ -310,8 +316,8 @@ export default {
     console.log(orders)
   },
 
-  mounted(){
-    console.log(this.orderProduct);
+  mounted() {
+    console.log(this.orderProduct)
   },
   methods: {
     signOut() {
@@ -319,7 +325,6 @@ export default {
         this.$router.push('/')
       })
     },
-
 
     // sendVerifyEmail() {
     //   this.emailSending = true

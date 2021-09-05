@@ -158,7 +158,7 @@
             </div>
 
             <div class="w-full h-2/5">
-              <div class="bg-red-400">
+              <div class="">
                 <h1 class="pa-5">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
