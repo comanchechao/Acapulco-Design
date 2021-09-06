@@ -1,78 +1,90 @@
 <template>
   <!-- <v-app> -->
-  <div class="w-screen bg-transparent Navbar opacity-0 z-50">
-    <div class="flex align-center justify-around px-9">
-      <div class="">
-        <nuxt-link to="/aboutUs">
-          <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <v-icon class="pr-2" large>mdi-meditation</v-icon>
-            <span class="aboutUs"> About Us </span>
+  <div
+    class="
+      w-screen
+      bg-transparent
+      Navbar
+      opacity-0
+      z-50
+      flex
+      align-center
+      justify-around
+      px-9
+    "
+  >
+    <div class="">
+      <nuxt-link to="/aboutUs">
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="pr-2" large>mdi-meditation</v-icon>
+          <span class="aboutUs"> About Us </span>
+        </v-btn>
+      </nuxt-link>
+    </div>
+
+    <div
+      class="flex align-center sm:justify-center md:justify-end lg:justify-end"
+    >
+      <div>
+        <nuxt-link to="/productList">
+          <v-btn depressed x-large color="transparent" class="">
+            <span class="white--text"> Shop </span>
           </v-btn>
         </nuxt-link>
       </div>
-
-      <div class="flex align-center justify-end">
-        <div>
-          <nuxt-link to="/productList">
-            <v-btn depressed x-large color="transparent" class="">
-              <span class="white--text"> Shop </span>
-            </v-btn>
-          </nuxt-link>
-        </div>
-        <div>
-          <NuxtLink id="admin-link" class="flex" to="/adminPage">
-            <v-btn depressed dark x-large color="transparent" class="">
-              <span class="white--text pr-2">admin</span>
-              <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
-            </v-btn>
-          </NuxtLink>
-        </div>
-        <div v-show="user" class="">
-          <v-menu light transition="slide-y-transition" bottom>
-            <template v-slot:activator="{ on: menu, attrs }">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on: tooltip }">
-                  <v-btn
-                    color="transparent"
-                    class="profilePageBtn d-flex align-center pr-4"
-                    v-bind="attrs"
-                    depressed
-                    x-large
-                    fab
-                    dark
-                    @click="dialog = true"
-                    v-on="{ ...tooltip, ...menu }"
-                  >
-                    <v-icon class="white--text pl-3">mdi-account-key</v-icon>
-                  </v-btn>
-                </template>
-                <span>Welcome back!</span>
-              </v-tooltip>
-            </template>
-            <v-list dense class="space-y-4 p-4">
-              <v-list-item>
-                <v-list-item-icon>
-                  <LazyHydrate :on-interaction="['click', 'focus']">
-                    <ProfilePageDialog />
-                  </LazyHydrate>
-                </v-list-item-icon>
-              </v-list-item>
-              <v-list-item>
-                <v-btn color="transparent" depressed class="" @click="signOut">
-                  <v-icon>mdi-logout-variant</v-icon>
-                  <span> Logout </span>
+      <div>
+        <NuxtLink id="admin-link" class="flex" to="/adminPage">
+          <v-btn depressed dark x-large color="transparent" class="">
+            <span class="white--text pr-2">admin</span>
+            <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
+          </v-btn>
+        </NuxtLink>
+      </div>
+      <div v-show="user" class="">
+        <v-menu light transition="slide-y-transition" bottom>
+          <template v-slot:activator="{ on: menu, attrs }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on: tooltip }">
+                <v-btn
+                  color="transparent"
+                  class="profilePageBtn d-flex align-center pr-4"
+                  v-bind="attrs"
+                  depressed
+                  x-large
+                  fab
+                  dark
+                  @click="dialog = true"
+                  v-on="{ ...tooltip, ...menu }"
+                >
+                  <v-icon class="white--text pl-3">mdi-account-key</v-icon>
                 </v-btn>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </div>
-        <div v-show="!user" class="">
-          <LoginDialog />
-        </div>
+              </template>
+              <span>Welcome back!</span>
+            </v-tooltip>
+          </template>
+          <v-list dense class="space-y-4 p-4">
+            <v-list-item>
+              <v-list-item-icon>
+                <LazyHydrate :on-interaction="['click', 'focus']">
+                  <ProfilePageDialog />
+                </LazyHydrate>
+              </v-list-item-icon>
+            </v-list-item>
+            <v-list-item>
+              <v-btn color="transparent" depressed class="" @click="signOut">
+                <v-icon>mdi-logout-variant</v-icon>
+                <span> Logout </span>
+              </v-btn>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+      <div v-show="!user" class="">
+        <LoginDialog />
+      </div>
 
-        <div class="">
-          <ShoppingCartDrawer />
-        </div>
+      <div class="">
+        <ShoppingCartDrawer />
       </div>
     </div>
   </div>

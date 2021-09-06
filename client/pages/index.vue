@@ -31,6 +31,12 @@
             "
           >
             <div
+              v-gsap.to="{
+                opacity: 1,
+                duration: 0.6,
+                delay: 1,
+                ease: 'circ.out',
+              }"
               class="
                 fixed
                 top-3
@@ -39,7 +45,7 @@
                 justify-self-center
                 self-center
                 peaceSignDiv
-                opacity-1
+                opacity-0
               "
             >
               <img class="fixed peaceSign" src="/moomoole.png" alt="" />
@@ -51,20 +57,30 @@
                 delay: 1,
                 ease: 'circ.out',
               }"
-              class="
-                flex
-                align-center
-                justify-between
-                w-screen
-                opacity-0
-                h-screen
-              "
+              class="flex justify-between align-center w-screen opacity-0"
             >
-              <div class="peace">
-                <img src="/sketch-162443588438sdfs.png" alt="" />
+              <div
+                class="
+                  peace
+                  transform
+                  scale-75
+                  lg:scale-100 lg:-translate-x-0
+                  -translate-x-11
+                "
+              >
+                <img class="" src="/sketch-162443588438sdfs.png" alt="" />
               </div>
 
-              <div class="absolute lg:self-end transform lg:-translate-y-9">
+              <div
+                class="
+                  absolute
+                  p-4
+                  lg:self-end
+                  transform
+                  translate-y-9
+                  lg:-translate-y-9
+                "
+              >
                 <h1
                   class="
                     acapulco
@@ -80,8 +96,15 @@
                   Acapulco Design
                 </h1>
               </div>
-              <div class="">
-                <img src="/sketch-1624435884386sdfsd(1).png" alt="" />
+              <div
+                class="
+                  transform
+                  scale-75
+                  lg:scale-100 lg:translate-x-0
+                  translate-x-12
+                "
+              >
+                <img class="" src="/sketch-1624435884386sdfsd(1).png" alt="" />
               </div>
             </div>
             <div
@@ -102,7 +125,9 @@
                 dark
                 color="transparent"
               >
-                <v-icon x-large>mdi-arrow-up-down</v-icon>
+                <v-icon class="transform scale-125" x-large
+                  >mdi-arrow-up-down</v-icon
+                >
               </v-btn>
             </div>
           </div>
@@ -111,25 +136,39 @@
 
           <div
             class="
-              grid grid-cols-3
-              place-items-center
-              h-4/5
+              flex
+              lg:h-4/5
+              h-screen
+              w-screen
+              justify-between
+              align-center
               firstContainer
               content
+              relative
               mb-40
             "
           >
-            <div class="logo">
-              <img src="@/static/9757(2).png" alt="" />
+            <div
+              class="
+                z-10
+                transform
+                scale-75
+                lg:scale-100 lg:-translate-x-0
+                -translate-x-11
+              "
+            >
+              <img class="object-cover" src="@/static/9757(2).png" alt="" />
             </div>
-            <div class="limited justify-self-center">
+            <div class="absolute inset-0 flex justify-center align-center p-96">
               <h2
                 class="
                   h2-home
                   capitalize
                   text-center text-5xl
                   md:text-7xl
-                  lg:text-8xl
+                  lg:text-9xl
+                  transform
+                  translate-y-12
                 "
               >
                 <span class="limitedSpan animatedSpans">Limited</span>,
@@ -138,8 +177,16 @@
                 <span class="animatedSpans"> merchendise</span>
               </h2>
             </div>
-            <div class="logo">
-              <img class="object-fill" src="@/static/9757(1).png" alt="" />
+            <div
+              class="
+                z-10
+                transform
+                scale-75
+                lg:scale-100 lg:translate-x-0
+                translate-x-11
+              "
+            >
+              <img class="object-cover" src="@/static/9757(1).png" alt="" />
             </div>
           </div>
 
