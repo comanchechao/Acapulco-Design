@@ -64,7 +64,7 @@
                     <span
                       class="md:hidden lg:hidden sm:visible span"
                       @click="dialog = false"
-                      ><v-icon light x-large color="pink lighten-5"
+                      ><v-icon dark x-large color=""
                         >mdi-chevron-double-left</v-icon
                       ></span
                     >
@@ -462,7 +462,7 @@ span {
 }
 
 .span:hover {
-  filter: brightness(90%);
+  filter: brightness(0.5);
 }
 /* .backround {
   background: rgba(233, 233, 233, 0.959);
