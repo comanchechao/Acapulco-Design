@@ -34,7 +34,6 @@
             h-full
             w-full
             align-center
-            bg-purple-900
             lg:p-11
           "
         >
