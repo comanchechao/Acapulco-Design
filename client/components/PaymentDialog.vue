@@ -15,6 +15,7 @@
       h-80
       self-center
       grid grid-rows-8
+      p-10
     "
   >
     <div class="rounded-3xl row-span-2 grid grid-cols-3">

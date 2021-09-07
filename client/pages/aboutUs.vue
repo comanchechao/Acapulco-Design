@@ -21,17 +21,17 @@
           <h2 class="text-CoolGray-300 self-center">follow along</h2>
         </div>
       </div>
-      <div class="h-screen justify-center flex flex-col">
+      <div class="h-1/2 justify-center flex flex-col">
         <div class="secend px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
           <h2>Hi. we are a bunch of guys</h2>
         </div>
       </div>
-      <div class="h-screen justify-center flex flex-col">
+      <div class="h-1/2 justify-center flex flex-col">
         <div class="justify-center w-0 h-0 rounded opacity-0 third px-2 bg-Lime-500">
           <h2>From a less known city of a dystopian country,</h2>
         </div>
       </div>
-      <div class="h-screen justify-center flex flex-col">
+      <div class="h-1/2 justify-center flex flex-col">
         <div class="fourth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
           <h2>
             While we're not lost and consumed by the sheer pressure of human
@@ -39,12 +39,12 @@
           </h2>
         </div>
       </div>
-      <div class="h-screen justify-center flex flex-col">
+      <div class="h-1/2 justify-center flex flex-col">
         <div class="fifth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
           <h2>We tend to smoke, and create stuff</h2>
         </div>
       </div>
-      <div class="h-screen justify-center flex flex-col">
+      <div class="h-1/2 justify-center flex flex-col">
         <div class="sixth px-2 bg-Lime-500 justify-center opacity-0 rounded">
           <h2>In the hope of finding the long lost peace that we all crave</h2>
         </div>
@@ -349,7 +349,7 @@ export default {
           ease: 'expo.out',
           scrollTrigger: {
             trigger: '.secend',
-            start: 'top 110%',
+            start: 'top bottom',
             end: 'top center',
             scrub: 1,
             toggleActions: 'restart none resume pause',
@@ -373,7 +373,7 @@ export default {
             trigger: '.third',
 
             end: 'bottom center',
-            start: 'top 110%',
+            start: 'top bottom',
             scrub: 1,
             toggleActions: 'restart none resume pause',
           },
@@ -394,7 +394,7 @@ export default {
           y: 100,
           scrollTrigger: {
             trigger: '.fourth',
-            start: 'top 110%',
+            start: 'top bottom',
             end: 'bottom center',
             scrub: 1,
             toggleActions: 'restart none resume pause',
@@ -417,7 +417,7 @@ export default {
           y: 100,
           scrollTrigger: {
             trigger: '.fifth',
-            start: 'top 110%',
+            start: 'top bottom',
             end: 'bottom center',
             scrub: 1,
             toggleActions: 'restart none resume pause',
@@ -440,7 +440,7 @@ export default {
             trigger: '.sixth',
 
             end: 'bottom center',
-            start: 'top 110%',
+            start: 'top bottom',
             scrub: 1,
             toggleActions: 'restart none resume pause',
           },
@@ -465,7 +465,7 @@ export default {
             trigger: '.seventh',
 
             end: 'bottom center',
-            start: 'top 110%',
+            start: 'top bottom',
             scrub: 1,
             toggleActions: 'restart none resume pause',
           },

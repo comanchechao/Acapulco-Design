@@ -292,21 +292,7 @@
                         >
                           <h3 class="">{{ product.title }}</h3>
                           <button class="">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="text-red-500 h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              @click="deleteProduct(product.id)"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
+                           <img class="kiskis" src="/x.png" alt="">
                           </button>
                         </div>
                       </div>
@@ -525,21 +511,8 @@
                             >
                               <div class="w-full flex flex-row justify-between">
                                 <h1 class="self-center">Status: processing</h1>
-                                <button class="" @click="deleteOrder(order.id)">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="text-yellow-500 h-10 w-10"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                    />
-                                  </svg>
+                                <button class="scale-50" @click="deleteOrder(order.id)">
+                                 <img class="scale-75" src="/x1.png" alt="">
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
@@ -1111,4 +1084,5 @@ input[type='number'] {
 h1 {
   border-color: #e2e9e0;
 }
+
 </style>
