@@ -22,22 +22,23 @@
       </template>
 
       <div id="main" class="h-screen w-screen">
-        <div class="hidden self-start absolute lg:flex">
+        <!-- <div class="hidden self-start absolute lg:flex">
           <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
-        </div>
-        <div class="flex flex-col justify-center h-full w-full align-center">
-          <div
-            class="
-              lg:h-4/5 lg:w-4/5
-              h-full
-              w-full
-              backGround
-              space-y-4
-              overflow-hidden
-            "
-          >
+        </div> -->
+        <div
+          class="
+            flex flex-col
+            justify-center
+            h-full
+            w-full
+            align-center
+            bg-purple-900
+            lg:p-11
+          "
+        >
+          <div class="h-full w-full backGround">
             <div class="w-full h-3/4">
               <div class="w-full h-3/6">
                 <div
@@ -62,7 +63,7 @@
                     "
                   >
                     <span
-                      class="md:hidden lg:hidden span"
+                      class="md:hidden lg:hidden sm:visible span"
                       @click="dialog = false"
                       ><v-icon light x-large color="pink lighten-5"
                         >mdi-chevron-double-left</v-icon
@@ -202,29 +203,99 @@
                 </div>
               </div>
             </div>
-            <div class="w-full h-1/4">
+            <div
+              class="
+                w-full
+                h-1/4
+                flex
+                space-x-2
+                align-center
+                justify-center
+                p-4
+              "
+            >
               <div
                 class="
-                  flex
-                  space-x-2
                   h-full
                   w-full
-                  ordersDiv
-                  divide-x-4
-                  p-4
-                  divide-gray-300
-                  rounded-full
+                  flex flex-col
+                  lg:flex-row
+                  align-center
+                  justify-around
+                  lg:flex-row lg:justify-center
+                  align-center
+                  Tabs
+                  space-x-5
                 "
               >
-                <div
-                  v-for="product in orderProduct"
-                  :key="product.id"
-                  class="h-full w-full"
+                <img
+                  src="/processing.png"
+                  class="transform translate-x-4 lg:translate-x-0 lg:scale-110"
+                  alt=""
+                />
+                <h2
+                  class="
+                    text-2xl
+                    lg:text-6xl
+                    font-mainFont
+                    text-mainBlue
+                    font-bold
+                  "
                 >
-                  {{ product.item.title }}
-                </div>
-                <div class="h-full w-full"></div>
-                <div class="h-full w-full"></div>
+                  Processing
+                </h2>
+              </div>
+              <div
+                class="
+                  Tabs
+                  h-full
+                  w-full
+                  flex flex-col
+                  justify-around
+                  lg:flex-row lg:justify-center
+                  align-center
+                  lg:space-x-5
+                "
+              >
+                <img src="/sent.png" class="" alt="" />
+                <h2
+                  class="
+                    text-2xl
+                    lg:text-6xl
+                    font-mainFont
+                    text-mainBlue
+                    font-bold
+                  "
+                >
+                  Sent
+                </h2>
+              </div>
+              <div
+                class="
+                  Tabs
+                  h-full
+                  w-full
+                  flex flex-col
+                  lg:flex-row
+                  align-center
+                  justify-around
+                  lg:flex-row lg:justify-center
+                  align-center
+                  lg:space-x-5
+                "
+              >
+                <img src="/arrived1.png" class="" alt="" />
+                <h2
+                  class="
+                    text-2xl
+                    lg:text-6xl
+                    font-mainFont
+                    text-mainBlue
+                    font-bold
+                  "
+                >
+                  Delivered
+                </h2>
               </div>
             </div>
           </div>
@@ -347,6 +418,16 @@ export default {
 </script>
 
 <style scoped>
+.Tabs {
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.Tabs:hover {
+  transform: scale(1.03);
+  filter: brightness(0.5);
+}
+
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
