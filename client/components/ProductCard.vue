@@ -5,8 +5,7 @@
         flex flex-col
         lg:h-72
         h-rem26
-        w-96
-        lg:flex-row
+        lg:w-96 lg:flex-row
         justify-center
         align-center
         lg:space-x-3

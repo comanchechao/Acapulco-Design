@@ -2,7 +2,7 @@
   <div
     v-show="showDialog"
     v-gsap.from="{
-      y: 300,
+      y: 600,
       duration: 1,
       ease: 'expo.out',
     }"
@@ -12,8 +12,8 @@
       z-50
       bg-gray-200
       w-96
-      h-80
-      self-center
+      h-96
+      self-end
       grid grid-rows-8
       p-3
     "
@@ -46,7 +46,7 @@
         <img class="left-2" :src="theImg" alt="" />
       </div>
     </div>
-    <div class="row-span-4 flex flex-col justify-center">
+    <div class="row-span-4 flex flex-col justify-center bg-Rose-500">
       <h1
         class="
           text-6xl
@@ -58,14 +58,12 @@
         "
       >
         Payment Sucessfull
+        <!-- <img src="/tik.png" class="" alt="" /> -->
       </h1>
-      <p class="text-center">
-        {{ message }}
-      </p>
     </div>
     <div class="row-span-2 flex justify-center">
       <button
-        class="bg-Rose-500 p-3 m-2 w-full rounded-3xl shadow-3xl"
+        class="bg-Rose-500 p-3 m-2 w-full rounded-full shadow-3xl"
         @click="toggleDialog"
       >
         <span class="text-mainBlue text-4xl font-mainFont font-extrabold">

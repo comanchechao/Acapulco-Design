@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <div id="main" class="">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <div id="main" class="space-y-3">
       <LazyHydrate when-idle>
         <Navbar
           v-gsap.to="{
@@ -33,7 +39,7 @@
             </span>
           </h1>
         </div>
-        <div class="w-11/12 grid grid-cols-8 mt-24 background opacity-0">
+        <div class="w-11/12 h-full grid grid-cols-8 mt-24 background opacity-0">
           <div
             class="
               menuNavbar
@@ -178,6 +184,7 @@
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   </v-app>
 </template>
@@ -189,6 +196,7 @@ export default {
   components: {
     LazyHydrate,
     ProductCard,
+    Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
   },
 

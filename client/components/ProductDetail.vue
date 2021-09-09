@@ -68,32 +68,31 @@
           <div
             v-for="item in cartItem"
             :key="item.id"
-            class="flex align-center justify-center"
+            class="flex align-center self-end justify-center"
           >
             <v-btn
               small
-              large
+              x-large
               fab
               plain
               class="minus"
               color="#00ffaa"
               @click="decrementQuantity(item)"
             >
-              <v-icon>mdi-minus</v-icon></v-btn
+              <v-icon x-large>mdi-minus</v-icon></v-btn
             >
-            <p class="px-3 text-2xl text-mainBlue font-mainFont">
-              Quantity :
+            <p class="px-3 text-6xl font-extrabold text-mainBlue font-mainFont">
               {{ item.quantity }}
             </p>
             <v-btn
               light
-              large
+              x-large
               fab
               plain
               class="plus"
               color="#00ffaa"
               @click="incrementQuantity(item)"
-              ><v-icon>mdi-plus</v-icon></v-btn
+              ><v-icon x-large>mdi-plus</v-icon></v-btn
             >
           </div>
           <div class="flex flex-grow-0">
@@ -111,7 +110,7 @@
                 >
               </span>
             </button>
-            <v-btn text icon color="blue" x-large class="mx-2">
+            <v-btn text dark icon x-large class="mx-2 bg-darkPurple">
               <v-icon>mdi-share-variant</v-icon>
             </v-btn>
           </div>
