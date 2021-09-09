@@ -962,7 +962,7 @@ input::-webkit-inner-spin-button {
 
 #app {
   overflow: hidden;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 /* Firefox */

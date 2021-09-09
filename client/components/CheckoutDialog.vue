@@ -380,6 +380,8 @@ export default {
   },
   data() {
     return {
+      message:null,
+      purchaseSuccess: null,
       order: {
         Name: null,
         lastName: null,
@@ -422,14 +424,18 @@ export default {
           })
           .then(
             () => console.log('lolo'),
-            this.$refs.PaymentDialog.toggleDialog()
+            this.message = 'lolo',
+            this.purchaseSuccess = '/tik.png',
+            this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
           )
           .catch((err) => {
             console.error(err)
           })
       } else {
         console.log('sign up and add order')
-        this.$refs.PaymentDialog.toggleDialog()
+        this.message = 'sign up and add order'
+        this.purchaseSuccess = '/bigX.png'
+        this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
       }
     },
   },

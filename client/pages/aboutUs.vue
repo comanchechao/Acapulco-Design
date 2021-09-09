@@ -18,22 +18,22 @@
     <div class="absolute grid-row-6 grid-col-2 h-full">
       <div class="h-screen justify-center flex flex-col">
         <div class="follow justify-center opacity-0 w-0 h-0 rounded">
-          <h2 class="text-CoolGray-300 self-center">follow along</h2>
+          <h2 class="text-pink-600 self-center">FOLLOW ALONG</h2>
         </div>
       </div>
       <div class="h-1/2 justify-center flex flex-col">
-        <div class="secend px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
-          <h2>Hi. we are a bunch of guys</h2>
+        <div class="secend px-2 bg-pink-500 justify-center opacity-0 w-0 h-0 rounded">
+          <h2 class="text-LightBlue-500">Hi. we are a bunch of guys</h2>
         </div>
       </div>
       <div class="h-1/2 justify-center flex flex-col">
         <div class="justify-center w-0 h-0 rounded opacity-0 third px-2 bg-Lime-500">
-          <h2>From a less known city of a dystopian country,</h2>
+          <h2 class="text-white">From a less known city of a dystopian country,</h2>
         </div>
       </div>
       <div class="h-1/2 justify-center flex flex-col">
-        <div class="fourth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
-          <h2>
+        <div class="fourth px-2 bg-pink-500 justify-center opacity-0 w-0 h-0 rounded">
+          <h2 class="text-LightBlue-500">
             While we're not lost and consumed by the sheer pressure of human
             survival
           </h2>
@@ -41,17 +41,17 @@
       </div>
       <div class="h-1/2 justify-center flex flex-col">
         <div class="fifth px-2 bg-Lime-500 justify-center opacity-0 w-0 h-0 rounded">
-          <h2>We tend to smoke, and create stuff</h2>
+          <h2 class="text-white">We tend to smoke, and create stuff</h2>
         </div>
       </div>
       <div class="h-1/2 justify-center flex flex-col">
-        <div class="sixth px-2 bg-Lime-500 justify-center opacity-0 rounded">
-          <h2>In the hope of finding the long lost peace that we all crave</h2>
+        <div class="sixth px-2 bg-pink-500 justify-center opacity-0 rounded">
+          <h2 class="text-LightBlue-500">In the hope of finding the long lost peace that we all crave</h2>
         </div>
       </div>
       <div class="h-screen justify-center flex flex-col">
         <div class="seventh p-2 justify-center opacity-0 rounded flex flex-col">
-          <h2 class="">Along the way.</h2>
+          <h2 class="text-pink-600">Along the way.</h2>
           <NuxtLink to="/">
             <span
               class="
@@ -513,11 +513,10 @@ export default {
 h2 {
   font-family: 'Londrina Solid', cursive;
   font-size: 50px;
-  color: #0717aa;
 }
 .whoAreWe {
   font-family: 'Fascinate Inline', cursive;
   font-size: 80px;
-  color: #eb6b16;
+  color: #0a9115;
 }
 </style>
