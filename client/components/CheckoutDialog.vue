@@ -160,7 +160,7 @@
             </div>
 
             <div class="w-full h-2/5">
-              <div class="">
+              <div class="bg-Rose-400">
                 <h1 class="pa-5">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
