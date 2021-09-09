@@ -3,6 +3,7 @@
     <div
       class="
         seventhContainer
+        w-screen
         h-dialog
         lg:h-screen
         grid grid-rows-2
@@ -28,14 +29,13 @@
           </div>
           <div
             class="
-              w-screen
+              lg:w-screen
               h-3/5
               self-center
               flex
               justify-around
               lg:justify-center
               align-center
-              space-x-1
               lg:space-x-9
             "
           >
@@ -96,7 +96,7 @@
       </div>
       <div class="flex justify-end align-end z-10 md:mt-5">
         <img
-          class="object-scale-down scale-50 lg:scale-100"
+          class="object-scale-down scale-50 lg:scale-75"
           src="/fsdfsdf.png"
           alt=""
         />

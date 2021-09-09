@@ -8,6 +8,7 @@ export default {
     port: 8000, // default: 3000
     host: 'Localhost', // default: localhost
   },
+  target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
