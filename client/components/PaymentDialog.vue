@@ -47,9 +47,20 @@
       </div>
     </div>
     <div class="row-span-4 flex flex-col justify-center">
-      <h1 class="text-3xl self-center p-2">Payment Sucessfull</h1>
+      <h1
+        class="
+          text-6xl
+          self-center
+          text-center
+          p-2
+          text-mainBlue
+          font-bold font-mainFont
+        "
+      >
+        Payment Sucessfull
+      </h1>
       <p class="text-center">
-        {{ message}}
+        {{ message }}
       </p>
     </div>
     <div class="row-span-2 flex justify-center">
@@ -57,7 +68,9 @@
         class="bg-Rose-500 p-3 m-2 w-full rounded-3xl shadow-3xl"
         @click="toggleDialog"
       >
-        Classic!
+        <span class="text-mainBlue text-4xl font-mainFont font-extrabold">
+          Classic!
+        </span>
       </button>
     </div>
   </div>
@@ -69,12 +82,12 @@ export default {
     return {
       showDialog: false,
       message: null,
-      theImg: null
+      theImg: null,
     }
   },
 
   methods: {
-    toggleDialog(message , purchaseSuccess) {
+    toggleDialog(message, purchaseSuccess) {
       this.showDialog = !this.showDialog
       this.message = message
       this.theImg = purchaseSuccess
@@ -82,7 +95,6 @@ export default {
   },
 }
 </script>
-
 
 <style scoped>
 .modal {
