@@ -172,11 +172,30 @@
               </div>
 
               <div class="w-full h-3/4 flex p-7">
-                <div class="w-full lg:w-5/6 h-full self-start">
+                <div
+                  class="
+                    w-full
+                    lg:w-5/6
+                    h-full
+                    self-start
+                    lg:gap-2
+                    grid grid-cols-2
+                    lg:grid-cols-4
+                  "
+                >
                   <div
                     v-for="item in cartItem"
                     :key="item.id"
-                    class="w-52 h-full flex"
+                    class="
+                      w-full
+                      h-full
+                      flex
+                      backGround
+                      flex-col
+                      justify-center
+                      align-center
+                      self-start
+                    "
                   >
                     <div
                       class="
@@ -189,7 +208,13 @@
                       "
                     >
                       <img
-                        class="float-left rounded-full w-24 h-24"
+                        class="
+                          float-left
+                          rounded-full
+                          lg:w-24 lg:h-24
+                          h-20
+                          w-20
+                        "
                         :src="item.item.image"
                       />
                       <div
@@ -224,7 +249,7 @@
                     {{ item.item.title }}
                   </p> -->
                 </div>
-                <div class="w-1/6 h-full bg-green-300 flex justify-center">
+                <div class="w-1/6 h-full flex justify-end align-end">
                   <!-- <h1
                     class="
                       font-mainFont
@@ -288,22 +313,21 @@
                     </div>
                   </div> -->
                   <button
-                    class="
-                      checkoutBtn
-                      py-1
-                      flex
-                      justify-center
-                      align-center
-                      m-auto
-                    "
+                    class="checkoutBtn py-1 flex justify-center align-center"
                   >
                     <span
-                      class="pl-4 checkoutText font-mainFont text-2xl"
+                      class="
+                        pl-4
+                        checkoutText
+                        font-mainFont
+                        text-lg
+                        lg:text-2xl
+                      "
                       @click="checkout"
                     >
                       Checkout
                     </span>
-                    <v-icon x-large class="pink--text text--darken-2"
+                    <v-icon x-large class="pink--text text--darken-2 sm:hidden"
                       >mdi-arrow-right-circle</v-icon
                     >
                   </button>
