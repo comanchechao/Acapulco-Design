@@ -422,14 +422,18 @@ export default {
           })
           .then(
             () => console.log('lolo'),
-            this.$refs.PaymentDialog.toggleDialog()
+            this.message = 'Your order has been added to your profile Page',
+            this.purchaseSuccess = '/tik.png',
+            this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
           )
           .catch((err) => {
             console.error(err)
           })
       } else {
         console.log('sign up and add order')
-        this.$refs.PaymentDialog.toggleDialog()
+        this.message = 'You are signed in to our website and Your order has been added to your profile Page'
+        this.purchaseSuccess = '/bigX.png'
+        this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
       }
     },
   },

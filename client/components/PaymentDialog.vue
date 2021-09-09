@@ -13,7 +13,7 @@
       bg-gray-200
       w-96
       h-96
-      self-end
+      self-center
       grid grid-rows-8
       p-3
     "
