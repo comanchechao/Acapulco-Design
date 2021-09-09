@@ -15,7 +15,7 @@
       h-80
       self-center
       grid grid-rows-8
-      p-10
+      p-3
     "
   >
     <div class="rounded-3xl row-span-2 grid grid-cols-3">
@@ -43,19 +43,18 @@
         ></path>
       </svg>
       <div class="row-span-2">
-        <img class="left-2" src="/tik.png" alt="" />
+        <img class="left-2" :src="theImg" alt="" />
       </div>
     </div>
     <div class="row-span-4 flex flex-col justify-center">
-      <h1 class="text-3xl self-center m-2">Payment Sucessfull</h1>
+      <h1 class="text-3xl self-center p-2">Payment Sucessfull</h1>
       <p class="text-center">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
-        odit consequatur tenetur praesentium fugiat.
+        {{ message}}
       </p>
     </div>
     <div class="row-span-2 flex justify-center">
       <button
-        class="bg-Rose-500 p-2 m-1 w-full rounded-3xl shadow-3xl"
+        class="bg-Rose-500 p-3 m-2 w-full rounded-3xl shadow-3xl"
         @click="toggleDialog"
       >
         Classic!
@@ -69,12 +68,16 @@ export default {
   data() {
     return {
       showDialog: false,
+      message: null,
+      theImg: null
     }
   },
 
   methods: {
-    toggleDialog() {
+    toggleDialog(message , purchaseSuccess) {
       this.showDialog = !this.showDialog
+      this.message = message
+      this.theImg = purchaseSuccess
     },
   },
 }
