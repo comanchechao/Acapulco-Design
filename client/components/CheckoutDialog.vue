@@ -22,7 +22,7 @@
           >
         </button>
       </template>
-      <div id="main" class="h-screen w-screen overflow-hidden">
+      <div id="main" class="h-screen w-screen">
         <LazyHydrate on-interaction>
           <PaymentDialog
             ref="PaymentDialog"
@@ -30,18 +30,20 @@
           />
         </LazyHydrate>
 
-        <div class="hidden self-start absolute lg:flex">
+        <!-- <div class="hidden self-start absolute lg:flex">
           <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
-        </div>
-        <div class="h-full w-full flex flex-col justify-center align-center">
-          <div class="lg:h-4/5 lg:w-4/5 w-full h-full backGround">
+        </div> -->
+        <div
+          class="h-full w-full flex lg:p-11 flex align-center justify-center"
+        >
+          <div class="w-full h-full backGround">
             <div class="w-full h-3/5 flex justify-center align-center flex-col">
               <div class="w-full h-1/4 bg-green-400 flex">
-                <h1 class="pa-5">
-                  <span class="md:hidden lg:hidden span" @click="dialog = false"
-                    ><v-icon light x-large color="pink lighten-5"
+                <h1 class="pa-5 flex align-center justify-start">
+                  <span class="span transform scale-125" @click="dialog = false"
+                    ><v-icon dark x-large color=""
                       >mdi-chevron-double-left</v-icon
                     ></span
                   >
@@ -470,11 +472,11 @@ export default {
 
 .span {
   cursor: pointer;
-  transition: ease-in 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .span:hover {
-  filter: brightness(85%);
+  filter: brightness(0.2);
 }
 
 .backGround {
@@ -517,6 +519,10 @@ export default {
   background-color: #120129;
   color: #ff4a68;
 }
+.checkoutBtn:active {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
 /* .checkoutBtnNew {
   font-size: 30px;
   border: solid 2px #120129;
@@ -541,7 +547,7 @@ export default {
   font-size: 30px;
 }
 
-input[type='radio'] + label span {
+/* input[type='radio'] + label span {
   transition: background 0.2s, transform 0.2s;
 }
 
@@ -557,5 +563,5 @@ input[type='radio']:checked + label span {
 
 input[type='radio']:checked + label {
   color: #3490dc;
-}
+} */
 </style>

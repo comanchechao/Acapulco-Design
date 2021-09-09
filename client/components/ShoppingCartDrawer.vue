@@ -292,6 +292,10 @@ export default {
   background-color: #120129;
   color: #ff4a68;
 }
+.editBtn:active {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
 
 /* @media screen and (max-width: 800px) {
   .container {

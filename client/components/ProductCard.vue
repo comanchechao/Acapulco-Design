@@ -3,49 +3,81 @@
     <div
       class="
         flex flex-col
-        h-72
+        lg:h-72
+        h-rem26
         w-96
-        bg-goldie
         lg:flex-row
         justify-center
         align-center
-        space-x-3
+        lg:space-x-3
         cardBackground
         productCard
       "
     >
-      <div class="h-full w-2/5 bg-red-300">
-        <!-- <div
-              class="absolute inset-0 bg-gray-300 shadow-lg rounded-full lg:rounded-none h-full"
-            > -->
+      <div class="lg:h-full h-2/5 w-full lg:w-2/5 bg-Indigo-900">
         <!-- <img
           src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
           alt=""
-          class="mx-auto object-cover"
+          class="object-contain sm:object-scale-down"
         /> -->
-        <!-- </div> -->
       </div>
       <div
         class="
-          bg-blue-400
-          w-3/5
-          h-full
+          h-3/5
+          w-full
+          lg:w-3/5 lg:h-full
           flex flex-col
           justify-between
           align-center
           space-y-2
-          p-6
+          p-3
+          sm:py-3
         "
       >
-        <div class="w-full h-3/4 bg-Lime-900"></div>
-        <div class="w-full h-1/4 bg-CoolGray-900"></div>
-        <!-- <h1 class="text-5xl text-blueGray-900 font-bold mt-5">
-          {{ product.title }}
-        </h1>
-        <h3 class="text-2xl text-gray-600 font-thin text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h3>
-        <p class="text-4xl text-CoolGray-900">{{ product.price }} IRL</p>
+        <div
+          class="
+            w-14
+            h-14
+            rounded-full
+            fixed
+            transform
+            translate-x-8
+            lg:-translate-y-5
+            -translate-y-9
+            self-end
+            flex
+            justify-center
+            align-center
+            bg-goldie
+            shoppingBtn
+          "
+          @click="addToCart"
+        >
+          <span class="shoppingBtnSpan">
+            <v-icon
+              color="white
+"
+              class=""
+              >mdi-basket-plus-outline</v-icon
+            >
+          </span>
+        </div>
+        <div class="w-full h-3/4 flex flex-col justify-between align-center">
+          <h1 class="text-5xl text-mainBlue font-bold text-center">
+            {{ product.title }}
+          </h1>
+          <h3 class="text-2xl text-gray-600 font-thin text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </h3>
+          <p class="text-4xl text-mainBlue text-center">
+            {{ product.price }} IRL
+          </p>
+        </div>
+        <div class="w-full h-1/4 flex justify-center align-center">
+          <ProductDetail :product="product" />
+        </div>
+        <!-- 
+        
         <div class="flex align-center justify-center w-full h-full space-x-2">
           <button
             class="
@@ -61,15 +93,8 @@
           >
             <span class="text-xl pl-2 font-mainFont text-mainBlue">
               Add to Cart
-              <v-icon
-                color="white
-"
-                class=""
-                >mdi-shopping-outline</v-icon
-              >
-            </span>
+            
           </button>
-          <ProductDetail :product="product" />
         </div> -->
       </div>
     </div>
@@ -77,10 +102,10 @@
 </template>
 
 <script>
-// import ProductDetail from './ProductDetail.vue'
+import ProductDetail from './ProductDetail.vue'
 export default {
   components: {
-    // ProductDetail,
+    ProductDetail,
   },
   props: ['product'],
 
@@ -137,6 +162,16 @@ export default {
   border-radius: 10px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   transition: ease-in-out 0.2s;
+}
+.shoppingBtn {
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.shoppingBtn:hover {
+  filter: brightness(1.1);
+}
+.shoppingBtn:active {
+  filter: brightness(0.5);
 }
 /* .productDetailBackground {
   background: #120129c9;

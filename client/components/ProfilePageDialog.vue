@@ -57,20 +57,27 @@
                       font-mainFont
                       text-mainBlue
                       font-extrabold
+                      justify-center
+                      align-center
+                      space-x-1
                       lg:text-3xl
                       text-2xl
                     "
                   >
                     <span
-                      class="md:hidden lg:hidden sm:visible span"
+                      class="transform scale-125 span"
                       @click="dialog = false"
                       ><v-icon dark x-large color=""
                         >mdi-chevron-double-left</v-icon
                       ></span
                     >
-                    <v-icon x-large dark>mdi-home-edit-outline</v-icon>
 
-                    <span class="ml-3"> My Address </span>
+                    <span class="flex justify-center align-end">
+                      <v-icon x-large dark class="transform scale-125 mr-4"
+                        >mdi-home-edit-outline</v-icon
+                      >
+                      My Address
+                    </span>
                   </h2>
                 </div>
                 <div
@@ -427,6 +434,11 @@ export default {
   filter: brightness(0.5);
 }
 
+.Tabs:active {
+  transform: scale(1.02);
+  filter: brightness(0.8);
+}
+
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
@@ -458,12 +470,13 @@ span {
 }
 .span {
   cursor: pointer;
-  transition: ease-in 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .span:hover {
-  filter: brightness(0.5);
+  filter: brightness(0.2);
 }
+
 /* .backround {
   background: rgba(233, 233, 233, 0.959);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

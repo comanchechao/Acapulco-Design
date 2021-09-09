@@ -16,6 +16,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
+        rem26: '26rem',
         dialog: '32rem',
       },
       fontFamily: {

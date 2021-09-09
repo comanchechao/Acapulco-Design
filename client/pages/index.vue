@@ -18,7 +18,6 @@
       />
       <div class="w-screen">
         <div class="grid place-items-center w-screen">
-          <div></div>
           <div
             class="
               acapulco-div
@@ -30,7 +29,7 @@
               mb-40
             "
           >
-            <div
+            <!-- <div
               v-gsap.to="{
                 opacity: 1,
                 duration: 0.6,
@@ -38,7 +37,7 @@
                 ease: 'circ.out',
               }"
               class="
-                fixed
+                sticky
                 top-3
                 w-60
                 h-60
@@ -48,8 +47,8 @@
                 opacity-0
               "
             >
-              <img class="fixed peaceSign" src="/moomoole.png" alt="" />
-            </div>
+              <img class="peaceSign sticky" src="/moomoole.png" alt="" />
+            </div> -->
             <div
               v-gsap.to="{
                 opacity: 1,
@@ -159,16 +158,19 @@
             >
               <img class="object-cover" src="@/static/9757(2).png" alt="" />
             </div>
-            <div class="absolute inset-0 flex justify-center align-center p-96">
+            <div
+              class="absolute inset-0 flex justify-start align-center lg:p-96"
+            >
               <h2
                 class="
+                  sm:w-80
                   h2-home
                   capitalize
                   text-center text-5xl
                   md:text-7xl
                   lg:text-9xl
                   transform
-                  translate-y-12
+                  sm:m-auto
                 "
               >
                 <span class="limitedSpan animatedSpans">Limited</span>,

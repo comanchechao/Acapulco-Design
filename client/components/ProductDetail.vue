@@ -10,9 +10,10 @@
       <template v-slot:activator="{ on, attrs }">
         <button
           class="
-            checkoutBtn
+            learnMore
             flex
             py-1
+            px-5
             justify-center
             align-center
             bg-green-300
@@ -22,7 +23,7 @@
           @click="dialog = true"
           v-on="on"
         >
-          <span class="checkoutText pl-2 font-mainFont text-xl">
+          <span class="checkoutText pl-2 font-mainFont text-2xl">
             Learn More!
           </span>
           <v-icon large class="pink--text text--darken-2"
@@ -171,5 +172,20 @@ export default {
 .learnMoreBtn:hover {
   background-color: #120129;
   color: #ff4a68;
+}
+
+.learnMore {
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.learnMore:hover {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
+
+.learnMore:active {
+  transform: scale(0.95);
+  filter: brightness(1);
 }
 </style>
