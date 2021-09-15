@@ -21,14 +21,13 @@
           absolute
           lg:w-1/3
           inset-x-0
-          top-20
+          self-center
           z-20
           shadow-xl
           w-full
           sm:w-full
           md:w-2/5
           mx-auto
-          -mt-1
         "
       >
         <Adminastration
@@ -38,7 +37,7 @@
             duration: 1.5,
             ease: 'expo.out',
           }"
-          class="adminastration bottom-10 sm:w-full"
+          class="adminastration bottom-20 sm:w-full"
         />
       </div>
 
@@ -291,9 +290,9 @@
                           "
                         >
                           <h3 class="">{{ product.title }}</h3>
-                          <button class="">
-                           <img class="kiskis" src="/x.png" alt="">
-                          </button>
+                            <button class="">
+                              <img class="kiskis" src="/x.png" alt="" />
+                            </button>
                         </div>
                       </div>
                     </div>
@@ -428,9 +427,9 @@
                               place-content-around
                             "
                           >
-                            <h1 class="text-3xl">{{ order.order.Name }}</h1>
-                            <h1 class="text-3xl">{{ order.Date }}</h1>
-                            <h1 class="text-3xl">Canceled</h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">{{ order.order.Name }}</h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">{{ order.Date }}</h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">Canceled</h1>
                           </div>
                         </div>
                       </div>
@@ -478,6 +477,7 @@
                         </div>
                         <div
                           class="
+                            overflow-hidden
                             w-full
                             row-span-6
                             h-full
@@ -511,8 +511,11 @@
                             >
                               <div class="w-full flex flex-row justify-between">
                                 <h1 class="self-center">Status: processing</h1>
-                                <button class="scale-50" @click="deleteOrder(order.id)">
-                                 <img class="scale-75" src="/x1.png" alt="">
+                                <button
+                                  class="scale-50"
+                                  @click="deleteOrder(order.id)"
+                                >
+                                  <img class="scale-75" src="/x1.png" alt="" />
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
@@ -536,27 +539,34 @@
 
                               <h1 class="text-xl p-1">Items:</h1>
                               <div
-                                v-for="item in order.orderProduct"
-                                :key="item.id"
                                 class="
-                                  flex flex-shirnk flex-row
-                                  justify-around
+                                  grid grid-cols-1
+                                  p-5
                                   bg-Amber-500
                                   shadow-2xl
                                   rounded-xl
-                                  p-5
-                                  m-1
                                 "
                               >
-                                <h1 class="text-xl p-1">
-                                  Title: {{ item.item.title }}
-                                </h1>
-                                <h1 class="text-xl p-1">
-                                  Price: {{ item.item.price }}
-                                </h1>
-                                <h1 class="text-xl p-1">
-                                  Quantity: {{ item.quantity }}
-                                </h1>
+                                <div
+                                  v-for="item in order.orderProduct"
+                                  :key="item.id"
+                                  class="
+                                    flex flex-shirnk flex-col
+                                    border-b-2
+                                    p-2
+                                    justify-center
+                                  "
+                                >
+                                  <h1 class="text-xl">
+                                    Title: {{ item.item.title }}
+                                  </h1>
+                                  <h1 class="text-xl">
+                                    Price: {{ item.item.price }}
+                                  </h1>
+                                  <h1 class="text-xl">
+                                    Quantity: {{ item.quantity }}
+                                  </h1>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -762,7 +772,7 @@ export default {
         Orders.push({
           id: doc.id,
           order: doc.data().order,
-          Date : moment(doc.data().order.Date).format('LLL'),
+          Date: moment(doc.data().order.Date).format('LLL'),
           orderProduct: doc.data().cart,
         })
       })
@@ -1084,5 +1094,4 @@ input[type='number'] {
 h1 {
   border-color: #e2e9e0;
 }
-
 </style>
