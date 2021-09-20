@@ -6,7 +6,7 @@
       modal
       flex
       justify-center
-      h-1/2
+      h-56
       items-center
       bg-green-200
       rounded-lg
