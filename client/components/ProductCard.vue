@@ -68,7 +68,7 @@
           <h3 class="text-2xl text-gray-600 font-thin text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h3>
-          <p class="text-4xl text-mainBlue text-center">
+          <p class="lg:text-4xl text-2xl text-mainBlue text-center">
             {{ product.price }} IRL
           </p>
         </div>

@@ -15,7 +15,6 @@
             delay: 1,
             ease: 'circ.out',
           }"
-          class="mt-4 navbar sticky"
         />
       </LazyHydrate>
       <div class="w-full flex flex-col align-center justify-center">
@@ -184,7 +183,7 @@
           </div>
         </div>
       </div>
-      <Footer />
+      <!-- <Footer /> -->
     </div>
   </v-app>
 </template>
@@ -196,7 +195,7 @@ export default {
   components: {
     LazyHydrate,
     ProductCard,
-    Footer: () => import('../layouts/Footer.vue'),
+    // Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
   },
 

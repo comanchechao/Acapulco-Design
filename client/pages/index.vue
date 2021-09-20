@@ -14,41 +14,42 @@
           duration: 1,
           ease: 'circ.out',
         }"
-        class="mt-4 navbar sticky"
+        class="navbar"
       />
       <div class="w-screen">
         <div class="grid place-items-center w-screen">
+          <!-- <div
+            v-gsap.to="{
+              opacity: 1,
+              duration: 0.6,
+              delay: 1,
+              ease: 'circ.out',
+            }"
+            class="
+              absolute
+              top-3
+              justify-self-center
+              self-start
+              peaceSignDiv
+              opacity-0
+              transform
+              scale-50
+              lg:scale-100
+            "
+          >
+            <img class="peaceSign m-auto" src="/moomoole.png" alt="" />
+          </div> -->
           <div
             class="
               acapulco-div
               flex flex-col
               align-center
               justify-between
-              h-5/6
+              h-screen
               w-screen
-              mb-40
+              mb-32
             "
           >
-            <!-- <div
-              v-gsap.to="{
-                opacity: 1,
-                duration: 0.6,
-                delay: 1,
-                ease: 'circ.out',
-              }"
-              class="
-                sticky
-                top-3
-                w-60
-                h-60
-                justify-self-center
-                self-center
-                peaceSignDiv
-                opacity-0
-              "
-            >
-              <img class="peaceSign sticky" src="/moomoole.png" alt="" />
-            </div> -->
             <div
               v-gsap.to="{
                 opacity: 1,
@@ -56,35 +57,54 @@
                 delay: 1,
                 ease: 'circ.out',
               }"
-              class="flex justify-between align-center w-screen opacity-0"
+              class="
+                flex
+                justify-between
+                align-center
+                w-screen
+                h-screen
+                opacity-0
+                relative
+              "
             >
               <div
                 class="
                   peace
                   transform
-                  scale-75
-                  lg:scale-100 lg:-translate-x-0
-                  -translate-x-11
+                  -translate-y-9 -translate-x-24
+                  lg:-translate-x-0
+                  inset-y-0
+                  left-0
+                  absolute
+                  z-10
+                  max-w-xs
+                  lg:max-w-xl
                 "
               >
-                <img class="" src="/sketch-162443588438sdfs.png" alt="" />
+                <img
+                  class="object-cover"
+                  src="/sketch-162443588438sdfs.png"
+                  alt=""
+                />
               </div>
 
               <div
                 class="
                   absolute
-                  p-4
-                  lg:self-end
+                  inset-0
+                  py-36
                   transform
-                  translate-y-9
-                  lg:-translate-y-9
+                  lg:translate-y-16
+                  flex
+                  justify-center
+                  align-center
                 "
               >
                 <h1
                   class="
                     acapulco
                     tracking-wider
-                    text-8xl
+                    text-7xl
                     md:text-9xl
                     lg:text-10xl
                     text-center
@@ -98,12 +118,21 @@
               <div
                 class="
                   transform
-                  scale-75
-                  lg:scale-100 lg:translate-x-0
-                  translate-x-12
+                  translate-x-28
+                  -translate-y-9
+                  lg:-translate-x-0 lg:max-w-xl
+                  inset-y-0
+                  right-0
+                  absolute
+                  z-10
+                  max-w-xs
                 "
               >
-                <img class="" src="/sketch-1624435884386sdfsd(1).png" alt="" />
+                <img
+                  class="object-cover"
+                  src="/sketch-1624435884386sdfsd(1).png"
+                  alt=""
+                />
               </div>
             </div>
             <div
@@ -130,36 +159,45 @@
               </v-btn>
             </div>
           </div>
-          <!-- <div class="d-flex align-self justify-self"></div> -->
-          <v-spacer></v-spacer>
-
           <div
             class="
               flex
-              lg:h-4/5
               h-screen
               w-screen
-              justify-between
+              justify-center
               align-center
               firstContainer
               content
               relative
-              mb-40
             "
           >
             <div
               class="
-                z-10
                 transform
-                scale-75
-                lg:scale-100 lg:-translate-x-0
-                -translate-x-11
+                -translate-x-20
+                lg:-translate-x-0
+                inset-y-0
+                left-0
+                absolute
+                z-10
+                max-w-xs
+                lg:max-w-xl
               "
             >
               <img class="object-cover" src="@/static/9757(2).png" alt="" />
             </div>
             <div
-              class="absolute inset-0 flex justify-start align-center lg:p-96"
+              class="
+                absolute
+                p-16
+                inset-0
+                lg:h-full
+                h-3/4
+                flex
+                justify-start
+                align-center
+                lg:p-96
+              "
             >
               <h2
                 class="
@@ -181,105 +219,43 @@
             </div>
             <div
               class="
-                z-10
                 transform
-                scale-75
-                lg:scale-100 lg:translate-x-0
-                translate-x-11
+                translate-x-20
+                lg:-translate-x-0 lg:max-w-xl
+                inset-y-0
+                right-0
+                absolute
+                z-10
+                max-w-xs
               "
             >
-              <img class="object-cover" src="@/static/9757(1).png" alt="" />
+              <img
+                class="object-cover transform rotate-180"
+                src="@/static/9757(2).png"
+                alt=""
+              />
             </div>
           </div>
 
           <div
             class="
-              grid grid-rows-2
-              lg:grid-cols-2
-              place-items-center
-              h-4/5
-              lg:h-screen lg:w-4/5
-              secondContainer
-              content
-              mt-15
-            "
-          >
-            <div class="textDiv flex flex-col order-last">
-              <div class="flex flex-row align-center justify-center">
-                <h3 class="text-6xl lg:text-7xl">Lighters</h3>
-                <div class="w-1/2 lg:w-full">
-                  <img
-                    class="
-                      transform
-                      -translate-y-3
-                      lg:pb-5 lg:pl-3
-                      scale-75
-                      lg:scale-75
-                    "
-                    src="/zoozoo(1).png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="self-center lg:self-end">
-                <nuxt-link to="/productList">
-                  <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
-                  </button>
-                </nuxt-link>
-              </div>
-            </div>
-            <div class="pictureDiv lg:order-last"></div>
-          </div>
-
-          <div
-            class="
-              grid grid-rows-2
-              lg:grid-cols-2
-              place-items-center
-              h-4/5
-              lg:h-screen lg:w-4/5
-              thirdContainer
-              content
-            "
-          >
-            <div class="pictureDiv">
-              <v-img> </v-img>
-            </div>
-            <div class="textDiv flex flex-col order-last">
-              <div class="flex justify-end">
-                <h3 class="text-6xl p-5">Acapulco Shirts</h3>
-                <img class="transform scale-75" src="/fsdf.png" alt="" />
-              </div>
-              <div class="self-center">
-                <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
-                  </button>
-                </NuxtLink>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="
-              grid grid-rows-2
-              lg:grid-cols-2
-              place-items-center
-              h-4/5
-              lg:h-screen lg:w-4/5
+              h-screen
+              w-screen
+              flex flex-col
+              lg:flex-row
+              align-center
+              justify-center
+              space-y-6
+              p-20
+              lg:p-48
+              justify-self-stretch
               forthContainer
               content
             "
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <!-- <img
-                class="transform -translate-y-4"
-                src="/zoozoo(1).png"
-                alt=""
-              /> -->
-                <h3 class="text-6xl lg:text-7xl p-5">Custom Matchboxes💥</h3>
+                <h3 class="text-6xl lg:text-7xl p-5 text-center">Lighters</h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -289,26 +265,57 @@
                 </NuxtLink>
               </div>
             </div>
-            <div class="pictureDiv lg:order-last"></div>
+            <div
+              class="
+                pictureDiv
+                lg:order-last
+                max-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-2xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+              "
+            ></div>
           </div>
 
           <div
             class="
-              grid grid-rows-2
-              lg:grid-cols-2
-              place-items-center
-              h-4/5
-              lg:h-screen lg:w-4/5
+              h-screen
+              w-screen
+              flex flex-col
+              lg:flex-row
+              align-center
+              justify-center
+              space-y-6
+              p-20
+              lg:p-48
+              justify-self-stretch
               thirdContainer
               content
             "
           >
-            <div class="pictureDiv">
+            <div
+              class="
+                pictureDiv
+                lg:order-first
+                max-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-2xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+              "
+            >
               <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
-              <div class="flex justify-end">
-                <h3 class="text-6xl p-5">Acapulco Shorts</h3>
+              <div class="flex-row-reverse align-center justify-center">
+                <h3 class="text-6xl p-5 text-center">Acapulco Shirts</h3>
                 <!-- <img class="transform scale-75" src="/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
@@ -323,8 +330,96 @@
 
           <div
             class="
-              h-5/6
-              lg:h-full
+              h-screen
+              w-screen
+              flex flex-col
+              lg:flex-row
+              align-center
+              justify-center
+              space-y-6
+              p-20
+              lg:p-48
+              justify-self-stretch
+              forthContainer
+              content
+            "
+          >
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex-row-reverse align-center justify-center">
+                <h3 class="text-6xl lg:text-7xl p-5 text-center">
+                  Custom Matchboxes💥
+                </h3>
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
+            </div>
+            <div
+              class="
+                pictureDiv
+                lg:order-last
+                max-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-2xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+              "
+            ></div>
+          </div>
+
+          <div
+            class="
+              h-screen
+              w-screen
+              flex flex-col
+              align-center
+              justify-center
+              space-y-6
+              p-20
+              justify-self-stretch
+              thirdContainer
+              content
+            "
+          >
+            <div
+              class="
+                pictureDiv
+                max-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-6xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+              "
+            >
+              <v-img> </v-img>
+            </div>
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex justify-end">
+                <h3 class="text-6xl p-5 text-center">Acapulco Shorts</h3>
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="
+              h-screen
               fifthContainer
               flex flex-col
               align-center
@@ -335,13 +430,20 @@
               justify-self-stretch
             "
           >
-            <!-- <img
-                class="absolute tropicalImage bg-contain bg-center"
-                src="/hhjhhUntitled-2.png"
-                alt=""
-              /> -->
-
-            <div class="collections lg:max-w-6xl md:max-w-2xl max-w-lg"></div>
+            <div
+              class="
+                pictureDiv
+                collections
+                x-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-6xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+              "
+            ></div>
 
             <div class="textDiv">
               <h3 class="text-6xl mt-3">Collections 🗿</h3>
@@ -356,13 +458,14 @@
 
           <div
             class="
+              w-screen
+              lg:p-44
               flex
               align-center
               h-screen
               lg:h-screen
               grid-row-2
               justify-center
-              bg-green-300
               sixthContainer
               content
             "
@@ -394,13 +497,16 @@
                 "
               >
                 If you want to know us more, maybe get a cup of coffee, you can!
-
-                <!-- <button id="contactUsBtn" class="learnMoreBtn">
-                <span class="learnMoreText"> Contact Us </span>
-              </button> -->
               </h3>
             </div>
-            <!-- <div class="flex align-center justify-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </v-app>
+</template>
+<!-- <Footer /> -->
+<!-- <div class="flex align-center justify-center">
               <video
                 class="object-contain md:object-scale-down"
                 width="320"
@@ -413,13 +519,6 @@
                 Your browser does not support the video tag.
               </video>
             </div> -->
-          </div>
-          <Footer />
-        </div>
-      </div>
-    </div>
-  </v-app>
-</template>
 
 <!-- <div class="">
 
@@ -431,7 +530,7 @@
 // import gsap from 'gsap'
 export default {
   components: {
-    Footer: () => import('../layouts/Footer.vue'),
+    // Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {
@@ -443,8 +542,8 @@ export default {
     this.animatePictureDiv()
     this.animateOnScroll()
     this.animateScrollDownBtn()
-    this.peaceSignAnimation()
-    // this.animatePeaceSign()
+    // this.peaceSignAnimation()
+    this.animatePeaceSign()
   },
   transition: {
     mode: 'out-in',
@@ -476,18 +575,6 @@ export default {
       //     toggleActions: 'play none none reset',
       //   },
       // })
-      tl.from('.collections', {
-        opacity: 0,
-        x: 40,
-        scale: 0.5,
-        scrollTrigger: {
-          trigger: '.collections',
-          scrub: 0.7,
-          start: 'top bottom',
-          end: 'top center',
-          toggleActions: 'play none none none',
-        },
-      })
 
       // .To('collections', {
       //   y: -150,
@@ -503,11 +590,12 @@ export default {
       //   },
       // })
       pictureDivs.forEach((pictureDiv) => {
-        tl.to(pictureDiv, {
-          width: 600,
+        tl.from(pictureDiv, {
+          scale: 0.5,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: pictureDiv,
-            scrub: 0.7,
+            scrub: 0,
             start: 'top bottom',
             end: 'top center',
             toggleActions: 'play none none none',
@@ -516,40 +604,49 @@ export default {
       })
     },
 
-    peaceSignAnimation() {
+    // peaceSignAnimation() {
+    //   const gsap = this.$gsap
+
+    //   gsap
+    //     .timeline({
+    //       scrollTrigger: {
+    //         trigger: '.peaceSignDiv',
+    //         pin: true,
+    //         scrub: 0.2,
+    //         start: 'top top',
+    //         end: '+=10000',
+    //       },
+    //     })
+    //     .to('.peaceSignDiv', {
+    //       rotation: 360 * 5,
+    //       scale: 0.8,
+    //       opacity: 0.8,
+    //       duration: 1,
+    //       y: 500,
+    //       ease: 'none',
+    //     })
+    // },\
+
+    animatePeaceSign() {
       const gsap = this.$gsap
 
       gsap
         .timeline({
           scrollTrigger: {
-            trigger: '.peaceSignDiv',
-            pin: true,
-            scrub: 0.2,
             start: 'top top',
-            end: '+=10000',
+            end: '+=8000',
+            scrub: 2,
+            trigger: '.peaceSignDiv',
+            marker: true,
           },
         })
-        .to('.peaceSignDiv', {
-          rotation: 360 * 5,
-          duration: 1,
-          y: 500,
-          ease: 'none',
+        .to('.peaceSign', {
+          opacity: 0,
+          rotation: 360 * 7,
+          duration: 0.2,
+          scale: 0.2,
         })
     },
-    // animatePeaceSign() {
-    //   const gsap = this.$gsap
-    //   gsap.to('.peaceSign', {
-    //     opacity: 1,
-    //     rotation: 27,
-    //     scrollTrigger: {
-    //       start: 'top top',
-    //       end: 'bottom center',
-    //       scrub: 0.5,
-    //       trigger: '.peaceSignDiv',
-    //       marker: true,
-    //     },
-    //   })
-    // },
 
     animateScrollDownBtn() {
       const gsap = this.$gsap
@@ -706,7 +803,7 @@ export default {
   color: #120129;
 } */
 
-.pictureDiv {
+/* .pictureDiv {
   cursor: pointer;
   width: 300px;
   height: 500px;
@@ -720,25 +817,22 @@ export default {
     0 100px 300px -20px rgba(0, 0, 0, 0.09);
 }
 
-.pictureDiv:hover {
-  transition: ease-in-out 0.5s;
+@media only screen and (max-width: 480px) {
+  .pictureDiv {
+    transform: scale(0.5);
+  }
+} */
 
+.pictureDiv {
+  transition: ease-in-out 0.3s;
+}
+
+.pictureDiv:hover {
   transform: scale(1.02);
 }
 
 .collections {
-  cursor: pointer;
-  /* transition: linear; */
-  width: 100%;
-  height: 500px;
-  background-color: #dddddd;
-  box-shadow: 0 2.3px 7px -20px rgba(0, 0, 0, 0.023),
-    0 5.4px 16.2px -20px rgba(0, 0, 0, 0.034),
-    0 9.7px 29px -20px rgba(0, 0, 0, 0.041),
-    0 16.1px 48.2px -20px rgba(0, 0, 0, 0.049),
-    0 26.5px 79.4px -20px rgba(0, 0, 0, 0.056),
-    0 46.2px 138.7px -20px rgba(0, 0, 0, 0.067),
-    0 100px 300px -20px rgba(0, 0, 0, 0.09);
+  transition: ease-in-out 0.3s;
 }
 
 .collections:hover {
@@ -765,9 +859,19 @@ export default {
 
 .acapulco {
   font-family: 'Sail';
-  text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
-    16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
-    28px 28px 0px #7eb82d, 32px 32px 0px #ff4a68, 36px 36px 0px #00076e;
+  text-shadow: 1px 1px 0px #eb452b, 2px 2px 0px #efa032, 4px 4px 0px #0abac0,
+    8px 8px 0px #8338ec, 12px 12px 0px #0ba832, 16px 16px 0px #0a60ff,
+    20px 20px 0px #7eb82d, 24px 24px 0px #ff4a68, 28px 28px 0px #00076e;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .acapulco {
+    font-family: 'Sail';
+    text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
+      16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
+      28px 28px 0px #7eb82d, 32px 32px 0px #ff4a68, 36px 36px 0px #00076e;
+  }
 }
 
 .scrollDownBtn {

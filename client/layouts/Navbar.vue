@@ -3,39 +3,38 @@
   <div
     class="
       w-screen
+      h-24
       bg-transparent
       Navbar
       opacity-0
       z-50
       flex
       align-center
-      justify-around
-      px-9
+      justify-center
+      lg:px-9
     "
   >
-    <div class="">
+    <div class="hidden lg:flex">
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-          <v-icon class="pr-2" large>mdi-meditation</v-icon>
-          <span class="aboutUs"> About Us </span>
+          <v-icon class="" large>mdi-meditation</v-icon>
+          <span class="aboutUs text-xl"> About Us </span>
         </v-btn>
       </nuxt-link>
     </div>
 
-    <div
-      class="flex align-center sm:justify-center md:justify-end lg:justify-end"
-    >
-      <div>
+    <div class="flex align-center justify-end px-2">
+      <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
-            <span class="white--text"> Shop </span>
+            <span class="white--text text-xl"> Shop </span>
           </v-btn>
         </nuxt-link>
       </div>
-      <div>
+      <div class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
-            <span class="white--text pr-2">admin</span>
+            <span class="white--text text-xl">admin</span>
             <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
           </v-btn>
         </NuxtLink>
@@ -47,7 +46,7 @@
               <template v-slot:activator="{ on: tooltip }">
                 <v-btn
                   color="transparent"
-                  class="profilePageBtn d-flex align-center pr-4"
+                  class="profilePageBtn align-center"
                   v-bind="attrs"
                   depressed
                   x-large
@@ -56,7 +55,7 @@
                   @click="dialog = true"
                   v-on="{ ...tooltip, ...menu }"
                 >
-                  <v-icon class="white--text pl-3">mdi-account-key</v-icon>
+                  <v-icon class="white--text">mdi-account-key</v-icon>
                 </v-btn>
               </template>
               <span>Welcome back!</span>
@@ -83,6 +82,7 @@
         <LoginDialog />
       </div>
 
+      <v-spacer></v-spacer>
       <div class="">
         <ShoppingCartDrawer />
       </div>
@@ -185,7 +185,6 @@ export default {
 span {
   font-family: 'Acme', sans-serif;
   text-align: center;
-  font-size: 1.3em;
   display: flex;
   justify-self: center;
   align-self: center;
