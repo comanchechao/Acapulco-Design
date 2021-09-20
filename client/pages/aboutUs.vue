@@ -20,30 +20,58 @@
           class="absolute z-50"
         />
       </LazyHydrate>
-      <section class="panel1 w-screen h-screen">
-        <img class="hippie1" src="/hippie1.png" alt="" />
-        <div class="m-1 hippie1-text">
+
+      <section class="panel1 w-screen h-screen mt-15">
+        <div
+          class="
+            m-1
+            hippie1-text
+            text-center
+            p-8
+            text-5xl text-mainBlue
+            font-bold
+          "
+        >
           Hi. we are a bunch of guys From a less known city of a dystopian
           country
         </div>
+        <img class="hippie1" src="/hippie1.png" alt="" />
       </section>
       <section
         class="panel2 grid content-start place-content-center w-screen h-screen"
       >
-        <img class="hippie2 justify-self-center" src="/hippie2.png" alt="" />
-        <div class="m-1 hippie2-text">
+        <div
+          class="
+            m-1
+            hippie2-text
+            text-center
+            p-8
+            text-5xl text-mainBlue
+            font-bold
+          "
+        >
           While we're not lost and consumed by the sheer pressure of human
           survival We tend to smoke, and create stuff
         </div>
+        <img class="hippie2 justify-self-center" src="/hippie2.png" alt="" />
       </section>
       <section
-        class="panel3 grid content-start place-content-end w-screen h-screen"
+        class="panel3 grid content-center place-content-end w-screen h-screen"
       >
-        <img class="hippie3" src="/hippie3.png" alt="" />
-        <div class="m-1 hippie3-text ">
+        <div
+          class="
+            m-1
+            hippie3-text
+            text-center
+            p-8
+            text-5xl text-mainBlue
+            font-bold
+          "
+        >
           In the hope of finding the long lost peace that we all crave Along the
           way.
         </div>
+        <img class="hippie3" src="/hippie3.png" alt="" />
       </section>
     </div>
     <!-- <div class="panels"> Hi. we are a bunch of guys From a less known city of a dystopian
@@ -64,25 +92,27 @@ export default {
   },
 
   mounted() {
-      // this.welcomeAnimation()
+    this.welcomeAnimation()
 
     const gsap = this.$gsap
 
     gsap.from('.hippie2', {
-      y: -350,
-      ease: 'Power2.easeIn',
+      y: -500,
+      ease: 'sine.out',
       scrollTrigger: {
         trigger: '.panel2',
-        start: 'top bottom',
-        end: 'top center',
+        start: 'top center',
+        end: 'bottom bottom',
         scrub: true,
         toggleActions: 'restart none resume pause',
       },
     })
     gsap.from('.hippie2-text', {
       scale: 0.2,
+      opacity: 0,
       scrollTrigger: {
         trigger: '.panel2',
+
         start: 'top center',
         end: 'bottom bottom',
         scrub: true,
@@ -94,16 +124,18 @@ export default {
       ease: 'Power2.easeIn',
       scrollTrigger: {
         trigger: '.panel3',
-        start: 'top bottom',
-        end: 'top center',
+        start: 'top center',
+        end: 'bottom bottom',
         scrub: true,
         toggleActions: 'restart none resume pause',
       },
     })
     gsap.from('.hippie3-text', {
       scale: 0.2,
+      opacity: 0,
       scrollTrigger: {
         trigger: '.panel3',
+
         start: 'top center',
         end: 'bottom bottom',
         scrub: true,
@@ -148,16 +180,12 @@ export default {
 
       tl.from('.hippie1', 1, {
         opacity: 0,
-        scale: 0.2,
+        y: -500,
         delay: 1,
       })
       tl.from('.hippie1-text', 0.5, {
         opacity: 0,
-        x: -200,
-      })
-      tl.from('.hippie2',0.5,{
-        opacity:0,
-        x:400
+        scale: 0.3,
       })
     },
   },
