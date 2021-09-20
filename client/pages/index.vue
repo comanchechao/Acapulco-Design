@@ -16,7 +16,7 @@
         }"
         class="navbar"
       />
-      <div class="w-screen">
+      <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
           <!-- <div
             v-gsap.to="{
