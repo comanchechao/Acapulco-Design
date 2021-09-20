@@ -1,5 +1,5 @@
 <template>
-  <v-app class="body">
+  <v-app class="body overflow-hidden">
     <!-- peace thing
     <a href="https://www.freepik.com/vectors/background"
       >Background vector created by freepik - www.freepik.com</a
@@ -7,8 +7,10 @@
     the hippies
     <a href="https://www.freepik.com/vectors/vintage"
       >Vintage vector created by macrovector - www.freepik.com</a
-    > -->
-    <div id="main" class="panelContainer bg-Sky-600">
+    >
+    black cat
+    <a href='https://www.freepik.com/vectors/animals'>Animals vector created by macrovector - www.freepik.com</a> -->
+    <div id="main" class="panelContainer">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -81,12 +83,28 @@
             w-1/2
             rounded-xl
             font-bold
-            text-3xl text-center
-            bg-goldie
-            text-mainBlue
+            text-6xl text-center
+            bg-Rose-600
           "
         >
-          <NuxtLink to="/">Back to our Shopping journey</NuxtLink>
+          <div
+            class="
+              flex flex-col
+              capitalize
+              font-extrabold
+              content-center
+              justify-center
+            "
+          >
+            <NuxtLink to="/">
+              <span class="text-mainBlue"> Back to our Shopping journey </span>
+            </NuxtLink>
+          </div>
+          <img
+            class="hippieCoco justify-self-center self-center"
+            src="/samadhiCoco.png"
+            alt=""
+          />
         </div>
       </section>
     </div>
@@ -228,6 +246,18 @@ export default {
 .panelContainer {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 25px;
+}
+.backButton {
+  transition: ease-in-out 0.3s;
+  color: black !important;
+}
+.backButton:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+.backButton:active {
+  transform: scale(0.9);
+  filter: brightness(0.5);
 }
 /* .body{
   min-height: 100vh;
