@@ -36,9 +36,11 @@
           survival We tend to smoke, and create stuff
         </div>
       </section>
-      <section class="panel3 w-screen h-screen">
+      <section
+        class="panel3 grid content-start place-content-end w-screen h-screen"
+      >
         <img class="hippie3" src="/hippie3.png" alt="" />
-        <div class="m-1 hippie3-text">
+        <div class="m-1 hippie3-text ">
           In the hope of finding the long lost peace that we all crave Along the
           way.
         </div>
@@ -62,6 +64,8 @@ export default {
   },
 
   mounted() {
+      // this.welcomeAnimation()
+
     const gsap = this.$gsap
 
     gsap.from('.hippie2', {
@@ -76,14 +80,11 @@ export default {
       },
     })
     gsap.from('.hippie2-text', {
-      opacity: 0,
       scale: 0.2,
-      x: 200,
-      ease: 'Power2.easeIn',
       scrollTrigger: {
         trigger: '.panel2',
-        start: 'top bottom',
-        end: 'top center',
+        start: 'top center',
+        end: 'bottom bottom',
         scrub: true,
         toggleActions: 'restart none resume pause',
       },
@@ -95,6 +96,16 @@ export default {
         trigger: '.panel3',
         start: 'top bottom',
         end: 'top center',
+        scrub: true,
+        toggleActions: 'restart none resume pause',
+      },
+    })
+    gsap.from('.hippie3-text', {
+      scale: 0.2,
+      scrollTrigger: {
+        trigger: '.panel3',
+        start: 'top center',
+        end: 'bottom bottom',
         scrub: true,
         toggleActions: 'restart none resume pause',
       },
@@ -130,6 +141,25 @@ export default {
     //     // base vertical scrolling on how wide the container is so it feels more natural.
     //   },
     // })
+  },
+  methods: {
+    welcomeAnimation() {
+      const tl = this.$gsap.timeline()
+
+      tl.from('.hippie1', 1, {
+        opacity: 0,
+        scale: 0.2,
+        delay: 1,
+      })
+      tl.from('.hippie1-text', 0.5, {
+        opacity: 0,
+        x: -200,
+      })
+      tl.from('.hippie2',0.5,{
+        opacity:0,
+        x:400
+      })
+    },
   },
 }
 </script>
