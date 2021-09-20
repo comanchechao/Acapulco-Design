@@ -28,8 +28,8 @@
           flex flex-col
           justify-between
           align-center
-          space-y-2
-          p-3
+          space-y-3
+          p-2
           sm:py-3
         "
       >
@@ -68,7 +68,13 @@
           <h3 class="text-2xl text-gray-600 font-thin text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h3>
-          <p class="lg:text-4xl text-2xl text-mainBlue text-center">
+          <p
+            class="
+              lg:text-4xl
+              text-3xl text-mainBlue text-center
+              font-extrabold
+            "
+          >
             {{ product.price }} IRL
           </p>
         </div>

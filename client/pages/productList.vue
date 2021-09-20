@@ -6,7 +6,7 @@
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
     />
-    <div id="main" class="space-y-3">
+    <div id="main" class="space-y-3 overflow-hidden">
       <LazyHydrate when-idle>
         <Navbar
           v-gsap.to="{
@@ -38,7 +38,17 @@
             </span>
           </h1>
         </div>
-        <div class="w-11/12 h-full grid grid-cols-8 mt-24 background opacity-0">
+        <div
+          class="
+            lg:w-11/12
+            w-full
+            h-full
+            grid grid-cols-8
+            mt-24
+            background
+            opacity-0
+          "
+        >
           <div
             class="
               menuNavbar
