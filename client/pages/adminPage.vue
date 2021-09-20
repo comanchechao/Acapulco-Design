@@ -290,9 +290,9 @@
                           "
                         >
                           <h3 class="">{{ product.title }}</h3>
-                            <button class="">
-                              <img class="kiskis" src="/x.png" alt="" />
-                            </button>
+                          <button class="">
+                            <img class="kiskis" src="/x.png" alt="" />
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -363,8 +363,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -378,8 +377,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -393,8 +391,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -427,8 +424,12 @@
                               place-content-around
                             "
                           >
-                            <h1 class="m-1 text-xl lg:text-3xl">{{ order.order.Name }}</h1>
-                            <h1 class="m-1 text-xl lg:text-3xl">{{ order.Date }}</h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">
+                              {{ order.order.Name }}
+                            </h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">
+                              {{ order.Date }}
+                            </h1>
                             <h1 class="m-1 text-xl lg:text-3xl">Canceled</h1>
                           </div>
                         </div>
@@ -993,12 +994,11 @@ input[type='number'] {
 }
 
 .addButton {
-  font-size: 70px;
+  font-size: 100px;
   background-color: #023047;
   color: #fb8500;
-  border-radius: 35px;
+  border-radius: 50px;
   transition: ease-in-out 0.3s;
-  padding: 3px 3px;
   margin: 3px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
@@ -1006,6 +1006,9 @@ input[type='number'] {
 .addButton:hover {
   background-color: #ffb703;
   color: #120129;
+}
+.addButton:active {
+  filter: brightness(0.5);
 }
 #surfer {
   z-index: 2;

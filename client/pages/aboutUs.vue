@@ -72,6 +72,22 @@
           way.
         </div>
         <img class="hippie3" src="/hippie3.png" alt="" />
+        <div
+          class="
+            backButton
+            flex
+            justify-center
+            p-5
+            w-1/2
+            rounded-xl
+            font-bold
+            text-3xl text-center
+            bg-goldie
+            text-mainBlue
+          "
+        >
+          <NuxtLink to="/">Back to our Shopping journey</NuxtLink>
+        </div>
       </section>
     </div>
     <!-- <div class="panels"> Hi. we are a bunch of guys From a less known city of a dystopian
@@ -98,47 +114,61 @@ export default {
 
     gsap.from('.hippie2', {
       y: -500,
+      opacity: 0,
       ease: 'sine.out',
       scrollTrigger: {
         trigger: '.panel2',
         start: 'top center',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 2,
         toggleActions: 'restart none resume pause',
       },
     })
     gsap.from('.hippie2-text', {
-      scale: 0.2,
+      scale: 0,
       opacity: 0,
       scrollTrigger: {
         trigger: '.panel2',
 
         start: 'top center',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 2,
         toggleActions: 'restart none resume pause',
       },
     })
     gsap.from('.hippie3', {
       y: -350,
+      opacity: 0,
       ease: 'Power2.easeIn',
       scrollTrigger: {
         trigger: '.panel3',
         start: 'top center',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 2,
         toggleActions: 'restart none resume pause',
       },
     })
     gsap.from('.hippie3-text', {
-      scale: 0.2,
+      scale: 0,
       opacity: 0,
       scrollTrigger: {
         trigger: '.panel3',
 
         start: 'top center',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 2,
+        toggleActions: 'restart none resume pause',
+      },
+    })
+    gsap.from('.backButton', {
+      y: 350,
+      ease: 'Power2.easeIn',
+      delay: 1,
+      scrollTrigger: {
+        trigger: '.panel3',
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: 2,
         toggleActions: 'restart none resume pause',
       },
     })
@@ -182,10 +212,12 @@ export default {
         opacity: 0,
         y: -500,
         delay: 1,
+        ease: 'expo.out',
       })
       tl.from('.hippie1-text', 0.5, {
         opacity: 0,
         scale: 0.3,
+        ease: 'expo.out',
       })
     },
   },

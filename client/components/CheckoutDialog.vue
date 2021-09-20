@@ -177,6 +177,7 @@
                     w-full
                     lg:w-5/6
                     h-full
+                    overflow-y-scroll
                     self-start
                     lg:gap-2
                     grid grid-cols-2
@@ -422,18 +423,25 @@ export default {
           })
           .then(
             () => console.log('lolo'),
-            this.message = 'Your order has been added to your profile Page',
-            this.purchaseSuccess = '/tik.png',
-            this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
+            (this.message = 'Your order has been added to your profile Page'),
+            (this.purchaseSuccess = '/tik.png'),
+            this.$refs.PaymentDialog.toggleDialog(
+              this.message,
+              this.purchaseSuccess
+            )
           )
           .catch((err) => {
             console.error(err)
           })
       } else {
         console.log('sign up and add order')
-        this.message = 'You are signed in to our website and Your order has been added to your profile Page'
+        this.message =
+          'You are signed in to our website and Your order has been added to your profile Page'
         this.purchaseSuccess = '/bigX.png'
-        this.$refs.PaymentDialog.toggleDialog(this.message , this.purchaseSuccess)
+        this.$refs.PaymentDialog.toggleDialog(
+          this.message,
+          this.purchaseSuccess
+        )
       }
     },
   },

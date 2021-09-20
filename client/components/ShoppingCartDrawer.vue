@@ -111,8 +111,28 @@
       </div>
       <v-spacer></v-spacer> -->
 
-      <div class="w-full h-2/3 flex flex-col justify-around align-center">
-        <div class="w-5/6 h-4/5 space-y-3">
+      <div
+        class="
+          w-full
+          h-2/3
+          flex flex-row
+          lg:flex-col
+          justify-around
+          align-center
+        "
+      >
+        <div
+          class="
+            max-h-52
+            lg:max-h-full
+            w-5/6
+            h-4/5
+            space-y-3
+            flex flex-col
+            shadow-inner
+            overflow-x-scroll
+          "
+        >
           <div v-for="item in cartItem" :key="item.id" class="w-full h-24 flex">
             <div
               class="w-2/3 h-full flex justify-center align-center space-x-3"
@@ -252,6 +272,9 @@ export default {
 </script>
 
 <style scoped>
+.drawer {
+  z-index: 199;
+}
 /* .itemName {
   font-family: 'Poppins', sans-serif;
   font-size: 1.3rem;

@@ -174,7 +174,7 @@
             <div
               class="
                 transform
-                -translate-x-20
+                -translate-x-32
                 lg:-translate-x-0
                 inset-y-0
                 left-0
@@ -201,10 +201,12 @@
             >
               <h2
                 class="
-                  sm:w-80
+                  sm:w-96
                   h2-home
+                  text-center
                   capitalize
-                  text-center text-5xl
+                  font-bold
+                  text-4xl
                   md:text-7xl
                   lg:text-9xl
                   transform
@@ -220,7 +222,7 @@
             <div
               class="
                 transform
-                translate-x-20
+                translate-x-24
                 lg:-translate-x-0 lg:max-w-xl
                 inset-y-0
                 right-0
