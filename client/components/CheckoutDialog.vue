@@ -23,12 +23,20 @@
         </button>
       </template>
       <div id="main" class="h-screen w-screen">
-        <LazyHydrate on-interaction>
-          <PaymentDialog
-            ref="PaymentDialog"
-            class="absolute left-1/3 bottom-1/2"
-          />
-        </LazyHydrate>
+        <div
+          class="
+            flex
+            h-full
+            absolute
+            w-full
+            flex-col
+            justify-items-center justify-center
+          "
+        >
+          <LazyHydrate on-interaction>
+            <PaymentDialog ref="PaymentDialog" class="self-center m-10" />
+          </LazyHydrate>
+        </div>
 
         <!-- <div class="hidden self-start absolute lg:flex">
           <v-btn x-large class="ml-4 mt-5" icon dark @click="dialog = false">
@@ -212,7 +220,8 @@
                         class="
                           float-left
                           rounded-full
-                          lg:w-24 lg:h-24
+                          lg:w-24
+                          lg:h-24
                           h-20
                           w-20
                         "
