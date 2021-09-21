@@ -19,15 +19,11 @@
       <div
         class="
           absolute
-          lg:w-1/3
-          inset-x-0
           self-center
+          flex
+          w-full
           z-20
           shadow-xl
-          w-full
-          sm:w-full
-          md:w-2/5
-          mx-auto
         "
       >
         <Adminastration
@@ -37,7 +33,7 @@
             duration: 1.5,
             ease: 'expo.out',
           }"
-          class="adminastration bottom-20 sm:w-full"
+          class="adminastration w-24"
         />
       </div>
 
@@ -363,7 +359,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -377,7 +374,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -391,7 +389,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -493,7 +492,6 @@
                               container
                               grid grid-cols-2
                               overflow-y-scroll
-                              shadow-inner
                               p-2
                             "
                           >
@@ -510,13 +508,13 @@
                                 rounded-lg
                               "
                             >
-                              <div class="w-full flex flex-row justify-between">
+                              <div class="w-full flex flex-col-reverse lg:flex-row justify-between">
                                 <h1 class="self-center">Status: processing</h1>
                                 <button
-                                  class="scale-50"
+                                  class=""
                                   @click="deleteOrder(order.id)"
                                 >
-                                  <img class="scale-75" src="/x1.png" alt="" />
+                                  <img class="p-1" src="/x1.png" alt="" />
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
@@ -543,8 +541,10 @@
                                 class="
                                   grid grid-cols-1
                                   p-5
-                                  bg-Amber-500
-                                  shadow-2xl
+                                  lg:bg-Amber-500
+                                  border-l-2
+                                  border-Amber-500
+                                  lg:shadow-2xl
                                   rounded-xl
                                 "
                               >
@@ -594,19 +594,15 @@
         >
           <ul
             class="
+              grid grid-cols-3
               tabBar
-              flex
               list-none
               w-full
               h-full
-              align-center
-              content-center
               justify-items-center
-              pt-3
-              pb-4
-              place-content-around
-              m-4
-              flex-row
+              place-content-center
+              place-items-center
+              gap-2
             "
           >
             <li class="lis shadow-2xl w-full text-center" @click="tab1()">
@@ -614,10 +610,10 @@
                 class="
                   flex
                   justify-center
-                  mx-1
-                  sm:h-full
-                  px-1
-                  py-1
+                  p-5
+                  lg:p-3
+                  w-full
+                  h-full
                   shadow-lg
                   rounded
                   block
@@ -635,11 +631,11 @@
             <li class="lis shadow-2xl w-full text-center" @click="tab2()">
               <a
                 class="
-                  px-1
-                  mx-1
-                  py-1
                   shadow-lg
                   rounded
+                  w-full
+                  p-1
+                  lg:p-3
                   block
                   flex
                   justify-center
@@ -651,16 +647,16 @@
                 }"
                 @click="toggleTabs(2)"
               >
-                <img class="place-self-center p-0" src="/mimis.png" alt="" />
+                <img class="place-self-center" src="/mimis.png" alt="" />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab3()">
               <a
                 class="
-                grid
-                justify-center
-                  mx-1
-                  p-1
+                  grid
+                  justify-center
+                  p-5
+                  lg:p-2
                   shadow-lg
                   rounded
                   block
