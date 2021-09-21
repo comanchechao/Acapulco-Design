@@ -59,7 +59,7 @@
         <img class="hippie2 justify-self-center" src="/hippie2.png" alt="" />
       </section>
       <section
-        class="panel3 grid content-center place-content-end w-screen h-screen"
+        class="panel3 grid grid-rows-3 gap-3 content-center place-content-end  w-screen h-screen"
       >
         <div
           class="
@@ -78,14 +78,17 @@
         <div
           class="
             backButton
+            lg:w-1/2
+            self-end
             flex
             justify-center
-            p-5
-            w-1/2
+            p-2
             rounded-xl
             font-bold
-            text-6xl text-center
+            text-5xl text-center
             bg-Rose-600
+            transform
+            scale-75
           "
         >
           <div
@@ -95,6 +98,7 @@
               font-extrabold
               content-center
               justify-center
+
             "
           >
             <NuxtLink to="/">
@@ -180,7 +184,7 @@ export default {
       },
     })
     gsap.from('.backButton', {
-      y: 350,
+      y: 400,
       ease: 'Power2.easeIn',
       delay: 1,
       scrollTrigger: {
