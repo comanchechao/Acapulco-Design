@@ -82,7 +82,7 @@
                 "
               >
                 <img
-                  class="object-cover"
+                  class="object-cover drop-shadow-2xl"
                   src="/sketch-162443588438sdfs.png"
                   alt=""
                 />
@@ -129,7 +129,7 @@
                 "
               >
                 <img
-                  class="object-cover"
+                  class="object-cover filter drop-shadow-2xl"
                   src="/sketch-1624435884386sdfsd(1).png"
                   alt=""
                 />
@@ -241,6 +241,7 @@
 
           <div
             class="
+              lg:mt-28
               h-screen
               w-screen
               flex flex-col
@@ -311,8 +312,27 @@
                 md:max-w-2xl
                 shadow-2xl
                 w-full
+                flex flex-col-reverse
+                justify-start
+                align-end
               "
             >
+              <h1
+                class="
+                  m-3
+                  font-mainFont
+                  rounded-full
+                  py-2
+                  px-8
+                  text-mainBlue
+                  bg-goldie
+                  text-2xl
+                  lg:text-3xl
+                  font-bold
+                "
+              >
+                Coming Soon...
+              </h1>
               <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
@@ -375,6 +395,71 @@
               "
             ></div>
           </div>
+          <div
+            class="
+              h-screen
+              w-screen
+              flex flex-col
+              lg:flex-row
+              align-center
+              justify-center
+              space-y-6
+              p-20
+              lg:p-48
+              justify-self-stretch
+              thirdContainer
+              content
+            "
+          >
+            <div
+              class="
+                pictureDiv
+                lg:order-first
+                max-w-lg
+                cursor-pointer
+                bg-red-200
+                h-full
+                lg:max-w-2xl
+                md:max-w-2xl
+                shadow-2xl
+                w-full
+                flex flex-col-reverse
+                justify-start
+                align-end
+              "
+            >
+              <h1
+                class="
+                  m-3
+                  font-mainFont
+                  rounded-full
+                  py-2
+                  px-8
+                  text-mainBlue
+                  bg-goldie
+                  text-2xl
+                  lg:text-3xl
+                  font-bold
+                "
+              >
+                Coming Soon...
+              </h1>
+              <v-img> </v-img>
+            </div>
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex-row-reverse align-center justify-center">
+                <h3 class="text-6xl p-5 text-center">Acapulco Shorts</h3>
+                <!-- <img class="transform scale-75" src="/fsdf.png" alt="" /> -->
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                  </button>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
 
           <div
             class="
@@ -401,13 +486,32 @@
                 md:max-w-2xl
                 shadow-2xl
                 w-full
+                flex flex-col-reverse
+                justify-start
+                align-end
               "
             >
+              <h1
+                class="
+                  m-3
+                  font-mainFont
+                  rounded-full
+                  py-2
+                  px-8
+                  text-mainBlue
+                  bg-goldie
+                  text-2xl
+                  lg:text-3xl
+                  font-bold
+                "
+              >
+                Coming Soon...
+              </h1>
               <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex justify-end">
-                <h3 class="text-6xl p-5 text-center">Acapulco Shorts</h3>
+                <h3 class="text-6xl p-5 text-center">Acapulco Hoodies</h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -597,7 +701,7 @@ export default {
           ease: 'power4.out',
           scrollTrigger: {
             trigger: pictureDiv,
-            scrub: 0,
+            scrub: 2,
             start: 'top bottom',
             end: 'top center',
             toggleActions: 'play none none none',

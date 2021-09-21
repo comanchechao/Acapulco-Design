@@ -1,11 +1,11 @@
 <template>
-  <div id="main" class="">
+  <div class="">
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
-          dark
           fab
+          dark
           depressed
           x-large
           color="transparent"
@@ -21,7 +21,7 @@
             light
           >
           </v-badge>
-          <v-icon color="white">mdi-shopping-outline</v-icon>
+          <v-icon>mdi-shopping-outline</v-icon>
         </v-btn>
       </template>
       <span>Shopping Cart</span>
@@ -129,7 +129,6 @@
             h-4/5
             space-y-3
             flex flex-col
-            shadow-inner
             overflow-x-scroll
           "
         >

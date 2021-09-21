@@ -2,11 +2,14 @@
   <!-- <v-app> -->
   <div
     class="
+      mb-8
+      fixed
       w-screen
-      h-24
+      h-20
+      lg:h-24
       bg-transparent
       Navbar
-      opacity-0
+      opacity-100
       z-50
       flex
       align-center
@@ -83,9 +86,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <div class="">
-        <ShoppingCartDrawer />
-      </div>
+      <ShoppingCartDrawer />
     </div>
   </div>
   <!-- </v-app> -->
@@ -153,17 +154,23 @@ export default {
   },
 
   mounted() {
-    // this.animateNavbar()
+    this.animateNavbar()
   },
   methods: {
-    // animateNavbar() {
-    //   this.$gsap.from('.Navbar', {
-    //     opacity: 0,
-
-    //     duration: 2,
-    //     ease: 'circ.out',
-    //   })
-    // },
+    animateNavbar() {
+      this.$gsap.to('.Navbar', {
+        backgroundColor: '#ff4a68',
+        opacity: 0.8,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: '.acapulco',
+          scrub: 2.5,
+          start: 'bottom top',
+          end: 'bottom bottom',
+          toggleActions: 'play none none none none',
+        },
+      })
+    },
     signOut() {
       this.$store.dispatch('signOut').then((data) => {
         this.$router.push('/')
