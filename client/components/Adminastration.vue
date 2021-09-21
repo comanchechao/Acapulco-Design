@@ -6,9 +6,8 @@
       modal
       flex
       justify-center
-      h-56
+      h-screen
       items-center
-      bg-green-200
       rounded-lg
       antialiased
     "
@@ -100,7 +99,7 @@
         <label class="block mt-4 mb-2 font-semibold text-gray-100 text-3xl">
           <span class="text-gray-100">Catagory</span>
           <select
-          v-model="catagory"
+            v-model="catagory"
             placeholder="Catagory"
             class="
               shadow-sm
@@ -150,7 +149,12 @@
           rounded-bl-lg rounded-br-lg
         "
       >
-        <p class="font-semibold text-gray-600 cursor-pointer" @click="toggleModal">Cancel</p>
+        <p
+          class="font-semibold text-gray-600 cursor-pointer"
+          @click="toggleModal"
+        >
+          Cancel
+        </p>
         <button
           class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           @click="addProduct()"
@@ -233,11 +237,11 @@ export default {
   font-size: 20px;
 }
 
-.topBar{
-  background-color: #041F60;
+.topBar {
+  background-color: #041f60;
 }
 
-.background{
-   background-color: #219ebc;
+.background {
+  background-color: #219ebc;
 }
 </style>

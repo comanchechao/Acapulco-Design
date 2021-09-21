@@ -55,7 +55,7 @@
     >
       <h1
         class="
-          text-6xl
+          text-2xl
           self-center
           text-center
           p-2
@@ -63,7 +63,7 @@
           font-bold font-mainFont
         "
       >
-        Payment Sucessfull
+        {{ message }}
         <!-- <img src="/tik.png" class="" alt="" /> -->
       </h1>
     </div>
