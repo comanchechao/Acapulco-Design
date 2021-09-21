@@ -605,21 +605,19 @@
               pt-3
               pb-4
               place-content-around
-              m-6
+              m-4
               flex-row
             "
           >
             <li class="lis shadow-2xl w-full text-center" @click="tab1()">
               <a
                 class="
-                  place-items-center
-                  text-xs
-                  font-bold
-                  uppercase
+                  flex
+                  justify-center
                   mx-1
                   sm:h-full
-                  px-5
-                  py-3
+                  px-1
+                  py-1
                   shadow-lg
                   rounded
                   block
@@ -631,21 +629,20 @@
                 }"
                 @click="toggleTabs(1)"
               >
-                <img class="" src="/Market.png" alt="" />
+                <img class="" src="/flag.png" alt="" />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab2()">
               <a
                 class="
-                  text-xs
-                  font-bold
-                  uppercase
-                  px-5
+                  px-1
                   mx-1
-                  py-3
+                  py-1
                   shadow-lg
                   rounded
                   block
+                  flex
+                  justify-center
                   leading-normal
                 "
                 :class="{
@@ -654,18 +651,16 @@
                 }"
                 @click="toggleTabs(2)"
               >
-                <img class="place-self-center" src="/Add.png" alt="" />
+                <img class="place-self-center p-0" src="/mimis.png" alt="" />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab3()">
               <a
                 class="
-                  text-xs
-                  font-bold
-                  uppercase
+                grid
+                justify-center
                   mx-1
-                  px-5
-                  py-3
+                  p-1
                   shadow-lg
                   rounded
                   block
@@ -677,7 +672,7 @@
                 }"
                 @click="toggleTabs(3)"
               >
-                <img class="place-self-center" src="/Orders.png" alt="" />
+                <img class="place-self-center" src="/biker.png" alt="" />
               </a>
             </li>
           </ul>
