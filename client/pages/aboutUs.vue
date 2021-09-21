@@ -22,6 +22,7 @@
           class="absolute z-50"
         />
       </LazyHydrate>
+      
 
       <section class="panel1 w-screen h-screen mt-15">
         <div

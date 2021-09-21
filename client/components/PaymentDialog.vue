@@ -11,9 +11,9 @@
       rounded-xl
       z-50
       bg-gray-200
-      w-96
-      h-96
-      self-center
+      w-80
+      h-80
+      items-center
       grid grid-rows-8
       p-3
     "
@@ -46,7 +46,13 @@
         <img class="left-2" :src="theImg" alt="" />
       </div>
     </div>
-    <div class="row-span-4 flex flex-col justify-center bg-Rose-500">
+    <div
+      class="row-span-4 flex flex-col justify-center rounded-xl"
+      :class="{
+        'bg-Emerald-500': theImg === '/tik.png',
+        'bg-Rose-500': theImg === '/bigX.png',
+      }"
+    >
       <h1
         class="
           text-6xl
@@ -64,9 +70,10 @@
     <div class="row-span-2 flex justify-center">
       <button
         class="bg-Rose-500 p-3 m-2 w-full rounded-full shadow-3xl"
+        :class="{ 'bg-Emerald-500': theImg === '/tik.png'}"
         @click="toggleDialog"
       >
-        <span class="text-mainBlue text-4xl font-mainFont font-extrabold">
+        <span class="text-mainBlue text-4xl font-mainFont font-extrabold" >
           Classic!
         </span>
       </button>
