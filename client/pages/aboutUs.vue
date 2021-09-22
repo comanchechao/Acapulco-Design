@@ -11,7 +11,7 @@
     black cat
     <a href='https://www.freepik.com/vectors/animals'>Animals vector created by macrovector - www.freepik.com</a> -->
     <div id="main" class="panelContainer">
-      <LazyHydrate class="z-50" when-idle>
+      <LazyHydrate class="z-50 fixed" when-idle>
         <Navbar
           v-gsap.to="{
             opacity: 1,

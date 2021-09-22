@@ -34,7 +34,7 @@
       temporary
       scrollable
       app
-      class="drawer red lighten-4 z-50"
+      class="drawer red lighten-4"
       width="30%"
     >
       <!-- <div v-for="product in products" :key="product.id">  
