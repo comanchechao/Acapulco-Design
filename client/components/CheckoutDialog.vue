@@ -442,10 +442,23 @@ export default {
           .catch((err) => {
             console.error(err)
           })
-      } else {
+      } else if (
+        !user &&
+        this.order.Name !== null &&
+        this.cartItem.length > 0
+      ) {
         console.log('sign up and add order')
         this.message =
           'You are signed in to our website and Your order has been added to your profile Page'
+        this.purchaseSuccess = '/blueTik.png'
+        this.$refs.PaymentDialog.toggleDialog(
+          this.message,
+          this.purchaseSuccess
+        )
+      } else {
+        console.log('bull')
+        this.message =
+          "Something went Wrong please check the fields and make sure your shopping cart is not empty"
         this.purchaseSuccess = '/bigX.png'
         this.$refs.PaymentDialog.toggleDialog(
           this.message,

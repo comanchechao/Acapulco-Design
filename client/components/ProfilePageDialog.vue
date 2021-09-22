@@ -27,6 +27,11 @@
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div> -->
+        <div class="absolute flex justify-items-center justify-center w-full h-screen">
+          <LazyHydrate on-interaction>
+            <Insights ref="Insights" />
+          </LazyHydrate>
+        </div>
         <div
           class="
             flex flex-col
@@ -228,11 +233,13 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   Tabs
                   space-x-5
                 "
+                @click="toggleDialog('Processing')"
               >
                 <img
                   src="/processing.png"
@@ -258,10 +265,12 @@
                   w-full
                   flex flex-col
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   lg:space-x-5
                 "
+                @click="toggleDialog('Sent')"
               >
                 <img src="/sent.png" class="" alt="" />
                 <h2
@@ -285,10 +294,12 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   lg:space-x-5
                 "
+                @click="toggleDialog('Delivery')"
               >
                 <img src="/arrived1.png" class="" alt="" />
                 <h2
@@ -354,9 +365,15 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 export default {
+  components: {
+    LazyHydrate,
+    Insights: () => import('../components/Insights.vue'),
+  },
   data() {
     return {
+      insightTitle: null,
       dialog: false,
       error: null,
       emailSending: false,
@@ -403,6 +420,10 @@ export default {
       })
     },
 
+    toggleDialog(Title) {
+      this.insightTitle = Title
+      this.$refs.Insights.toggleDialog(this.insightTitle)
+    },
     // sendVerifyEmail() {
     //   this.emailSending = true
     //   const user = firebase.auth().currentUser

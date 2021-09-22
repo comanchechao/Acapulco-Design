@@ -42,8 +42,8 @@
           d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
         ></path>
       </svg>
-      <div class="row-span-2">
-        <img class="left-2" :src="theImg" alt="" />
+      <div class="justify-center row-span-2">
+        <h1>{{ title }}</h1>
       </div>
     </div>
     <div
@@ -90,27 +90,16 @@ export default {
   data() {
     return {
       showDialog: false,
-      message: null,
+      title: null,
       theImg: null,
     }
   },
 
   methods: {
-    toggleDialog(message, purchaseSuccess) {
+    toggleDialog(Title) {
       this.showDialog = !this.showDialog
-      this.message = message
-      this.theImg = purchaseSuccess
+      this.title = Title
     },
   },
 }
 </script>
-
-<style scoped>
-.modal {
-  transition: opacity 0.25s ease;
-}
-.modal-active {
-  overflow-x: hidden;
-  overflow-y: visible !important;
-}
-</style>
