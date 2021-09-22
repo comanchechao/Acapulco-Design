@@ -11,11 +11,12 @@
       rounded-xl
       z-50
       bg-gray-200
-      w-80
-      h-80
+      w-96
+      h-96
       items-center
       grid grid-rows-8
       p-3
+      font-mainFont
     "
   >
     <div class="rounded-3xl row-span-2 grid grid-cols-3">
@@ -42,7 +43,7 @@
           d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
         ></path>
       </svg>
-      <div class="justify-center row-span-2">
+      <div class="justify-center text-5xl flex row-span-2">
         <h1>{{ title }}</h1>
       </div>
     </div>
@@ -70,7 +71,7 @@
     </div>
     <div class="row-span-2 flex justify-center">
       <button
-        class="bg-Rose-500 p-3 m-2 w-full rounded-full shadow-3xl"
+        class="bg-green-400 p-3 m-2 w-full rounded-full shadow-3xl"
         :class="{
           'bg-Emerald-500': theImg === '/tik.png',
           'bg-Sky-500': theImg === '/blueTik.png',
@@ -78,7 +79,7 @@
         @click="toggleDialog"
       >
         <span class="text-mainBlue text-4xl font-mainFont font-extrabold">
-          Classic!
+          Close
         </span>
       </button>
     </div>
