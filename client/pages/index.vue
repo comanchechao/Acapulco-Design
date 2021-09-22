@@ -419,13 +419,14 @@
                 cursor-pointer
                 bg-red-200
                 h-full
-                lg:max-w-2xl
-                md:max-w-2xl
+                lg:max-w-xl
+                md:max-w-xl
                 shadow-2xl
                 w-full
                 flex flex-col-reverse
                 justify-start
                 align-end
+                space-x-2
               "
             >
               <h1
@@ -697,11 +698,12 @@ export default {
       // })
       pictureDivs.forEach((pictureDiv) => {
         tl.from(pictureDiv, {
-          scale: 0.5,
-          ease: 'power4.out',
+          opacity: 0,
+          scale: 0.8,
+          ease: 'expo.in',
           scrollTrigger: {
             trigger: pictureDiv,
-            scrub: 2,
+            scrub: 0,
             start: 'top bottom',
             end: 'top center',
             toggleActions: 'play none none none',

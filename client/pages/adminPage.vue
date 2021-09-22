@@ -16,16 +16,7 @@
         />
       </LazyHydrate>
 
-      <div
-        class="
-          absolute
-          self-center
-          flex
-          w-full
-          z-20
-          shadow-xl
-        "
-      >
+      <div class="absolute self-center flex w-full z-20 shadow-xl">
         <Adminastration
           ref="Adminastration"
           v-gsap.from="{
@@ -359,8 +350,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -374,8 +364,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -389,8 +378,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -508,12 +496,16 @@
                                 rounded-lg
                               "
                             >
-                              <div class="w-full flex flex-col-reverse lg:flex-row justify-between">
+                              <div
+                                class="
+                                  w-full
+                                  flex flex-col-reverse
+                                  lg:flex-row
+                                  justify-between
+                                "
+                              >
                                 <h1 class="self-center">Status: processing</h1>
-                                <button
-                                  class=""
-                                  @click="deleteOrder(order.id)"
-                                >
+                                <button class="" @click="deleteOrder(order.id)">
                                   <img class="p-1" src="/x1.png" alt="" />
                                 </button>
                               </div>
@@ -542,8 +534,7 @@
                                   grid grid-cols-1
                                   p-5
                                   lg:bg-Amber-500
-                                  border-l-2
-                                  border-Amber-500
+                                  border-l-2 border-Amber-500
                                   lg:shadow-2xl
                                   rounded-xl
                                 "
@@ -600,8 +591,7 @@
               w-full
               h-full
               justify-items-center
-              place-content-center
-              place-items-center
+              place-content-center place-items-center
               gap-2
             "
           >
@@ -621,7 +611,7 @@
                 "
                 :class="{
                   'text-pink-600  border-2 bg-transparent': openTab !== 1,
-                  'text-white bg-Lime-500': openTab === 1,
+                  'text-white bg-Sky-600': openTab === 1,
                 }"
                 @click="toggleTabs(1)"
               >

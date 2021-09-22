@@ -15,9 +15,17 @@
             delay: 1,
             ease: 'circ.out',
           }"
+          class="navbar"
         />
       </LazyHydrate>
-      <div class="w-full flex flex-col align-center justify-center">
+      <div class="w-full py-24 flex flex-col align-center justify-center">
+        <div class="max-w-lg h-32 px-2 surfingBoardDiv">
+          <img
+            src="/surfsUp.png"
+            class="filter drop-shadow-lg object-cover surfingBoard"
+            alt=""
+          />
+        </div>
         <div class="w-3/4 lg:w-4/6 z-10 mt-14">
           <h1
             class="
@@ -180,6 +188,32 @@
                   Custom Matchboxes💥
                 </h1>
               </span>
+              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+                <h1
+                  class="
+                    lg:text-3xl
+                    text-2xl
+                    border-mainBlue border-b-2
+                    p-4
+                    sidebarText
+                  "
+                >
+                  Acapulco Shorts
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+                <h1
+                  class="
+                    lg:text-3xl
+                    text-2xl
+                    border-mainBlue border-b-2
+                    p-4
+                    sidebarText
+                  "
+                >
+                  Acapulco Hoodies
+                </h1>
+              </span>
               <span
                 class="cursor-pointer"
                 @click="changeCatagory('Collections')"
@@ -219,6 +253,7 @@ export default {
   },
 
   mounted() {
+    this.animateSurfingBoard()
     this.animateBackground()
     this.$store.dispatch('getProducts')
   },
@@ -244,6 +279,28 @@ export default {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
     },
+    animateSurfingBoard() {
+      const gsap = this.$gsap
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            start: 'top top',
+            end: '+=700',
+            scrub: 2,
+            trigger: '.navbar',
+            marker: true,
+          },
+        })
+        .to('.surfingBoard', {
+          opacity: 0,
+          rotation: 360 * 7,
+          duration: 0.2,
+          y: 100,
+          scale: 0.2,
+        })
+    },
+
     animateBackground() {
       const gsap = this.$gsap
       const tl = gsap.timeline()

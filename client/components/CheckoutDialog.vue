@@ -220,8 +220,7 @@
                         class="
                           float-left
                           rounded-full
-                          lg:w-24
-                          lg:h-24
+                          lg:w-24 lg:h-24
                           h-20
                           w-20
                         "
@@ -546,7 +545,7 @@ export default {
   /* border: 3px solid #0793c2; */
 }
 .dialog {
-  z-index: 1;
+  z-index: 300;
 }
 /* .checkoutText {
   font-family: 'Lato', sans-serif;

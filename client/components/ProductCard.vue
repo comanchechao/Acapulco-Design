@@ -13,12 +13,19 @@
         productCard
       "
     >
-      <div class="lg:h-full h-2/5 w-full lg:w-2/5 bg-Indigo-900">
-        <!-- <img
-          src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-          alt=""
-          class="object-contain sm:object-scale-down"
-        /> -->
+      <div
+        class="
+          lg:h-full
+          h-2/5
+          w-full
+          lg:w-2/5
+          bg-Emerald-100
+          flex
+          justify-center
+          align-center
+        "
+      >
+        <img :src="product.image" alt="" class="object-contain" />
       </div>
       <div
         class="

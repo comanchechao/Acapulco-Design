@@ -272,7 +272,7 @@ export default {
 
 <style scoped>
 .drawer {
-  z-index: 199;
+  z-index: 199 !important;
 }
 /* .itemName {
   font-family: 'Poppins', sans-serif;

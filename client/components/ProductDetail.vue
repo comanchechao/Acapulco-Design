@@ -5,7 +5,7 @@
       transition="dialog-top-transition"
       class="dialog"
       width="900px"
-      :fullscreen="$vuetify.breakpoint.xsOnly"
+      :fullscreen="$vuetify.breakpoint.smOnly"
     >
       <template v-slot:activator="{ on, attrs }">
         <button
@@ -41,28 +41,38 @@
           />
         </div>
 
-        <div class="w-3/5 p-9 bg-gray-100 flex-col flex justify-around">
+        <div class="w-3/5 p-9 p-7 bg-gray-100 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
-            <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
+            <h1
+              class="
+                lg:text-5xl
+                text-4xl text-blueGray-900
+                font-bold font-mainFont
+              "
+            >
               {{ product.title }}
               <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
                 {{ product.catagory }}
               </h3>
             </h1>
-            <h1 class="text-5xl text-blueGray-900 font-bold font-mainFont">
+            <h1
+              class="
+                lg:text-5xl
+                text-4xl text-blueGray-900
+                font-bold font-mainFont
+              "
+            >
               {{ product.price }}$
             </h1>
           </div>
 
-          <div class="">
+          <div class="h-4/5">
             <h2 class="text-mainBlue font-mainFont text-3xl font-thin">
               Desctiption
             </h2>
             <p class="text-gray-500 text-2xl font-thin font-mainFont">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              explicabo aut cum veniam iste aliquid perspiciatis, amet sed
-              accusamus numquam enim similique vel sit. Architecto incidunt
-              aliquid esse veniam sunt.
+              explicabo aut cum veniam iste aliquid
             </p>
           </div>
           <div
@@ -95,24 +105,41 @@
               ><v-icon x-large>mdi-plus</v-icon></v-btn
             >
           </div>
-          <div class="flex flex-grow-0">
+          <div class="flex justify-around h-1/5 space-x-5">
             <button
-              class="learnMoreBtn flex align-center justify-center"
+              class="
+                learnMoreBtn
+                flex flex-col
+                align-center
+                justify-center
+                rounded-full
+              "
               @click.stop="addToCart"
             >
-              <span class="learnMoreText px-4">
-                Add to Cart
-                <v-icon
-                  color="white
+              <v-icon
+                color="white
 "
-                  class="pb-2 pl-2"
-                  >mdi-shopping-outline</v-icon
-                >
-              </span>
+                class="lg:pb-2 lg:pl-2"
+                >mdi-basket-plus-outline</v-icon
+              >
             </button>
-            <v-btn text dark icon x-large class="mx-2 bg-darkPurple">
-              <v-icon>mdi-share-variant</v-icon>
-            </v-btn>
+            <button
+              class="
+                bg-mainBlue
+                text-mainRed
+                flex flex-col
+                align-center
+                justify-center
+                rounded-full
+              "
+            >
+              <v-icon
+                color="white
+"
+                class="lg:pb-2 lg:pl-2"
+                >mdi-share-variant</v-icon
+              >
+            </button>
           </div>
         </div>
       </div>
@@ -159,12 +186,9 @@ export default {
 
 <style scoped>
 .learnMoreBtn {
-  font-size: 25px;
   background-color: #ff4a68;
   color: #120129;
-  border-radius: 35px;
   transition: ease-in-out 0.2s;
-  padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 

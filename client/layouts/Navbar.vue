@@ -206,4 +206,7 @@ span {
 /* #navbar {
   animation: 30s ease-in-out infinite alternate-reverse color-change;
 } */
+.Navbar {
+  z-index: 250 !important;
+}
 </style>
