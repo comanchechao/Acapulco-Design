@@ -23,9 +23,14 @@
           flex
           justify-center
           align-center
+          overflow-hidden
         "
       >
-        <img :src="product.image" alt="" class="object-contain" />
+        <img
+          :src="product.image"
+          alt=""
+          class="object-contain lg:object-cover transform lg:scale-150"
+        />
       </div>
       <div
         class="

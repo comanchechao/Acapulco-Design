@@ -17,7 +17,9 @@
         >
           <v-icon>mdi-account-check</v-icon>
 
-          <span>My Profile</span>
+          <span class="text-xl font-bold text-center ProfileText"
+            >My Profile</span
+          >
         </v-btn>
       </template>
 
@@ -27,7 +29,15 @@
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div> -->
-        <div class="absolute flex justify-items-center justify-center w-full h-screen">
+        <div
+          class="
+            absolute
+            flex
+            justify-items-center justify-center
+            w-full
+            h-screen
+          "
+        >
           <LazyHydrate on-interaction>
             <Insights ref="Insights" />
           </LazyHydrate>
@@ -233,8 +243,7 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   Tabs
                   space-x-5
@@ -265,8 +274,7 @@
                   w-full
                   flex flex-col
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   lg:space-x-5
                 "
@@ -294,8 +302,7 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   lg:space-x-5
                 "
@@ -496,6 +503,10 @@ span {
 
 .span:hover {
   filter: brightness(0.2);
+}
+
+.ProfileText {
+  font-family: 'Acme', sans-serif;
 }
 
 /* .backround {

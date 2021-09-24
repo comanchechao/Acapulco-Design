@@ -75,7 +75,7 @@
             <v-list-item>
               <v-btn color="transparent" depressed class="" @click="signOut">
                 <v-icon>mdi-logout-variant</v-icon>
-                <span> Logout </span>
+                <span class="text-xl ml-1"> Logout </span>
               </v-btn>
             </v-list-item>
           </v-list>
@@ -199,7 +199,7 @@ span {
 #admin-link {
   color: #fff;
 }
-.Navbar{
+.Navbar {
   z-index: 200;
 }
 /* .sticky {

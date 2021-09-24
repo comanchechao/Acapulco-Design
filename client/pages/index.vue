@@ -280,8 +280,15 @@
                 md:max-w-2xl
                 shadow-2xl
                 w-full
+                overflow-hidden
               "
-            ></div>
+            >
+              <img
+                src="/lighters.png"
+                class="lg:object-cover object-cover m-auto"
+                alt=""
+              />
+            </div>
           </div>
 
           <div
@@ -513,6 +520,11 @@
             <div class="textDiv flex flex-col order-last">
               <div class="flex justify-end">
                 <h3 class="text-6xl p-5 text-center">Acapulco Hoodies</h3>
+                <img
+                  src="/Hoodie.png"
+                  class="transform scale-95 object-contain lg:scale-100"
+                  alt=""
+                />
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
