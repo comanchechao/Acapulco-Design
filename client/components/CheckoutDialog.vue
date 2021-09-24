@@ -410,6 +410,9 @@ export default {
     },
   },
   methods: {
+      removeCartProduct(Product) {
+      this.$store.dispatch('removeCartProduct', Product)
+    },
     checkout() {
       const user = this.$fire.auth.currentUser
       if (user && this.order.Name !== null && this.cartItem.length > 0) {

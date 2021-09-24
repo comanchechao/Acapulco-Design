@@ -185,13 +185,12 @@ export default {
     })
     gsap.from('.backButton', {
       y: 400,
-      ease: 'Power2.easeIn',
-      delay: 1,
+      ease: 'Power4.easeIn',
       scrollTrigger: {
         trigger: '.panel3',
         start: 'top bottom',
         end: 'bottom bottom',
-        scrub: 2,
+        scrub: 1,
         toggleActions: 'restart none resume pause',
       },
     })
