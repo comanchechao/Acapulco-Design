@@ -186,21 +186,21 @@ export default {
       this.showModal = !this.showModal
     },
 
-    uploadImage(e) {
-      const file = e.target.files[0]
-      const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
+    // uploadImage(e) {
+    //   const file = e.target.files[0]
+    //   const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
 
-      const uploadTask = storageRef.put(file)
+    //   const uploadTask = storageRef.put(file)
 
-      uploadTask.on('state_changed', (snapshot) => {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log(downloadURL)
-          this.image = downloadURL
-        })
-      })
-    },
+    //   uploadTask.on('state_changed', (snapshot) => {
+    //     // Handle successful uploads on complete
+    //     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+    //     snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //       console.log(downloadURL)
+    //       this.image = downloadURL
+    //     })
+    //   })
+    // },
     addProduct() {
       if (this.title) {
         this.$fire.firestore

@@ -350,7 +350,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -364,7 +365,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -378,7 +380,8 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl lg:px-12
+                              lg:text-3xl
+                              lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -709,24 +712,24 @@ export default {
       },
     },
   },
-  created() {
-    const ref = this.$fire.firestore.collection('Products')
+  // created() {
+  //   const ref = this.$fire.firestore.collection('Products')
 
-    ref.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === 'added') {
-          const doc = change.doc
-          this.Products.push({
-            id: doc.id,
-            title: doc.data().title,
-            price: doc.data().price,
-            image: doc.data().image,
-            catagory: doc.data().catagory,
-          })
-        }
-      })
-    })
-  },
+  //   ref.onSnapshot((snapshot) => {
+  //     snapshot.docChanges().forEach((change) => {
+  //       if (change.type === 'added') {
+  //         const doc = change.doc
+  //         this.Products.push({
+  //           id: doc.id,
+  //           title: doc.data().title,
+  //           price: doc.data().price,
+  //           image: doc.data().image,
+  //           catagory: doc.data().catagory,
+  //         })
+  //       }
+  //     })
+  //   })
+  // },
   transition: {
     mode: 'out-in',
     css: false,
@@ -745,10 +748,26 @@ export default {
   },
 
   mounted() {
-    const ref = this.$fire.firestore.collection('orders')
+    const ProductsRef = this.$fire.firestore.collection('Products')
+
+    ProductsRef.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          this.Products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+            image: doc.data().image,
+            catagory: doc.data().catagory,
+          })
+        }
+      })
+    })
+    const OrdersRef = this.$fire.firestore.collection('orders')
     const Orders = []
 
-    ref.onSnapshot((snapshot) => {
+    OrdersRef.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
         const doc = change.doc
         Orders.push({
