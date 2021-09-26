@@ -40,124 +40,120 @@
             <img class="peaceSign m-auto" src="/moomoole.png" alt="" />
           </div> -->
           <div
+            v-gsap.to="{
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: 'circ.out',
+            }"
             class="
+              mt-7
               acapulco-div
+              lg:h-screen
+              px-5
+              lg:px-0
+              w-screen
+              h-dialog
               flex flex-col
+              lg:flex-row
               align-center
               justify-between
-              h-screen
-              w-screen
+              opacity-0
+              relative
               mb-32
             "
           >
             <div
-              v-gsap.to="{
-                opacity: 1,
-                duration: 1,
-                delay: 1,
-                ease: 'circ.out',
-              }"
               class="
-                flex
-                justify-between
-                align-center
-                w-screen
-                h-screen
-                opacity-0
-                relative
+                peace
+                z-10
+                lg:max-w-xl
+                h-2/5
+                w-full
+                transform
+                lg:-translate-x-24
               "
             >
-              <div
+              <img
                 class="
-                  peace
+                  object-contain
+                  w-full
+                  h-full
+                  drop-shadow-2xl
                   transform
-                  -translate-y-9 -translate-x-24
-                  lg:-translate-x-0
-                  inset-y-0
-                  left-0
-                  absolute
-                  z-10
-                  max-w-xs
-                  lg:max-w-xl
+                  lg:-rotate-90
                 "
-              >
-                <img
-                  class="object-cover drop-shadow-2xl"
-                  src="/sketch-162443588438sdfs.png"
-                  alt=""
-                />
-              </div>
+                src="/sketch-162443588438sdfs.png"
+                alt=""
+              />
+            </div>
 
-              <div
-                class="
-                  absolute
-                  inset-0
-                  py-36
-                  transform
-                  lg:translate-y-16
-                  flex
-                  justify-center
-                  align-center
-                "
-              >
-                <h1
-                  class="
-                    acapulco
-                    tracking-wider
-                    text-7xl
-                    md:text-9xl
-                    lg:text-10xl
-                    text-center
-                    leading-none
-                    text-gray-200
-                  "
-                >
-                  Acapulco Design
-                </h1>
-              </div>
-              <div
-                class="
-                  transform
-                  translate-x-28
-                  -translate-y-9
-                  lg:-translate-x-0 lg:max-w-xl
-                  inset-y-0
-                  right-0
-                  absolute
-                  z-10
-                  max-w-xs
-                "
-              >
-                <img
-                  class="object-cover filter drop-shadow-2xl"
-                  src="/sketch-1624435884386sdfsd(1).png"
-                  alt=""
-                />
-              </div>
-            </div>
             <div
-              v-gsap.to="{
-                opacity: 1,
-                duration: 0.6,
-                delay: 1,
-                ease: 'circ.out',
-              }"
-              class="scrollDownBtn self-center"
+              class="
+                w-full
+                h-full
+                flex
+                align-center
+                justify-center
+                md:align-start
+                absolute
+                m-auto
+              "
             >
-              <v-btn
-                class="mt-28"
-                x-large
-                rounded
-                fab
-                depressed
-                dark
-                color="transparent"
+              <h1
+                class="
+                  acapulco
+                  tracking-wider
+                  text-7xl
+                  md:text-9xl
+                  lg:text-10xl
+                  text-center
+                  leading-none
+                  text-gray-100
+                "
               >
-                <v-icon class="transform scale-125" x-large
-                  >mdi-arrow-up-down</v-icon
-                >
-              </v-btn>
+                Acapulco Design
+              </h1>
             </div>
+            <div class="lg:max-w-xl z-10 h-2/5 w-full">
+              <img
+                class="
+                  object-contain
+                  w-full
+                  h-full
+                  drop-shadow-2xl
+                  rotate-180
+                  lg:rotate-90
+                  transform
+                  lg:translate-x-24
+                "
+                src="/sketch-162443588438sdfs.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            v-gsap.to="{
+              opacity: 1,
+              duration: 0.6,
+              delay: 1,
+              ease: 'circ.out',
+            }"
+            class="scrollDownBtn self-center"
+          >
+            <v-btn
+              class="mt-28"
+              x-large
+              rounded
+              fab
+              depressed
+              dark
+              color="transparent"
+            >
+              <v-icon class="transform scale-125" x-large
+                >mdi-arrow-up-down</v-icon
+              >
+            </v-btn>
           </div>
           <div
             class="
@@ -607,6 +603,7 @@
               </h1>
               <h3
                 class="
+                  px-2
                   learnMore
                   font-thin
                   text-4xl
@@ -801,13 +798,13 @@ export default {
       const spans = this.$gsap.utils.toArray('.animatedSpans')
       spans.forEach((span) => {
         this.$gsap.from(span, {
-          fontSize: 125,
+          fontSize: 60,
           opacity: 0,
           autoRound: false,
           ease: 'Sine.easeOut',
           scrollTrigger: {
             start: 'top bottom',
-            scrub: 0.5,
+            scrub: 1.5,
             end: 'top 70%',
             trigger: span,
           },
@@ -979,18 +976,18 @@ export default {
 
 .acapulco {
   font-family: 'Sail';
-  text-shadow: 1px 1px 0px #eb452b, 2px 2px 0px #efa032, 4px 4px 0px #0abac0,
-    8px 8px 0px #8338ec, 12px 12px 0px #0ba832, 16px 16px 0px #0a60ff,
-    20px 20px 0px #7eb82d, 24px 24px 0px #ff4a68, 28px 28px 0px #00076e;
+  text-shadow: 2px 2px 0px #aa9a3c, 4px 4px 0px #efff0b, 8px 8px 0px #9bd300,
+    12px 12px 0px #1e800b, 16px 16px 0px #16ff5c, 20px 20px 0px #7be68a,
+    24px 24px 0px #00ffd5, 28px 28px 0px #0077ff, 32px 32px 0px #3a007c;
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
+@media only screen and (max-width: 414px) {
   .acapulco {
     font-family: 'Sail';
-    text-shadow: 4px 4px 0px #eb452b, 8px 8px 0px #efa032, 12px 12px 0px #0abac0,
-      16px 16px 0px #8338ec, 20px 20px 0px #0ba832, 24px 24px 0px #0a60ff,
-      28px 28px 0px #7eb82d, 32px 32px 0px #ff4a68, 36px 36px 0px #00076e;
+    text-shadow: 0.5px 0.5px 0px #aa9a3c, 1px 1px 0px #efff0b,
+      1.5px 1.5px 0px #9bd300, 2px 2px 0px #1e800b, 3px 3px 0px #16ff5c,
+      4px 4px 0px #7be68a, 5px 5px 0px #00ffd5, 6px 6px 0px #0077ff,
+      7px 7px 0px #3a007c;
   }
 }
 

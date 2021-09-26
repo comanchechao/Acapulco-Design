@@ -2,27 +2,87 @@ y
 <template>
   <v-dialog v-model="dialog" max-width="900px" transition="dialog-transition">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn
-        depressed
-        class="resetyourpasswordBtn mt-5 border-4 border-green-300"
+      <button
+        class="
+          resetyourpasswordBtn
+          mt-5
+          px-4
+          py-2
+          rounded-full
+          border-b-4 border-mainBlue
+        "
         v-bind="attrs"
-        rounded
-        large
-        outlined
         v-on="on"
       >
-        <span class="signup-text px-3 capitalize"> reset your password </span>
-      </v-btn>
+        <span
+          class="
+            signup-text
+            px-3
+            capitalize
+            font-mainFont font-semibold
+            text-mainBlue
+          "
+        >
+          reset your password
+        </span>
+      </button>
     </template>
 
-    <div class="bg-gray-300">
-      <v-btn x-large class="ml-6 mt-6 pa-3" icon light @click="dialog = false">
+    <div class="bg-LightBlue-600 w-full h-full flex align-center flex-col">
+      <v-btn
+        x-large
+        class="mt-6 pa-3 self-start"
+        icon
+        light
+        @click="dialog = false"
+      >
         <v-icon>mdi-close</v-icon>
       </v-btn>
-      <div class="flex items center">
-        <div
-          class="ma-8 w-4/6 h-96 flex items-center self-center bg-gray-50"
-        ></div>
+      <div class="w-full h-full p-6 flex align-center flex-col">
+        <h1
+          class="
+            font-mainFont font-extrabold
+            text-4xl text-mainBlue text-center
+            my-6
+          "
+        >
+          Please Enter your Email so we can send you a reset link
+        </h1>
+        <input
+          v-model="email"
+          class="
+            mb-6
+            shadow-2xl
+            bg-white
+            w-full
+            border-8
+            rounded-full
+            border-mainBlue
+            py-2
+            px-4
+            focus:border-mainRed focus:border-8
+          "
+          placeholder="forexample@example.com"
+          type="text"
+        />
+        <button
+          class="
+            py-2
+            px-5
+            lg:px-13
+            text-mainRed
+            font-bold
+            text-3xl
+            rounded-full
+            font-mainFont
+            bg-mainBlue
+            hover:bg-mainRed hover:text-mainBlue
+            transition-all
+          "
+          @click="resetPassword"
+        >
+          Send
+        </button>
       </div>
     </div>
   </v-dialog>
@@ -55,7 +115,5 @@ export default {
 <style scoped>
 .resetyourpasswordBtn {
   font-size: 1.7em;
-  color: #00e699;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 </style>

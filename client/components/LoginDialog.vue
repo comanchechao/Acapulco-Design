@@ -21,7 +21,11 @@
         </v-tooltip>
       </template>
       <div>
-        <v-form dark class="loginForm px-10 py-8" @submit.prevent="signInUser">
+        <v-form
+          dark
+          class="loginForm px-5 lg:px-10 py-8"
+          @submit.prevent="signInUser"
+        >
           <!-- <v-text-field
             v-model="displayName"
             light
@@ -49,7 +53,9 @@
             class=""
             label="Password"
           />
-          <div class="flex space-x-8 justify-center align-center mt-5">
+          <div
+            class="flex lg:space-x-8 space-x-3 justify-center align-center mt-5"
+          >
             <!-- <v-btn
               x-large
               dark
@@ -79,33 +85,25 @@
               class="loginBtn flex align-center justify-center"
               type="submit"
             >
-              <span class="learnMoreText px-4 font-semibold">
+              <span class="learnMoreText px-4 font-semibold py-2">
                 Login
-                <v-icon
-                  color="white
-"
-                  class="pb-1 pl-2"
-                  >mdi-login-variant</v-icon
-                >
+                <v-icon color="white" class="">mdi-login-variant</v-icon>
               </span>
             </button>
             <button
               class="learnMoreBtn flex align-center justify-center"
               @click="googleSignIn"
             >
-              <span class="learnMoreText px-4 font-semibold">
+              <span class="learnMoreText px-4 font-semibold py-2">
                 Sign in with Google
-                <v-icon
-                  color="white
-"
-                  class="pb-1 pl-2"
+                <v-icon medium color="red" class="transform lg:scale-110"
                   >mdi-google</v-icon
                 >
               </span>
             </button>
           </div>
           <div class="flex flex-col justify-center align-center">
-            <p class="signup py-4 mt-5 text-3xl font-semibold">
+            <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
               Don't have an account?
             </p>
             <SignupDialog class="" />
@@ -180,21 +178,19 @@ export default {
 
 .learnMoreBtn {
   font-size: 25px;
-  background-color: #ff4a68;
+  background-color: transparent;
   color: #120129;
+  border: 2px solid #120129;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .loginBtn {
   font-size: 25px;
-  background-color: #ff93a5;
+  background-color: #ff4a68;
   color: #120129;
   border-radius: 35px;
-  border: solid 2px #120129;
   transition: ease-in-out 0.3s;
-  padding: 9px 20px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -215,16 +211,12 @@ export default {
 
 .signup,
 .title {
-  color: #494949;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .loginForm {
   background: rgb(255, 255, 255);
 }
 
-.googleText {
-  color: #494949;
-}
 .errorText {
   /* font-family: 'Acme', sans-serif; */
   font-size: 1.3em;

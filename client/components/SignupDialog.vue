@@ -2,18 +2,25 @@
   <div class="main">
     <v-dialog max-width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          depressed
-          color="#00e699"
-          class="signup-btn d-flex align-center"
+        <button
+          class="
+            flex
+            hover:text-mainBlue
+            align-center
+            signUpBtn
+            bg-transparent
+            rounded-full
+            py-2
+            font-mainFon font-bold
+            text-3xl
+            px-4
+          "
           v-bind="attrs"
-          rounded
-          large
           v-on="on"
         >
-          <v-icon medium>mdi-account-key</v-icon>
-          <span class="white--text signup-text px-3"> Signup </span>
-        </v-btn>
+          <v-icon large color="#120129">mdi-account-key</v-icon>
+          <span class="px-3"> Signup </span>
+        </button>
       </template>
       <div>
         <v-form dark class="signupForm pa-10" @submit.prevent="createUser">
@@ -25,7 +32,7 @@
           required
           label="Name"
         /> -->
-        <v-text-field
+          <v-text-field
             v-model="displayName"
             light
             label="Display Name"
@@ -168,5 +175,15 @@ export default {
 }
 .signupForm {
   background: rgb(255, 255, 255);
+}
+
+.signUpBtn {
+  color: #ff4a68;
+  transition: ease-in-out 0.3s;
+  border: solid 2px #ff4a68;
+}
+.signUpBtn:hover {
+  background-color: #ff4a68;
+  color: #120129;
 }
 </style>

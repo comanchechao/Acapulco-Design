@@ -28,13 +28,14 @@ export default {
   loading: '~/components/loading.vue',
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
-
+  target: 'static',
   components: false,
   // Middleware
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/persistedState.client.js' },
+
     // '~/plugins/fireauth.js',
     // '~plugins/animate.css',
     // '~plugins/firebase.js',
