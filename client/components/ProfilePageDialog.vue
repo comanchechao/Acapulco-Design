@@ -32,8 +32,9 @@
         <div
           class="
             absolute
-            flex
+            flex flex-col
             justify-items-center justify-center
+            align-center
             w-full
             h-screen
           "
@@ -243,7 +244,8 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   Tabs
                   space-x-5
@@ -274,7 +276,8 @@
                   w-full
                   flex flex-col
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   lg:space-x-5
                 "
@@ -302,7 +305,8 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row lg:justify-center
+                  lg:flex-row
+                  lg:justify-center
                   align-center
                   lg:space-x-5
                 "
