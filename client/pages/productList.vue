@@ -22,7 +22,7 @@
         <div class="max-w-lg h-32 px-2 surfingBoardDiv">
           <img
             src="/surfsUp.png"
-            class="filter drop-shadow-lg object-cover surfingBoard"
+            class="filter drop-shadow-lg w-96 object-contain surfingBoard"
             alt=""
           />
         </div>
@@ -86,7 +86,15 @@
               </span>
             </NuxtLink>
           </div>
-          <div class="col-span-6 rounded-lg self-center justify-self-center">
+          <div
+            class="
+              lg:col-span-6
+              col-span-8
+              rounded-lg
+              self-center
+              justify-self-center
+            "
+          >
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
@@ -117,7 +125,8 @@
           </div>
           <div
             class="
-              col-span-2
+              col-span-8
+              lg:col-span-2
               self-start
               justify-self-end
               sidebar

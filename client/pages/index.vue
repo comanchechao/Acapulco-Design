@@ -209,7 +209,7 @@
                   sm:m-auto
                 "
               >
-                <span class="limitedSpan animatedSpans">Limited</span>,
+                <span class="text-mainRed animatedSpans">Limited</span>,
                 <span class="animatedSpans">custom</span>,
                 <i class="animatedSpans">handmade </i>
                 <span class="animatedSpans"> merchendise</span>
@@ -244,7 +244,7 @@
               lg:flex-row
               align-center
               justify-center
-              space-y-6
+              space-y-9
               p-20
               lg:p-48
               justify-self-stretch
@@ -271,6 +271,7 @@
                 max-w-lg
                 cursor-pointer
                 bg-red-200
+                sm:max-h-80
                 h-full
                 lg:max-w-2xl
                 md:max-w-2xl
@@ -279,11 +280,11 @@
                 overflow-hidden
               "
             >
-              <img
+              <!-- <img
                 src="/lighters.png"
                 class="lg:object-cover object-cover m-auto"
                 alt=""
-              />
+              /> -->
             </div>
           </div>
 
@@ -311,8 +312,9 @@
                 cursor-pointer
                 bg-red-200
                 h-full
-                lg:max-w-2xl
-                md:max-w-2xl
+                sm:max-h-80
+                lg:max-w-xl
+                md:max-w-xl
                 shadow-2xl
                 w-full
                 flex flex-col-reverse
@@ -561,7 +563,7 @@
             ></div>
 
             <div class="textDiv">
-              <h3 class="text-6xl mt-3">Collections 🗿</h3>
+              <h3 class="text-6xl mt-3 text-center">Collections 🗿</h3>
             </div>
             <NuxtLink to="/productList">
               <button class="learnMoreBtn">
@@ -797,18 +799,25 @@ export default {
       )
       const spans = this.$gsap.utils.toArray('.animatedSpans')
       spans.forEach((span) => {
-        this.$gsap.from(span, {
-          fontSize: 60,
-          opacity: 0,
-          autoRound: false,
-          ease: 'Sine.easeOut',
-          scrollTrigger: {
-            start: 'top bottom',
-            scrub: 1.5,
-            end: 'top 70%',
-            trigger: span,
+        this.$gsap.fromTo(
+          span,
+          {
+            y: 200,
+            opacity: 0,
           },
-        })
+          {
+            opacity: 1,
+            y: 0,
+            ease: 'Sine.easeOut',
+            scrollTrigger: {
+              start: 'top bottom',
+              scrub: 1.5,
+              end: 'top 70%',
+              trigger: span,
+              stagger: 0.1,
+            },
+          }
+        )
       })
 
       const contents = this.$gsap.utils.toArray('.content')
@@ -1002,5 +1011,10 @@ export default {
 }
 .limitedSpan {
   color: #be0a46;
+}
+
+input::-moz-focus-inner /*Remove button padding in FF*/ {
+  border: 0;
+  padding: 0;
 }
 </style>
