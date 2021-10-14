@@ -84,6 +84,9 @@
           </v-list>
         </v-menu>
       </div>
+      <div class="lg:hidden">
+        <MenuBarDrawer />
+      </div>
       <div class="">
         <LoginDialog v-show="!user"> </LoginDialog>
       </div>
@@ -123,6 +126,7 @@ import ShoppingCartDrawer from '../components/ShoppingCartDrawer'
 export default {
   components: {
     LazyHydrate,
+    MenuBarDrawer: () => import('../components/MenuBarDrawer.vue'),
     ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
     LoginDialog,
     ShoppingCartDrawer,
