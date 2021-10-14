@@ -132,7 +132,7 @@
               />
             </div>
           </div>
-          <div
+          <!-- <div
             v-gsap.to="{
               opacity: 1,
               duration: 0.6,
@@ -154,7 +154,7 @@
                 >mdi-arrow-up-down</v-icon
               >
             </v-btn>
-          </div>
+          </div> -->
           <div
             class="
               flex
@@ -659,7 +659,7 @@ export default {
   mounted() {
     this.animatePictureDiv()
     this.animateOnScroll()
-    this.animateScrollDownBtn()
+    // this.animateScrollDownBtn()
     // this.peaceSignAnimation()
     this.animatePeaceSign()
   },
@@ -710,14 +710,15 @@ export default {
       pictureDivs.forEach((pictureDiv) => {
         tl.from(pictureDiv, {
           opacity: 0,
-          scale: 0.8,
-          ease: 'expo.in',
+          scale: 0.5,
+          ease: 'Sine.easeOut',
           scrollTrigger: {
             trigger: pictureDiv,
-            scrub: 0,
+            scrub: true,
+
             start: 'top bottom',
             end: 'top center',
-            toggleActions: 'play none none none',
+            toggleActions: 'play none none reverse',
           },
         })
       })
@@ -767,16 +768,16 @@ export default {
         })
     },
 
-    animateScrollDownBtn() {
-      const gsap = this.$gsap
-      const tl = gsap.timeline({ repeat: -1, yoyo: true })
-      tl.fromTo(
-        '.scrollDownBtn',
-        1,
-        { ease: 'power1.inOut', y: 20 },
-        { ease: 'power1.inOut', y: -20 }
-      )
-    },
+    // animateScrollDownBtn() {
+    //   const gsap = this.$gsap
+    //   const tl = gsap.timeline({ repeat: -1, yoyo: true })
+    //   tl.fromTo(
+    //     '.scrollDownBtn',
+    //     1,
+    //     { ease: 'power1.inOut', y: 20 },
+    //     { ease: 'power1.inOut', y: -20 }
+    //   )
+    // },
     animateOnScroll() {
       const tl = this.$gsap.timeline()
 
@@ -1013,8 +1014,10 @@ export default {
   color: #be0a46;
 }
 
-input::-moz-focus-inner /*Remove button padding in FF*/ {
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 </style>

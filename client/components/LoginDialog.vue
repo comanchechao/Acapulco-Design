@@ -149,6 +149,7 @@ export default {
         .dispatch('signInWithGoogle')
         .then((result) => {
           // store the user ore wathever
+          this.$forceUpdate()
           this.$router.push('/')
         })
         // eslint-disable-next-line no-console
@@ -161,6 +162,7 @@ export default {
           password: this.password,
         })
         .then((data) => {
+          this.$forceUpdate()
           this.$router.push('/')
         })
         .catch((error) => {

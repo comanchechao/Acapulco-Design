@@ -81,8 +81,8 @@
           </v-list>
         </v-menu>
       </div>
-      <div v-show="!user"  class="">
-        <LoginDialog />
+      <div class="">
+        <LoginDialog v-show="!user"> </LoginDialog>
       </div>
 
       <v-spacer></v-spacer>
@@ -173,6 +173,7 @@ export default {
     },
     signOut() {
       this.$store.dispatch('signOut').then((data) => {
+        this.$forceUpdate()
         this.$router.push('/')
       })
     },
