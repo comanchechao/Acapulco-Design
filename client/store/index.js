@@ -156,10 +156,26 @@ export const actions = {
     this.$fire.auth
       .signOut()
       .then(() => {
+        console.log(this.state.user)
         commit('setUser', null)
       })
       .catch((err) => console.log(err))
   },
+
+  onAuthStateChangedAction: ({commit}, { authUser, claims }) => {
+    if (!authUser) {
+      claims = null
+      // Perform logout operations
+      this.$fire.auth
+        .signOut()
+        .then(() => {
+          commit('setUser', null)
+        })
+    } else {
+      // Do something with the authUser and the claims object...
+      console.log(this.$store.state.user)
+    }
+  }
 
   // setUser: (context) => {
   //   context.commit('setUser')

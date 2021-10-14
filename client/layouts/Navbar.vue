@@ -81,7 +81,7 @@
           </v-list>
         </v-menu>
       </div>
-      <div v-show="!user" class="">
+      <div v-show="!user"  class="">
         <LoginDialog />
       </div>
 

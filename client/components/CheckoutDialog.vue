@@ -135,17 +135,27 @@
                   ></v-text-field>
                 </div>
                 <div>
-                  <v-select
-                    v-model="order.Age"
-                    color="red lighten-5"
+                  <v-text-field
+                    v-model="order.Email"
+                    :rules="emailRules"
                     dark
-                    :items="['0-17', '18-29', '30-54', '54+']"
-                    label="Age*"
-                    required
-                    rounded
                     dense
                     filled
-                  ></v-select>
+                    rounded
+                    label="E-mail"
+                    required
+                  />
+                </div>
+                <div>
+                  <v-text-field
+                    v-model="order.Password"
+                    dark
+                    dense
+                    filled
+                    rounded
+                    required
+                    label="Password"
+                  />
                 </div>
                 <div class="col-span-2">
                   <v-text-field
@@ -220,7 +230,8 @@
                         class="
                           float-left
                           rounded-full
-                          lg:w-24 lg:h-24
+                          lg:w-24
+                          lg:h-24
                           h-20
                           w-20
                         "
@@ -390,6 +401,8 @@ export default {
   data() {
     return {
       order: {
+        Email: '',
+        Password: '',
         Name: null,
         lastName: null,
         City: null,
@@ -399,6 +412,11 @@ export default {
         Age: null,
       },
       dialog: false,
+
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
     }
   },
   computed: {
@@ -410,12 +428,12 @@ export default {
     },
   },
   methods: {
-      removeCartProduct(Product) {
+    removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)
     },
     checkout() {
       const user = this.$fire.auth.currentUser
-      if (user && this.order.Name !== null && this.cartItem.length > 0) {
+      if (user && this.order.Email && this.order.Name !== null && this.cartItem.length > 0) {
         this.$fire.firestore
           .collection('orders')
           .add({
@@ -428,7 +446,6 @@ export default {
               Province: this.order.Province,
               Address: this.order.Address,
               PhoneNumber: this.order.PhoneNumber,
-              Age: this.order.Age,
               Date: Date.now(),
             },
           })
@@ -447,20 +464,54 @@ export default {
       } else if (
         !user &&
         this.order.Name !== null &&
+        this.order.Email &&
         this.cartItem.length > 0
       ) {
-        console.log('sign up and add order')
-        this.message =
-          'You are signed in to our website and Your order has been added to your profile Page'
-        this.purchaseSuccess = '/blueTik.png'
-        this.$refs.PaymentDialog.toggleDialog(
-          this.message,
-          this.purchaseSuccess
-        )
+        this.$fire.auth
+          .createUserWithEmailAndPassword(this.order.Email, this.order.Password)
+          .then((cred) => {
+            this.$fire.firestore.collection('users').doc(cred.user.uid).set({
+              displayName: this.order.Name,
+              City: this.order.City,
+              PhoneNumber: this.order.PhoneNumber,
+              Address: this.order.Address,
+              Province: this.order.Province,
+            })
+          })
+          .then(() => {
+            const user = this.$fire.auth.currentUser
+            if (user && this.order.Name !== null && this.cartItem.length > 0) {
+              this.$fire.firestore
+                .collection('orders')
+                .add({
+                  userId: user.uid,
+                  cart: this.cartItem,
+                  order: {
+                    Name: this.order.Name,
+                    lastName: this.order.lastName,
+                    City: this.order.City,
+                    Province: this.order.Province,
+                    Address: this.order.Address,
+                    PhoneNumber: this.order.PhoneNumber,
+                    Date: Date.now(),
+                  },
+                })
+                .then(() => {
+                  console.log('sign up and add order')
+                  this.message =
+                    'You are signed in to our website and Your order has been added to your profile Page'
+                  this.purchaseSuccess = '/blueTik.png'
+                  this.$refs.PaymentDialog.toggleDialog(
+                    this.message,
+                    this.purchaseSuccess
+                  )
+                })
+            }
+          })
       } else {
         console.log('bull')
         this.message =
-          "Something went Wrong please check the fields and make sure your shopping cart is not empty"
+          'Something went Wrong please check the fields and make sure your shopping cart is not empty'
         this.purchaseSuccess = '/bigX.png'
         this.$refs.PaymentDialog.toggleDialog(
           this.message,

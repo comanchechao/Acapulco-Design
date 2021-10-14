@@ -107,7 +107,7 @@
                 >
                   <div>
                     <v-text-field
-                      v-model="order.City"
+                      v-model="user.City"
                       color="red lighten-5"
                       dark
                       label="City"
@@ -120,7 +120,7 @@
                   </div>
                   <div>
                     <v-text-field
-                      v-model="order.Province"
+                      v-model="user.Province"
                       color="red lighten-5"
                       dark
                       label="Province"
@@ -132,7 +132,7 @@
                   </div>
                   <div class="col-span-2 mt-2">
                     <v-text-field
-                      v-model="order.Address"
+                      v-model="user.Address"
                       color="red lighten-5"
                       dark
                       label="Address"
@@ -172,7 +172,7 @@
                 >
                   <div>
                     <v-text-field
-                      v-model="order.Name"
+                      v-model="user.displayName"
                       color="blue darken-4"
                       dark
                       label="Name"
@@ -197,7 +197,7 @@
                   </div>
                   <div>
                     <v-text-field
-                      v-model="order.PhoneNumber"
+                      v-model="user.phoneNumber"
                       color="red lighten-5"
                       dark
                       label="Phone Number"
@@ -388,8 +388,13 @@ export default {
       dialog: false,
       error: null,
       emailSending: false,
-      displayName: null,
-      email: null,
+      user: {
+        displayName: null,
+        City: null,
+        Address: null,
+        Province: null,
+        phoneNumber: null,
+      },
       order: [],
       orderProduct: [],
     }
@@ -399,26 +404,36 @@ export default {
     const user = this.$fire.auth.currentUser
     if (user !== null) {
       // The user object has basic properties such as display name, email, etc.
-      this.displayName = user.displayName
-      this.email = user.email
+      const userRef = this.$fire.firestore.collection('users').doc(user.uid)
+      userRef.get().then((doc) => {
+        if (doc.exists) {
+          const data = doc.data()
+          this.user.displayName = data.displayName
+          this.user.City = data.City
+          this.user.Address = data.Address
+          this.user.Province = data.Province
+          this.user.phoneNumber = data.PhoneNumber
+        }
+      })
     }
-
-    const orders = this.$fire.firestore
-      .collection('orders')
-      .where('userId', '==', user.uid)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          this.order = doc.data().order
-          this.orderProduct = doc.data().cart
+    if (user) {
+      const orders = this.$fire.firestore
+        .collection('orders')
+        .where('userId', '==', user.uid)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            this.order = doc.data().order
+            this.orderProduct = doc.data().cart
+          })
         })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        .catch((err) => {
+          console.log(err)
+        })
 
-    console.log(orders)
+      console.log(orders)
+    }
   },
 
   mounted() {

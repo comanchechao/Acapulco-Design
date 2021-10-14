@@ -65,7 +65,6 @@
           font-bold font-mainFont
         "
       >
-        {{ message }}
         <!-- <img src="/tik.png" class="" alt="" /> -->
       </h1>
     </div>
