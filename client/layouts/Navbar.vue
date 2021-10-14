@@ -61,7 +61,10 @@
                   <v-icon class="white--text">mdi-account-key</v-icon>
                 </v-btn>
               </template>
-              <span>Welcome back!</span>
+              <span
+                class="font-mainFont font-extrabold text-xl text-LightBlue-50"
+                >Welcome back!</span
+              >
             </v-tooltip>
           </template>
           <v-list dense class="space-y-4 p-4">
@@ -173,7 +176,7 @@ export default {
     },
     signOut() {
       this.$store.dispatch('signOut').then((data) => {
-        this.$forceUpdate()
+        this.$router.go() // Refreshes page
         this.$router.push('/')
       })
     },

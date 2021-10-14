@@ -11,7 +11,7 @@
             bg-transparent
             rounded-full
             py-2
-            font-mainFon font-bold
+            font-mainFont font-bold
             text-3xl
             px-4
           "
@@ -72,18 +72,24 @@
           label="Repeat Your Password"
         /> -->
           <div class="text-center">
-            <v-btn
-              class="mt-4"
-              centered
-              x-large
-              rounded
-              color="#00e699"
-              dark
+            <button
+              class="
+                flex
+                hover:text-mainBlue
+                align-center
+                signUpBtn
+                bg-transparent
+                rounded-full
+                py-2
+                font-mainFont font-bold
+                text-3xl
+                px-4
+              "
               type="submit"
             >
-              <v-icon>mdi-account</v-icon>
-              <span class="signupText"> Signup </span>
-            </v-btn>
+              <v-icon large color="#120129">mdi-account-key</v-icon>
+              <span class="px-3"> Signup </span>
+            </button>
           </div>
 
           <p v-if="error" class="pt-6 errorText">

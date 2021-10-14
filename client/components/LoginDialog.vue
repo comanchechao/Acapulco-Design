@@ -1,6 +1,10 @@
 <template>
   <div class="main">
-    <v-dialog max-width="600px">
+    <v-dialog
+      v-model="dialog"
+      max-width="600px"
+      transition="dialog-bottom-transition"
+    >
       <template v-slot:activator="{ on: menu, attrs }">
         <v-tooltip bottom>
           <template v-slot:activator="{ on: tooltip }">
@@ -12,6 +16,7 @@
               fab
               class=""
               color="transparent"
+              @click="dialog = true"
               v-on="{ ...tooltip, ...menu }"
             >
               <v-icon large>mdi-login-variant</v-icon>
@@ -23,7 +28,7 @@
       <div>
         <v-form
           dark
-          class="loginForm px-5 lg:px-10 py-8"
+          class="loginForm px-5 lg:px-10 pt-8"
           @submit.prevent="signInUser"
         >
           <!-- <v-text-field
@@ -56,31 +61,6 @@
           <div
             class="flex lg:space-x-8 space-x-3 justify-center align-center mt-5"
           >
-            <!-- <v-btn
-              x-large
-              dark
-              rounded
-              outlined
-              color="#00e699"
-              class="loginBtn"
-              type="submit"
-            >
-              <span class="loginText"> Login </span>
-            </v-btn> -->
-            <!-- <v-btn
-              x-large
-              centered
-              light
-              rounded
-              outlined
-              class="pa-3 googleBtn ma-2"
-              color="#f7f7f7"
-              @click="googleSignIn"
-              ><v-icon class="px-2" color="red">mdi-google</v-icon>
-              <span class="pr-3 py-3 googleText text-4xl font-medium"
-                >Sign in with Google</span
-              ></v-btn
-            > -->
             <button
               class="loginBtn flex align-center justify-center"
               type="submit"
@@ -90,29 +70,41 @@
                 <v-icon color="white" class="">mdi-login-variant</v-icon>
               </span>
             </button>
-            <button
-              class="learnMoreBtn flex align-center justify-center"
-              @click="googleSignIn"
-            >
-              <span class="learnMoreText px-4 font-semibold py-2">
-                Sign in with Google
-                <v-icon medium color="red" class="transform lg:scale-110"
-                  >mdi-google</v-icon
-                >
-              </span>
-            </button>
           </div>
-          <div class="flex flex-col justify-center align-center">
-            <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
-              Don't have an account?
-            </p>
-            <SignupDialog class="" />
-            <PasswordResetDialog />
-          </div>
-          <p v-if="error" class="errorText">
-            {{ error }}
-          </p>
         </v-form>
+        <div
+          class="
+            flex
+            loginForm
+            px-5
+            lg:px-10
+            pb-8
+            pt-3
+            flex-col
+            justify-center
+            align-center
+          "
+        >
+          <button
+            class="learnMoreBtn flex align-center justify-center w-full"
+            @click="googleSignIn"
+          >
+            <span class="learnMoreText px-4 font-semibold py-2">
+              Sign in with Google
+              <v-icon medium color="red" class="transform lg:scale-110"
+                >mdi-google</v-icon
+              >
+            </span>
+          </button>
+          <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
+            Don't have an account?
+          </p>
+          <SignupDialog class="" />
+          <PasswordResetDialog />
+        </div>
+        <p v-if="error" class="errorText font-mainFont text-3xl">
+          {{ error }}
+        </p>
       </div>
     </v-dialog>
   </div>
@@ -127,6 +119,8 @@ export default {
     PasswordResetDialog,
   },
   data: () => ({
+    dialog: false,
+
     email: '',
     emailRules: [
       (v) => !!v || 'E-mail is required',
@@ -151,6 +145,7 @@ export default {
           // store the user ore wathever
           this.$forceUpdate()
           this.$router.push('/')
+          this.dialog = false
         })
         // eslint-disable-next-line no-console
         .catch((err) => console.log(err))
@@ -162,8 +157,8 @@ export default {
           password: this.password,
         })
         .then((data) => {
-          this.$forceUpdate()
           this.$router.push('/')
+          this.$forceUpdate()
         })
         .catch((error) => {
           this.error = error

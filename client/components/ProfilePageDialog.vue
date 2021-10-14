@@ -244,8 +244,7 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   Tabs
                   space-x-5
@@ -254,7 +253,13 @@
               >
                 <img
                   src="/processing.png"
-                  class="transform translate-x-4 lg:translate-x-0 lg:scale-110"
+                  class="
+                    transform
+                    translate-x-4
+                    lg:translate-x-0 lg:scale-110
+                    w-20
+                    object-contain
+                  "
                   alt=""
                 />
                 <h2
@@ -276,14 +281,13 @@
                   w-full
                   flex flex-col
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   lg:space-x-5
                 "
                 @click="toggleDialog('Sent')"
               >
-                <img src="/sent.png" class="" alt="" />
+                <img src="/sent.png" class="w-20 object-contain" alt="" />
                 <h2
                   class="
                     text-2xl
@@ -305,14 +309,13 @@
                   lg:flex-row
                   align-center
                   justify-around
-                  lg:flex-row
-                  lg:justify-center
+                  lg:flex-row lg:justify-center
                   align-center
                   lg:space-x-5
                 "
                 @click="toggleDialog('Delivery')"
               >
-                <img src="/arrived1.png" class="" alt="" />
+                <img src="/arrived1.png" class="w-20 object-contain" alt="" />
                 <h2
                   class="
                     text-2xl

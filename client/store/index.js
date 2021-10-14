@@ -12,7 +12,7 @@ export const state = () => ({
   account: null,
   products: [],
   cart: [],
-  catagory: 'Lighters'
+  catagory: 'Lighters',
 })
 
 export const mutations = {
@@ -43,7 +43,7 @@ export const mutations = {
     }
   },
 
-  ChangeCatagory(state , selected){
+  ChangeCatagory(state, selected) {
     state.catagory = selected
   },
   // const productList = state.products.find(
@@ -92,7 +92,7 @@ export const actions = {
             title: doc.data().title,
             price: doc.data().price,
             image: doc.data().image,
-            catagory: doc.data().catagory
+            catagory: doc.data().catagory,
           })
         }
       })
@@ -113,7 +113,7 @@ export const actions = {
   //       commit('setProducts', Products)
   //     })
   // },
-  changeCatagory({commit} , selected){
+  changeCatagory({ commit }, selected) {
     commit('ChangeCatagory', selected)
   },
   removeCartProduct({ commit }, Product) {
@@ -162,20 +162,18 @@ export const actions = {
       .catch((err) => console.log(err))
   },
 
-  // onAuthStateChangedAction: ({commit}, { authUser, claims }) => {
-  //   if (!authUser) {
-  //     claims = null
-  //     // Perform logout operations
-  //     this.$fire.auth
-  //       .signOut()
-  //       .then(() => {
-  //         commit('setUser', null)
-  //       })
-  //   } else {
-  //     // Do something with the authUser and the claims object...
-  //     console.log(this.$store.state.user)
-  //   }
-  // }
+  onAuthStateChangedAction: ({ commit }, { authUser, claims }) => {
+    if (!authUser) {
+      claims = null
+      // Perform logout operations
+      this.$fire.auth.signOut().then(() => {
+        commit('setUser', null)
+      })
+    } else {
+      // Do something with the authUser and the claims object...
+      console.log(this.$store.state.user)
+    }
+  },
 
   // setUser: (context) => {
   //   context.commit('setUser')

@@ -88,43 +88,7 @@
           </div>
           <div
             class="
-              lg:col-span-6
-              col-span-8
-              rounded-lg
-              self-center
-              justify-self-center
-            "
-          >
-            <!-- <div class="grid w-full divide-y-4"> -->
-
-            <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
-            <div
-              class="
-                grid
-                lg:grid-cols-2
-                grid-cols-1
-                gap-6
-                p-4
-                mt-6
-                place-items-center
-                self-center
-                justify-self-center
-              "
-            >
-              <ProductCard
-                v-for="product in products"
-                id="product-card"
-                ref="ProductCard"
-                :key="product.id"
-                class="p-4 productCard"
-                :product="product"
-              />
-            </div>
-            <!-- </div> -->
-            <!-- </div> -->
-          </div>
-          <div
-            class="
+              p-3
               col-span-8
               lg:col-span-2
               self-start
@@ -143,18 +107,27 @@
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
                 Shop
               </h1> -->
-            <div class="mt-12 px-4 text-center">
-              <h3
-                class="
-                  p-3
-                  text-mainBlue text-3xl
-                  lg:text-6xl
-                  border-red-600
-                  font-black
-                "
-              >
-                Discover!
-              </h3>
+            <h3
+              class="
+                p-3
+                text-mainBlue text-5xl
+                lg:text-6xl
+                border-red-600
+                font-black
+              "
+            >
+              Discover!
+            </h3>
+            <div
+              class="
+                space-x-3 space-y-2
+                px-4
+                text-center
+                flex flex-wrap
+                align-center
+                justify-center
+              "
+            >
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
                   class="
@@ -227,11 +200,57 @@
                 class="cursor-pointer"
                 @click="changeCatagory('Collections')"
               >
-                <h1 class="lg:text-3xl text-2xl text-mainBlue p-4 sidebarText">
+                <h1
+                  class="
+                    lg:text-3xl
+                    text-2xl
+                    border-mainBlue border-b-2
+                    text-mainBlue
+                    p-4
+                    sidebarText
+                  "
+                >
                   Collections🗿
                 </h1>
               </span>
             </div>
+            <!-- </div> -->
+          </div>
+          <div
+            class="
+              lg:col-span-6
+              col-span-8
+              rounded-lg
+              self-center
+              justify-self-center
+            "
+          >
+            <!-- <div class="grid w-full divide-y-4"> -->
+
+            <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
+            <div
+              class="
+                grid
+                lg:grid-cols-2
+                grid-cols-1
+                gap-6
+                p-4
+                mt-6
+                place-items-center
+                self-center
+                justify-self-center
+              "
+            >
+              <ProductCard
+                v-for="product in products"
+                id="product-card"
+                ref="ProductCard"
+                :key="product.id"
+                class="p-4 productCard"
+                :product="product"
+              />
+            </div>
+            <!-- </div> -->
             <!-- </div> -->
           </div>
         </div>

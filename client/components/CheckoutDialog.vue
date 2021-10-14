@@ -75,10 +75,10 @@
               >
                 <div>
                   <v-text-field
-                    v-model="order.Name"
+                    v-model="order.FullName"
                     color="blue darken-4"
                     dark
-                    label="Name"
+                    label="Full Name"
                     class=""
                     required
                     rounded
@@ -86,7 +86,7 @@
                     filled
                   ></v-text-field>
                 </div>
-                <div class="">
+                <!-- <div class="">
                   <v-text-field
                     v-model="order.lastName"
                     color="red lighten-5"
@@ -97,7 +97,7 @@
                     dense
                     filled
                   ></v-text-field>
-                </div>
+                </div> -->
                 <div>
                   <v-text-field
                     v-model="order.City"
@@ -134,7 +134,8 @@
                     filled
                   ></v-text-field>
                 </div>
-                <div>
+
+                <div v-show="!user">
                   <v-text-field
                     v-model="order.Email"
                     :rules="emailRules"
@@ -146,7 +147,7 @@
                     required
                   />
                 </div>
-                <div>
+                <div v-show="!user">
                   <v-text-field
                     v-model="order.Password"
                     dark
@@ -157,6 +158,7 @@
                     label="Password"
                   />
                 </div>
+
                 <div class="col-span-2">
                   <v-text-field
                     v-model="order.Address"
@@ -168,6 +170,21 @@
                     dense
                     filled
                   ></v-text-field>
+                </div>
+                <div v-show="user">
+                  <button
+                    class="
+                      font-mainFont
+                      text-3xl text-mainBlue
+                      font-bold
+                      rounded-full
+                      bg-mainRed
+                      px-4
+                      py-2
+                    "
+                  >
+                    Submit
+                  </button>
                 </div>
 
                 <!-- <div>
@@ -230,8 +247,7 @@
                         class="
                           float-left
                           rounded-full
-                          lg:w-24
-                          lg:h-24
+                          lg:w-24 lg:h-24
                           h-20
                           w-20
                         "
@@ -403,8 +419,7 @@ export default {
       order: {
         Email: '',
         Password: '',
-        Name: null,
-        lastName: null,
+        FullName: null,
         City: null,
         Province: null,
         Address: null,
@@ -426,6 +441,9 @@ export default {
     cartTotalPrice() {
       return this.$store.getters.cartTotalPrice
     },
+    user() {
+      return this.$store.getters.getUser
+    },
   },
   methods: {
     removeCartProduct(Product) {
@@ -433,15 +451,19 @@ export default {
     },
     checkout() {
       const user = this.$fire.auth.currentUser
-      if (user && this.order.Email && this.order.Name !== null && this.cartItem.length > 0) {
+      if (
+        user &&
+        this.order.Email &&
+        this.order.FullName !== null &&
+        this.cartItem.length > 0
+      ) {
         this.$fire.firestore
           .collection('orders')
           .add({
             userId: user.uid,
             cart: this.cartItem,
             order: {
-              Name: this.order.Name,
-              lastName: this.order.lastName,
+              FullName: this.order.FullName,
               City: this.order.City,
               Province: this.order.Province,
               Address: this.order.Address,
@@ -463,7 +485,7 @@ export default {
           })
       } else if (
         !user &&
-        this.order.Name !== null &&
+        this.order.FullName !== null &&
         this.order.Email &&
         this.cartItem.length > 0
       ) {
@@ -471,7 +493,7 @@ export default {
           .createUserWithEmailAndPassword(this.order.Email, this.order.Password)
           .then((cred) => {
             this.$fire.firestore.collection('users').doc(cred.user.uid).set({
-              displayName: this.order.Name,
+              displayName: this.order.FullName,
               City: this.order.City,
               PhoneNumber: this.order.PhoneNumber,
               Address: this.order.Address,
@@ -487,8 +509,7 @@ export default {
                   userId: user.uid,
                   cart: this.cartItem,
                   order: {
-                    Name: this.order.Name,
-                    lastName: this.order.lastName,
+                    FullName: this.order.FullName,
                     City: this.order.City,
                     Province: this.order.Province,
                     Address: this.order.Address,
