@@ -180,7 +180,7 @@
                 lg:max-w-xl
               "
             >
-              <img class="object-cover" src="@/static/9757(2).png" alt="" />
+              <img class="object-cover" src="/whatwhat.png" alt="" />
             </div>
             <div
               class="
@@ -229,7 +229,7 @@
             >
               <img
                 class="object-cover transform rotate-180"
-                src="@/static/9757(2).png"
+                src="/whatwhat.png"
                 alt=""
               />
             </div>
