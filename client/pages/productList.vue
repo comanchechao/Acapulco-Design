@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
-    />
+    /> -->
     <div id="main" class="space-y-3 overflow-hidden">
       <LazyHydrate when-idle>
         <Navbar
@@ -18,7 +18,15 @@
           class="navbar"
         />
       </LazyHydrate>
-      <div class="w-full py-24 flex flex-col align-center justify-center">
+      <div
+        v-gsap.to="{
+          opacity: 1,
+          duration: 1.5,
+          delay: 1,
+          ease: 'circ.out',
+        }"
+        class="w-full py-24 flex flex-col align-center justify-center"
+      >
         <div class="max-w-lg h-32 px-2 surfingBoardDiv">
           <img
             src="/surfsUp.png"
@@ -241,14 +249,16 @@
                 justify-self-center
               "
             >
-              <ProductCard
-                v-for="product in products"
-                id="product-card"
-                ref="ProductCard"
-                :key="product.id"
-                class="p-4 productCard"
-                :product="product"
-              />
+              <LazyHydrate when-visible>
+                <ProductCard
+                  v-for="product in products"
+                  id="product-card"
+                  ref="ProductCard"
+                  :key="product.id"
+                  class="p-4 productCard"
+                  :product="product"
+                />
+              </LazyHydrate>
             </div>
             <!-- </div> -->
             <!-- </div> -->
@@ -262,13 +272,12 @@
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
-import ProductCard from '../components/ProductCard.vue'
 export default {
   components: {
     LazyHydrate,
-    ProductCard,
     // Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
+    ProductCard: () => import('../components/ProductCard.vue'),
   },
 
   computed: {
@@ -281,7 +290,7 @@ export default {
   },
 
   mounted() {
-    this.animateSurfingBoard()
+    // this.animateSurfingBoard()
     this.animateBackground()
     this.$store.dispatch('getProducts')
   },
@@ -307,27 +316,27 @@ export default {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
     },
-    animateSurfingBoard() {
-      const gsap = this.$gsap
+    // animateSurfingBoard() {
+    //   const gsap = this.$gsap
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            start: 'top top',
-            end: '+=700',
-            scrub: 2,
-            trigger: '.navbar',
-            marker: true,
-          },
-        })
-        .to('.surfingBoard', {
-          opacity: 0,
-          rotation: 360 * 7,
-          duration: 0.2,
-          y: 100,
-          scale: 0.2,
-        })
-    },
+    //   gsap
+    //     .timeline({
+    //       scrollTrigger: {
+    //         start: 'top top',
+    //         end: '+=700',
+    //         scrub: 2,
+    //         trigger: '.navbar',
+    //         marker: true,
+    //       },
+    //     })
+    //     .to('.surfingBoard', {
+    //       opacity: 0,
+    //       rotation: 360 * 7,
+    //       duration: 0.2,
+    //       y: 100,
+    //       scale: 0.2,
+    //     })
+    // },
 
     animateBackground() {
       const gsap = this.$gsap

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <v-tooltip bottom>
+    <v-tooltip bottom class="sm:hidden">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
@@ -15,20 +15,32 @@
           <v-icon x-large>mdi-microsoft-xbox-controller-menu</v-icon>
         </v-btn>
       </template>
-      <span>Menu</span>
+      <span class="sm:invisible">Menu</span>
     </v-tooltip>
 
     <v-navigation-drawer
       v-model="drawer"
       left
       temporary
-      scrollable
       app
       full-width
       class="drawer red lighten-3"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
+          <nuxt-link to="/">
+            <v-btn
+              class="Btn"
+              dark
+              depressed
+              rounded
+              x-large
+              color="transparent"
+            >
+              <span class="aboutUs text-xl"> Home </span>
+              <v-icon class="" large>mdi-home</v-icon>
+            </v-btn>
+          </nuxt-link>
           <nuxt-link to="/aboutUs">
             <v-btn
               class="Btn"

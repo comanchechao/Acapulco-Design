@@ -99,8 +99,10 @@
           <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
             Don't have an account?
           </p>
-          <SignupDialog class="" />
-          <PasswordResetDialog />
+          <LazyHydrate :on-interaction="['click', 'focus']">
+            <SignupDialog class="" />
+            <PasswordResetDialog />
+          </LazyHydrate>
         </div>
         <p v-if="error" class="errorText font-mainFont text-3xl">
           {{ error }}
@@ -111,12 +113,13 @@
 </template>
 
 <script>
-import SignupDialog from './SignupDialog'
-import PasswordResetDialog from './PasswordResetDIalog'
+import LazyHydrate from 'vue-lazy-hydration'
 export default {
   components: {
-    SignupDialog,
-    PasswordResetDialog,
+    LazyHydrate,
+
+    SignupDialog: () => import('../components/SignupDialog.vue'),
+    PasswordResetDialog: () => import('../components/PasswordResetDIalog.vue'),
   },
   data: () => ({
     dialog: false,
@@ -169,10 +172,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
 .learnMoreBtn {
   font-size: 25px;
   background-color: transparent;

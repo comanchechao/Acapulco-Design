@@ -91,7 +91,9 @@
           </p>
         </div>
         <div class="w-full h-1/4 flex justify-center align-center">
-          <ProductDetail :product="product" />
+          <LazyHydrate :on-interaction="['click', 'focus']">
+            <ProductDetail :product="product" />
+          </LazyHydrate>
         </div>
         <!-- 
         
@@ -119,10 +121,13 @@
 </template>
 
 <script>
-import ProductDetail from './ProductDetail.vue'
+import LazyHydrate from 'vue-lazy-hydration'
+
 export default {
   components: {
-    ProductDetail,
+    LazyHydrate,
+
+    ProductDetail: () => import('../components/ProductDetail.vue'),
   },
   props: ['product'],
 
@@ -154,18 +159,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
-@font-face {
-  font-family: 'Bernadette';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
-}
-
 .learnMoreBtn:hover {
   transform: scale(0.95);
   background-color: #120129;

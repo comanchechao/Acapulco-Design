@@ -47,9 +47,19 @@
           class="h-full w-full flex lg:p-11 flex align-center justify-center"
         >
           <div class="w-full h-full backGround">
-            <div class="w-full h-3/5 flex justify-center align-center flex-col">
-              <div class="w-full h-1/4 bg-green-400 flex">
-                <h1 class="pa-5 flex align-center justify-start">
+            <div
+              class="
+                w-full
+                lg:h-3/5
+                h-2/4
+                flex
+                justify-center
+                align-center
+                flex-col
+              "
+            >
+              <div class="w-full lg:h-1/4 h-full bg-green-400 lg:p-5 p-1">
+                <h1 class="">
                   <span class="span transform scale-125" @click="dialog = false"
                     ><v-icon dark x-large color=""
                       >mdi-chevron-double-left</v-icon
@@ -67,7 +77,8 @@
                 class="
                   grid grid-cols-2 grid-rows-4 grid-flow-row
                   w-full
-                  h-3/4
+                  lg:h-3/4
+                  h-4/5
                   bg-CoolGray-800
                   p-5
                   gap-4
@@ -194,7 +205,7 @@
               </div>
             </div>
 
-            <div class="w-full h-2/5">
+            <div class="w-full lg:h-2/5 h-2/4">
               <div class="bg-Rose-400">
                 <h1 class="pa-5">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
@@ -206,13 +217,13 @@
                 </h1>
               </div>
 
-              <div class="w-full h-3/4 flex p-7">
+              <div class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4">
                 <div
                   class="
                     w-full
                     lg:w-5/6
                     h-full
-                    overflow-y-scroll
+                    overflow-x-scroll
                     self-start
                     lg:gap-2
                     grid grid-cols-2
@@ -277,77 +288,8 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <p
-                    v-for="item in cartItem"
-                    :key="item.id"
-                    class="font-mainFont text-3xl text-mainBlue font-bold"
-                  >
-                    {{ item.item.title }}
-                  </p> -->
                 </div>
-                <div class="w-1/6 h-full flex justify-end align-end">
-                  <!-- <h1
-                    class="
-                      font-mainFont
-                      text-3xl text-mainBlue
-                      font-bold
-                      m-auto
-                    "
-                  >
-                    Payment Method :
-                  </h1>
-                  <div class="flex justify-center m-auto">
-                    <div class="flex items-center mr-4 mb-4">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="radio"
-                        class="hidden"
-                        checked
-                      />
-                      <label
-                        for="radio1"
-                        class="flex items-center cursor-pointer"
-                      >
-                        <span
-                          class="
-                            w-4
-                            h-4
-                            inline-block
-                            mr-1
-                            rounded-full
-                            border border-grey
-                          "
-                        ></span>
-                        Best choice</label
-                      >
-                    </div>
-                    <div class="flex items-center mr-4 mb-4">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="radio"
-                        class="hidden"
-                        checked
-                      />
-                      <label
-                        for="radio1"
-                        class="flex items-center cursor-pointer"
-                      >
-                        <span
-                          class="
-                            w-4
-                            h-4
-                            inline-block
-                            mr-1
-                            rounded-full
-                            border border-grey
-                          "
-                        ></span>
-                        Best choice</label
-                      >
-                    </div>
-                  </div> -->
+                <div class="w-1/6 h-full flex justify-center align-center">
                   <button
                     class="checkoutBtn py-1 flex justify-center align-center"
                   >

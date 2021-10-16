@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   router: {
     prefetchLinks: false,
@@ -12,10 +10,15 @@ export default {
   head: {
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
     title: 'Acapulco',
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Acapulco Design makes handmade custom merchendise',
+      },
     ],
     link: [
       {
@@ -47,12 +50,19 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    'nuxt-compress',
+
     '@nuxtjs/pwa',
     'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/tailwindcss',
+    '@aceforth/nuxt-optimized-images',
   ],
+
+  optimizedImages: {
+    optimizeImages: true,
+  },
 
   gsap: {
     extraPlugins: {
@@ -96,9 +106,15 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    [
+      'nuxt-compress',
+      {
+        gzip: {
+          threshold: 8192,
+        },
+      },
+    ],
     '@nuxtjs/i18n',
-    '@aceforth/nuxt-optimized-images',
-    '@nuxtjs/sentry',
     '@nuxtjs/axios',
     [
       '@nuxtjs/firebase',
@@ -128,21 +144,8 @@ export default {
     ],
   ],
 
-  optimizedImages: {
-    optimizeImages: true,
-  },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
-
-  sentry: {
-    dsn: "https://150071e5a6554cf1b0c83cbca68a573c@o1035018.ingest.sentry.io/6001668",
-    // Set tracesSampleRate to 1.0 to capture 100%
-    // of transactions for performance monitoring.
-    // We recommend adjusting this value in production
-    tracesSampleRate: 1.0,
-  },
-
-  
 
   // vuetify: {
   //   customVariables: ['~/assets/variables.scss'],

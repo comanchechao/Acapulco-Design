@@ -29,13 +29,13 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      bottom
       right
       temporary
       scrollable
       app
       class="drawer red lighten-4"
       width="30%"
+      bottom
     >
       <!-- <div v-for="product in products" :key="product.id">  
       </div> -->

@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
-    />
+    /> -->
     <div id="main" class="w-screen">
       <Navbar
         id="navbar"
@@ -259,7 +259,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Learn More </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -348,7 +348,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Learn More </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -380,7 +380,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Learn More </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -460,7 +460,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Learn More </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -527,7 +527,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="px-9 py-5 learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Learn More </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -567,7 +567,7 @@
             </div>
             <NuxtLink to="/productList">
               <button class="learnMoreBtn">
-                <span class="px-9 py-8 learnMoreText"> Learn More </span>
+                <span class="learnMoreText"> Learn More </span>
               </button>
             </NuxtLink>
             <div></div>
@@ -600,14 +600,14 @@
                 "
               >
                 We are a
-                <span class="limitedSpan"> Creative Team </span>
+                <span class="text-Rose-700"> Creative Team </span>
                 based in Iran
               </h1>
               <h3
                 class="
                   px-2
                   learnMore
-                  font-thin
+                  font-bold
                   text-4xl
                   lg:text-6xl
                   py-5
@@ -892,11 +892,12 @@ export default {
   font-family: 'Roboto Slab', serif;
   /* line-height: 110%; */
   /* text-transform: capitalize; */
+  font-weight: 700;
   color: #120129;
 }
 
 .learnMore {
-  font-weight: 300;
+  font-weight: 600;
   font-family: 'Roboto Slab', serif;
   color: #120129;
 }
@@ -907,7 +908,7 @@ export default {
   color: #120129;
   border-radius: 35px;
   transition: transform ease-in-out 0.5s;
-  padding: 9px 20px;
+  padding: 8px 45px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -928,26 +929,6 @@ export default {
 #contactUsBtn:hover {
   background-color: #ff4a68;
   color: #120129;
-} */
-
-/* .pictureDiv {
-  cursor: pointer;
-  width: 300px;
-  height: 500px;
-  background-color: #dddddd;
-  box-shadow: 0 2.3px 7px -20px rgba(0, 0, 0, 0.023),
-    0 5.4px 16.2px -20px rgba(0, 0, 0, 0.034),
-    0 9.7px 29px -20px rgba(0, 0, 0, 0.041),
-    0 16.1px 48.2px -20px rgba(0, 0, 0, 0.049),
-    0 26.5px 79.4px -20px rgba(0, 0, 0, 0.056),
-    0 46.2px 138.7px -20px rgba(0, 0, 0, 0.067),
-    0 100px 300px -20px rgba(0, 0, 0, 0.09);
-}
-
-@media only screen and (max-width: 480px) {
-  .pictureDiv {
-    transform: scale(0.5);
-  }
 } */
 
 .pictureDiv {
@@ -1009,9 +990,6 @@ export default {
   font-family: 'Roboto Slab', serif;
   line-height: 110%;
   color: #120129;
-}
-.limitedSpan {
-  color: #be0a46;
 }
 
 input::-moz-focus-inner {

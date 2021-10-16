@@ -85,10 +85,14 @@
         </v-menu>
       </div>
       <div class="lg:hidden">
-        <MenuBarDrawer />
+        <LazyHydrate when-visible>
+          <MenuBarDrawer />
+        </LazyHydrate>
       </div>
       <div class="">
-        <LoginDialog v-show="!user"> </LoginDialog>
+        <LazyHydrate when-visible>
+          <LoginDialog v-show="!user"> </LoginDialog>
+        </LazyHydrate>
       </div>
 
       <v-spacer></v-spacer>
@@ -119,17 +123,13 @@
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
-import LoginDialog from '../components/LoginDialog'
-import ShoppingCartDrawer from '../components/ShoppingCartDrawer'
-
-// import axios from 'axios'
 export default {
   components: {
     LazyHydrate,
     MenuBarDrawer: () => import('../components/MenuBarDrawer.vue'),
     ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
-    LoginDialog,
-    ShoppingCartDrawer,
+    LoginDialog: () => import('../components/LoginDialog.vue'),
+    ShoppingCartDrawer: () => import('../components/ShoppingCartDrawer.vue'),
   },
   data() {
     return {

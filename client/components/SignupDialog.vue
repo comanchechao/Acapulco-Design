@@ -151,8 +151,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 .main {
