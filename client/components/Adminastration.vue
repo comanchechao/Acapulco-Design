@@ -1,5 +1,5 @@
 <template>
-  <div
+  <form
     v-if="showModal"
     id="modal"
     class="
@@ -11,6 +11,7 @@
       rounded-lg
       antialiased
     "
+    @submit="addProduct"
   >
     <div
       class="
@@ -136,34 +137,33 @@
             in stock</label
           >
         </div>
-      </div>
-      <div
-        class="
-          flex flex-row
-          items-center
-          justify-between
-          topBar
-          p-5
-          bg-white
-          border-t border-gray-200
-          rounded-bl-lg rounded-br-lg
-        "
-      >
-        <p
-          class="font-semibold text-gray-600 cursor-pointer"
-          @click="toggleModal"
+        <div
+          class="
+            flex flex-row
+            items-center
+            justify-between
+            topBar
+            p-5
+            bg-white
+            border-t border-gray-200
+            rounded-bl-lg rounded-br-lg
+          "
         >
-          Cancel
-        </p>
-        <button
-          class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
-          @click="addProduct()"
-        >
-          Save
-        </button>
+          <p
+            class="font-semibold text-gray-600 cursor-pointer"
+            @click="toggleModal"
+          >
+            Cancel
+          </p>
+          <button
+            class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -172,6 +172,7 @@ export default {
   data() {
     return {
       showModal: false,
+      test: null,
       title: null,
       price: null,
       image: null,
@@ -186,21 +187,21 @@ export default {
       this.showModal = !this.showModal
     },
 
-    // uploadImage(e) {
-    //   const file = e.target.files[0]
-    //   const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
+    uploadImage(e) {
+      const file = e.target.files[0]
+      const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
 
-    //   const uploadTask = storageRef.put(file)
+      const uploadTask = storageRef.put(file)
 
-    //   uploadTask.on('state_changed', (snapshot) => {
-    //     // Handle successful uploads on complete
-    //     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    //     snapshot.ref.getDownloadURL().then((downloadURL) => {
-    //       console.log(downloadURL)
-    //       this.image = downloadURL
-    //     })
-    //   })
-    // },
+      uploadTask.on('state_changed', (snapshot) => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        snapshot.ref.getDownloadURL().then((downloadURL) => {
+          console.log(downloadURL)
+          this.image = downloadURL
+        })
+      })
+    },
     addProduct() {
       if (this.title) {
         this.$fire.firestore
@@ -218,6 +219,7 @@ export default {
             this.inStock = null
             this.catagory = null
             this.feedback = null
+            this.toggleModal()
           })
           .catch((err) => {
             // eslint-disable-next-line no-console
