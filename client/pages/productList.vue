@@ -249,7 +249,6 @@
                 justify-self-center
               "
             >
-              <LazyHydrate when-visible>
                 <ProductCard
                   v-for="product in products"
                   id="product-card"
@@ -258,7 +257,6 @@
                   class="p-4 productCard"
                   :product="product"
                 />
-              </LazyHydrate>
             </div>
             <!-- </div> -->
             <!-- </div> -->
@@ -289,10 +287,14 @@ export default {
     },
   },
 
+  created(){
+    this.$store.dispatch('getProducts')
+  },
+
   mounted() {
     // this.animateSurfingBoard()
     this.animateBackground()
-    this.$store.dispatch('getProducts')
+    
   },
 
   transition: {
@@ -434,12 +436,12 @@ export default {
   border-bottom: #ff4a68 solid 2px;
 }
 
-@keyframes animatedBackground {
+/* @keyframes animatedBackground {
   from {
     background-position: 0 0;
   }
   to {
     background-position: 0 100%;
   }
-}
+} */
 </style>
