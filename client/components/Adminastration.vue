@@ -11,7 +11,7 @@
       rounded-lg
       antialiased
     "
-    @submit="addProduct"
+    @submit.prevent="addProduct"
   >
     <div
       class="
@@ -179,6 +179,7 @@ export default {
       inStock: null,
       catagory: null,
       feedback: null,
+      imageData: null,
     }
   },
   mounted() {},
@@ -187,8 +188,39 @@ export default {
       this.showModal = !this.showModal
     },
 
-    uploadImage(e) {
-      const file = e.target.files[0]
+    // previewImage(event) {
+    //   this.uploadValue = 0
+    //   this.image = null
+    //   this.imageData = event.target.files[0]
+    //   this.onUpload()
+    // },
+
+    // onUpload() {
+    //   this.image = null
+    //   const storageRef = this.$fire.storage
+    //     .ref(`${'Product Image/' + this.imageData.name}`)
+    //     .put(this.imageData)
+    //   storageRef.on(
+    //     `state_changed`,
+    //     (snapshot) => {
+    //       this.uploadValue =
+    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //     },
+    //     (error) => {
+    //       console.log(error.message)
+    //     },
+    //     () => {
+    //       this.uploadValue = 100
+    //       storageRef.snapshot.ref.getDownloadURL().then((url) => {
+    //         this.image = url
+    //         console.log(this.image)
+    //       })
+    //     }
+    //   )
+    // },
+
+     uploadImage(e) {
+      const file =  e.target.files[0]
       const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
 
       const uploadTask = storageRef.put(file)
@@ -202,14 +234,15 @@ export default {
         })
       })
     },
-    addProduct() {
+    async addProduct() {
+      const Image = await this.image
       if (this.title) {
         this.$fire.firestore
           .collection('Products')
           .add({
             title: this.title,
             price: this.price,
-            image: this.image,
+            image: Image,
             inStock: this.inStock,
             catagory: this.catagory,
           })
@@ -219,6 +252,7 @@ export default {
             this.inStock = null
             this.catagory = null
             this.feedback = null
+            this.image = null
             this.toggleModal()
           })
           .catch((err) => {

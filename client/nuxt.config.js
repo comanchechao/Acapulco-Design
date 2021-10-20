@@ -115,6 +115,8 @@ export default {
       },
     ],
     '@nuxtjs/i18n',
+    'nuxt-lazy-load',
+    '@nuxtjs/imagemin',
     '@nuxtjs/axios',
     [
       '@nuxtjs/firebase',
