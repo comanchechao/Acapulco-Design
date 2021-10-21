@@ -277,7 +277,7 @@
                           "
                         >
                           <h3 class="">{{ product.title }}</h3>
-                          <button class="">
+                          <button @click="deleteProduct(product.id)" class="">
                             <img class="kiskis" src="/x.png" alt="" />
                           </button>
                         </div>

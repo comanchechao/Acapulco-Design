@@ -80,8 +80,8 @@ export const mutations = {
 }
 export const actions = {
   //  fetching the products from server side passing to set products mutaions
-  getProducts({ commit }) {
-    const ref = this.$fire.firestore.collection('Products')
+  async getProducts({ commit }) {
+    const ref = await this.$fire.firestore.collection('Products')
     const Products = []
     ref.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
