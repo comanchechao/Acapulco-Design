@@ -18,6 +18,8 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.18.3",
     "firebase": "^8.10.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
     "moment": "^2.29.1",
     "nuxt": "^2.15.8",
     "nuxt-lazy-load": "^1.2.7",

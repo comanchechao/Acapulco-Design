@@ -116,7 +116,13 @@ export default {
     ],
     '@nuxtjs/i18n',
     'nuxt-lazy-load',
-    '@nuxtjs/imagemin',
+    [
+      '@nuxtjs/imagemin',
+      {
+        optipng: { optimizationLevel: 5 },
+        gifsicle: { optimizationLevel: 2 }
+      }
+    ],
     '@nuxtjs/axios',
     [
       '@nuxtjs/firebase',

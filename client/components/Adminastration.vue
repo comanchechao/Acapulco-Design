@@ -36,6 +36,7 @@
           rounded-tl-lg rounded-tr-lg
         "
       >
+        <p v-if="feedback" class="text-red-500 self-center">{{ feedback }}</p>
         <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
           class="w-6 h-6 cursor-pointer text-white"
@@ -75,7 +76,7 @@
             focus:outline-none
           "
         />
-        <p v-if="feedback" class="text-red-500">{{ feedback }}</p>
+
         <label for="price" class="mb-2 font-semibold text-gray-100 text-3xl"
           >Price</label
         >
@@ -159,6 +160,18 @@
             class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
           >
             Save
+            <div v-show="adding">
+              <div
+                style="border-top-color: transparent"
+                class="
+                  w-16
+                  h-16
+                  border-4 border-blue-400 border-double
+                  rounded-full
+                  animate-spin
+                "
+              ></div>
+            </div>
           </button>
         </div>
       </div>
@@ -171,6 +184,7 @@ export default {
   name: 'LargeModal',
   data() {
     return {
+      adding: false,
       showModal: false,
       test: null,
       title: null,
@@ -219,8 +233,8 @@ export default {
     //   )
     // },
 
-     uploadImage(e) {
-      const file =  e.target.files[0]
+    uploadImage(e) {
+      const file = e.target.files[0]
       const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
 
       const uploadTask = storageRef.put(file)
@@ -228,10 +242,16 @@ export default {
       uploadTask.on('state_changed', (snapshot) => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log(downloadURL)
-          this.image = downloadURL
-        })
+        snapshot.ref
+          .getDownloadURL()
+          .then((downloadURL) => {
+            console.log(downloadURL)
+            this.image = downloadURL
+          })
+          .catch((err) => {
+            console.log(err)
+            this.feedback = 'choose diffrent Image'
+          })
       })
     },
     async addProduct() {
@@ -245,6 +265,7 @@ export default {
             image: Image,
             inStock: this.inStock,
             catagory: this.catagory,
+            adding: true,
           })
           .then(() => {
             this.title = null
@@ -253,7 +274,8 @@ export default {
             this.catagory = null
             this.feedback = null
             this.image = null
-            this.toggleModal()
+            this.adding = false
+            this.feedback = 'Product added'
           })
           .catch((err) => {
             // eslint-disable-next-line no-console
