@@ -37,7 +37,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    { src: '~/plugins/persistedState.client.js' },
+    {},
 
     // '~/plugins/fireauth.js',
     // '~plugins/animate.css',
@@ -52,17 +52,12 @@ export default {
   buildModules: [
     'nuxt-compress',
 
-    '@nuxtjs/pwa',
     'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/tailwindcss',
     '@aceforth/nuxt-optimized-images',
   ],
-
-  optimizedImages: {
-    optimizeImages: true,
-  },
 
   gsap: {
     extraPlugins: {
@@ -120,10 +115,9 @@ export default {
       '@nuxtjs/imagemin',
       {
         optipng: { optimizationLevel: 5 },
-        gifsicle: { optimizationLevel: 2 }
-      }
+        gifsicle: { optimizationLevel: 2 },
+      },
     ],
-    '@nuxtjs/axios',
     [
       '@nuxtjs/firebase',
       {
@@ -153,7 +147,6 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
 
   // vuetify: {
   //   customVariables: ['~/assets/variables.scss'],
