@@ -252,7 +252,7 @@
                 @click="toggleDialog('Processing')"
               >
                 <img
-                  src="/processing.png"
+                  src="~/assets/images/processing.png"
                   class="
                     transform
                     translate-x-4
@@ -287,7 +287,11 @@
                 "
                 @click="toggleDialog('Sent')"
               >
-                <img src="/sent.png" class="w-20 object-contain" alt="" />
+                <img
+                  src="~/assets/images/sent.png"
+                  class="w-20 object-contain"
+                  alt=""
+                />
                 <h2
                   class="
                     text-2xl
@@ -315,7 +319,11 @@
                 "
                 @click="toggleDialog('Delivery')"
               >
-                <img src="/arrived1.png" class="w-20 object-contain" alt="" />
+                <img
+                  src="~/assets/images/arrived1.png"
+                  class="w-20 object-contain"
+                  alt=""
+                />
                 <h2
                   class="
                     text-2xl

@@ -66,7 +66,7 @@
         "
       >
         {{ message }}
-        <!-- <img src="/tik.png" class="" alt="" /> -->
+        <!-- <img src="~/assets/images/tik.png" class="" alt="" /> -->
       </h1>
     </div>
     <div class="row-span-2 flex justify-center">

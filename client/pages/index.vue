@@ -37,7 +37,7 @@
               lg:scale-100
             "
           >
-            <img class="peaceSign m-auto" src="/moomoole.png" alt="" />
+            <img class="peaceSign m-auto" src="~/assets/images/moomoole.png" alt="" />
           </div> -->
           <!-- <div
             v-gsap.to="{
@@ -56,7 +56,7 @@
             "
           >
             <img
-              src="/moomoole.png"
+              src="~/assets/images/moomoole.png"
               class="filter drop-shadow-2xl w-80 object-contain surfingBoard"
               alt=""
             />
@@ -104,7 +104,7 @@
                   transform
                   lg:-rotate-90
                 "
-                src="/sketch-162443588438sdfs.png"
+                src="~/assets/images/sketch-162443588438sdfs.png"
                 alt=""
               />
             </div>
@@ -149,7 +149,7 @@
                   transform
                   lg:translate-x-24
                 "
-                src="/sketch-162443588438sdfs.png"
+                src="~/assets/images/sketch-162443588438sdfs.png"
                 alt=""
               />
             </div>
@@ -163,7 +163,7 @@
             }"
             class="scrollDownBtn self-center mb-11"
           >
-            <img src="/arrow.png" class="h-28 w-16 object-contain" alt="" />
+            <img src="~/assets/images/arrow.png" class="h-28 w-16 object-contain" alt="" />
           </div> -->
           <div
             class="
@@ -190,7 +190,11 @@
                 lg:max-w-xl
               "
             >
-              <img class="object-cover" src="/whatwhat.png" alt="" />
+              <img
+                class="object-cover"
+                src="~/assets/images/whatwhat.png"
+                alt=""
+              />
             </div>
             <div
               class="
@@ -237,7 +241,11 @@
                 max-w-xs
               "
             >
-              <img class="object-cover" src="/whatwhat1.png" alt="" />
+              <img
+                class="object-cover"
+                src="~/assets/images/whatwhat1.png"
+                alt=""
+              />
             </div>
           </div>
 
@@ -286,7 +294,7 @@
               "
             >
               <img
-                src="/hoodie2.png"
+                src="~/assets/images/hoodie2.png"
                 class="
                   object-contain
                   w-auto
@@ -356,7 +364,7 @@
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3 class="text-6xl p-5 text-center">Acapulco Shirts</h3>
-                <!-- <img class="transform scale-75" src="/fsdf.png" alt="" /> -->
+                <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -468,7 +476,7 @@
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3 class="text-6xl p-5 text-center">Acapulco Shorts</h3>
-                <!-- <img class="transform scale-75" src="/fsdf.png" alt="" /> -->
+                <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -532,7 +540,7 @@
               <div class="flex justify-end">
                 <h3 class="text-6xl p-5 text-center">Acapulco Hoodies</h3>
                 <img
-                  src="/Hoodie.png"
+                  src="~/assets/images/Hoodie.png"
                   class="transform scale-95 object-contain lg:scale-100"
                   alt=""
                 />
@@ -646,7 +654,7 @@
                 loop
                 muted
               >
-                <source src="/Y064cQ6.mp4" type="video/mp4" />
+                <source src="~/assets/images/Y064cQ6.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div> -->
@@ -980,9 +988,9 @@ export default {
 
 .acapulco {
   font-family: 'Sail';
-  text-shadow: 2px 2px 0px #eb55b2, 4px 4px 0px #c42ddf, 8px 8px 0px #9f12ca,
-    12px 12px 0px #9706c3, 16px 16px 0px #7f0095, 20px 20px 0px #520095,
-    24px 24px 0px #4f2381, 28px 28px 0px #400164, 32px 32px 0px #1e0036;
+  text-shadow: 2px 2px 0px #2cd882, 4px 4px 0px #4ad39f, 8px 8px 0px #2ec0ad,
+    12px 12px 0px #0d53bd, 16px 16px 0px #001679, 20px 20px 0px #060f63,
+    24px 24px 0px #050236, 28px 28px 0px #0e0229, 32px 32px 0px #07011b;
 }
 
 @media only screen and (max-width: 414px) {

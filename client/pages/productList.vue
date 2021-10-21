@@ -29,7 +29,7 @@
       >
         <div class="max-w-lg h-32 px-2 surfingBoardDiv">
           <img
-            src="/surfsUp.png"
+            src="~/assets/images/surfsUp.png"
             class="filter drop-shadow-lg w-96 object-contain surfingBoard"
             alt=""
           />

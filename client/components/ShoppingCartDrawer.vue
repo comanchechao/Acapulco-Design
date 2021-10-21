@@ -106,7 +106,7 @@
             z-0
           "
         >
-          <img class="m-0" src="/freeLove.png" alt="" />
+          <img class="m-0" src="~/assets/images/freeLove.png" alt="" />
         </div>
       </div>
       <v-spacer></v-spacer> -->

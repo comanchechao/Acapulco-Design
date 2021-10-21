@@ -278,7 +278,11 @@
                         >
                           <h3 class="">{{ product.title }}</h3>
                           <button @click="deleteProduct(product.id)" class="">
-                            <img class="kiskis" src="/x.png" alt="" />
+                            <img
+                              class="kiskis"
+                              src="~/assets/images/x.png"
+                              alt=""
+                            />
                           </button>
                         </div>
                       </div>
@@ -350,8 +354,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -365,8 +368,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -380,8 +382,7 @@
                               text-2xl
                               px-3
                               p-2
-                              lg:text-3xl
-                              lg:px-12
+                              lg:text-3xl lg:px-12
                               border-2 border-blueGray-400
                               rounded-full
                               shadow-xl
@@ -509,7 +510,11 @@
                               >
                                 <h1 class="self-center">Status: processing</h1>
                                 <button class="" @click="deleteOrder(order.id)">
-                                  <img class="p-1" src="/x1.png" alt="" />
+                                  <img
+                                    class="p-1"
+                                    src="~/assets/images/x1.png"
+                                    alt=""
+                                  />
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
@@ -618,7 +623,7 @@
                 }"
                 @click="toggleTabs(1)"
               >
-                <img class="" src="/flag.png" alt="" />
+                <img class="" src="~/assets/images/flag.png" alt="" />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab2()">
@@ -640,7 +645,11 @@
                 }"
                 @click="toggleTabs(2)"
               >
-                <img class="place-self-center" src="/mimis.png" alt="" />
+                <img
+                  class="place-self-center"
+                  src="~/assets/images/mimis.png"
+                  alt=""
+                />
               </a>
             </li>
             <li class="lis shadow-2xl w-full text-center" @click="tab3()">
@@ -661,7 +670,11 @@
                 }"
                 @click="toggleTabs(3)"
               >
-                <img class="place-self-center" src="/biker.png" alt="" />
+                <img
+                  class="place-self-center"
+                  src="~/assets/images/biker.png"
+                  alt=""
+                />
               </a>
             </li>
           </ul>

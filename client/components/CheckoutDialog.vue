@@ -349,7 +349,7 @@
                   justify-content-end
                 "
               >
-                <img class="w-16 m-px" src="/buy-button.png" alt="" />
+                <img class="w-16 m-px" src="~/assets/images/buy-button.png" alt="" />
                 total: {{ cartTotalPrice }}$
               </div> -->
           </div>

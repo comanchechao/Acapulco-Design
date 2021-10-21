@@ -22,7 +22,6 @@
           class="absolute z-50"
         />
       </LazyHydrate>
-      
 
       <section class="panel1 w-screen h-screen mt-15">
         <div
@@ -38,7 +37,7 @@
           Hi. we are a bunch of guys From a less known city of a dystopian
           country
         </div>
-        <img class="hippie1" src="/hippie1.png" alt="" />
+        <img class="hippie1" src="~/assets/images/hippie1.png" alt="" />
       </section>
       <section
         class="panel2 grid content-start place-content-center w-screen h-screen"
@@ -56,10 +55,22 @@
           While we're not lost and consumed by the sheer pressure of human
           survival We tend to smoke, and create stuff
         </div>
-        <img class="hippie2 justify-self-center" src="/hippie2.png" alt="" />
+        <img
+          class="hippie2 justify-self-center"
+          src="~/assets/images/hippie2.png"
+          alt=""
+        />
       </section>
       <section
-        class="panel3 grid grid-rows-3 gap-3 content-center place-content-end  w-screen h-screen"
+        class="
+          panel3
+          grid grid-rows-3
+          gap-3
+          content-center
+          place-content-end
+          w-screen
+          h-screen
+        "
       >
         <div
           class="
@@ -74,7 +85,7 @@
           In the hope of finding the long lost peace that we all crave Along the
           way.
         </div>
-        <img class="hippie3" src="/hippie3.png" alt="" />
+        <img class="hippie3" src="~/assets/images/hippie3.png" alt="" />
         <div
           class="
             backButton
@@ -98,7 +109,6 @@
               font-extrabold
               content-center
               justify-center
-
             "
           >
             <NuxtLink to="/">
@@ -107,7 +117,7 @@
           </div>
           <img
             class="hippieCoco justify-self-center self-center"
-            src="/samadhiCoco.png"
+            src="~/assets/images/samadhiCoco.png"
             alt=""
           />
         </div>

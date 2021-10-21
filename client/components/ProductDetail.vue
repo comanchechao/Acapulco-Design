@@ -35,7 +35,7 @@
       <div class="w-full h-dialog flex">
         <div class="w-2/5 h-full bg-mainRed">
           <img
-            src="/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
+            src="~/assets/images/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
             alt=""
             class=""
           />

@@ -88,7 +88,7 @@
                 lg:scale-100
                 z-10
               "
-              src="/ppp.png"
+              src="~/assets/images/ppp.png"
               alt=""
             />
           </div>
@@ -97,7 +97,7 @@
       <div class="flex justify-end align-end z-10 md:mt-5">
         <img
           class="object-scale-down scale-50 lg:scale-75"
-          src="/fsdfsdf.png"
+          src="~/assets/images/fsdfsdf.png"
           alt=""
         />
       </div>
