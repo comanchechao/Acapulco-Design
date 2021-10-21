@@ -54,7 +54,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/tailwindcss',
-    '@aceforth/nuxt-optimized-images',
   ],
 
   gsap: {
