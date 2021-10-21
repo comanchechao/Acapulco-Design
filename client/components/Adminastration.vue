@@ -36,7 +36,6 @@
           rounded-tl-lg rounded-tr-lg
         "
       >
-        <p v-if="feedback" class="text-red-500 self-center">{{ feedback }}</p>
         <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
           class="w-6 h-6 cursor-pointer text-white"
@@ -55,6 +54,7 @@
         </svg>
       </div>
       <div class="flex flex-col px-6 py-5 background">
+        <p v-if="feedback" class="text-red-500 self-center">{{ feedback }}</p>
         <label for="title" class="mb-2 font-semibold text-gray-100 text-3xl"
           >Title</label
         >
@@ -247,10 +247,11 @@ export default {
           .then((downloadURL) => {
             console.log(downloadURL)
             this.image = downloadURL
+            this.feedback = null
           })
           .catch((err) => {
             console.log(err)
-            this.feedback = 'choose diffrent Image'
+            this.feedback = 'choose diffrent image'
           })
       })
     },

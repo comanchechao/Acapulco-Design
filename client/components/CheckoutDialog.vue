@@ -402,8 +402,8 @@ export default {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)
     },
-    checkout() {
-      const user = this.$fire.auth.currentUser
+    async checkout() {
+      const user = await this.$fire.auth.currentUser
       if (
         user &&
         this.order.Email &&
