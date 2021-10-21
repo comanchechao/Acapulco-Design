@@ -237,11 +237,7 @@
                 max-w-xs
               "
             >
-              <img
-                class="object-cover transform rotate-180"
-                src="/whatwhat.png"
-                alt=""
-              />
+              <img class="object-cover" src="/whatwhat1.png" alt="" />
             </div>
           </div>
 
