@@ -91,7 +91,7 @@
           </p>
         </div>
         <div class="w-full h-1/4 flex justify-center align-center">
-          <LazyHydrate :on-interaction="['click', 'focus']">
+          <LazyHydrate when-visible>
             <ProductDetail :product="product" />
           </LazyHydrate>
         </div>

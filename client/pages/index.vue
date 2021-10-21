@@ -39,15 +39,36 @@
           >
             <img class="peaceSign m-auto" src="/moomoole.png" alt="" />
           </div> -->
+          <!-- <div
+            v-gsap.to="{
+              opacity: 1,
+              duration: 1,
+              ease: 'circ.out',
+            }"
+            class="
+              opacity-0
+              mt-16
+              max-w-lg
+              surfingBoardDiv
+              absolute
+              place-self-start
+              justify-self-center
+            "
+          >
+            <img
+              src="/moomoole.png"
+              class="filter drop-shadow-2xl w-80 object-contain surfingBoard"
+              alt=""
+            />
+          </div> -->
           <div
             v-gsap.to="{
               opacity: 1,
               duration: 1,
-              delay: 1,
               ease: 'circ.out',
             }"
             class="
-              mt-7
+              mt-4
               acapulco-div
               lg:h-screen
               px-5
@@ -102,6 +123,7 @@
             >
               <h1
                 class="
+                  NavbarTrigger
                   acapulco
                   tracking-wider
                   text-7xl
@@ -139,21 +161,9 @@
               delay: 1,
               ease: 'circ.out',
             }"
-            class="scrollDownBtn self-center"
+            class="scrollDownBtn self-center mb-11"
           >
-            <v-btn
-              class="mt-28"
-              x-large
-              rounded
-              fab
-              depressed
-              dark
-              color="transparent"
-            >
-              <v-icon class="transform scale-125" x-large
-                >mdi-arrow-up-down</v-icon
-              >
-            </v-btn>
+            <img src="/arrow.png" class="h-28 w-16 object-contain" alt="" />
           </div> -->
           <div
             class="
@@ -277,14 +287,21 @@
                 md:max-w-2xl
                 shadow-2xl
                 w-full
-                overflow-hidden
               "
             >
-              <!-- <img
-                src="/lighters.png"
-                class="lg:object-cover object-cover m-auto"
+              <img
+                src="/hoodie2.png"
+                class="
+                  object-contain
+                  w-auto
+                  max-h-full
+                  m-auto
+                  z-10
+                  transform
+                  scale-125
+                "
                 alt=""
-              /> -->
+              />
             </div>
           </div>
 
@@ -967,18 +984,18 @@ export default {
 
 .acapulco {
   font-family: 'Sail';
-  text-shadow: 2px 2px 0px #aa9a3c, 4px 4px 0px #efff0b, 8px 8px 0px #9bd300,
-    12px 12px 0px #1e800b, 16px 16px 0px #16ff5c, 20px 20px 0px #7be68a,
-    24px 24px 0px #00ffd5, 28px 28px 0px #0077ff, 32px 32px 0px #3a007c;
+  text-shadow: 2px 2px 0px #eb55b2, 4px 4px 0px #c42ddf, 8px 8px 0px #9f12ca,
+    12px 12px 0px #9706c3, 16px 16px 0px #7f0095, 20px 20px 0px #520095,
+    24px 24px 0px #4f2381, 28px 28px 0px #400164, 32px 32px 0px #1e0036;
 }
 
 @media only screen and (max-width: 414px) {
   .acapulco {
     font-family: 'Sail';
-    text-shadow: 0.5px 0.5px 0px #aa9a3c, 1px 1px 0px #efff0b,
-      1.5px 1.5px 0px #9bd300, 2px 2px 0px #1e800b, 3px 3px 0px #16ff5c,
-      4px 4px 0px #7be68a, 5px 5px 0px #00ffd5, 6px 6px 0px #0077ff,
-      7px 7px 0px #3a007c;
+    text-shadow: 0.5px 0.5px 0px #eb55b2, 1px 1px 0px #c42ddf,
+      1.5px 1.5px 0px #9f12ca, 2px 2px 0px #9706c3, 3px 3px 0px #7f0095,
+      4px 4px 0px #520095, 5px 5px 0px #4f2381, 6px 6px 0px #400164,
+      7px 7px 0px #1e0036;
   }
 }
 

@@ -217,7 +217,18 @@
                 </h1>
               </div>
 
-              <div class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4">
+              <div
+                class="
+                  w-full
+                  h-3/4
+                  flex
+                  lg:p-7
+                  flex-col
+                  lg:flex-row
+                  p-4
+                  bg-LightBlue-600
+                "
+              >
                 <div
                   class="
                     w-full
@@ -501,7 +512,7 @@ export default {
   );
   /* width: 300px;
   height: 300px; */
-*
+
 /* .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

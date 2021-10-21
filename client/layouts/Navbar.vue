@@ -28,9 +28,18 @@
 
     <div class="flex align-center justify-end px-2">
       <div class="hidden lg:flex">
+        <nuxt-link to="/">
+          <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+            <span class="aboutUs text-xl"> Home </span>
+            <v-icon class="" large>mdi-home</v-icon>
+          </v-btn>
+        </nuxt-link>
+      </div>
+      <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
             <span class="white--text text-xl"> Shop </span>
+            <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
@@ -123,13 +132,14 @@
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
+import ShoppingCartDrawer from '../components/ShoppingCartDrawer.vue'
 export default {
   components: {
     LazyHydrate,
     MenuBarDrawer: () => import('../components/MenuBarDrawer.vue'),
     ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
     LoginDialog: () => import('../components/LoginDialog.vue'),
-    ShoppingCartDrawer: () => import('../components/ShoppingCartDrawer.vue'),
+    ShoppingCartDrawer,
   },
   data() {
     return {
@@ -170,7 +180,7 @@ export default {
         opacity: 0.8,
         ease: 'power4.out',
         scrollTrigger: {
-          trigger: '.acapulco',
+          trigger: '.NavbarTrigger',
           scrub: 2.5,
           start: 'bottom top',
           end: 'bottom bottom',

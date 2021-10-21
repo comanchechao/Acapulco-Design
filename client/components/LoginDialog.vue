@@ -99,7 +99,7 @@
           <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
             Don't have an account?
           </p>
-          <LazyHydrate :on-interaction="['click', 'focus']">
+          <LazyHydrate when-visible>
             <SignupDialog class="" />
             <PasswordResetDialog />
           </LazyHydrate>

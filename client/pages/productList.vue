@@ -34,7 +34,7 @@
             alt=""
           />
         </div>
-        <div class="w-3/4 lg:w-4/6 z-10 mt-14">
+        <div class="w-3/4 lg:w-4/6 z-10 mt-14 NavbarTrigger">
           <h1
             class="
               text-8xl
@@ -43,6 +43,7 @@
               capitalize
               firstText
               opacity-0
+              NavbarTrigger
             "
           >
             take a trip with us
@@ -131,8 +132,10 @@
                 space-x-3 space-y-2
                 px-4
                 text-center
+                lg:text-left
                 flex flex-wrap
                 align-center
+                lg:justify-start
                 justify-center
               "
             >
@@ -249,16 +252,14 @@
                 justify-self-center
               "
             >
-              <LazyHydrate when-visible>
-                <ProductCard
-                  v-for="product in products"
-                  id="product-card"
-                  ref="ProductCard"
-                  :key="product.id"
-                  class="p-4 productCard"
-                  :product="product"
-                />
-              </LazyHydrate>
+              <ProductCard
+                v-for="product in products"
+                id="product-card"
+                ref="ProductCard"
+                :key="product.id"
+                class="p-4 productCard"
+                :product="product"
+              />
             </div>
             <!-- </div> -->
             <!-- </div> -->
@@ -271,10 +272,8 @@
 </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 export default {
   components: {
-    LazyHydrate,
     // Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
     ProductCard: () => import('../components/ProductCard.vue'),
@@ -292,6 +291,7 @@ export default {
   mounted() {
     // this.animateSurfingBoard()
     this.animateBackground()
+    this.animateProductCards()
     this.$store.dispatch('getProducts')
   },
 
@@ -337,7 +337,25 @@ export default {
     //       scale: 0.2,
     //     })
     // },
+    animateProductCards() {
+      const products = this.$gsap.utils.toArray('#product-card')
+      products.forEach((product) => {
+        this.$gsap.fromTo(
+          product,
+          {
+            y: 200,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
 
+            ease: 'Sine.easeOut',
+          }
+        )
+      })
+    },
     animateBackground() {
       const gsap = this.$gsap
       const tl = gsap.timeline()

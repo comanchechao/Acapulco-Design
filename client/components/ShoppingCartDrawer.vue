@@ -113,6 +113,7 @@
 
       <div
         class="
+          p-4
           w-full
           h-2/3
           flex flex-row
