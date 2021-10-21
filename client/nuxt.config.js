@@ -110,12 +110,12 @@ export default {
     '@nuxtjs/i18n',
     'nuxt-lazy-load',
     [
-      "nuxt-imagemin",
+      'nuxt-imagemin',
       {
         optipng: { optimizationLevel: 5 },
-        gifsicle: { optimizationLevel: 2 }
-      }
-    ]
+        gifsicle: { optimizationLevel: 2 },
+      },
+    ],
     [
       '@nuxtjs/firebase',
       {
