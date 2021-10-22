@@ -273,7 +273,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Show Me! </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -369,7 +369,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Show Me! </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -401,7 +401,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Show Me! </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -481,7 +481,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Show Me! </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -548,7 +548,7 @@
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Learn More </span>
+                    <span class="learnMoreText"> Show Me! </span>
                   </button>
                 </NuxtLink>
               </div>
@@ -588,7 +588,7 @@
             </div>
             <NuxtLink to="/productList">
               <button class="learnMoreBtn">
-                <span class="learnMoreText"> Learn More </span>
+                <span class="learnMoreText"> Show Me! </span>
               </button>
             </NuxtLink>
             <div></div>

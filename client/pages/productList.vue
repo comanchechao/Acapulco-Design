@@ -436,7 +436,7 @@ export default {
 }
 
 .menuNavbar {
-  background-image: url('/trippy.jpg');
+  background-image: url('./assets/images/trippy.jpg');
   background-size: cover;
   background-position: 0px 0px;
   background-repeat: repeat-y;

@@ -99,10 +99,8 @@
           <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
             Don't have an account?
           </p>
-          <LazyHydrate when-visible>
-            <SignupDialog class="" />
-            <PasswordResetDialog />
-          </LazyHydrate>
+          <SignupDialog class="" />
+          <PasswordResetDialog />
         </div>
         <p v-if="error" class="errorText font-mainFont text-3xl">
           {{ error }}
@@ -113,11 +111,8 @@
 </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 export default {
   components: {
-    LazyHydrate,
-
     SignupDialog: () => import('../components/SignupDialog.vue'),
     PasswordResetDialog: () => import('../components/PasswordResetDIalog.vue'),
   },
