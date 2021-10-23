@@ -416,7 +416,7 @@
                             "
                           >
                             <h1 class="m-1 text-xl lg:text-3xl">
-                              {{ order.order.Name }}
+                              {{ order.order.FullName }}
                             </h1>
                             <h1 class="m-1 text-xl lg:text-3xl">
                               {{ order.Date }}
@@ -518,10 +518,7 @@
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
-                                Name: {{ order.order.Name }}
-                              </h1>
-                              <h1 class="text-xl border-b-2 p-1">
-                                lastName: {{ order.order.lastName }}
+                                Full Name: {{ order.order.FullName }}
                               </h1>
                               <h1 class="text-xl border-b-2 p-1">
                                 Address: {{ order.order.Address }}
@@ -760,7 +757,7 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     const ProductsRef = this.$fire.firestore.collection('Products')
 
     ProductsRef.onSnapshot((snapshot) => {
@@ -777,6 +774,9 @@ export default {
         }
       })
     })
+  },
+
+  mounted() {
     const OrdersRef = this.$fire.firestore.collection('orders')
     const Orders = []
 

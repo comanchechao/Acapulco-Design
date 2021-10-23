@@ -279,24 +279,43 @@ export default {
     ProductCard: () => import('../components/ProductCard.vue'),
   },
 
+
+  data(){
+    return {
+      products: []
+    }
+  },
   computed: {
-    products() {
-      return this.$store.state.products
-    },
+    // products() {
+    //   return this.$store.state.products
+    // },
     catagory() {
       return this.$store.state.catagory
     },
   },
 
-  created() {
-    this.$store.dispatch('getProducts')
-  },
+  async created() {
+    const ProductsRef = await this.$fire.firestore.collection('Products')
 
+    ProductsRef.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          const doc = change.doc
+          this.products.push({
+            id: doc.id,
+            title: doc.data().title,
+            price: doc.data().price,
+            image: doc.data().image,
+            catagory: doc.data().catagory,
+          })
+        }
+      })
+    })
+  },
   mounted() {
     // this.animateSurfingBoard()
     this.animateBackground()
     this.animateProductCards()
-    this.$store.dispatch('getProducts')
   },
 
   transition: {

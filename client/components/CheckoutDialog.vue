@@ -404,12 +404,7 @@ export default {
     },
     async checkout() {
       const user = await this.$fire.auth.currentUser
-      if (
-        user &&
-        this.order.Email &&
-        this.order.FullName !== null &&
-        this.cartItem.length > 0
-      ) {
+      if (user && this.order.FullName && this.cartItem.length > 0) {
         this.$fire.firestore
           .collection('orders')
           .add({

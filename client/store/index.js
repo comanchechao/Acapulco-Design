@@ -210,9 +210,6 @@ export const getters = {
     return state.user
   },
 
-  Products: (state) => {
-    return state.products
-  },
 
   // open some place for this big G
   cartItemCount: (state) => {
