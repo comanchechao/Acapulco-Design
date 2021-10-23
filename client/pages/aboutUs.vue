@@ -142,68 +142,7 @@ export default {
 
   mounted() {
     this.welcomeAnimation()
-
-    const gsap = this.$gsap
-
-    gsap.from('.hippie2', {
-      y: -500,
-      opacity: 0,
-      ease: 'sine.out',
-      scrollTrigger: {
-        trigger: '.panel2',
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        toggleActions: 'restart none resume pause',
-      },
-    })
-    gsap.from('.hippie2-text', {
-      scale: 0,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.panel2',
-
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        toggleActions: 'restart none resume pause',
-      },
-    })
-    gsap.from('.hippie3', {
-      y: -350,
-      opacity: 0,
-      ease: 'Power2.easeIn',
-      scrollTrigger: {
-        trigger: '.panel3',
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        toggleActions: 'restart none resume pause',
-      },
-    })
-    gsap.from('.hippie3-text', {
-      scale: 0,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.panel3',
-
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        toggleActions: 'restart none resume pause',
-      },
-    })
-    gsap.from('.backButton', {
-      y: 400,
-      ease: 'Power4.easeIn',
-      scrollTrigger: {
-        trigger: '.panel3',
-        start: 'top bottom',
-        end: 'bottom bottom',
-        scrub: 1,
-        toggleActions: 'restart none resume pause',
-      },
-    })
+    this.pageAnimation()
 
     // tl.to('.panelContainer', 5, { x: -window.innerWidth })
 
@@ -237,6 +176,69 @@ export default {
     // })
   },
   methods: {
+    pageAnimation() {
+      const gsap = this.$gsap
+
+      gsap.from('.hippie2', {
+        y: -500,
+        opacity: 0,
+        ease: 'sine.out',
+        scrollTrigger: {
+          trigger: '.panel2',
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      gsap.from('.hippie2-text', {
+        scale: 0,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.panel2',
+
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      gsap.from('.hippie3', {
+        y: -350,
+        opacity: 0,
+        ease: 'Power2.easeIn',
+        scrollTrigger: {
+          trigger: '.panel3',
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      gsap.from('.hippie3-text', {
+        scale: 0,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.panel3',
+
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+      gsap.from('.backButton', {
+        y: 400,
+        ease: 'Power4.easeIn',
+        scrollTrigger: {
+          trigger: '.panel3',
+          start: 'top bottom',
+          end: 'bottom bottom',
+          scrub: 1,
+          toggleActions: 'restart none resume pause',
+        },
+      })
+    },
     welcomeAnimation() {
       const tl = this.$gsap.timeline()
 
