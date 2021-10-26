@@ -997,18 +997,18 @@ export default {
 
 .acapulco {
   font-family: 'Sail';
-  text-shadow: 2px 2px 0px #2cd882, 4px 4px 0px #4ad39f, 8px 8px 0px #2ec0ad,
-    12px 12px 0px #0d53bd, 16px 16px 0px #001679, 20px 20px 0px #060f63,
-    24px 24px 0px #050236, 28px 28px 0px #0e0229, 32px 32px 0px #07011b;
+  text-shadow: 2px 2px 0px #f5e482, 4px 4px 0px #e6c824, 8px 8px 0px #c0ae08,
+    12px 12px 0px #b4d812, 16px 16px 0px #78e43a, 20px 20px 0px #00c76a,
+    24px 24px 0px #08ada0, 28px 28px 0px #05597a, 32px 32px 0px #310677;
 }
 
 @media only screen and (max-width: 414px) {
   .acapulco {
     font-family: 'Sail';
-    text-shadow: 0.5px 0.5px 0px #eb55b2, 1px 1px 0px #c42ddf,
-      1.5px 1.5px 0px #9f12ca, 2px 2px 0px #9706c3, 3px 3px 0px #7f0095,
-      4px 4px 0px #520095, 5px 5px 0px #4f2381, 6px 6px 0px #400164,
-      7px 7px 0px #1e0036;
+    text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
+      1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
+      4px 4px 0px #00c76a, 5px 5px 0px #08ada0, 6px 6px 0px #05597a,
+      7px 7px 0px #310677;
   }
 }
 

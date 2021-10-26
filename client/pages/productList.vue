@@ -266,7 +266,9 @@
           </div>
         </div>
       </div>
-      <!-- <Footer /> -->
+      <LazyHydrate when-visible>
+        <Footer />
+      </LazyHydrate>
     </div>
   </v-app>
 </template>
@@ -278,7 +280,7 @@ export default {
   components: {
     LazyHydrate,
 
-    // Footer: () => import('../layouts/Footer.vue'),
+    Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
     ProductCard: () => import('../components/ProductCard.vue'),
   },
