@@ -389,7 +389,7 @@ export default {
   },
   computed: {
     cartItem() {
-      return this.$store.state.cart
+      return this.$store.getters.getCart
     },
     cartTotalPrice() {
       return this.$store.getters.cartTotalPrice

@@ -12,7 +12,7 @@
             delay: 1,
             ease: 'circ.out',
           }"
-          class="mt-4 absolute z-50"
+          class="absolute z-50"
         />
       </LazyHydrate>
 
@@ -482,7 +482,8 @@
                             class="
                               orderDetail
                               container
-                              grid grid-cols-2
+                              grid grid-cols-1
+                              lg:grid-cols-2
                               overflow-y-scroll
                               p-2
                             "
@@ -757,8 +758,8 @@ export default {
     },
   },
 
-  created() {
-    const ProductsRef = this.$fire.firestore.collection('Products')
+  async created() {
+    const ProductsRef = await this.$fire.firestore.collection('Products')
 
     ProductsRef.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
