@@ -238,4 +238,7 @@ export const getters = {
   toast: (state) => {
     return state.toast
   },
+  getCart: (state, getters) => {
+    return state.cart
+  },
 }
