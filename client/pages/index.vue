@@ -7,15 +7,18 @@
       crossorigin="anonymous"
     /> -->
     <div id="main" class="w-screen">
-      <Navbar
-        id="navbar"
-        v-gsap.to="{
-          opacity: 1,
-          duration: 1,
-          ease: 'circ.out',
-        }"
-        class="navbar"
-      />
+      <LazyHydrate when-visible>
+        <Navbar
+          id="navbar"
+          v-gsap.to="{
+            opacity: 1,
+            duration: 1,
+            ease: 'circ.out',
+          }"
+          class="navbar"
+        />
+      </LazyHydrate>
+
       <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
           <!-- <div
@@ -192,7 +195,7 @@
             >
               <img
                 class="object-cover"
-                src="~/assets/images/whatwhat.png"
+                :src="require(`~/assets/images/whatwhat.svg`)"
                 alt=""
               />
             </div>
@@ -243,7 +246,7 @@
             >
               <img
                 class="object-cover"
-                src="~/assets/images/whatwhat1.png"
+                :src="require(`~/assets/images/whatwhat1.svg`)"
                 alt=""
               />
             </div>
@@ -639,12 +642,15 @@
               </h3>
             </div>
           </div>
+
+          <LazyHydrate when-visible>
+            <Footer />
+          </LazyHydrate>
         </div>
       </div>
     </div>
   </v-app>
 </template>
-<!-- <Footer /> -->
 <!-- <div class="flex align-center justify-center">
               <video
                 class="object-contain md:object-scale-down"
@@ -666,10 +672,13 @@
     </div> -->
 
 <script>
-// import gsap from 'gsap'
+import LazyHydrate from 'vue-lazy-hydration'
+
 export default {
   components: {
-    // Footer: () => import('../layouts/Footer.vue'),
+    LazyHydrate,
+
+    Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
   },
   computed: {

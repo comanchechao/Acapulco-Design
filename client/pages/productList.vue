@@ -272,17 +272,20 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
+
 export default {
   components: {
+    LazyHydrate,
+
     // Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
     ProductCard: () => import('../components/ProductCard.vue'),
   },
 
-
-  data(){
+  data() {
     return {
-      products: []
+      products: [],
     }
   },
   computed: {

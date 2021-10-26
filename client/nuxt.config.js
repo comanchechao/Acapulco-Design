@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/svg'],
   ],
 
   gsap: {
@@ -107,7 +108,7 @@ export default {
       },
     ],
     '@nuxtjs/i18n',
-    'nuxt-lazy-load',
+    // 'nuxt-lazy-load',
     [
       'nuxt-imagemin',
       {

@@ -6,14 +6,13 @@
         w-screen
         h-dialog
         lg:h-screen
-        grid grid-rows-2
-        gap-4
-        bg-mainRed
+        bg-mainBlue
+        flex flex-col
       "
     >
-      <div class="h-full flex align-center justify-center bg-mainBlue">
-        <div class="h-4/5 w-3/4 flex flex-col justify-center">
-          <div class="self-center">
+      <div class="h-3/6 flex align-center justify-center p-6 self-center">
+        <div class="self-center flex">
+          <div class="text-center space-x-3 lg:space-x-12 lg:space-y-8">
             <h1
               class="
                 font-mainFont font-extrabold
@@ -26,77 +25,62 @@
             >
               find us on social media!
             </h1>
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-facebook</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-google</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-instagram</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-whatsapp</v-icon
+            >
           </div>
-          <div
-            class="
-              lg:w-screen
-              h-3/5
-              self-center
-              flex
-              justify-around
-              lg:justify-center
-              align-center
-              lg:space-x-9
-            "
-          >
-            <i
-              class="
-                fab
-                fa-twitter fa-10x
-                icon-3d
-                transform
-                scale-50
-                lg:scale-100
-              "
-            ></i>
-            <i
-              class="
-                fab
-                fa-facebook fa-10x
-                icon-3d
-                transform
-                scale-50
-                lg:scale-100
-              "
-            ></i>
-            <i
-              class="
-                fab
-                fa-instagram fa-10x
-                icon-3d
-                transform
-                scale-50
-                lg:scale-100
-              "
-            ></i>
-            <i
-              class="
-                fab
-                fa-whatsapp fa-10x
-                icon-3d
-                transform
-                scale-50
-                lg:scale-100
-              "
-            ></i>
-            <img
-              class="
-                self-end
-                justify-self-end
-                icon-3d
-                scale-75
-                lg:scale-100
-                z-10
-              "
-              src="~/assets/images/ppp.png"
-              alt=""
-            />
+          <div class="w-40 h-48 self-end justify-self-end">
+            <a href="https://www.instagram.com/payamone/?hl=en">
+              <img
+                class="object-contain icon-3d"
+                src="~/assets/images/ppp.png"
+                alt=""
+              />
+            </a>
           </div>
         </div>
       </div>
-      <div class="flex justify-end align-end z-10 md:mt-5">
+      <h1
+        class="
+          self-center
+          lg:ml-4 lg:self-start
+          font-mainFont font-bold
+          capitalize
+          text-3xl
+          p-2
+          lg:text-5xl
+          text-mainRed
+        "
+      >
+        Made with ❤️ from Iran
+      </h1>
+      <h1
+        class="
+          self-center
+          lg:self-start lg:ml-4
+          font-mainFont font-thin
+          capitalize
+          text-3xl
+          p-1
+          lg:text-4xl
+          text-mainRed
+        "
+      >
+        Art by
+        <a href="https://www.instagram.com/payamone/?hl=en">PayamOne🌴</a>
+      </h1>
+      <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
         <img
-          class="object-scale-down scale-50 lg:scale-75"
+          class="lg:object-cover object-contain h-full w-full"
           src="~/assets/images/fsdfsdf.png"
           alt=""
         />
