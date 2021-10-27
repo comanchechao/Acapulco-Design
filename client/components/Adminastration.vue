@@ -143,6 +143,7 @@
             flex flex-row
             items-center
             justify-between
+            w-full
             topBar
             p-5
             bg-white
@@ -150,14 +151,14 @@
             rounded-bl-lg rounded-br-lg
           "
         >
-          <p
-            class="font-semibold text-gray-600 cursor-pointer"
+          <button
+            class="font-semibold px-4 py-2 bg-Rose-500 text-white justify-center rounded cursor-pointer"
             @click="toggleModal"
           >
-            Cancel
-          </p>
+           Cancel
+          </button>
           <button
-            class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
+            class="px-2 py-2 text-white font-semibold bg-blue-500 rounded cursor-pointer"
           >
             Save
             <div v-show="adding">
@@ -273,7 +274,6 @@ export default {
             this.price = null
             this.inStock = null
             this.catagory = null
-            this.feedback = null
             this.image = null
             this.adding = false
             this.feedback = 'Product added'
