@@ -1,3 +1,15 @@
+<i18n lang="yaml">
+en:
+  aboutus: 'About Us'
+  home: 'Home'
+  shop: 'Shop'
+  admin: 'Admin'
+fa:
+  aboutus: 'درباره ی ما'
+  home: 'خانه'
+  shop: 'خرید'
+  admin: 'ادمین'
+</i18n>
 <template>
   <!-- <v-app> -->
   <div
@@ -21,7 +33,7 @@
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
-          <span class="aboutUs text-xl"> About Us </span>
+          <span class="aboutUs text-xl"> {{ $t('aboutus') }} </span>
         </v-btn>
       </nuxt-link>
     </div>
@@ -30,7 +42,7 @@
       <div class="hidden lg:flex">
         <nuxt-link to="/">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <span class="aboutUs text-xl"> Home </span>
+            <span class="aboutUs text-xl"> {{ $t('home') }} </span>
             <v-icon class="" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
@@ -38,7 +50,7 @@
       <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
-            <span class="white--text text-xl"> Shop </span>
+            <span class="white--text text-xl"> {{ $t('shop') }} </span>
             <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
@@ -46,8 +58,8 @@
       <div class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
-            <span class="white--text text-xl">admin</span>
-            <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
+            <span class="white--text text-xl"> {{ $t('admin') }} </span>
+            <v-icon class="cowboy">mdi-cryengine</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
@@ -105,6 +117,18 @@
       </div>
 
       <v-spacer></v-spacer>
+      <nuxt-link v-show="$route.path !== '/'" :to="switchLocalePath('en')">
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-web</v-icon>
+          <span class="aboutUs text-lg lg:text-x"> EN </span>
+        </v-btn></nuxt-link
+      >
+      <nuxt-link v-show="$route.path !== '/fa'" :to="switchLocalePath('fa')">
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-web</v-icon>
+          <span class="aboutUs text-lg lg:text-xl"> FA </span>
+        </v-btn></nuxt-link
+      >
       <ShoppingCartDrawer />
     </div>
   </div>

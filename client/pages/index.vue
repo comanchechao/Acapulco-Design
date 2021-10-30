@@ -1,22 +1,17 @@
+<i18n lang="yaml">
+en:
+  acapulcodesign: 'Acapulco Design'
+  limited: 'Limited'
+fa:
+  acapulcodesign: 'آکاپلکو دیزاین'
+  limited: 'اجناس'
+</i18n>
+
 <template>
   <v-app>
-    <!-- <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
-      crossorigin="anonymous"
-    /> -->
     <div id="main" class="w-screen">
       <LazyHydrate when-visible>
-        <Navbar
-          id="navbar"
-          v-gsap.to="{
-            opacity: 1,
-            duration: 1,
-            ease: 'circ.out',
-          }"
-          class="navbar"
-        />
+        <Navbar id="navbar" class="navbar" />
       </LazyHydrate>
 
       <div class="w-screen overflow-hidden">
@@ -64,14 +59,17 @@
               alt=""
             />
           </div> -->
+          <div class="w-40 lg:w-64 absolute self-start mt-14">
+            <img
+              src="~/assets/images/peachSign.svg"
+              class="object-contain"
+              alt=""
+            />
+          </div>
           <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 1,
-              ease: 'circ.out',
-            }"
             class="
-              mt-4
+              mt-44
+              lg:mt-36
               acapulco-div
               lg:h-screen
               px-5
@@ -82,9 +80,7 @@
               lg:flex-row
               align-center
               justify-between
-              opacity-0
               relative
-              mb-32
             "
           >
             <div
@@ -137,7 +133,7 @@
                   text-gray-100
                 "
               >
-                Acapulco Design
+                {{ $t('acapulcodesign') }}
               </h1>
             </div>
             <div class="lg:max-w-xl z-10 h-2/5 w-full">
@@ -156,6 +152,13 @@
                 alt=""
               />
             </div>
+          </div>
+          <div class="h-20 w-12 m-14 mb-24 acapulco-div">
+            <img
+              src="~/assets/images/arrow.png"
+              class="object-contain"
+              alt=""
+            />
           </div>
           <!-- <div
             v-gsap.to="{
@@ -226,8 +229,9 @@
                   sm:m-auto
                 "
               >
-                <span class="text-mainRed animatedSpans">Limited</span>,
-                <span class="animatedSpans">custom</span>,
+                <span class="text-mainRed animatedSpans">
+                  {{ $t('limited') }} </span
+                >, <span class="animatedSpans">custom</span>,
                 <i class="animatedSpans">handmade </i>
                 <span class="animatedSpans"> merchendise</span>
               </h2>
@@ -296,7 +300,7 @@
                 w-full
               "
             >
-              <img
+              <!-- <img
                 src="~/assets/images/hoodie2.png"
                 class="
                   object-contain
@@ -308,7 +312,7 @@
                   scale-125
                 "
                 alt=""
-              />
+              /> -->
             </div>
           </div>
 

@@ -67,6 +67,13 @@
     src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
   }
 }
+@font-face {
+  font-family: 'Estedad';
+  src: url('~assets/fonts/Estedad-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 /* * {
   border: 1px solid red;
 } */
@@ -76,6 +83,8 @@ html {
 }
 
 #main {
+  font-family: 'Estedad';
+
   animation: 30s ease-in-out infinite alternate-reverse color-change;
   height: 100%;
 }

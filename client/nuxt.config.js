@@ -143,27 +143,28 @@ export default {
       },
     ],
   ],
+  i18n: {
+    vueI18nLoader: true,
+    baseUrl: 'https://acapulcodesign.netlify.app',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // recommended
+      alwaysRedirect: true,
+    },
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'fa',
+        iso: 'fa-FA',
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+      },
+    ],
 
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-
-  // vuetify: {
-  //   customVariables: ['~/assets/variables.scss'],
-  //   theme: {
-  //     dark: true,
-  //     themes: {
-  //       dark: {
-  //         primary: colors.blue.darken2,
-  //         accent: colors.grey.darken3,
-  //         secondary: colors.amber.darken3,
-  //         info: colors.teal.lighten1,
-  //         warning: colors.amber.base,
-  //         error: colors.deepOrange.accent4,
-  //         success: colors.green.accent3,
-  //       },
-  //     },
-  //   },
-  // },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+    build: {},
+  },
 }
