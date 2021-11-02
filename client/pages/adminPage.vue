@@ -277,7 +277,7 @@
                           "
                         >
                           <h3 class="">{{ product.title }}</h3>
-                          <button @click="deleteProduct(product.id)" class="">
+                          <button class="" @click="deleteProduct(product.id)">
                             <img
                               class="kiskis"
                               src="~/assets/images/x.png"
@@ -589,93 +589,91 @@
             row-span-1
           "
         >
-          <ul
+          <div
             class="
-              grid grid-cols-3
-              tabBar
-              list-none
+              mx-2
+              absolute
+              flex
+              justify-center justify-around
+              flex-row
+              bottom-0
+              content-center
               w-full
-              h-full
-              justify-items-center
-              place-content-center place-items-center
-              gap-2
+              border-4 border-Lime-500
+              lg:w-1/2 lg:h-48
+              h-36
+              rounded-2xl
+              bg-Indigo-900
             "
           >
-            <li class="lis shadow-2xl w-full text-center" @click="tab1()">
-              <a
-                class="
-                  flex
-                  justify-center
-                  p-5
-                  lg:p-3
-                  w-full
-                  h-full
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600  border-2 bg-transparent': openTab !== 1,
-                  'text-white bg-Sky-600': openTab === 1,
-                }"
-                @click="toggleTabs(1)"
-              >
-                <img class="" src="~/assets/images/flag.png" alt="" />
-              </a>
-            </li>
-            <li class="lis shadow-2xl w-full text-center" @click="tab2()">
-              <a
-                class="
-                  shadow-lg
-                  rounded
-                  w-full
-                  p-1
-                  lg:p-3
-                  block
-                  flex
-                  justify-center
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 border-2 bg-transparent': openTab !== 2,
-                  'text-white bg-Amber-500': openTab === 2,
-                }"
-                @click="toggleTabs(2)"
-              >
-                <img
-                  class="place-self-center"
-                  src="~/assets/images/mimis.png"
-                  alt=""
-                />
-              </a>
-            </li>
-            <li class="lis shadow-2xl w-full text-center" @click="tab3()">
-              <a
-                class="
-                  grid
-                  justify-center
-                  p-5
-                  lg:p-2
-                  shadow-lg
-                  rounded
-                  block
-                  leading-normal
-                "
-                :class="{
-                  'text-pink-600 border-2 bg-transparent': openTab !== 3,
-                  'text-white bg-purple-600': openTab === 3,
-                }"
-                @click="toggleTabs(3)"
-              >
-                <img
-                  class="place-self-center"
-                  src="~/assets/images/biker.png"
-                  alt=""
-                />
-              </a>
-            </li>
-          </ul>
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 1,
+              }"
+              class="
+                lis
+                m-3
+                flex flex-col
+                justify-center
+                align-center
+                bg-blueGray-300
+                rounded-full
+                h-32
+                w-32
+                lg:h-44 lg:w-44
+                shadow-2xl
+              "
+              @click="tab1() & toggleTabs(1)"
+            >
+              <img
+                class="rateImg object-contain"
+                src="~/assets/images/flag.png"
+                alt=""
+              />
+            </div>
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 2,
+              }"
+              class="
+                lis
+                m-3
+                flex flex-col
+                justify-center
+                align-center
+                bg-blueGray-300
+                rounded-full
+                h-32
+                w-32
+                lg:h-44 lg:w-44
+                shadow-2xl
+              "
+              @click="tab2() & toggleTabs(2)"
+            >
+              <img class="kiskisImg object-contain" src="/kiskis.svg" alt="" />
+            </div>
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 3,
+              }"
+              class="
+                lis
+                m-3
+                flex flex-col
+                justify-center
+                align-center
+                bg-blueGray-300
+                rounded-full
+                h-32
+                w-32
+                lg:h-44 lg:w-44
+                shadow-2xl
+              "
+              @click="tab3() & toggleTabs(3)"
+            >
+              <img class="gisgisImg object-contain" src="/gisgis.svg" alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1106,6 +1104,21 @@ input[type='number'] {
 .listCard {
   background-color: #28ffbf;
   color: #451881;
+}
+
+.kiskisImg {
+  width: 400px;
+  height: 300px;
+}
+
+.gisgisImg {
+  width: 400px;
+  height: 150px;
+}
+
+.rateImg {
+  width: 400px;
+  height: 200px;
 }
 
 h1 {
