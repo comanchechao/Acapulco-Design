@@ -591,6 +591,7 @@
         >
           <div
             class="
+              buttonContainer
               mx-2
               absolute
               flex
@@ -599,16 +600,18 @@
               bottom-0
               content-center
               w-full
-              border-4 border-Lime-500
               lg:w-1/2 lg:h-48
               h-36
               rounded-2xl
-              bg-Indigo-900
+              border-r-8
+              border-l-8
+              border-Indigo-600
             "
           >
             <div
               :class="{
                 'bg-Lime-500': openTab === 1,
+                'border-4 border-Lime-500': openTab !== 1,
               }"
               class="
                 lis
@@ -616,17 +619,16 @@
                 flex flex-col
                 justify-center
                 align-center
-                bg-blueGray-300
-                rounded-full
+                rounded-2xl
                 h-32
                 w-32
-                lg:h-44 lg:w-44
+                lg:h-36 lg:w-44
                 shadow-2xl
               "
               @click="tab1() & toggleTabs(1)"
             >
               <img
-                class="rateImg object-contain"
+                class="lg:p-4 rateImg object-contain"
                 src="~/assets/images/flag.png"
                 alt=""
               />
@@ -634,6 +636,7 @@
             <div
               :class="{
                 'bg-Lime-500': openTab === 2,
+                'border-4 border-Lime-500': openTab !== 2,
               }"
               class="
                 lis
@@ -641,20 +644,20 @@
                 flex flex-col
                 justify-center
                 align-center
-                bg-blueGray-300
-                rounded-full
+                rounded-2xl
                 h-32
                 w-32
-                lg:h-44 lg:w-44
+                lg:h-36 lg:w-44
                 shadow-2xl
               "
               @click="tab2() & toggleTabs(2)"
             >
-              <img class="kiskisImg object-contain" src="/kiskis.svg" alt="" />
+              <img class="lg:p-4 kiskisImg object-contain" src="/kiskis.svg" alt="" />
             </div>
             <div
               :class="{
                 'bg-Lime-500': openTab === 3,
+                'border-4 border-Lime-500': openTab !== 3,
               }"
               class="
                 lis
@@ -662,16 +665,15 @@
                 flex flex-col
                 justify-center
                 align-center
-                bg-blueGray-300
-                rounded-full
+                rounded-2xl
                 h-32
                 w-32
-                lg:h-44 lg:w-44
+                lg:h-36 lg:w-44
                 shadow-2xl
               "
               @click="tab3() & toggleTabs(3)"
             >
-              <img class="gisgisImg object-contain" src="/gisgis.svg" alt="" />
+              <img class="lg:p-4 gisgisImg object-contain" src="/gisgis.svg" alt="" />
             </div>
           </div>
         </div>
@@ -1123,5 +1125,9 @@ input[type='number'] {
 
 h1 {
   border-color: #e2e9e0;
+}
+
+.buttonContainer {
+  background-color: #23f4fc;
 }
 </style>
