@@ -366,7 +366,7 @@ fa:
               >
                 Coming Soon...
               </h1>
-              <v-img> </v-img>
+              <img class="object-contain" alt="" />
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
