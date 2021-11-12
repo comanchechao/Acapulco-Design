@@ -228,7 +228,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 span {

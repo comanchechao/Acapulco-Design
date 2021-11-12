@@ -11,7 +11,7 @@ fa:
   <v-app>
     <div id="main" class="w-screen">
       <LazyHydrate when-visible>
-        <Navbar id="navbar" class="navbar" />
+        <Navbar id="navbar" class="navbar"> </Navbar>
       </LazyHydrate>
 
       <div class="w-screen overflow-hidden">
@@ -266,7 +266,7 @@ fa:
               align-center
               justify-center
               space-y-9
-              p-20
+              p-14
               lg:p-48
               justify-self-stretch
               forthContainer
@@ -285,34 +285,31 @@ fa:
                 </NuxtLink>
               </div>
             </div>
+
+            <div class=""></div>
             <div
               class="
                 pictureDiv
                 lg:order-last
-                max-w-lg
                 cursor-pointer
                 bg-red-200
-                sm:max-h-80
-                h-full
-                lg:max-w-2xl
-                md:max-w-2xl
                 shadow-2xl
-                w-full
               "
             >
-              <!-- <img
-                src="~/assets/images/hoodie2.png"
+              <img
+                src="~/assets/images/lighter.svg"
                 class="
-                  object-contain
-                  w-auto
-                  max-h-full
+                  object-fill
+                  w-full
+                  h-full
+                  lg:max-w-2xl
+                  md:max-w-2xl
+                  drop-shadow-2xl
                   m-auto
-                  z-10
-                  transform
-                  scale-125
+                  pictureDivImages
                 "
                 alt=""
-              /> -->
+              />
             </div>
           </div>
 
@@ -332,25 +329,8 @@ fa:
               content
             "
           >
-            <div
-              class="
-                pictureDiv
-                lg:order-first
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                sm:max-h-80
-                lg:max-w-xl
-                md:max-w-xl
-                shadow-2xl
-                w-full
-                flex flex-col-reverse
-                justify-start
-                align-end
-              "
-            >
-              <h1
+            <div class="pictureDiv lg:order-first cursor-pointer shadow-2xl">
+              <!-- <h1
                 class="
                   m-3
                   font-mainFont
@@ -365,8 +345,23 @@ fa:
                 "
               >
                 Coming Soon...
-              </h1>
-              <img class="object-contain" alt="" />
+              </h1> -->
+              <img
+                src="~/assets/images/acapulcoShirt.svg"
+                alt=""
+                class="
+                  pictureDivImages
+                  max-w-lg
+                  h-full
+                  object-fill
+                  drop-shadow-2xl
+                  m-auto
+                  sm:max-h-80
+                  lg:max-w-xl
+                  md:max-w-xl
+                  w-full
+                "
+              />
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
@@ -755,6 +750,20 @@ export default {
             toggleActions: 'play none none reverse',
           },
         })
+        tl.from('.pictureDivImages', {
+          opacity: 0,
+          y: 280,
+          ease: 'Sine.easeOut',
+          stagger: true,
+          scrollTrigger: {
+            trigger: pictureDiv,
+            scrub: 2,
+
+            start: 'top bottom',
+            end: 'top center',
+            toggleActions: 'play none resume none',
+          },
+        })
       })
     },
 
@@ -1031,5 +1040,36 @@ input::-moz-focus-inner {
   padding: 0;
   margin-top: -2px;
   margin-bottom: -2px;
+}
+
+.pictureDiv {
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #d8bbff;
+  }
+
+  45% {
+    background-color: #a6a6db;
+  }
+
+  100% {
+    background-color: #ade7e7;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #595bee;
+  }
+
+  50% {
+    background-color: #55dd8e;
+  }
+
+  100% {
+    background-color: #83f1f1;
+  }
 }
 </style>
