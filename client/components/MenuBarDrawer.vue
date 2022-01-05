@@ -1,3 +1,16 @@
+<i18n lang="yaml">
+en:
+  aboutus: 'About Us'
+  home: 'Home'
+  shop: 'Shop'
+  admin: 'Admin'
+fa:
+  aboutus: 'درباره ی ما'
+  home: 'خانه'
+  shop: 'خرید'
+  admin: 'ادمین'
+</i18n>
+
 <template>
   <div class="">
     <v-tooltip bottom class="sm:hidden">
@@ -37,7 +50,7 @@
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> Home </span>
+              <span class="aboutUs text-xl"> {{ $t('home') }} </span>
               <v-icon class="" large>mdi-home</v-icon>
             </v-btn>
           </nuxt-link>
@@ -50,19 +63,19 @@
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> About Us </span>
+              <span class="aboutUs text-xl">{{ $t('aboutus') }}</span>
               <v-icon class="" large>mdi-meditation</v-icon>
             </v-btn>
           </nuxt-link>
           <nuxt-link to="/productList">
             <v-btn depressed x-large dark color="transparent" class="">
-              <span class="white--text text-xl"> Shop </span>
+              <span class="white--text text-xl"> {{ $t('shop') }} </span>
               <v-icon large>mdi-shopping</v-icon>
             </v-btn>
           </nuxt-link>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">
             <v-btn depressed dark x-large color="transparent" class="">
-              <span class="white--text text-xl">admin</span>
+              <span class="white--text text-xl">{{ $t('admin') }}</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
             </v-btn>
           </NuxtLink>
@@ -88,7 +101,7 @@ export default {
   z-index: 199 !important;
 }
 span {
-  font-family: 'Acme', sans-serif;
+  font-family: 'Roboto Slab', 'Estedad' sans-serif;
   text-align: center;
   display: flex;
   justify-self: center;

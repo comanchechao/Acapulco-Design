@@ -603,9 +603,7 @@
               lg:w-1/2 lg:h-48
               h-36
               rounded-2xl
-              border-r-8
-              border-l-8
-              border-Indigo-600
+              border-r-8 border-l-8 border-Indigo-600
             "
           >
             <div
@@ -652,7 +650,11 @@
               "
               @click="tab2() & toggleTabs(2)"
             >
-              <img class="lg:p-4 kiskisImg object-contain" src="/kiskis.svg" alt="" />
+              <img
+                class="lg:p-4 kiskisImg object-contain"
+                src="/kiskis.svg"
+                alt=""
+              />
             </div>
             <div
               :class="{
@@ -673,7 +675,11 @@
               "
               @click="tab3() & toggleTabs(3)"
             >
-              <img class="lg:p-4 gisgisImg object-contain" src="/gisgis.svg" alt="" />
+              <img
+                class="lg:p-4 gisgisImg object-contain"
+                src="/gisgis.svg"
+                alt=""
+              />
             </div>
           </div>
         </div>

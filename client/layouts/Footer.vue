@@ -40,11 +40,11 @@
           </div>
           <div class="w-40 h-48 self-end justify-self-end">
             <a href="https://www.instagram.com/payamone/?hl=en">
-              <img
+              <!-- <img
                 class="object-contain icon-3d"
                 src="~/assets/images/ppp.png"
                 alt=""
-              />
+              /> -->
             </a>
           </div>
         </div>
@@ -79,11 +79,11 @@
         <a href="https://www.instagram.com/payamone/?hl=en">PayamOne🌴</a>
       </h1>
       <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
-        <img
+        <!-- <img
           class="lg:object-cover object-contain h-full w-full"
           src="~/assets/images/fsdfsdf.png"
           alt=""
-        />
+        /> -->
       </div>
     </div>
   </div>

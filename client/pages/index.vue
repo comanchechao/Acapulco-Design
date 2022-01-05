@@ -2,9 +2,36 @@
 en:
   acapulcodesign: 'Acapulco Design'
   limited: 'Limited'
+  custom: 'Custom'
+  handmade: 'Handmade'
+  merchendise: 'Merchendise'
+  lighters: 'Lighters'
+  showMe: 'Show Me!'
+  acapulcoShirt: 'Acapulco Shirt'
+  acapulcoMatchboxes: 'Custom Matchboxes'
+  comingSoon: 'Coming Soon'
+  acapulcoShorts: 'Acapulco Shorts'
+  acapulcoHoodies: 'Acapulco Hoodies'
+  collections: 'Collections'
+  weAreA: 'We are a'
+  creativeTeam: 'Creative Team'
+  based: 'Based in Iran'
+  if: 'If you want to know more; maybe get a cup of coffee( Or tea!), you can!'
+
 fa:
   acapulcodesign: 'آکاپلکو دیزاین'
   limited: 'اجناس'
+  custom: ' شخصی سازی شده'
+  handmade: 'و دست ساز'
+  merchendise: 'به مدت محدود'
+  lighters: 'فندک ها'
+  showMe: 'نشونم بده!'
+  acapulcoShirt: 'پیراهن آلکاپلکو'
+  acapulcoMatchboxes: 'کبریت های آکاپلکو'
+  comingSoon: 'بزودی'
+  acapulcoHoodies: 'هودی های اکاپلکو'
+  acapulcoShorts: 'شورت های آکاپلکو'
+  collections: 'کالکشن ها'
 </i18n>
 
 <template>
@@ -61,7 +88,7 @@ fa:
           </div> -->
           <div class="w-40 lg:w-64 absolute self-start mt-14">
             <img
-              src="~/assets/images/peachSign.svg"
+              src="~/assets/images/peaceSign.svg"
               class="object-contain"
               alt=""
             />
@@ -221,7 +248,7 @@ fa:
                   h2-home
                   text-center
                   capitalize
-                  font-bold
+                  font-semibold
                   text-4xl
                   md:text-7xl
                   lg:text-9xl
@@ -231,9 +258,10 @@ fa:
               >
                 <span class="text-mainRed animatedSpans">
                   {{ $t('limited') }} </span
-                >, <span class="animatedSpans">custom</span>,
-                <i class="animatedSpans">handmade </i>
-                <span class="animatedSpans"> merchendise</span>
+                >, <span class="animatedSpans">{{ $t('custom') }}</span
+                >,
+                <i class="animatedSpans">{{ $t('handmade') }} </i>
+                <span class="animatedSpans"> {{ $t('merchendise') }}</span>
               </h2>
             </div>
             <div
@@ -275,18 +303,19 @@ fa:
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl lg:text-7xl p-5 text-center">Lighters</h3>
+                <h3 class="text-6xl lg:text-7xl p-5 text-center">
+                  {{ $t('lighters') }}
+                </h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Show Me! </span>
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
               </div>
             </div>
 
-            <div class=""></div>
             <div
               class="
                 pictureDiv
@@ -300,7 +329,7 @@ fa:
                 src="~/assets/images/lighter.svg"
                 class="
                   object-fill
-                  w-full
+                  w-96
                   h-full
                   lg:max-w-2xl
                   md:max-w-2xl
@@ -365,13 +394,15 @@ fa:
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center">Acapulco Shirts</h3>
+                <h3 class="text-6xl p-5 text-center">
+                  {{ $t('acapulcoShirt') }}
+                </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Show Me! </span>
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
               </div>
@@ -397,13 +428,13 @@ fa:
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3 class="text-6xl lg:text-7xl p-5 text-center">
-                  Custom Matchboxes💥
+                  {{ $t('acapulcoMatchboxes') }}💥
                 </h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Show Me! </span>
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
               </div>
@@ -471,19 +502,21 @@ fa:
                   font-bold
                 "
               >
-                Coming Soon...
+                {{ $t('comingSoon') }}...
               </h1>
               <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center">Acapulco Shorts</h3>
+                <h3 class="text-6xl p-5 text-center">
+                  {{ $t('acapulcoShorts') }}
+                </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Show Me! </span>
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
               </div>
@@ -534,13 +567,15 @@ fa:
                   font-bold
                 "
               >
-                Coming Soon...
+                {{ $t('comingSoon') }}...
               </h1>
               <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex justify-end">
-                <h3 class="text-6xl p-5 text-center">Acapulco Hoodies</h3>
+                <h3 class="text-6xl p-5 text-center">
+                  {{ $t('acapulcoHoodies') }}
+                </h3>
                 <img
                   src="~/assets/images/Hoodie.png"
                   class="transform scale-95 object-contain lg:scale-100"
@@ -550,7 +585,7 @@ fa:
               <div class="self-center">
                 <NuxtLink to="/productList">
                   <button class="learnMoreBtn">
-                    <span class="learnMoreText"> Show Me! </span>
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
               </div>
@@ -586,11 +621,13 @@ fa:
             ></div>
 
             <div class="textDiv">
-              <h3 class="text-6xl mt-3 text-center">Collections 🗿</h3>
+              <h3 class="text-6xl mt-3 text-center">
+                {{ $t('collections') }} 🗿
+              </h3>
             </div>
             <NuxtLink to="/productList">
               <button class="learnMoreBtn">
-                <span class="learnMoreText"> Show Me! </span>
+                <span class="learnMoreText">{{ $t('showMe') }}</span>
               </button>
             </NuxtLink>
             <div></div>
@@ -690,7 +727,7 @@ export default {
     this.animateOnScroll()
     // this.animateScrollDownBtn()
     // this.peaceSignAnimation()
-    this.animatePeaceSign()
+    // this.animatePeaceSign()
   },
   transition: {
     mode: 'out-in',
@@ -713,29 +750,6 @@ export default {
       const gsap = this.$gsap
       const pictureDivs = this.$gsap.utils.toArray('.pictureDiv')
       const tl = gsap.timeline()
-      // tl.from('.tropicalImage', {
-      //   opacity: 0,
-      //   duration: 1,
-      //   scrollTrigger: {
-      //     trigger: '.tropicalImage',
-      //     start: 'top bottom',
-      //     toggleActions: 'play none none reset',
-      //   },
-      // })
-
-      // .To('collections', {
-      //   y: -150,
-      //   opacity: 0,
-      //   // ease: 'Power1.easeInOut',
-      //   scrollTrigger: {
-      //     trigger: 'collections',
-      //     start: 'top top',
-      //     end: 'center top',
-      //     scrub: 0.1,
-
-      //     // toggleActions: 'restart none reverse none',
-      //   },
-      // })
       pictureDivs.forEach((pictureDiv) => {
         tl.from(pictureDiv, {
           opacity: 0,
@@ -750,22 +764,25 @@ export default {
             toggleActions: 'play none none reverse',
           },
         })
-        tl.from('.pictureDivImages', {
-          opacity: 0,
-          y: 280,
-          ease: 'Sine.easeOut',
-          stagger: true,
-          scrollTrigger: {
-            trigger: pictureDiv,
-            scrub: 2,
+        // tl.from('.pictureDivImages', {
+        //   opacity: 0,
+        //   y: 280,
+        //   ease: 'Sine.easeOut',
+        //   stagger: true,
+        //   scrollTrigger: {
+        //     trigger: pictureDiv,
+        //     scrub: 2,
 
-            start: 'top bottom',
-            end: 'top center',
-            toggleActions: 'play none resume none',
-          },
-        })
+        //     start: 'top bottom',
+        //     end: 'top center',
+        //     toggleActions: 'play none resume none',
+        //   },
+        // })
       })
     },
+    // animtePictureDivSvgs() {
+    //   const gsap = this.$gsap
+    //       }
 
     // peaceSignAnimation() {
     //   const gsap = this.$gsap
@@ -790,26 +807,26 @@ export default {
     //     })
     // },\
 
-    animatePeaceSign() {
-      const gsap = this.$gsap
+    // animatePeaceSign() {
+    //   const gsap = this.$gsap
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            start: 'top top',
-            end: '+=8000',
-            scrub: 2,
-            trigger: '.peaceSignDiv',
-            marker: true,
-          },
-        })
-        .to('.peaceSign', {
-          opacity: 0,
-          rotation: 360 * 7,
-          duration: 0.2,
-          scale: 0.2,
-        })
-    },
+    //   gsap
+    //     .timeline({
+    //       scrollTrigger: {
+    //         start: 'top top',
+    //         end: '+=8000',
+    //         scrub: 2,
+    //         trigger: '.peaceSignDiv',
+    //         marker: true,
+    //       },
+    //     })
+    //     .to('.peaceSign', {
+    //       opacity: 0,
+    //       rotation: 360 * 7,
+    //       duration: 0.2,
+    //       scale: 0.2,
+    //     })
+    // },
 
     // animateScrollDownBtn() {
     //   const gsap = this.$gsap
@@ -912,7 +929,12 @@ export default {
 
 <style scoped>
 /* Hide scrollbar for IE, Edge and Firefox */
-
+/* * {
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
+} */
+.animatedSpans {
+  font-family: 'Roboto Slab', 'Estedad';
+}
 .content {
   opacity: 0;
 }
@@ -932,7 +954,7 @@ export default {
 
 .introText {
   /* font-size: 3.6em; */
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', 'Rezvan' serif;
   /* line-height: 110%; */
   /* text-transform: capitalize; */
   font-weight: 700;
@@ -1009,7 +1031,7 @@ export default {
 } */
 
 .acapulco {
-  font-family: 'Sail';
+  font-family: 'Sail', 'Estedad';
   text-shadow: 2px 2px 0px #f5e482, 4px 4px 0px #e6c824, 8px 8px 0px #c0ae08,
     12px 12px 0px #b4d812, 16px 16px 0px #78e43a, 20px 20px 0px #00c76a,
     24px 24px 0px #08ada0, 28px 28px 0px #05597a, 32px 32px 0px #310677;
@@ -1017,7 +1039,7 @@ export default {
 
 @media only screen and (max-width: 414px) {
   .acapulco {
-    font-family: 'Sail';
+    font-family: 'Sail', 'Estedad';
     text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
       1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
       4px 4px 0px #00c76a, 5px 5px 0px #08ada0, 6px 6px 0px #05597a,

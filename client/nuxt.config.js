@@ -49,7 +49,6 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     'nuxt-compress',
-
     'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
@@ -99,16 +98,18 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/i18n',
     [
       'nuxt-compress',
       {
         gzip: {
           threshold: 8192,
         },
+        brotli: {
+          threshold: 8192,
+        },
       },
     ],
-    '@nuxtjs/i18n',
-    // 'nuxt-lazy-load',
     [
       'nuxt-imagemin',
       {
@@ -143,6 +144,7 @@ export default {
       },
     ],
   ],
+
   i18n: {
     vueI18nLoader: true,
     baseUrl: 'https://acapulcodesign.netlify.app',
@@ -165,6 +167,16 @@ export default {
       },
     ],
 
-    build: {},
+    build: {
+      extend(config, ctx) {
+        config.module.rules.push({
+          test: /\.(ogg|mp3|wav|mpe?g)$/i,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        })
+      },
+    },
   },
 }

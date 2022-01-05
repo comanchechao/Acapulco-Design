@@ -8,6 +8,8 @@
 // }
 
 export const state = () => ({
+  isSoundEnabled: true,
+
   user: null,
   account: null,
   products: [],
@@ -16,6 +18,23 @@ export const state = () => ({
 })
 
 export const mutations = {
+  toggleSound(state) {
+    state.isSoundEnabled = !state.isSoundEnabled
+    localStorage.setItem('isSoundEnabled', state.isSoundEnabled)
+  },
+  initializeSound(state) {
+    const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'))
+    if (!isSoundEnabled) {
+      state.isSoundEnabled = false
+      localStorage.setItem('isSoundEnabled', false)
+    } else if (isSoundEnabled) {
+      state.isSoundEnabled = true
+      localStorage.setItem('isSoundEnabled', true)
+    } else {
+      state.isSoundEnabled = true
+      localStorage.setItem('isSoundEnabled', true)
+    }
+  },
   setUser: (state, { authUser, claims }) => {
     if (authUser) {
       const { uid, email, emailVerified } = authUser
@@ -209,7 +228,6 @@ export const getters = {
   getUser: (state, getters) => {
     return state.user
   },
-
 
   // open some place for this big G
   cartItemCount: (state) => {

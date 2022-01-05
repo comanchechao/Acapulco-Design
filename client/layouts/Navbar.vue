@@ -30,6 +30,11 @@ fa:
     "
   >
     <div class="hidden lg:flex">
+      <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+        <v-icon class="" large>mdi-volume-high</v-icon>
+      </v-btn>
+    </div>
+    <div class="hidden lg:flex">
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
@@ -167,6 +172,8 @@ export default {
   },
   data() {
     return {
+      audio: null,
+
       categories: [
         {
           title: 'Lighters',
@@ -186,6 +193,9 @@ export default {
   },
 
   computed: {
+    // isSoundEnabled() {
+    //   return this.$store.state.isSoundEnabled
+    // },
     cartTotalAmount() {
       return this.$store.getters.cartItemCount()
     },
@@ -195,13 +205,20 @@ export default {
   },
 
   mounted() {
+    // this.$store.commit('initializeSound')
     this.animateNavbar()
   },
   methods: {
+    // playSound() {
+    //   if (this.isSoundEnabled) {
+    //     this.audio = new Audio(require('@/assets/sounds/hymn.mp3'))
+    //     this.audio.play()
+    //   }
+    // },
     animateNavbar() {
       this.$gsap.to('.Navbar', {
         backgroundColor: '#ff4a68',
-        opacity: 0.8,
+        opacity: 1,
         ease: 'power4.out',
         scrollTrigger: {
           trigger: '.NavbarTrigger',
@@ -231,7 +248,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 span {
-  font-family: 'Acme', sans-serif;
+  font-family: 'Roboto Slab', 'Estedad' sans-serif;
   text-align: center;
   display: flex;
   justify-self: center;

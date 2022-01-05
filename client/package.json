@@ -40,7 +40,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin-svgo": "^10.0.0",
+    "imagemin-svgo": "^10.0.1",
     "lqip-loader": "^2.2.1",
     "node-sass": "^6.0.1",
     "nuxt-compress": "^5.0.0",
