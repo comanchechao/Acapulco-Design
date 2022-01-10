@@ -9,14 +9,14 @@ en:
   showMe: 'Show Me!'
   acapulcoShirt: 'Acapulco Shirt'
   acapulcoMatchboxes: 'Custom Matchboxes'
-  comingSoon: 'Coming Soon'
+  comingSoon: 'Coming Soon...'
   acapulcoShorts: 'Acapulco Shorts'
   acapulcoHoodies: 'Acapulco Hoodies'
   collections: 'Collections'
   weAreA: 'We are a'
   creativeTeam: 'Creative Team'
   based: 'Based in Iran'
-  if: 'If you want to know more; maybe get a cup of coffee( Or tea!), you can!'
+  if: 'If you want to know more; maybe get a cup of coffee (Or tea!), you can!'
 
 fa:
   acapulcodesign: 'آکاپلکو دیزاین'
@@ -25,13 +25,17 @@ fa:
   handmade: 'و دست ساز'
   merchendise: 'به مدت محدود'
   lighters: 'فندک ها'
-  showMe: 'نشونم بده!'
+  showMe: '!نشونم بده'
   acapulcoShirt: 'پیراهن آلکاپلکو'
   acapulcoMatchboxes: 'کبریت های آکاپلکو'
-  comingSoon: 'بزودی'
+  comingSoon: '...بزودی'
   acapulcoHoodies: 'هودی های اکاپلکو'
   acapulcoShorts: 'شورت های آکاپلکو'
   collections: 'کالکشن ها'
+  weAreA: 'ما یک'
+  creativeTeam: 'تیم خلاق'
+  based: 'از ایران هستیم'
+  if: ' اگر میخواین ما رو بیشتر بشناسین؛ شاید یه فنجون قهوه (یا چای!) باهم بزنیم، میتونین'
 </i18n>
 
 <template>
@@ -43,50 +47,7 @@ fa:
 
       <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
-          <!-- <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 0.6,
-              delay: 1,
-              ease: 'circ.out',
-            }"
-            class="
-              absolute
-              top-3
-              justify-self-center
-              self-start
-              peaceSignDiv
-              opacity-0
-              transform
-              scale-50
-              lg:scale-100
-            "
-          >
-            <img class="peaceSign m-auto" src="~/assets/images/moomoole.png" alt="" />
-          </div> -->
-          <!-- <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 1,
-              ease: 'circ.out',
-            }"
-            class="
-              opacity-0
-              mt-16
-              max-w-lg
-              surfingBoardDiv
-              absolute
-              place-self-start
-              justify-self-center
-            "
-          >
-            <img
-              src="~/assets/images/moomoole.png"
-              class="filter drop-shadow-2xl w-80 object-contain surfingBoard"
-              alt=""
-            />
-          </div> -->
-          <div class="w-40 lg:w-64 absolute self-start mt-14">
+          <div class="w-40 lg:w-64 self-start mt-14">
             <img
               src="~/assets/images/peaceSign.svg"
               class="object-contain"
@@ -95,32 +56,83 @@ fa:
           </div>
           <div
             class="
+              w-screen
+              h-dialog
+              flex flex-col
+              align-center
+              justify-between
+              md:flex-row
+              lg:flex-row lg:h-screen lg:justify-around
+              bg-LightBlue-400
+            "
+          >
+            <img
+              class="
+                object-contain
+                lg:object-cover
+                w-full
+                h-full
+                drop-shadow-2xl
+                transform
+                md:-rotate-90
+                lg:-rotate-90
+                z-10
+              "
+              src="~/assets/images/sketch-162443588438sdfs.png"
+              alt=""
+            />
+
+            <h1
+              class="
+                bg-red-400
+                flex
+                justify-center
+                align-center
+                NavbarTrigger
+                acapulco
+                tracking-wider
+                text-7xl
+                md:text-9xl
+                lg:text-10xl
+                text-center
+                leading-none
+                shrink
+                text-gray-100
+              "
+            >
+              {{ $t('acapulcodesign') }}
+            </h1>
+            <img
+              class="
+                treePicture
+                object-contain
+                w-full
+                h-full
+                transform
+                md:rotate-90
+                lg:rotate-90
+                drop-shadow-2xl
+              "
+              src="~/assets/images/tree.webp"
+              alt=""
+            />
+          </div>
+          <!-- <div
+            class="
               mt-44
+              mb-28
               lg:mt-36
               acapulco-div
               lg:h-screen
               px-5
               lg:px-0
               w-screen
-              h-dialog
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-between
+              h-screen
+              
               relative
             "
           >
-            <div
-              class="
-                peace
-                z-10
-                lg:max-w-xl
-                h-2/5
-                w-full
-                transform
-                lg:-translate-x-24
-              "
-            >
+            <div class="lg:max-w-3xl w-full transform">
               <img
                 class="
                   object-contain
@@ -135,18 +147,7 @@ fa:
               />
             </div>
 
-            <div
-              class="
-                w-full
-                h-full
-                flex
-                align-center
-                justify-center
-                md:align-start
-                absolute
-                m-auto
-              "
-            >
+            <div class="flex align-center justify-center md:align-start m-auto">
               <h1
                 class="
                   NavbarTrigger
@@ -164,29 +165,36 @@ fa:
               </h1>
             </div>
             <div class="lg:max-w-xl z-10 h-2/5 w-full">
+             
               <img
                 class="
+                  treePicture
+                  object-contain
+                  w-full
+                  h-full
+                  transform
+                  lg:rotate-90
+                  drop-shadow-2xl
+                "
+                src="~/assets/images/tree.webp"
+                alt=""
+              />
+            </div>
+          </div> -->
+          <!-- <img
+                class="
+                  lg:hidden
                   object-contain
                   w-full
                   h-full
                   drop-shadow-2xl
                   rotate-180
-                  lg:rotate-90
                   transform
                   lg:translate-x-24
                 "
                 src="~/assets/images/sketch-162443588438sdfs.png"
                 alt=""
-              />
-            </div>
-          </div>
-          <div class="h-20 w-12 m-14 mb-24 acapulco-div">
-            <img
-              src="~/assets/images/arrow.png"
-              class="object-contain"
-              alt=""
-            />
-          </div>
+              /> -->
           <!-- <div
             v-gsap.to="{
               opacity: 1,
@@ -197,8 +205,11 @@ fa:
             class="scrollDownBtn self-center mb-11"
           >
             <img src="~/assets/images/arrow.png" class="h-28 w-16 object-contain" alt="" />
+
+
+
           </div> -->
-          <div
+          <!-- <div
             class="
               flex
               h-screen
@@ -213,26 +224,25 @@ fa:
             <div
               class="
                 transform
-                -translate-x-32
+                -translate-x-36
                 lg:-translate-x-0
                 inset-y-0
                 left-0
                 absolute
-                z-10
                 max-w-xs
                 lg:max-w-xl
               "
             >
               <img
                 class="object-cover"
-                :src="require(`~/assets/images/whatwhat.svg`)"
+                :src="require(`~/assets/images/whatwhat-svg.webp`)"
                 alt=""
               />
             </div>
             <div
               class="
                 absolute
-                p-16
+                px-24
                 inset-0
                 lg:h-full
                 h-3/4
@@ -246,10 +256,12 @@ fa:
                 class="
                   sm:w-96
                   h2-home
+                  z-10
                   text-center
                   capitalize
                   font-semibold
-                  text-4xl
+                  leading-4
+                  text-5xl
                   md:text-7xl
                   lg:text-9xl
                   transform
@@ -266,23 +278,23 @@ fa:
             </div>
             <div
               class="
-                transform
-                translate-x-24
-                lg:-translate-x-0 lg:max-w-xl
+                lg:max-w-xl
                 inset-y-0
                 right-0
-                absolute
                 z-10
+                flex
+                align-center
+                justify-end
                 max-w-xs
               "
             >
               <img
                 class="object-cover"
-                :src="require(`~/assets/images/whatwhat1.svg`)"
+                :src="require(`~/assets/images/whatwhat1-svg.webp`)"
                 alt=""
               />
             </div>
-          </div>
+          </div> -->
 
           <div
             class="
@@ -326,12 +338,12 @@ fa:
               "
             >
               <img
-                src="~/assets/images/lighter.svg"
+                src="~/assets/images/lighter-svg.webp"
                 class="
                   object-fill
-                  w-96
+                  sm:w-96
                   h-full
-                  lg:max-w-2xl
+                  lg:max-w-lg
                   md:max-w-2xl
                   drop-shadow-2xl
                   m-auto
@@ -376,20 +388,18 @@ fa:
                 Coming Soon...
               </h1> -->
               <img
-                src="~/assets/images/acapulcoShirt.svg"
-                alt=""
+                src="~/assets/images/shirtacapulco.webp"
                 class="
-                  pictureDivImages
-                  max-w-lg
-                  h-full
                   object-fill
+                  sm:w-96
+                  h-full
+                  lg:max-w-lg
+                  md:max-w-2xl
                   drop-shadow-2xl
                   m-auto
-                  sm:max-h-80
-                  lg:max-w-xl
-                  md:max-w-xl
-                  w-full
+                  pictureDivImages
                 "
+                alt=""
               />
             </div>
             <div class="textDiv flex flex-col order-last">
@@ -428,7 +438,7 @@ fa:
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3 class="text-6xl lg:text-7xl p-5 text-center">
-                  {{ $t('acapulcoMatchboxes') }}💥
+                  {{ $t('acapulcoMatchboxes') }}
                 </h3>
               </div>
               <div class="self-center">
@@ -443,16 +453,26 @@ fa:
               class="
                 pictureDiv
                 lg:order-last
-                max-w-lg
                 cursor-pointer
                 bg-red-200
-                h-full
-                lg:max-w-2xl
-                md:max-w-2xl
                 shadow-2xl
-                w-full
               "
-            ></div>
+            >
+              <img
+                src="~/assets/images/matchbox.webp"
+                class="
+                  object-fill
+                  sm:w-96
+                  h-full
+                  lg:max-w-lg
+                  md:max-w-2xl
+                  drop-shadow-2xl
+                  m-auto
+                  pictureDivImages
+                "
+                alt=""
+              />
+            </div>
           </div>
           <div
             class="
@@ -470,30 +490,31 @@ fa:
               content
             "
           >
-            <div
-              class="
-                pictureDiv
-                lg:order-first
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-xl
-                md:max-w-xl
-                shadow-2xl
-                w-full
-                flex flex-col-reverse
-                justify-start
-                align-end
-                space-x-2
-              "
-            >
+            <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
+              <img
+                src="~/assets/images/short.webp"
+                class="
+                  object-fill
+                  sm:w-96
+                  h-full
+                  lg:max-w-lg
+                  md:max-w-2xl
+                  drop-shadow-2xl
+                  m-auto
+                  relative
+                  pictureDivImages
+                "
+                alt=""
+              />
               <h1
                 class="
+                  absolute
                   m-3
                   font-mainFont
                   rounded-full
                   py-2
+                  right-0
+                  comingSoon
                   px-8
                   text-mainBlue
                   bg-goldie
@@ -502,9 +523,8 @@ fa:
                   font-bold
                 "
               >
-                {{ $t('comingSoon') }}...
+                {{ $t('comingSoon') }}
               </h1>
-              <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
@@ -528,37 +548,44 @@ fa:
               h-screen
               w-screen
               flex flex-col
+              lg:flex-row
               align-center
               justify-center
               space-y-6
               p-20
+              lg:p-48
               justify-self-stretch
               thirdContainer
               content
             "
           >
             <div
-              class="
-                pictureDiv
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-6xl
-                md:max-w-2xl
-                shadow-2xl
-                w-full
-                flex flex-col-reverse
-                justify-start
-                align-end
-              "
+              class="pictureDiv lg:order-last cursor-pointer bg-red-200 my-10"
             >
+              <img
+                src="~/assets/images/Hoodie.webp"
+                class="
+                  object-fill
+                  sm:w-96
+                  h-full
+                  lg:max-w-lg
+                  md:max-w-2xl
+                  drop-shadow-2xl
+                  m-auto
+                  relative
+                  pictureDivImages
+                "
+                alt=""
+              />
               <h1
                 class="
+                  absolute
                   m-3
                   font-mainFont
                   rounded-full
                   py-2
+                  right-0
+                  comingSoon
                   px-8
                   text-mainBlue
                   bg-goldie
@@ -567,20 +594,19 @@ fa:
                   font-bold
                 "
               >
-                {{ $t('comingSoon') }}...
+                {{ $t('comingSoon') }}
               </h1>
-              <v-img> </v-img>
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex justify-end">
                 <h3 class="text-6xl p-5 text-center">
                   {{ $t('acapulcoHoodies') }}
                 </h3>
-                <img
+                <!-- <img
                   src="~/assets/images/Hoodie.png"
                   class="transform scale-95 object-contain lg:scale-100"
                   alt=""
-                />
+                /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -605,24 +631,46 @@ fa:
               justify-self-stretch
             "
           >
-            <div
-              class="
-                pictureDiv
-                collections
-                x-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-6xl
-                md:max-w-2xl
-                shadow-2xl
-                w-full
-              "
-            ></div>
+            <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
+              <img
+                src="~/assets/images/collection.webp"
+                class="
+                  object-fill
+                  sm:w-96
+                  h-full
+                  lg:max-w-lg
+                  md:max-w-2xl
+                  drop-shadow-2xl
+                  m-auto
+                  relative
+                  pictureDivImages
+                "
+                alt=""
+              />
+              <h1
+                class="
+                  absolute
+                  m-3
+                  font-mainFont
+                  rounded-full
+                  py-2
+                  right-0
+                  comingSoon
+                  px-8
+                  text-mainBlue
+                  bg-goldie
+                  text-2xl
+                  lg:text-3xl
+                  font-bold
+                "
+              >
+                {{ $t('comingSoon') }}
+              </h1>
+            </div>
 
             <div class="textDiv">
               <h3 class="text-6xl mt-3 text-center">
-                {{ $t('collections') }} 🗿
+                {{ $t('collections') }}
               </h3>
             </div>
             <NuxtLink to="/productList">
@@ -659,9 +707,9 @@ fa:
                   p-2
                 "
               >
-                We are a
-                <span class="text-Rose-700"> Creative Team </span>
-                based in Iran
+                {{ $t('weAreA') }}
+                <span class="text-Rose-700"> {{ $t('creativeTeam') }} </span>
+                {{ $t('based') }}
               </h1>
               <h3
                 class="
@@ -674,11 +722,31 @@ fa:
                   text-center
                 "
               >
-                If you want to know us more, maybe get a cup of coffee, you can!
+                {{ $t('if') }}
               </h3>
+              <!-- <div class="h-20 w-12 m-auto mt-12">
+                <img
+                  src="~/assets/images/arrow.png"
+                  class="object-contain"
+                  alt=""
+                />
+              </div> -->
             </div>
           </div>
-
+          <div
+            v-show="scY > 320"
+            id="pagetop"
+            class="fixed right-0 bottom-0 cursor-pointer arrow"
+            @click="toTop"
+          >
+            <div class="h-20 w-12 mb-9 mr-5">
+              <img
+                src="~/assets/images/arrow.png"
+                class="object-contain"
+                alt=""
+              />
+            </div>
+          </div>
           <LazyHydrate when-visible>
             <Footer />
           </LazyHydrate>
@@ -717,12 +785,20 @@ export default {
     Footer: () => import('../layouts/Footer.vue'),
     Navbar: () => import('../layouts/Navbar.vue'),
   },
+  data() {
+    return {
+      scTimer: 0,
+      scY: 0,
+    }
+  },
   computed: {
     // CartDisplay() {
     //   return this.$store.state.CartDisplay
     // },
   },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+
     this.animatePictureDiv()
     this.animateOnScroll()
     // this.animateScrollDownBtn()
@@ -746,6 +822,20 @@ export default {
     },
   },
   methods: {
+    handleScroll() {
+      if (this.scTimer) return
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY
+        clearTimeout(this.scTimer)
+        this.scTimer = 0
+      }, 100)
+    },
+    toTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    },
     animatePictureDiv() {
       const gsap = this.$gsap
       const pictureDivs = this.$gsap.utils.toArray('.pictureDiv')
@@ -932,6 +1022,17 @@ export default {
 /* * {
   font-family: 'Yanone Kaffeesatz', 'Estedad';
 } */
+.arrow {
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+}
+.arrow:hover {
+  filter: brightness(1.3);
+}
+.arrow:active {
+  filter: brightness(0.5);
+  transform: scale(0.9);
+}
 .animatedSpans {
   font-family: 'Roboto Slab', 'Estedad';
 }
@@ -943,7 +1044,7 @@ export default {
 .thirdContainer,
 .forthContainer,
 .fifthContainer {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
   color: #120129;
 }
 
@@ -954,17 +1055,20 @@ export default {
 
 .introText {
   /* font-size: 3.6em; */
-  font-family: 'Roboto Slab', 'Rezvan' serif;
+  font-family: 'Roboto Slab', 'Rezvan';
   /* line-height: 110%; */
   /* text-transform: capitalize; */
-  font-weight: 700;
+  font-weight: 900;
   color: #120129;
 }
 
 .learnMore {
   font-weight: 600;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', 'Rezvan';
   color: #120129;
+}
+.comingSoon {
+  font-family: 'Roboto Slab', 'Rezvan';
 }
 
 .learnMoreBtn {
@@ -974,7 +1078,7 @@ export default {
   border-radius: 35px;
   transition: transform ease-in-out 0.5s;
   padding: 8px 45px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .learnMoreBtn:hover {
@@ -1046,14 +1150,35 @@ export default {
       7px 7px 0px #310677;
   }
 }
-
-.scrollDownBtn {
-  opacity: 0;
+@media (max-width: 1024px) {
+  .acapulco {
+    font-family: 'Sail', 'Estedad';
+    text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
+      1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
+      4px 4px 0px #00c76a, 5px 5px 0px #08ada0, 6px 6px 0px #05597a,
+      7px 7px 0px #310677;
+  }
+}
+@media (max-width: 1024px) {
+  .treePicture {
+    transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+  }
+}
+@media only screen and (max-width: 414px) {
+  .treePicture {
+    transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+  }
 }
 
 .h2-home {
   font-family: 'Roboto Slab', serif;
-  line-height: 110%;
+  line-height: 130%;
   color: #120129;
 }
 

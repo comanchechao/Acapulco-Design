@@ -100,6 +100,21 @@ export default {
   modules: [
     '@nuxtjs/i18n',
     [
+      'nuxt-lazy-load',
+      {
+        // These are the default values
+        images: true,
+        videos: true,
+        audios: true,
+        iframes: true,
+        native: false,
+        directiveOnly: false,
+        loadingClass: 'isLoading',
+        loadedClass: 'isLoaded',
+        appendClass: 'lazyLoad',
+      },
+    ],
+    [
       'nuxt-compress',
       {
         gzip: {

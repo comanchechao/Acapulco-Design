@@ -174,20 +174,6 @@ export default {
     return {
       audio: null,
 
-      categories: [
-        {
-          title: 'Lighters',
-        },
-        {
-          title: 'Acapulco Shirts',
-        },
-        {
-          title: 'Custom Matchboxes',
-        },
-        {
-          title: 'Collections',
-        },
-      ],
       drawer: false,
     }
   },
@@ -248,7 +234,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 span {
-  font-family: 'Roboto Slab', 'Estedad' sans-serif;
+  font-family: 'Roboto Slab', 'Estedad';
   text-align: center;
   display: flex;
   justify-self: center;

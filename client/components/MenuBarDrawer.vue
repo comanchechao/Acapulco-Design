@@ -101,7 +101,7 @@ export default {
   z-index: 199 !important;
 }
 span {
-  font-family: 'Roboto Slab', 'Estedad' sans-serif;
+  font-family: 'Roboto Slab', 'Estedad';
   text-align: center;
   display: flex;
   justify-self: center;

@@ -1,3 +1,19 @@
+<i18n lang="yaml">
+en:
+  takeATrip: 'Take a trip with us'
+  stayFree: 'Stay Free'
+  home: 'Home'
+  shop: 'Shop'
+
+  discover: 'Discover'
+fa:
+  takeATrip: 'یه سفر با ما برو'
+  stayFree: 'آزاد بمون'
+  home: 'خونه'
+  shop: 'خرید'
+  discover: '!کشف کن'
+</i18n>
+
 <template>
   <v-app>
     <!-- <link
@@ -46,12 +62,12 @@
               NavbarTrigger
             "
           >
-            take a trip with us
+            {{ $t('takeATrip') }}
             <br />
             <span
               class="text-mainRed font-extrabold span text-8xl lg:text-10xl"
             >
-              stay free
+              {{ $t('stayFree') }}
             </span>
           </h1>
         </div>
@@ -86,12 +102,14 @@
             </NuxtLink>
             <NuxtLink to="/">
               <span class="menu px-5 text-4xl text-gray-100 font-semibold">
-                Home
+                {{ $t('home') }}
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-gray-100 font-semibold">Shop</h1>
+                <h1 class="px-5 text-4xl text-gray-100 font-semibold">
+                  {{ $t('shop') }}
+                </h1>
               </span>
             </NuxtLink>
           </div>
@@ -125,7 +143,7 @@
                 font-black
               "
             >
-              Discover!
+              {{ $t('discover') }}
             </h3>
             <div
               class="
@@ -441,7 +459,7 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .background {

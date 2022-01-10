@@ -595,7 +595,7 @@
               mx-2
               absolute
               flex
-              justify-center justify-around
+              justify-center
               flex-row
               bottom-0
               content-center
