@@ -4,14 +4,25 @@ en:
   stayFree: 'Stay Free'
   home: 'Home'
   shop: 'Shop'
-
   discover: 'Discover'
+  lighters: 'Lighters'
+  acapulcoShirt: 'Acapulco Shirt'
+  acapulcoMatchboxes: 'Custom Matchboxes'
+  acapulcoShorts: 'Acapulco Shorts'
+  acapulcoHoodies: 'Acapulco Hoodies'
+  collections: 'Collections'
 fa:
   takeATrip: 'یه سفر با ما برو'
   stayFree: 'آزاد بمون'
   home: 'خونه'
   shop: 'خرید'
   discover: '!کشف کن'
+  lighters: 'فندک ها'
+  acapulcoShirt: 'پیراهن آلکاپلکو'
+  acapulcoMatchboxes: 'کبریت های آکاپلکو'
+  acapulcoHoodies: 'هودی های اکاپلکو'
+  acapulcoShorts: 'شورت های آکاپلکو'
+  collections: 'کالکشن ها'
 </i18n>
 
 <template>
@@ -167,7 +178,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Lighters🔥
+                  {{ $t('lighters') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Shirts')">
@@ -180,7 +191,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Acapulco Shirts🌴
+                  {{ $t('acapulcoShirt') }}
                 </h1>
               </span>
               <span
@@ -196,7 +207,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Custom Matchboxes💥
+                  {{ $t('acapulcoMatchboxes') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
@@ -209,7 +220,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Acapulco Shorts
+                  {{ $t('acapulcoShorts') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
@@ -222,7 +233,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Acapulco Hoodies
+                  {{ $t('acapulcoHoodies') }}
                 </h1>
               </span>
               <span
@@ -239,7 +250,7 @@ fa:
                     sidebarText
                   "
                 >
-                  Collections🗿
+                  {{ $t('collections') }}
                 </h1>
               </span>
             </div>
@@ -478,7 +489,7 @@ export default {
 }
 
 .menuNavbar {
-  background-image: url('./assets/images/trippy.jpg');
+  background-image: url('~/assets/images/trippy.jpg');
   background-size: cover;
   background-position: 0px 0px;
   background-repeat: repeat-y;

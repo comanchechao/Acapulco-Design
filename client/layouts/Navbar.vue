@@ -4,11 +4,15 @@ en:
   home: 'Home'
   shop: 'Shop'
   admin: 'Admin'
+  welcome: 'Welcome Back!'
+  logout: 'Logout'
 fa:
   aboutus: 'درباره ی ما'
   home: 'خانه'
   shop: 'خرید'
   admin: 'ادمین'
+  welcome: 'خوش برگشتی'
+  logout: 'لاگ آوت'
 </i18n>
 <template>
   <!-- <v-app> -->
@@ -38,7 +42,7 @@ fa:
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
-          <span class="aboutUs text-xl"> {{ $t('aboutus') }} </span>
+          <span class="aboutUs text-xl lg:text-2xl"> {{ $t('aboutus') }} </span>
         </v-btn>
       </nuxt-link>
     </div>
@@ -47,7 +51,7 @@ fa:
       <div class="hidden lg:flex">
         <nuxt-link to="/">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <span class="aboutUs text-xl"> {{ $t('home') }} </span>
+            <span class="aboutUs text-xl lg:text-2xl"> {{ $t('home') }} </span>
             <v-icon class="" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
@@ -55,7 +59,9 @@ fa:
       <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
-            <span class="white--text text-xl"> {{ $t('shop') }} </span>
+            <span class="white--text text-xl lg:text-2xl">
+              {{ $t('shop') }}
+            </span>
             <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
@@ -63,7 +69,9 @@ fa:
       <div class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
-            <span class="white--text text-xl"> {{ $t('admin') }} </span>
+            <span class="white--text text-xl lg:text-2xl">
+              {{ $t('admin') }}
+            </span>
             <v-icon class="cowboy">mdi-cryengine</v-icon>
           </v-btn>
         </NuxtLink>
@@ -89,7 +97,7 @@ fa:
               </template>
               <span
                 class="font-mainFont font-extrabold text-xl text-LightBlue-50"
-                >Welcome back!</span
+                >{{ $t('welcome') }}</span
               >
             </v-tooltip>
           </template>
@@ -104,7 +112,9 @@ fa:
             <v-list-item>
               <v-btn color="transparent" depressed class="" @click="signOut">
                 <v-icon>mdi-logout-variant</v-icon>
-                <span class="text-xl ml-1"> Logout </span>
+                <span class="text-xl ml-1 lg:text-2xl">
+                  {{ $t('logout') }}
+                </span>
               </v-btn>
             </v-list-item>
           </v-list>
@@ -122,13 +132,13 @@ fa:
       </div>
 
       <v-spacer></v-spacer>
-      <nuxt-link v-show="$route.path !== '/'" :to="switchLocalePath('en')">
+      <nuxt-link v-show="route === false" :to="switchLocalePath('en')">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-web</v-icon>
           <span class="aboutUs text-lg lg:text-x"> EN </span>
         </v-btn></nuxt-link
       >
-      <nuxt-link v-show="$route.path !== '/fa'" :to="switchLocalePath('fa')">
+      <nuxt-link v-show="route" :to="switchLocalePath('fa')">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-web</v-icon>
           <span class="aboutUs text-lg lg:text-xl"> FA </span>
@@ -175,6 +185,7 @@ export default {
       audio: null,
 
       drawer: false,
+      langButton: false,
     }
   },
 
@@ -186,12 +197,23 @@ export default {
       return this.$store.getters.cartItemCount()
     },
     user() {
-      return this.$store.getters.getUser
+      return this.$store.state.user
+    },
+    route() {
+      return this.$route.path
+    },
+  },
+
+  watch: {
+    route() {
+      return this.route.includes('/fa')
     },
   },
 
   mounted() {
-    // this.$store.commit('initializeSound')
+    this.$supabase.auth.onAuthStateChange(() => {
+      this.$store.dispatch('setUser', this.$supabase.auth.user())
+    })
     this.animateNavbar()
   },
   methods: {
@@ -201,6 +223,15 @@ export default {
     //     this.audio.play()
     //   }
     // },
+    async signOut() {
+      try {
+        const { error } = await this.$supabase.auth.signOut()
+        if (error) throw error
+        alert('signed out')
+      } catch (error) {
+        alert(error.message)
+      }
+    },
     animateNavbar() {
       this.$gsap.to('.Navbar', {
         backgroundColor: '#ff4a68',
@@ -215,12 +246,12 @@ export default {
         },
       })
     },
-    signOut() {
-      this.$store.dispatch('signOut').then((data) => {
-        this.$router.go() // Refreshes page
-        this.$router.push('/')
-      })
-    },
+    // signOut() {
+    //   this.$store.dispatch('signOut').then((data) => {
+    //     this.$router.go() // Refreshes page
+    //     this.$router.push('/')
+    //   })
+    // },
   },
   // created() {
   //   axios.get('http://127.0.0.1:8000/api/category/').then((response) => {
